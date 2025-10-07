@@ -1,1 +1,82 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="referrer" content="same-origin"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="TODO"><meta name="keywords" content="TODO"><meta name="publisher" content="TODO"><meta name="robots" content="all"><meta name="creator" content="Jhony"><meta name="author" content="Jhony"><title>project</title><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><text font-size=%22160%22 y=%221em%22 x=%22-0.05em%22>🌕</text></svg>"></head><body><style>:root{--color-background:#000;--color-foreground:#fff;--color-brand:#f0f}body{background:var(--color-background);color:var(--color-foreground);margin:0;padding:0;display:flex;flex-direction:column;justify-content:space-between;min-height:100vh;font-size:20px;font-family:sans-serif}main{margin:auto;max-width:600px}a{color:var(--color-brand)}.nav__logo{color:var(--color-foreground);text-decoration:none}</style><header><nav><a class="nav__logo" href="/"><h1>🌕 project</h1></a></nav></header><main><p>Welcome to your new project!!</p><h2>What should I do now?</h2><ul><li>Look at the meta tags in src/_includes/layouts/default.njk. Some of them need updating.</li><li>Update the styles in site.css</li><li>Visit the <a href="https://www.11ty.dev/">11ty docs</a> to learn about all of the cool things you can do with 11ty.</li><li>Lookup <a href="https://mozilla.github.io/nunjucks/">nunjucks syntax</a> because it really is the best templating language.</li><li>Show your appreciation by leaving a start on GitHub</li></ul></main><footer><p>Created by Jhony. Initially generated using <a href="https://github.com/winstonpuckett/generator-eleventy-reasonable">eleventy reasonable</a>.</p></footer><script>console.log("I feel included!");</script></body></html>
+<!-- Базовый макет, который подключает хедер, футер и основной контент -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Динамический заголовок: используем title из фронтматтера или значение по умолчанию -->
+  <title>Home Page</title>
+  <!-- Подключаем минифицированный CSS -->
+  <link rel="stylesheet" href="assets/scss/main.css">
+</head>
+<body>
+  <!-- Хедер сайта -->
+<header class="header">
+  <nav>
+    <ul>
+      <li><a href="/">Главная</a></li>
+      <li><a href="/about">О нас</a></li>
+      <li><a href="/contact">Контакты</a></li>
+    </ul>
+  </nav>
+</header>
+  <main>
+    
+  <h1>Недвижимость на продажу</h1>
+
+  <section class="properties">
+    
+    
+  <article class="property-card">
+    <img src="/assets/images/property1.jpg" alt="Квартира в центре Киева" class="property-card__image">
+    <div class="property-card__content">
+      <h2 class="property-card__title">Квартира в центре Киева</h2>
+      <p class="property-card__description">Просторная 2-комнатная квартира с видом на Днепр.</p>
+      <span class="property-card__price">2500000 грн</span>
+      <button class="btn btn-primary" onclick="handlePropertyClick()">Подробнее</button>
+    </div>
+  </article>
+
+
+    
+    
+  <article class="property-card">
+    <img src="/assets/images/property2.jpg" alt="Дом в пригороде" class="property-card__image">
+    <div class="property-card__content">
+      <h2 class="property-card__title">Дом в пригороде</h2>
+      <p class="property-card__description">Уютный дом с садом и гаражом.</p>
+      <span class="property-card__price">4500000 грн</span>
+      <button class="btn btn-primary" onclick="handlePropertyClick()">Подробнее</button>
+    </div>
+  </article>
+
+
+    
+    
+  <article class="property-card">
+    <img src="/assets/images/property3.jpg" alt="Апартаменты у моря" class="property-card__image">
+    <div class="property-card__content">
+      <h2 class="property-card__title">Апартаменты у моря</h2>
+      <p class="property-card__description">Современные апартаменты в Одессе.</p>
+      <span class="property-card__price">3200000 грн</span>
+      <button class="btn btn-primary" onclick="handlePropertyClick()">Подробнее</button>
+    </div>
+  </article>
+
+  </section>
+
+  </main>
+  <!-- Футер сайта -->
+<footer class="footer">
+  <p>© 2025 Недвижимость. Все права защищены.</p>
+  <nav>
+    <ul>
+      <li><a href="/privacy">Политика конфиденциальности</a></li>
+      <li><a href="/terms">Условия использования</a></li>
+    </ul>
+  </nav>
+</footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/example.js"></script>
+</body>
+</html>

@@ -1,15 +1,34 @@
----
-layout: layouts/default.njk
----
 
-<p>Welcome to your new project!!</p>
+{% extends "layouts/base.njk" %}
+{% set title = "Home" %}
+{% import "components/property-card.njk" as card %}
 
-<h2>What should I do now?</h2>
+{% block content %}
+  <h1>Недвижимость на продажу</h1>
 
-<ul>
-    <li>Look at the meta tags in src/_includes/layouts/default.njk. Some of them need updating.</li>
-    <li>Update the styles in site.css</li>
-    <li>Visit the <a href="https://www.11ty.dev/">11ty docs</a> to learn about all of the cool things you can do with 11ty.</li>
-    <li>Lookup <a href="https://mozilla.github.io/nunjucks/">nunjucks syntax</a> because it really is the best templating language.</li>
-    <li>Show your appreciation by leaving a start on GitHub</li>
-</ul>
+  <section class="properties">
+    {% set property = {
+      title: "Квартира в центре Киева",
+      description: "Просторная 2-комнатная квартира с видом на Днепр.",
+      price: "2500000 грн",
+      image: "/assets/images/property1.jpg"
+    } %}
+    {{ card.propertyCard(property) }}
+
+    {% set property = {
+      title: "Дом в пригороде",
+      description: "Уютный дом с садом и гаражом.",
+      price: "4500000 грн",
+      image: "/assets/images/property2.jpg"
+    } %}
+    {{ card.propertyCard(property) }}
+
+    {% set property = {
+      title: "Апартаменты у моря",
+      description: "Современные апартаменты в Одессе.",
+      price: "3200000 грн",
+      image: "/assets/images/property3.jpg"
+    } %}
+    {{ card.propertyCard(property) }}
+  </section>
+{% endblock %}

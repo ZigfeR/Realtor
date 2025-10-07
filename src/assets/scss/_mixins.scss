@@ -1,0 +1,17 @@
+/* Миксины для переиспользования стилей */
+@use "_variables" as vars;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-base {
+  padding: 10px 20px;
+  border: none;
+  border-radius: vars.$border-radius;
+  cursor: pointer;
+  font-size: vars.$font-size-base;
+  transition: background-color 0.3s ease;
+}

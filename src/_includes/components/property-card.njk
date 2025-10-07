@@ -1,0 +1,12 @@
+<!-- Макрос для карточки товара, принимает объект property -->
+{% macro propertyCard(property) %}
+  <article class="property-card">
+    <img src="{{ property.image }}" alt="{{ property.title }}" class="property-card__image">
+    <div class="property-card__content">
+      <h2 class="property-card__title">{{ property.title }}</h2>
+      <p class="property-card__description">{{ property.description }}</p>
+      <span class="property-card__price">{{ property.price }}</span>
+      {% button "Подробнее", "btn-primary", 'onclick="handlePropertyClick()"' %}
+    </div>
+  </article>
+{% endmacro %} 

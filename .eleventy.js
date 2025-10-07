@@ -1,47 +1,72 @@
+const path = require("node:path");
+const sass = require("sass");
 const CleanCSS = require("clean-css");
-const htmlMinifier = require("html-minifier");
-const { minify } = require("terser");
 
 module.exports = function (eleventyConfig) {
-    // Minify HTML files on build
-    eleventyConfig.addTransform("htmlMinifier", function (content, outputPath) {
-        if (outputPath.endsWith(".html")) {
-            let minified = htmlMinifier.minify(content, {
-                useShortDoctype: true,
-                removeComments: true,
-                collapseWhitespace: true
-            });
-            return minified;
-        }
+  // Поддержка SCSS как шаблонов
+  eleventyConfig.addTemplateFormats("scss");
 
-        return content;
-    });
+  eleventyConfig.addExtension("scss", {
+    outputFileExtension: "css",
+    useLayouts: false,
+    compile: async function (inputContent, inputPath) {
+      let parsed = path.parse(inputPath);
+      if (parsed.name.startsWith("_")) {
+        return;
+      }
+      console.log("Compiling SCSS:", inputPath); // Отладка
+      let result = sass.compileString(inputContent, {
+        loadPaths: [parsed.dir || ".", this.config.dir.includes],
+        sourceMap: true,
+      });
+      console.log("CSS generated:", result.css.slice(0, 100));
+      this.addDependencies(inputPath, result.loadedUrls);
+      return async (data) => {
+        return new CleanCSS({}).minify(result.css).styles;
+      };
+    },
+  });
 
-    // Minify CSS upon request.
-    eleventyConfig.addFilter("cssMinifier", function (css) {
-        return new CleanCSS({}).minify(css).styles;
-    });
+  // Копируем изображения
+  eleventyConfig.addPassthroughCopy({ "src/assets/images": "assets/images" });
+  // Копируем JavaScript
+  eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });
 
-    // Minify JS upon request
-    eleventyConfig.addNunjucksAsyncFilter("jsMinifier", async function(code, callback) {
-        try {
-            const minified = await minify(code);
-            callback(null, minified.code);
-        } catch (err) {
-            console.error("Terser error: ", err);
-            // Fail gracefully.
-            callback(null, code);
-        }
-    })
-
-    // Pass through everything in the assets folder
-    eleventyConfig.addPassthroughCopy("src/_assets");
-
-    return {
-        dir: {
-            // By separating source into a sub folder, we don't have to
-            // ignore the package's README.
-            input: "src"
-        }
+  // Шорткод для кнопки с поддержкой атрибутов
+  eleventyConfig.addShortcode(
+    "button",
+    function (text, className, attributes = "") {
+      return `<button class="btn ${className}" ${attributes}>${text}</button>`;
     }
+  );
+
+  // Фильтр для минификации CSS
+  eleventyConfig.addFilter("cssMinifier", function (cssCode) {
+    return new CleanCSS({}).minify(cssCode).styles;
+  });
+
+  // Настройка MIME-типа для JS
+  eleventyConfig.setBrowserSyncConfig({
+    mimeTypes: {
+      ".js": "text/javascript",
+    },
+    callbacks: {
+      ready: function (err, bs) {
+        console.log(
+          "BrowserSync serving files from:",
+          bs.options.get("server").baseDir
+        );
+      },
+    },
+  });
+
+  return {
+    dir: {
+      input: "src",
+      output: "_site",
+      includes: "_includes",
+      data: "_data",
+    },
+    templateFormats: ["njk", "md", "html"],
+  };
 };

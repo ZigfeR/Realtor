@@ -1,0 +1,21 @@
+<!-- Базовый макет, который подключает хедер, футер и основной контент -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Динамический заголовок: используем title из фронтматтера или значение по умолчанию -->
+  <title>{{ title | default("Недвижимость") }} Page</title>
+  <!-- Подключаем минифицированный CSS -->
+  <link rel="stylesheet" href="assets/scss/main.css">
+</head>
+<body>
+  {% include "components/header.njk" %}
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  {% include "components/footer.njk" %}
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/example.js"></script>
+</body>
+</html>

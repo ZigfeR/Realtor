@@ -1,0 +1,36 @@
+/* Базовые стили для макета */
+@use "../variables" as vars;
+
+html,
+body {
+  margin: 0;
+  font-family: vars.$font-primary;
+  font-size: vars.$font-size-base;
+  background: vars.$background;
+  color: vars.$text;
+}
+
+main {
+  min-height: calc(100vh - 200px); /* Учитываем высоту хедера и футера */
+}
+
+.footer {
+  background-color: vars.$secondary-color;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
