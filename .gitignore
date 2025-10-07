@@ -1,0 +1,29 @@
+# Node.js и зависимости
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Папка сборки (зависит от SSG)
+# _site/           # Eleventy
+# _dist/           # Hugo, Parcel
+# build/           # Gulp, Webpack
+# public/          # Gatsby, Hugo
+
+# Временные файлы и кэш
+.cache/
+.DS_Store
+Thumbs.db
+*.log
+
+# Секреты и конфиги
+.env
+.env.local
+.env.*.local
+
+# Редакторы и IDE
+.vscode/
+.idea/
+
+# Локальные dev-файлы
+*.swp
+*.swo
