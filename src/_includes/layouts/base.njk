@@ -7,15 +7,16 @@
   <!-- Динамический заголовок: используем title из фронтматтера или значение по умолчанию -->
   <title>{{ title | default("Недвижимость") }} Page</title>
   <!-- Подключаем минифицированный CSS -->
-  <link rel="stylesheet" href="assets/scss/main.css">
+  <link rel="stylesheet" href="../assets/scss/main.css">
+  <link rel="stylesheet" href="../assets/scss/property-card.css">
 </head>
 <body>
-  {% include "components/header.njk" %}
+  {% include "components/_header/header.njk" %}
   <main>
     {% block content %}{% endblock %}
   </main>
-  {% include "components/footer.njk" %}
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/example.js"></script>
+  {% include "components/_footer/footer.njk" %}
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/example.js"></script>
 </body>
 </html>

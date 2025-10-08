@@ -27,6 +27,10 @@ module.exports = function (eleventyConfig) {
     },
   });
 
+  // Коллекция для страниц
+  eleventyConfig.addCollection("pages", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("src/page.njk");
+  });
   // Копируем изображения
   eleventyConfig.addPassthroughCopy({ "src/assets/images": "assets/images" });
   // Копируем JavaScript

@@ -1,0 +1,6 @@
+/* Главный SCSS файл */
+@use "_variables" as vars;
+@use "_mixins" as *;
+@use "components/property-card";
+@use "layouts/base";
+@use "sass:color";
