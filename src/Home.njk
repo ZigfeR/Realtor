@@ -1,0 +1,13 @@
+
+{% extends "layouts/base.njk" %}
+{% set title = "Home" %}
+{% import "components/_property-card/property-card.njk" as card %}
+{% set activePage = "/home" %}  {# Устанавливаем активную страницу #}
+{% set additional_styles = [
+  "../assets/scss/property-card.css"
+] %}  {# Устанавливаем список дополнительных стилей для этой страницы #}
+
+{% block content %}
+  <h1>Недвижимость на продажу</h1>
+
+{% endblock %}

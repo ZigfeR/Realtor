@@ -1,14 +1,24 @@
 <!-- Базовый макет, который подключает хедер, футер и основной контент -->
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Динамический заголовок: используем title из фронтматтера или значение по умолчанию -->
-  <title>{{ title | default("Недвижимость") }} Page</title>
+  <title>{{ title | default("Недвижимость") }}</title>
+
   <!-- Подключаем минифицированный CSS -->
   <link rel="stylesheet" href="../assets/scss/main.css">
-  <link rel="stylesheet" href="../assets/scss/property-card.css">
+
+  <!-- Условное подключение дополнительных стилей -->
+  {% if additional_styles %}
+    {% for style in additional_styles %}
+      <link rel="stylesheet" href="{{ style }}">
+    {% endfor %}
+  {% endif %}
+
+  <link rel="icon" href="../assets/images/logo.ico" type="image/x-icon">
 </head>
 <body>
   {% include "components/_header/header.njk" %}
@@ -16,7 +26,6 @@
     {% block content %}{% endblock %}
   </main>
   {% include "components/_footer/footer.njk" %}
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/example.js"></script>
+  <script src="../assets/js/example.js"></script>
 </body>
 </html>

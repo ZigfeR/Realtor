@@ -33,6 +33,7 @@ module.exports = function (eleventyConfig) {
   });
   // Копируем изображения
   eleventyConfig.addPassthroughCopy({ "src/assets/images": "assets/images" });
+
   // Копируем JavaScript
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });
 

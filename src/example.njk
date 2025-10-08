@@ -1,7 +1,10 @@
 
 {% extends "layouts/base.njk" %}
-{% set title = "Home" %}
-{% import "components/Property Card/property-card.njk" as card %}
+{% set title = "example" %}
+{% import "components/_property-card/property-card.njk" as card %}
+{% set additional_styles = [
+  "../assets/scss/property-card.css"
+] %}  {# Устанавливаем список дополнительных стилей для этой страницы #}
 
 {% block content %}
   <h1>Недвижимость на продажу</h1>
@@ -11,7 +14,7 @@
       title: "Квартира в центре Киева",
       description: "Просторная 2-комнатная квартира с видом на Днепр.",
       price: "2500000 грн",
-      image: "/assets/images/property1.jpg"
+      image: "/assets/images/property-card/property1.jpg"
     } %}
     {{ card.propertyCard(property) }}
 
@@ -19,15 +22,15 @@
       title: "Дом в пригороде",
       description: "Уютный дом с садом и гаражом.",
       price: "4500000 грн",
-      image: "/assets/images/property2.jpg"
+      image: "/assets/images/property-card/property2.jpg"
     } %}
     {{ card.propertyCard(property) }}
-
+ 
     {% set property = {
       title: "Апартаменты у моря",
       description: "Современные апартаменты в Одессе.",
       price: "3200000 грн",
-      image: "/assets/images/property3.jpg"
+      image: "/assets/images/property-card/property3.jpg"
     } %}
     {{ card.propertyCard(property) }}
   </section>

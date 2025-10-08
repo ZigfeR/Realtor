@@ -1,25 +1,110 @@
 <!-- Базовый макет, который подключает хедер, футер и основной контент -->
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Динамический заголовок: используем title из фронтматтера или значение по умолчанию -->
-  <title>Home Page</title>
+  <title>example</title>
+
   <!-- Подключаем минифицированный CSS -->
   <link rel="stylesheet" href="../assets/scss/main.css">
-  <link rel="stylesheet" href="../assets/scss/property-card.css">
+
+  <!-- Условное подключение дополнительных стилей -->
+  
+    
+      <link rel="stylesheet" href="../assets/scss/property-card.css">
+    
+  
+
+  <link rel="icon" href="../assets/images/logo.ico" type="image/x-icon">
 </head>
 <body>
   <!-- Хедер сайта -->
 <header class="header">
-  <nav>
-    <ul>
-      <li><a href="/">Главная</a></li>
-      <li><a href="/about">О нас</a></li>
-      <li><a href="/contact">Контакты</a></li>
-    </ul>
-  </nav>
+  <!-- ЛОГО -->
+  <div class="logo">
+    <img src="logo.png" alt="Realtor Logo" />
+    <div>
+      <span>REALTOR</span><br />
+      <span>Estate Agency</span>
+    </div>
+  </div>
+
+  <!-- НАВИГАЦИЯ -->
+  
+
+
+<nav>
+  <ul>
+    
+  <li>
+    <a href="/home" class="nav-link ">
+      Home
+    </a>
+  </li>
+
+    
+  <li>
+    <a href="/about" class="nav-link ">
+      About Us
+    </a>
+  </li>
+
+    
+  <li>
+    <a href="/exclusives" class="nav-link ">
+      Exclusives
+    </a>
+  </li>
+
+    
+  <li>
+    <a href="/real-estate" class="nav-link ">
+      Real Estate in the Carpathians
+    </a>
+  </li>
+
+    
+  <li>
+    <a href="/blog" class="nav-link ">
+      Blog
+    </a>
+  </li>
+
+    
+  <li>
+    <a href="/contact" class="nav-link ">
+      Contact
+    </a>
+  </li>
+
+  </ul>
+</nav>
+
+
+   <!-- ПРАВАЯ ЧАСТЬ -->
+  <div class="right-actions">
+    <!-- Поиск -->
+    <div class="search-id">
+  ID <span>&#128269;</span>
+</div>
+    <!-- Выбор языка -->
+    <select class="language">
+    <option value="en">EN</option>
+    <option value="ru">RU</option>
+</select>
+    <!-- Добавить элемент -->
+    <button class="add-item-btn">+ Add Item</button>
+
+    <!-- Меню -->
+    <div class="menu-icon">
+  <span>1</span>
+  <span>2</span>
+  <span>3</span>
+</div>
+  </div>
 </header>
   <main>
     
@@ -29,7 +114,7 @@
     
     
   <article class="property-card">
-    <img src="/assets/images/property1.jpg" alt="Квартира в центре Киева" class="property-card__image">
+    <img src="/assets/images/property-card/property1.jpg" alt="Квартира в центре Киева" class="property-card__image">
     <div class="property-card__content">
       <h2 class="property-card__title">Квартира в центре Киева</h2>
       <p class="property-card__description">Просторная 2-комнатная квартира с видом на Днепр.</p>
@@ -42,7 +127,7 @@
     
     
   <article class="property-card">
-    <img src="/assets/images/property2.jpg" alt="Дом в пригороде" class="property-card__image">
+    <img src="/assets/images/property-card/property2.jpg" alt="Дом в пригороде" class="property-card__image">
     <div class="property-card__content">
       <h2 class="property-card__title">Дом в пригороде</h2>
       <p class="property-card__description">Уютный дом с садом и гаражом.</p>
@@ -51,11 +136,11 @@
     </div>
   </article>
 
-
+ 
     
     
   <article class="property-card">
-    <img src="/assets/images/property3.jpg" alt="Апартаменты у моря" class="property-card__image">
+    <img src="/assets/images/property-card/property3.jpg" alt="Апартаменты у моря" class="property-card__image">
     <div class="property-card__content">
       <h2 class="property-card__title">Апартаменты у моря</h2>
       <p class="property-card__description">Современные апартаменты в Одессе.</p>
@@ -77,7 +162,6 @@
     </ul>
   </nav>
 </footer>
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/example.js"></script>
+  <script src="../assets/js/example.js"></script>
 </body>
 </html>

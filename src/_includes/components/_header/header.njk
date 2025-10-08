@@ -1,10 +1,26 @@
 <!-- Хедер сайта -->
 <header class="header">
-  <nav>
-    <ul>
-      <li><a href="/">Главная</a></li>
-      <li><a href="/about">О нас</a></li>
-      <li><a href="/contact">Контакты</a></li>
-    </ul>
-  </nav>
+  <!-- ЛОГО -->
+  <div class="logo">
+    <img src="logo.png" alt="Realtor Logo" />
+    <div>
+      <span>REALTOR</span><br />
+      <span>Estate Agency</span>
+    </div>
+  </div>
+
+  <!-- НАВИГАЦИЯ -->
+  {% include "components/_header/nav/nav.njk" %}
+
+   <!-- ПРАВАЯ ЧАСТЬ -->
+  <div class="right-actions">
+    <!-- Поиск -->
+    {% include "components/_header/search/search.njk" %}
+    <!-- Выбор языка -->
+    {% include "components/_header/lang/lang.njk" %}
+    <!-- Добавить элемент -->
+    {% include "components/_header/addItem/addItem.njk" %}
+    <!-- Меню -->
+    {% include "components/_header/menu/menu.njk" %}
+  </div>
 </header>

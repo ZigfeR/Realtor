@@ -1,0 +1,19 @@
+{% macro li(href, title, activePage) %}
+  <li>
+    <a href="{{ href }}" class="nav-link {% if href == activePage %}active{% endif %}">
+      {{ title }}
+    </a>
+  </li>
+{% endmacro %}
+
+
+<nav>
+  <ul>
+    {{ li("/home", "Home", activePage) }}
+    {{ li("/about", "About Us", activePage) }}
+    {{ li("/exclusives", "Exclusives", activePage) }}
+    {{ li("/real-estate", "Real Estate in the Carpathians", activePage) }}
+    {{ li("/blog", "Blog", activePage) }}
+    {{ li("/contact", "Contact", activePage) }}
+  </ul>
+</nav>
