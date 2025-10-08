@@ -1,27 +1,33 @@
 <!-- Базовый макет, который подключает хедер, футер и основной контент -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Динамический заголовок: используем title из фронтматтера или значение по умолчанию -->
-  <title>example</title>
+    <!-- Динамический заголовок: используем title из фронтматтера или значение по умолчанию -->
+    <title>example</title>
 
-  <!-- Подключаем минифицированный CSS -->
-  <link rel="stylesheet" href="../assets/scss/main.css">
+    <!-- Подключаем минифицированный CSS -->
+    <link rel="stylesheet" href="../assets/scss/main.css">
 
-  <!-- Условное подключение дополнительных стилей -->
-  
+    <!-- Условное подключение дополнительных стилей -->
     
-      <link rel="stylesheet" href="../assets/scss/property-card.css">
+      
+        <link rel="stylesheet" href="../assets/scss/property-card.css">
+      
     
-  
 
-  <link rel="icon" href="../assets/images/logo.ico" type="image/x-icon">
-</head>
-<body>
-  <!-- Хедер сайта -->
+    <link rel="icon" href="../assets/images/logo.ico" type="image/x-icon">
+
+    <!-- Подключаем шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Подключаем хедер -->
+    <!-- Хедер сайта -->
 <header class="header">
   <!-- ЛОГО -->
   <div class="logo">
@@ -106,8 +112,10 @@
 </div>
   </div>
 </header>
-  <main>
-    
+
+    <!-- Подключаем основной контент -->
+    <main>
+      
   <h1>Недвижимость на продажу</h1>
 
   <section class="properties">
@@ -151,8 +159,10 @@
 
   </section>
 
-  </main>
-  <!-- Футер сайта -->
+    </main>
+
+    <!-- Подключаем футер -->
+    <!-- Футер сайта -->
 <footer class="footer">
   <p>© 2025 Недвижимость. Все права защищены.</p>
   <nav>
@@ -162,6 +172,8 @@
     </ul>
   </nav>
 </footer>
-  <script src="../assets/js/example.js"></script>
-</body>
+
+    <!-- Подключаем скрипты -->
+    <script src="../assets/js/example.js"></script>
+  </body>
 </html>

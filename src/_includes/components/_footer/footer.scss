@@ -1,0 +1,21 @@
+/* Стили для футера */
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
+
+.footer {
+  background-color: vars.$secondary-color;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}

@@ -1,31 +1,43 @@
 <!-- Базовый макет, который подключает хедер, футер и основной контент -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Динамический заголовок: используем title из фронтматтера или значение по умолчанию -->
-  <title>{{ title | default("Недвижимость") }}</title>
+    <!-- Динамический заголовок: используем title из фронтматтера или значение по умолчанию -->
+    <title>{{ title | default("Недвижимость") }}</title>
 
-  <!-- Подключаем минифицированный CSS -->
-  <link rel="stylesheet" href="../assets/scss/main.css">
+    <!-- Подключаем минифицированный CSS -->
+    <link rel="stylesheet" href="../assets/scss/main.css">
 
-  <!-- Условное подключение дополнительных стилей -->
-  {% if additional_styles %}
-    {% for style in additional_styles %}
-      <link rel="stylesheet" href="{{ style }}">
-    {% endfor %}
-  {% endif %}
+    <!-- Условное подключение дополнительных стилей -->
+    {% if additional_styles %}
+      {% for style in additional_styles %}
+        <link rel="stylesheet" href="{{ style }}">
+      {% endfor %}
+    {% endif %}
 
-  <link rel="icon" href="../assets/images/logo.ico" type="image/x-icon">
-</head>
-<body>
-  {% include "components/_header/header.njk" %}
-  <main>
-    {% block content %}{% endblock %}
-  </main>
-  {% include "components/_footer/footer.njk" %}
-  <script src="../assets/js/example.js"></script>
-</body>
+    <link rel="icon" href="../assets/images/logo.ico" type="image/x-icon">
+
+    <!-- Подключаем шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Подключаем хедер -->
+    {% include "components/_header/header.njk" %}
+
+    <!-- Подключаем основной контент -->
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- Подключаем футер -->
+    {% include "components/_footer/footer.njk" %}
+
+    <!-- Подключаем скрипты -->
+    <script src="../assets/js/example.js"></script>
+  </body>
 </html>

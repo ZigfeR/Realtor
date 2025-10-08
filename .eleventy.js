@@ -16,10 +16,14 @@ module.exports = function (eleventyConfig) {
       }
       console.log("Compiling SCSS:", inputPath); // Отладка
       let result = sass.compileString(inputContent, {
-        loadPaths: [parsed.dir || ".", this.config.dir.includes],
+        loadPaths: [
+          parsed.dir || ".", // Текущая директория файла
+          path.join(__dirname, "src/_includes"), // Добавляем src/_includes для импортов
+          path.join(__dirname, "src/assets/scss"), // Добавляем src/assets/scss для импортов
+        ],
         sourceMap: true,
       });
-      console.log("CSS generated:", result.css.slice(0, 100));
+      console.log("CSS generated:", result.css.slice(0, 100)); // Отладка
       this.addDependencies(inputPath, result.loadedUrls);
       return async (data) => {
         return new CleanCSS({}).minify(result.css).styles;
@@ -67,11 +71,11 @@ module.exports = function (eleventyConfig) {
 
   return {
     dir: {
-      input: "src",
-      output: "_site",
-      includes: "_includes",
-      data: "_data",
+      input: "src", // Папка с исходными файлами
+      output: "_site", // Папка с выходными файлами
+      includes: "_includes", // Папка для шаблонов
+      data: "_data", // Папка с данными
     },
-    templateFormats: ["njk", "md", "html"],
+    templateFormats: ["njk", "md", "html"], // Форматы шаблонов
   };
 };

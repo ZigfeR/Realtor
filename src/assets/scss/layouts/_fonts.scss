@@ -1,0 +1,126 @@
+@use "_variables" as vars;
+@use "_mixins" as *;
+
+/* Базовые стили для текста по умолчанию (на основе H4) */
+body {
+  font-family: "Alexandria", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px; /* 183.333% */
+  letter-spacing: 0.24px;
+}
+
+/* Стили для Desktop (по умолчанию) */
+/* Заголовок H1 */
+h1 {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 72px; /* 138.462% */
+}
+
+/* Блоковый заголовок H2 */
+h2 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px; /* 122.222% */
+  letter-spacing: 0.36px;
+}
+
+/* Подзаголовок H3 */
+h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: 0.24px;
+}
+
+/* Подтекст H4 */
+h4 {
+  font-size: 24px;
+  line-height: 44px; /* 183.333% */
+  letter-spacing: 0.24px;
+}
+
+/* Текст H5 */
+h5 {
+  font-size: 20px;
+  line-height: 36px; /* 180% */
+  letter-spacing: 0.2px;
+}
+
+/* Подглавы H6 */
+h6 {
+  font-size: 18px;
+  line-height: 28px; /* 155.556% */
+  letter-spacing: 0.18px;
+}
+
+/* Стили с выравниванием текста по центру для H4 (если нужно) */
+h4.centered {
+  text-align: center;
+}
+
+/* Стили для Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  body {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  h4 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  h5 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  h6 {
+    font-size: 12px;
+    line-height: 22px;
+  }
+}
+
+/* Стили для Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  h1 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  h2 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  h4 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  h3 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  h5 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  h6 {
+    font-size: 12px;
+    line-height: 22px;
+  }
+}

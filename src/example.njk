@@ -1,6 +1,7 @@
 
 {% extends "layouts/base.njk" %}
 {% set title = "example" %}
+{% set activePage = "/example" %}  {# Устанавливаем активную страницу #}
 {% import "components/_property-card/property-card.njk" as card %}
 {% set additional_styles = [
   "../assets/scss/property-card.css"

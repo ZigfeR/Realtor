@@ -1,12 +1,12 @@
 /* Стили для хедера */
-@use "../variables" as vars;
-@use "../mixins" as *;
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
 
 .header {
   background-color: vars.$primary-color;
   padding: 1rem;
   nav ul {
-    @include flex-center;
+    @include flex-center();
     list-style: none;
     gap: 2rem;
     margin: 0;
@@ -15,9 +15,6 @@
       color: white;
       text-decoration: none;
       font-size: vars.$font-size-base;
-      &:hover {
-        text-decoration: underline;
-      }
     }
   }
 }

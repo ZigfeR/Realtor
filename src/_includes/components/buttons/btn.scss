@@ -1,10 +1,10 @@
 /* Стили для кнопок */
-@use "../variables" as vars;
-@use "../mixins" as *;
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
 @use "sass:color";
 
 .btn {
-  @include button-base;
+  @include button-base(12px 24px, 8px, 16px, color 0.3s ease);
 
   &.btn-primary {
     background-color: vars.$primary-color;
