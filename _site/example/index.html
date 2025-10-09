@@ -29,17 +29,18 @@
     <!-- Подключаем хедер -->
     <!-- Хедер сайта -->
 <header class="header">
-  <!-- ЛОГО -->
-  <div class="logo">
-    <img src="logo.png" alt="Realtor Logo" />
-    <div>
-      <span>REALTOR</span><br />
-      <span>Estate Agency</span>
+  <div class="container container-header">
+    <!-- ЛОГО -->
+    <div class="logo">
+      <img src="../assets/images/logo/realtor-logo.png" alt="Realtor Logo" />
+      <div class="logo-box">
+        <span>REALTOR</span><br />
+        <span>Estate Agency</span>
+      </div>
     </div>
-  </div>
 
-  <!-- НАВИГАЦИЯ -->
-  
+    <!-- НАВИГАЦИЯ -->
+    
 
 
 <nav>
@@ -90,32 +91,38 @@
 </nav>
 
 
-   <!-- ПРАВАЯ ЧАСТЬ -->
-  <div class="right-actions">
-    <!-- Поиск -->
-    <div class="search-id">
-  ID <span>&#128269;</span>
+     <!-- ПРАВАЯ ЧАСТЬ -->
+    <div class="right-actions">
+      <!-- Поиск -->
+      <div class="search-id">
+  ID 
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#593DFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M21 21L16.65 16.65" stroke="#593DFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
 </div>
-    <!-- Выбор языка -->
-    <select class="language">
+      <!-- Выбор языка -->
+      <select class="language">
     <option value="en">EN</option>
     <option value="ru">RU</option>
 </select>
-    <!-- Добавить элемент -->
-    <button class="add-item-btn">+ Add Item</button>
+      <!-- Добавить элемент -->
+      <button class="add-item-btn">+ Add Item</button>
 
-    <!-- Меню -->
-    <div class="menu-icon">
+      <!-- Меню -->
+      <div class="menu-icon">
   <span>1</span>
   <span>2</span>
   <span>3</span>
 </div>
+    </div>
   </div>
-</header>
+</header> 
 
     <!-- Подключаем основной контент -->
     <main>
-      
+      <div class="container">
+        
   <h1>Недвижимость на продажу</h1>
 
   <section class="properties">
@@ -159,18 +166,21 @@
 
   </section>
 
+      </div>
     </main>
 
     <!-- Подключаем футер -->
     <!-- Футер сайта -->
 <footer class="footer">
-  <p>© 2025 Недвижимость. Все права защищены.</p>
-  <nav>
-    <ul>
-      <li><a href="/privacy">Политика конфиденциальности</a></li>
-      <li><a href="/terms">Условия использования</a></li>
-    </ul>
-  </nav>
+  <div class="container">
+    <p>© 2025 Недвижимость. Все права защищены.</p>
+    <nav>
+      <ul>
+        <li><a href="/privacy">Политика конфиденциальности</a></li>
+        <li><a href="/terms">Условия использования</a></li>
+      </ul>
+    </nav>
+  </div>
 </footer>
 
     <!-- Подключаем скрипты -->

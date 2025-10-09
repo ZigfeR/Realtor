@@ -2,111 +2,146 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Динамический заголовок: используем title из фронтматтера или значение по умолчанию -->
     <title>Home</title>
 
     <!-- Подключаем минифицированный CSS -->
-    <link rel="stylesheet" href="../assets/scss/main.css" />
+    <link rel="stylesheet" href="../assets/scss/main.css">
 
     <!-- Условное подключение дополнительных стилей -->
+    
+      
+        <link rel="stylesheet" href="../assets/scss/property-card.css">
+      
+    
 
-    <link rel="stylesheet" href="../assets/scss/property-card.css" />
-
-    <link rel="icon" href="../assets/images/logo.ico" type="image/x-icon" />
+    <link rel="icon" href="../assets/images/logo.ico" type="image/x-icon">
 
     <!-- Подключаем шрифты -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap" rel="stylesheet">
   </head>
   <body>
     <!-- Подключаем хедер -->
     <!-- Хедер сайта -->
-    <header class="header">
-      <!-- ЛОГО -->
-      <div class="logo">
-        <img src="logo.png" alt="Realtor Logo" />
-        <div>
-          <span>REALTOR</span><br />
-          <span>Estate Agency</span>
-        </div>
+<header class="header">
+  <div class="container container-header">
+    <!-- ЛОГО -->
+    <div class="logo">
+      <img src="../assets/images/logo/realtor-logo.png" alt="Realtor Logo" />
+      <div class="logo-box">
+        <span>REALTOR</span><br />
+        <span>Estate Agency</span>
       </div>
+    </div>
 
-      <!-- НАВИГАЦИЯ -->
+    <!-- НАВИГАЦИЯ -->
+    
 
-      <nav>
-        <ul>
-          <li>
-            <a href="/home" class="nav-link active"> Home </a>
-          </li>
 
-          <li>
-            <a href="/about" class="nav-link"> About Us </a>
-          </li>
+<nav>
+  <ul>
+    
+  <li>
+    <a href="/home" class="nav-link active">
+      Home
+    </a>
+  </li>
 
-          <li>
-            <a href="/exclusives" class="nav-link"> Exclusives </a>
-          </li>
+    
+  <li>
+    <a href="/about" class="nav-link ">
+      About Us
+    </a>
+  </li>
 
-          <li>
-            <a href="/real-estate" class="nav-link">
-              Real Estate in the Carpathians
-            </a>
-          </li>
+    
+  <li>
+    <a href="/exclusives" class="nav-link ">
+      Exclusives
+    </a>
+  </li>
 
-          <li>
-            <a href="/blog" class="nav-link"> Blog </a>
-          </li>
+    
+  <li>
+    <a href="/real-estate" class="nav-link ">
+      Real Estate in the Carpathians
+    </a>
+  </li>
 
-          <li>
-            <a href="/contact" class="nav-link"> Contact </a>
-          </li>
-        </ul>
-      </nav>
+    
+  <li>
+    <a href="/blog" class="nav-link ">
+      Blog
+    </a>
+  </li>
 
-      <!-- ПРАВАЯ ЧАСТЬ -->
-      <div class="right-actions">
-        <!-- Поиск -->
-        <div class="search-id">ID <span>&#128269;</span></div>
-        <!-- Выбор языка -->
-        <select class="language">
-          <option value="en">EN</option>
-          <option value="ru">RU</option>
-        </select>
-        <!-- Добавить элемент -->
-        <button class="add-item-btn">+ Add Item</button>
+    
+  <li>
+    <a href="/contact" class="nav-link ">
+      Contact
+    </a>
+  </li>
 
-        <!-- Меню -->
-        <div class="menu-icon">
-          <span>1</span>
-          <span>2</span>
-          <span>3</span>
-        </div>
-      </div>
-    </header>
+  </ul>
+</nav>
+
+
+     <!-- ПРАВАЯ ЧАСТЬ -->
+    <div class="right-actions">
+      <!-- Поиск -->
+      <div class="search-id">
+  ID 
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#593DFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M21 21L16.65 16.65" stroke="#593DFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+      <!-- Выбор языка -->
+      <select class="language">
+    <option value="en">EN</option>
+    <option value="ru">RU</option>
+</select>
+      <!-- Добавить элемент -->
+      <button class="add-item-btn">+ Add Item</button>
+
+      <!-- Меню -->
+      <div class="menu-icon">
+  <span>1</span>
+  <span>2</span>
+  <span>3</span>
+</div>
+    </div>
+  </div>
+</header> 
 
     <!-- Подключаем основной контент -->
     <main>
-      <h1>Недвижимость на продажу</h1>
+      <div class="container">
+        
+  <h1>Недвижимость на продажу</h1>
+
+
+      </div>
     </main>
 
     <!-- Подключаем футер -->
     <!-- Футер сайта -->
-    <footer class="footer">
-      <p>© 2025 Недвижимость. Все права защищены.</p>
-      <nav>
-        <ul>
-          <li><a href="/privacy">Политика конфиденциальности</a></li>
-          <li><a href="/terms">Условия использования</a></li>
-        </ul>
-      </nav>
-    </footer>
+<footer class="footer">
+  <div class="container">
+    <p>© 2025 Недвижимость. Все права защищены.</p>
+    <nav>
+      <ul>
+        <li><a href="/privacy">Политика конфиденциальности</a></li>
+        <li><a href="/terms">Условия использования</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
 
     <!-- Подключаем скрипты -->
     <script src="../assets/js/example.js"></script>

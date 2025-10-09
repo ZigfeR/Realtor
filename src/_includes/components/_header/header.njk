@@ -1,26 +1,28 @@
 <!-- Хедер сайта -->
 <header class="header">
-  <!-- ЛОГО -->
-  <div class="logo">
-    <img src="logo.png" alt="Realtor Logo" />
-    <div>
-      <span>REALTOR</span><br />
-      <span>Estate Agency</span>
+  <div class="container container-header">
+    <!-- ЛОГО -->
+    <div class="logo">
+      <img src="../assets/images/logo/realtor-logo.png" alt="Realtor Logo" />
+      <div class="logo-box">
+        <span>REALTOR</span><br />
+        <span>Estate Agency</span>
+      </div>
+    </div>
+
+    <!-- НАВИГАЦИЯ -->
+    {% include "components/_header/nav/nav.njk" %}
+
+     <!-- ПРАВАЯ ЧАСТЬ -->
+    <div class="right-actions">
+      <!-- Поиск -->
+      {% include "components/_header/search/search.njk" %}
+      <!-- Выбор языка -->
+      {% include "components/_header/lang/lang.njk" %}
+      <!-- Добавить элемент -->
+      {% include "components/_header/addItem/addItem.njk" %}
+      <!-- Меню -->
+      {% include "components/_header/menu/menu.njk" %}
     </div>
   </div>
-
-  <!-- НАВИГАЦИЯ -->
-  {% include "components/_header/nav/nav.njk" %}
-
-   <!-- ПРАВАЯ ЧАСТЬ -->
-  <div class="right-actions">
-    <!-- Поиск -->
-    {% include "components/_header/search/search.njk" %}
-    <!-- Выбор языка -->
-    {% include "components/_header/lang/lang.njk" %}
-    <!-- Добавить элемент -->
-    {% include "components/_header/addItem/addItem.njk" %}
-    <!-- Меню -->
-    {% include "components/_header/menu/menu.njk" %}
-  </div>
-</header>
+</header> 

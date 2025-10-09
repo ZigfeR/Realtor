@@ -1,5 +1,6 @@
 /* Главный SCSS файл */
 @use "_variables" as vars;
+@use "_root" as root;
 @use "_mixins" as *;
 @use "sass:color";
 

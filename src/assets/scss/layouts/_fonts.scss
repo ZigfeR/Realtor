@@ -1,126 +1,133 @@
+/* ==========================
+    Font Styles
+   ========================== */
 @use "_variables" as vars;
-@use "_mixins" as *;
+@use "sass:map";
 
-/* Базовые стили для текста по умолчанию (на основе H4) */
+/* ====== БАЗОВЫЙ ТЕКСТ ====== */
 body {
-  font-family: "Alexandria", sans-serif;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 44px; /* 183.333% */
-  letter-spacing: 0.24px;
+  font-family: vars.$font-primary;
+  font-size: vars.$body-font-size;
+  font-weight: vars.$body-font-weight;
+  line-height: vars.$body-line-height;
+  letter-spacing: vars.$body-letter-spacing;
 }
 
-/* Стили для Desktop (по умолчанию) */
-/* Заголовок H1 */
+/* ====== DESKTOP HEADINGS ====== */
 h1 {
-  font-size: 52px;
-  font-weight: 700;
-  line-height: 72px; /* 138.462% */
+  font-size: map.get(vars.$h1, size);
+  font-weight: map.get(vars.$h1, weight);
+  line-height: map.get(vars.$h1, line-height);
+  letter-spacing: map.get(vars.$h1, letter-spacing);
 }
 
-/* Блоковый заголовок H2 */
 h2 {
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 44px; /* 122.222% */
-  letter-spacing: 0.36px;
+  font-size: map.get(vars.$h2, size);
+  font-weight: map.get(vars.$h2, weight);
+  line-height: map.get(vars.$h2, line-height);
+  letter-spacing: map.get(vars.$h2, letter-spacing);
 }
 
-/* Подзаголовок H3 */
 h3 {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 32px; /* 133.333% */
-  letter-spacing: 0.24px;
+  font-size: map.get(vars.$h3, size);
+  font-weight: map.get(vars.$h3, weight);
+  line-height: map.get(vars.$h3, line-height);
+  letter-spacing: map.get(vars.$h3, letter-spacing);
 }
 
-/* Подтекст H4 */
 h4 {
-  font-size: 24px;
-  line-height: 44px; /* 183.333% */
-  letter-spacing: 0.24px;
+  font-size: map.get(vars.$h4, size);
+  font-weight: map.get(vars.$h4, weight);
+  line-height: map.get(vars.$h4, line-height);
+  letter-spacing: map.get(vars.$h4, letter-spacing);
 }
 
-/* Текст H5 */
 h5 {
-  font-size: 20px;
-  line-height: 36px; /* 180% */
-  letter-spacing: 0.2px;
+  font-size: map.get(vars.$h5, size);
+  font-weight: map.get(vars.$h5, weight);
+  line-height: map.get(vars.$h5, line-height);
+  letter-spacing: map.get(vars.$h5, letter-spacing);
 }
 
-/* Подглавы H6 */
 h6 {
-  font-size: 18px;
-  line-height: 28px; /* 155.556% */
-  letter-spacing: 0.18px;
+  font-size: map.get(vars.$h6, size);
+  font-weight: map.get(vars.$h6, weight);
+  line-height: map.get(vars.$h6, line-height);
+  letter-spacing: map.get(vars.$h6, letter-spacing);
 }
 
-/* Стили с выравниванием текста по центру для H4 (если нужно) */
-h4.centered {
-  text-align: center;
-}
-
-/* Стили для Tablet (max-width: 768px) */
-@media (max-width: 768px) {
+/* ====== TABLET ====== */
+@media (min-width: 480px) and (max-width: 1023px) {
   body {
-    font-size: 18px;
-    line-height: 28px;
+    font-size: map.get(vars.$body-tablet, size);
+    line-height: map.get(vars.$body-tablet, line-height);
   }
+
   h1 {
-    font-size: 36px;
-    line-height: 44px;
+    font-size: map.get(vars.$h1-tablet, size);
+    line-height: map.get(vars.$h1-tablet, line-height);
   }
+
   h2 {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: map.get(vars.$h2-tablet, size);
+    line-height: map.get(vars.$h2-tablet, line-height);
   }
+
   h3 {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: map.get(vars.$h3-tablet, size);
+    line-height: map.get(vars.$h3-tablet, line-height);
   }
+
   h4 {
-    font-size: 18px;
-    line-height: 28px;
+    font-size: map.get(vars.$h4-tablet, size);
+    line-height: map.get(vars.$h4-tablet, line-height);
   }
+
   h5 {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: map.get(vars.$h5-tablet, size);
+    line-height: map.get(vars.$h5-tablet, line-height);
   }
+
   h6 {
-    font-size: 12px;
-    line-height: 22px;
+    font-size: map.get(vars.$h6-tablet, size);
+    line-height: map.get(vars.$h6-tablet, line-height);
   }
 }
 
-/* Стили для Mobile (max-width: 480px) */
-@media (max-width: 480px) {
+/* ====== MOBILE ====== */
+@media (max-width: 479px) {
   body {
-    font-size: 18px;
-    line-height: 28px;
+    font-size: map.get(vars.$body-mobile, size);
+    line-height: map.get(vars.$body-mobile, line-height);
   }
+
   h1 {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: map.get(vars.$h1-mobile, size);
+    line-height: map.get(vars.$h1-mobile, line-height);
   }
+
   h2 {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: map.get(vars.$h2-mobile, size);
+    line-height: map.get(vars.$h2-mobile, line-height);
   }
-  h4 {
-    font-size: 18px;
-    line-height: 28px;
-  }
+
   h3 {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: map.get(vars.$h3-mobile, size);
+    line-height: map.get(vars.$h3-mobile, line-height);
   }
+
+  h4 {
+    font-size: map.get(vars.$h4-mobile, size);
+    line-height: map.get(vars.$h4-mobile, line-height);
+  }
+
   h5 {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: map.get(vars.$h5-mobile, size);
+    line-height: map.get(vars.$h5-mobile, line-height);
   }
+
   h6 {
-    font-size: 12px;
-    line-height: 22px;
+    font-size: map.get(vars.$h6-mobile, size);
+    line-height: map.get(vars.$h6-mobile, line-height);
   }
 }

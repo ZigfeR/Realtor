@@ -1,12 +1,111 @@
-/* Переменные для стилей */
-$font-primary: "Arial", sans-serif;
-$font-size-base: 16px;
-$background: #f5f5f5;
-$text: #333;
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-$border-radius: 8px;
+/* ==========================
+   VARIABLES
+   ========================== */
+@use "sass:map";
 
-/* Шрифты */
-$--Content-color: #14142d;
+/* Шрифт */
+$font-primary: "Alexandria", sans-serif;
+
+/* === Заголовки Desktop === */
+$h1: (
+  size: 52px,
+  weight: 700,
+  line-height: 72px,
+  letter-spacing: 0,
+);
+$h2: (
+  size: 36px,
+  weight: 700,
+  line-height: 44px,
+  letter-spacing: 0.36px,
+);
+$h3: (
+  size: 24px,
+  weight: 700,
+  line-height: 32px,
+  letter-spacing: 0.24px,
+);
+$h4: (
+  size: 24px,
+  weight: 500,
+  line-height: 44px,
+  letter-spacing: 0.24px,
+);
+$h5: (
+  size: 20px,
+  weight: 500,
+  line-height: 36px,
+  letter-spacing: 0.2px,
+);
+$h6: (
+  size: 18px,
+  weight: 500,
+  line-height: 28px,
+  letter-spacing: 0.18px,
+);
+
+/* === Body наследует значения из H4 === */
+$body-font-size: map.get($h4, size);
+$body-line-height: map.get($h4, line-height);
+$body-letter-spacing: map.get($h4, letter-spacing);
+$body-font-weight: map.get($h4, weight);
+
+/* === Tablet === */
+$h1-tablet: (
+  size: 36px,
+  line-height: 44px,
+);
+$h2-tablet: (
+  size: 24px,
+  line-height: 32px,
+);
+$h3-tablet: (
+  size: 20px,
+  line-height: 26px,
+);
+$h4-tablet: (
+  size: 18px,
+  line-height: 28px,
+);
+$h5-tablet: (
+  size: 14px,
+  line-height: 20px,
+);
+$h6-tablet: (
+  size: 12px,
+  line-height: 22px,
+);
+$body-tablet: (
+  size: 18px,
+  line-height: 28px,
+);
+
+/* === Mobile === */
+$h1-mobile: (
+  size: 24px,
+  line-height: 32px,
+);
+$h2-mobile: (
+  size: 20px,
+  line-height: 26px,
+);
+$h3-mobile: (
+  size: 14px,
+  line-height: 20px,
+);
+$h4-mobile: (
+  size: 18px,
+  line-height: 28px,
+);
+$h5-mobile: (
+  size: 14px,
+  line-height: 20px,
+);
+$h6-mobile: (
+  size: 12px,
+  line-height: 22px,
+);
+$body-mobile: (
+  size: 18px,
+  line-height: 28px,
+);

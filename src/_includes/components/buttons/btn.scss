@@ -1,30 +1,17 @@
 /* Стили для кнопок */
 @use "../../../assets/scss/variables" as vars;
 @use "../../../assets/scss/mixins" as *;
-@use "sass:color";
 
 .btn {
   @include button-base(12px 24px, 8px, 16px, color 0.3s ease);
 
   &.btn-primary {
-    background-color: vars.$primary-color;
-    color: white;
-    &:hover {
-      background-color: color.adjust(
-        vars.$primary-color,
-        $lightness: -10%
-      ); /* Замена darken */
-    }
+    background-color: var(--primary-color);
+    color: var(--White, #fff);
   }
 
   &.btn-secondary {
-    background-color: vars.$secondary-color;
-    color: white;
-    &:hover {
-      background-color: color.adjust(
-        vars.$secondary-color,
-        $lightness: -10%
-      ); /* Замена darken */
-    }
+    background-color: var(--secondary-color);
+    color: var(--White, #fff);
   }
 }

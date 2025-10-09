@@ -3,7 +3,7 @@
 @use "../../../assets/scss/mixins" as *;
 
 .footer {
-  background-color: vars.$secondary-color;
+  background-color: var(--secondary-color);
   color: white;
   padding: 1rem;
   text-align: center;

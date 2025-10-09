@@ -1,4 +1,6 @@
-/* Миксины для переиспользования стилей */
+/* ==========================
+    MIXINS
+   ========================== */
 @use "_variables" as vars;
 
 /* Универсальный миксин для Flexbox */
@@ -18,11 +20,6 @@
   justify-content: $justify;
   align-items: $align;
   gap: $gap;
-
-  /* Опционально: добавляем поддержку вложенных элементов */
-  > * {
-    margin: 0;
-  }
 }
 
 /* Улучшенный миксин для центрирования с Flexbox */
@@ -57,11 +54,6 @@
   justify-content: $justify;
   align-content: $align;
   grid-auto-flow: $auto-flow;
-
-  /* Опционально: сброс отступов для вложенных элементов */
-  > * {
-    margin: 0;
-  }
 }
 
 /* Улучшенный миксин для кнопки с базовыми стилями */
@@ -69,8 +61,8 @@
    Пример: @include button-base(12px 25px, 8px, 16px, color 0.2s ease); */
 @mixin button-base(
   $padding: 10px 20px,
-  $border-radius: vars.$border-radius,
-  $font-size: vars.$font-size-base,
+  $border-radius: var(--border-radius),
+  $font-size: map.get(vars.$h5, size),
   $transition: background-color 0.3s ease
 ) {
   padding: $padding;
