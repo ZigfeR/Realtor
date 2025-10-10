@@ -72,10 +72,6 @@
   font-size: $font-size;
   transition: $transition;
 
-  &:hover {
-    filter: brightness(90%);
-  }
-
   &:active {
     transform: translateY(1px);
   }

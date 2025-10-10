@@ -4,15 +4,21 @@
 :root {
   /* Основные цвета */
   --background: #fff;
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
+  --White: #fff;
+  --White-rgb: 255, 255, 255;
 
   /* Тени, бордюры и т.п. */
   --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  --border-radius: 8px;
+  --border-radius: 35px;
 
   /* Специфичные цвета проекта */
-  --White: #fff;
   --Main-color: #593dff;
+  // --Main-color-rgb: rgb(89, 61, 255);
+  --Main-color-rgb: 89, 61, 255;
+  --Main-color-hover: #2b10c9;
   --Content-color: #14142d;
+  // --Content-color-rgb: rgb(20, 20, 45);
+  --Content-color-rgb: 20, 20, 45;
+  --Attracting-attention-color: #e722aa;
+  --Adittional-color: #10ae27;
 }

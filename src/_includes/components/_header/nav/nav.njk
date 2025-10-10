@@ -1,5 +1,5 @@
 {% macro li(href, title, activePage) %}
-  <li>
+  <li class="nav-list">
     <a href="{{ href }}" class="nav-link {% if href == activePage %}active{% endif %}">
       {{ title }}
     </a>
@@ -7,8 +7,8 @@
 {% endmacro %}
 
 
-<nav>
-  <ul>
+<nav class="nav">
+  <ul class="ul">
     {{ li("/home", "Home", activePage) }}
     {{ li("/about", "About Us", activePage) }}
     {{ li("/exclusives", "Exclusives", activePage) }}

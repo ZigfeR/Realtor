@@ -1,17 +1,50 @@
 /* Стили для кнопок */
 @use "../../../assets/scss/variables" as vars;
 @use "../../../assets/scss/mixins" as *;
+@use "sass:map";
 
 .btn {
-  @include button-base(12px 24px, 8px, 16px, color 0.3s ease);
+  @include button-base(
+    5px 30px,
+    var(--border-radius),
+    map.get(vars.$h5, size),
+    background-color 0.3s ease
+  );
+
+  font-size: map.get(vars.$h5, size);
+  font-weight: map.get(vars.$h5, weight);
+  line-height: map.get(vars.$h5, line-height);
+  letter-spacing: map.get(vars.$h5, letter-spacing);
+
+  color: var(--White, #fff);
 
   &.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--White, #fff);
+    @include flex-center(row, center, center);
+
+    background-color: var(--Main-color, #593dff);
+
+    &:hover {
+      background-color: var(--Main-color-hover, #2b10c9);
+    }
   }
 
-  &.btn-secondary {
-    background-color: var(--secondary-color);
-    color: var(--White, #fff);
+  &.btn-book {
+    @include flex-center(row, center, center);
+
+    background-color: var(--White, #fff);
+    color: var(--Main-color, #593dff);
+
+    &:hover {
+      background-color: rgba(var(--White-rgb), 0.65);
+    }
+  }
+
+  &.btn-active {
+    background-color: var(--Content-color, #14142d);
+  }
+
+  &.btn-not-active {
+    background-color: rgba(var(--Content-color-rgb), 0.4);
+    color: rgba(var(--White-rgb), 0.75);
   }
 }
