@@ -32,13 +32,22 @@ function updateColumnLayout(options) {
   const container = options.querySelector(".dropdown-li-container");
   const items = container.querySelectorAll('li[role="option"]');
   const itemCount = items.length;
+  const dropdown = options.closest(".form-dropdown");
+  const label = dropdown.querySelector(".dropdown-label");
+
+  // Сброс инлайн-стилей перед вычислением
+  options.style.width = "";
+  container.style.columnCount = "";
+
+  // Извлечение ширины .dropdown-label
+  const labelStyle = getComputedStyle(label);
+  const liWidth = parseFloat(labelStyle.width); // Ширина равна ширине метки
+  console.log("liWidth (from label):", liWidth); // Отладка
 
   // Извлечение стилей из .dropdown-search-form-options
   const style = getComputedStyle(options);
   const paddingLeft = parseFloat(style.paddingLeft);
   const paddingRight = parseFloat(style.paddingRight);
-  const liStyle = getComputedStyle(items[0]); // Берем стиль первого li
-  const liWidth = parseFloat(liStyle.width); // Ширина li
 
   // Извлечение column-gap из .dropdown-li-container
   const containerStyle = getComputedStyle(container);
@@ -54,9 +63,9 @@ function updateColumnLayout(options) {
     paddingRight +
     gap * (columnCount - 1);
   if (columnCount === 1) {
-    totalWidth -= 13; // Вычитаем 3px для одного столбца
+    totalWidth -= 3 + 10; // Вычитаем 3px для одного столбца
   }
-  options.style.width = `${totalWidth}px`;
+  options.style.width = `${totalWidth}px`; // Применяем новую ширину
 
   // Устанавливаем column-count для .dropdown-li-container
   container.style.columnCount = columnCount;
@@ -67,6 +76,11 @@ function updateColumnLayout(options) {
   } else {
     options.classList.remove("multi-column");
   }
+
+  // Устанавливаем ширину li равной ширине label
+  items.forEach((item) => {
+    item.style.width = `${liWidth}px`;
+  });
 }
 
 /**
@@ -84,6 +98,8 @@ document.addEventListener("click", function (e) {
     const btn = dropdown.querySelector(".dropdown-search-form-btn");
     const options = dropdown.querySelector(".dropdown-search-form-options");
     const selectedValue = btn.querySelector(".selected-value");
+
+    if (!options || !btn) return; // Пропускаем, если элементы не найдены
 
     // Проверяем, можно ли открыть список (предыдущие шаги выбраны)
     const currentStep = parseInt(dropdown.dataset.step);
@@ -110,11 +126,16 @@ document.addEventListener("click", function (e) {
         if (!expanded) {
           // Обновляем макет колонок после открытия
           setTimeout(() => updateColumnLayout(options), 0); // Таймаут для корректного расчета высоты
+        } else {
+          // Сбрасываем инлайн-ширину при закрытии
+          options.style.width = "";
         }
       }
     } else if (!dropdown.contains(e.target)) {
       btn.setAttribute("aria-expanded", "false");
       options.style.display = "none";
+      // Сбрасываем инлайн-ширину при закрытии вне элемента
+      options.style.width = "";
     }
   });
 

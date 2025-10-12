@@ -4,7 +4,7 @@
 
 /* Форма поиска */
 .search-form-container {
-  max-width: 1680px;
+  width: 94.5%;
   //   padding-bottom: 96px;
 
   .search-form {
@@ -48,7 +48,7 @@
     /* Форма поиска */
     .form-fields {
       @include flex-container(flex, row, nowrap, flex-start, center, 1px);
-      width: 1680px;
+      width: 100%;
       padding: 22px 30px 26px 0;
 
       border-radius: 0 var(--border-radius, 35px) var(--border-radius, 35px)
@@ -62,6 +62,7 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+        width: 100%;
 
         /* Выпадающие списки */
         .form-dropdown {
@@ -75,7 +76,7 @@
           );
 
           position: relative;
-          width: 356px;
+          width: 100%;
 
           padding-left: 30px;
 
@@ -196,7 +197,7 @@
             li {
               display: flex;
               cursor: pointer;
-              width: $with;
+              //   width: $with;
               padding: 8px 10px 2px 10px;
 
               &.current-value {
