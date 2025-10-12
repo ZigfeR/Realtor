@@ -5,6 +5,7 @@
 /* ==========================
    Стили для хедера
    ========================== */
+
 .header {
   background: var(--White, #fff);
   user-select: none;
@@ -14,10 +15,7 @@
   .menu-icon {
     cursor: pointer;
   }
-}
 
-/* Десктоп (ПК, ширина >= 1024px) */
-@media (min-width: 1024px) {
   .container-header {
     @include grid-container(grid, auto 1fr auto, auto, 0, start, center);
     padding: 15px 70px 30px 70px;
@@ -335,6 +333,10 @@
   }
 }
 
+// // /* Десктоп (ПК, ширина >= 1024px) */
+// @media (min-width: 1024px) {
+// }
+
 /* Планшет (ширина от 480px до 1023px) */
 @media (min-width: 480px) and (max-width: 1023px) {
   .container-header {
@@ -384,7 +386,7 @@
   }
 
   nav {
-    display: none; /* Навигация скрыта */
+    display: none !important; /* Навигация скрыта */
   }
 
   .right-actions {
