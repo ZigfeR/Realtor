@@ -1,0 +1,120 @@
+<div class="search-form-container">
+  <form class="search-form">
+    {# Вкладки для выбора типа операции: продажа или аренда #}
+    <div class="form-tabs">
+      {# Вкладка для продажи #}
+      <button type="button" class="tab active" data-tab="selling">Selling</button>
+
+      {# Вкладка для аренды #}
+      <button type="button" class="tab" data-tab="rent">Rent</button>
+    </div>
+
+    {# Форма поиска #}
+    <div class="form-fields">
+      <div class="form-dropdowns-container">
+        {# Выпадающий список для выбора типа недвижимости #}
+        <div class="form-dropdown" data-step="1">
+          <label class="dropdown-label" for="property-type-btn">Property Type</label>
+          <button class="dropdown-search-form-btn" id="property-type-btn" 
+          aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-value">Select</span>
+            {% include "components/icon/small-arrow-svg.njk" %}
+          </button>
+          <ul class="dropdown-search-form-options" role="listbox" tabindex="-1">
+            <li role="presentation" class="current-value">Select</li>
+            <div class="dropdown-li-container">
+              <li role="option" data-value="apartment">Apartment</li>
+              <li role="option" data-value="house" >House</li>
+              <li role="option" data-value="commercial">Commercial</li>
+            </div>
+          </ul>
+        </div>
+
+        {# Выпадающий список для выбора региона #}
+        <div class="form-dropdown" data-step="2">
+          <label class="dropdown-label" for="region-btn">Region</label>
+          <button class="dropdown-search-form-btn" id="region-btn" 
+          aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-value">Select</span>
+            {% include "components/icon/small-arrow-svg.njk" %}
+          </button>
+          <ul class="dropdown-search-form-options" role="listbox" tabindex="-1">
+            <li role="presentation" class="current-value">Select</li>
+            <div class="dropdown-li-container">
+              <li role="option" data-value="ivano-frankivsk">Ivano-Frankivsk reg.</li>
+              <li role="option" data-value="zaporizhzhia">Zaporizhzhia reg.</li>
+              <li role="option" data-value="ternopil">Ternopil reg.</li>
+              <li role="option" data-value="kirovograd">Kirovograd reg.</li>
+              <li role="option" data-value="kyiv">Kyiv reg.</li>
+              <li role="option" data-value="poltava">Poltava reg.</li>
+              <li role="option" data-value="lviv">Lviv reg.</li>
+              <li role="option" data-value="rivne">Rivne reg.</li>
+              <li role="option" data-value="chernivtsi">Chernivtsi reg.</li>
+              <li role="option" data-value="sumy">Sumy reg.</li>
+              <li role="option" data-value="mykolaiv">Mykolaiv reg.</li>
+              <li role="option" data-value="kharkiv">Kharkiv reg.</li>
+              <li role="option" data-value="odesa">Odesa reg.</li>
+              <li role="option" data-value="kherson">Kherson reg.</li>
+              <li role="option" data-value="volyn">Volyn reg.</li>
+              <li role="option" data-value="khmelnytskyi">Khmelnytskyi reg.</li>
+              <li role="option" data-value="dnipropetrovsk">Dnipropetrovsk reg.</li>
+              <li role="option" data-value="cherkasy">Cherkasy reg.</li>
+              <li role="option" data-value="zhytomyr">Zhytomyr reg.</li>
+              <li role="option" data-value="chernihiv">Chernihiv reg.</li>
+              <li role="option" data-value="zakarpattia">Zakarpattia reg.</li>
+            </div>
+          </ul> 
+        </div>
+
+        {# Выпадающий список для выбора города #}
+        <div class="form-dropdown" data-step="3">
+          <label class="dropdown-label" for="city-btn">City</label>
+          <button class="dropdown-search-form-btn" id="city-btn" 
+          aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-value">Select</span>
+            {% include "components/icon/small-arrow-svg.njk" %}
+          </button>
+          <ul class="dropdown-search-form-options" role="listbox" tabindex="-1">
+            <li role="presentation" class="current-value">Select</li>
+            <div class="dropdown-li-container">
+              <li role="option" data-value="newyork">New York</li>
+              <li role="option" data-value="london" >London</li>
+              <li role="option" data-value="paris">Paris</li>
+            </div>
+          </ul>
+        </div>
+
+        {# Выпадающий список для выбора района #}
+        <div class="form-dropdown" data-step="4">
+          <label class="dropdown-label" for="area-btn">Area of the City</label>
+          <button class="dropdown-search-form-btn" id="area-btn" 
+          aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-value">Select</span>
+            {% include "components/icon/small-arrow-svg.njk" %}
+          </button>
+          <ul class="dropdown-search-form-options" role="listbox" tabindex="-1">
+            <li role="presentation" class="current-value">Select</li>
+            <div class="dropdown-li-container">
+              <li role="option" data-value="center">Center</li>
+              <li role="option" data-value="suburbs" >Suburbs</li>
+              <li role="option" data-value="downtown">Downtown</li>
+            </div>
+          </ul>
+        </div>
+      </div>
+
+      <div class="filter-btn-container">
+        {# Кнопка фильтрации #}
+        <button class="btn filter-btn">
+          {% include "components/icon/filtr-svg.njk" %}
+        </button>
+
+        {# Кнопка поиска #}
+        <button type="button" class="btn btn-primary form-find-btn">
+          {% include "components/icon/search-svg.njk" %}
+          Find
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

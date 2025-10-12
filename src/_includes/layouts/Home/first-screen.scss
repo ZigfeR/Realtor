@@ -1,0 +1,48 @@
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
+@use "sass:map";
+
+.first-screen {
+  user-select: none;
+
+  .container-first-screen {
+    @include flex-container(flex, column, nowrap, unset, flex-start, 80px);
+
+    height: 760px;
+
+    background-image: url(../images/home/main-image.png);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 941px 760px;
+
+    padding: 70px;
+    padding-bottom: 48px;
+
+    .first-screen-header {
+      @include flex-container(flex, column, wrap, unset, flex-start, 50px);
+      max-width: 870px;
+
+      h1 {
+        align-items: center;
+        align-self: stretch;
+
+        span {
+          color: var(--Main-color, #593dff);
+        }
+      }
+
+      p {
+        color: var(--Content-color, #14142d);
+
+        font-size: map.get(vars.$h4, size);
+        font-weight: map.get(vars.$h4, weight);
+        line-height: map.get(vars.$h4, line-height);
+        letter-spacing: map.get(vars.$h4, letter-spacing);
+
+        padding-right: 45px;
+        align-items: center;
+        align-self: stretch;
+      }
+    }
+  }
+}

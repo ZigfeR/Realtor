@@ -159,12 +159,166 @@
 
     <!-- Подключаем основной контент -->
     <main>
-      <div class="container">
         
-  <h1>Недвижимость на продажу</h1>
+  <!--  Первый экран -->
+<section class="first-screen">
+  <div class="container container-first-screen">
+    <!--  Заголовок первого экрана -->
+    <div class="first-screen-header">
+      <h1><span>Realtor</span> - Your Reliable Partner 
+      in the World of Real Estate</h1>
+      <p>
+        This is a team of professionals who help you find the perfect home or a
+        profitable property for investment and business
+      </p>
+    </div>
+    <!-- Форма поиска -->
+    <div class="search-form-container">
+  <form class="search-form">
+    
+    <div class="form-tabs">
+      
+      <button type="button" class="tab active" data-tab="selling">Selling</button>
 
+      
+      <button type="button" class="tab" data-tab="rent">Rent</button>
+    </div>
 
+    
+    <div class="form-fields">
+      <div class="form-dropdowns-container">
+        
+        <div class="form-dropdown" data-step="1">
+          <label class="dropdown-label" for="property-type-btn">Property Type</label>
+          <button class="dropdown-search-form-btn" id="property-type-btn" 
+          aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-value">Select</span>
+            <svg class="small-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
+  <path d="M7.54014 0.5H1.71499C0.785192 0.5 0.358682 1.65797 1.06634 2.26108L4.17309 4.90888C4.56611 5.24385 5.14955 5.22446 5.51948 4.86414L8.23788 2.21635C8.88064 1.59029 8.4374 0.5 7.54014 0.5Z" fill="#14142D"/>
+</svg>
+          </button>
+          <ul class="dropdown-search-form-options" role="listbox" tabindex="-1">
+            <li role="presentation" class="current-value">Select</li>
+            <div class="dropdown-li-container">
+              <li role="option" data-value="apartment">Apartment</li>
+              <li role="option" data-value="house" >House</li>
+              <li role="option" data-value="commercial">Commercial</li>
+            </div>
+          </ul>
+        </div>
+
+        
+        <div class="form-dropdown" data-step="2">
+          <label class="dropdown-label" for="region-btn">Region</label>
+          <button class="dropdown-search-form-btn" id="region-btn" 
+          aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-value">Select</span>
+            <svg class="small-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
+  <path d="M7.54014 0.5H1.71499C0.785192 0.5 0.358682 1.65797 1.06634 2.26108L4.17309 4.90888C4.56611 5.24385 5.14955 5.22446 5.51948 4.86414L8.23788 2.21635C8.88064 1.59029 8.4374 0.5 7.54014 0.5Z" fill="#14142D"/>
+</svg>
+          </button>
+          <ul class="dropdown-search-form-options" role="listbox" tabindex="-1">
+            <li role="presentation" class="current-value">Select</li>
+            <div class="dropdown-li-container">
+              <li role="option" data-value="ivano-frankivsk">Ivano-Frankivsk reg.</li>
+              <li role="option" data-value="zaporizhzhia">Zaporizhzhia reg.</li>
+              <li role="option" data-value="ternopil">Ternopil reg.</li>
+              <li role="option" data-value="kirovograd">Kirovograd reg.</li>
+              <li role="option" data-value="kyiv">Kyiv reg.</li>
+              <li role="option" data-value="poltava">Poltava reg.</li>
+              <li role="option" data-value="lviv">Lviv reg.</li>
+              <li role="option" data-value="rivne">Rivne reg.</li>
+              <li role="option" data-value="chernivtsi">Chernivtsi reg.</li>
+              <li role="option" data-value="sumy">Sumy reg.</li>
+              <li role="option" data-value="mykolaiv">Mykolaiv reg.</li>
+              <li role="option" data-value="kharkiv">Kharkiv reg.</li>
+              <li role="option" data-value="odesa">Odesa reg.</li>
+              <li role="option" data-value="kherson">Kherson reg.</li>
+              <li role="option" data-value="volyn">Volyn reg.</li>
+              <li role="option" data-value="khmelnytskyi">Khmelnytskyi reg.</li>
+              <li role="option" data-value="dnipropetrovsk">Dnipropetrovsk reg.</li>
+              <li role="option" data-value="cherkasy">Cherkasy reg.</li>
+              <li role="option" data-value="zhytomyr">Zhytomyr reg.</li>
+              <li role="option" data-value="chernihiv">Chernihiv reg.</li>
+              <li role="option" data-value="zakarpattia">Zakarpattia reg.</li>
+            </div>
+          </ul> 
+        </div>
+
+        
+        <div class="form-dropdown" data-step="3">
+          <label class="dropdown-label" for="city-btn">City</label>
+          <button class="dropdown-search-form-btn" id="city-btn" 
+          aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-value">Select</span>
+            <svg class="small-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
+  <path d="M7.54014 0.5H1.71499C0.785192 0.5 0.358682 1.65797 1.06634 2.26108L4.17309 4.90888C4.56611 5.24385 5.14955 5.22446 5.51948 4.86414L8.23788 2.21635C8.88064 1.59029 8.4374 0.5 7.54014 0.5Z" fill="#14142D"/>
+</svg>
+          </button>
+          <ul class="dropdown-search-form-options" role="listbox" tabindex="-1">
+            <li role="presentation" class="current-value">Select</li>
+            <div class="dropdown-li-container">
+              <li role="option" data-value="newyork">New York</li>
+              <li role="option" data-value="london" >London</li>
+              <li role="option" data-value="paris">Paris</li>
+            </div>
+          </ul>
+        </div>
+
+        
+        <div class="form-dropdown" data-step="4">
+          <label class="dropdown-label" for="area-btn">Area of the City</label>
+          <button class="dropdown-search-form-btn" id="area-btn" 
+          aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-value">Select</span>
+            <svg class="small-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
+  <path d="M7.54014 0.5H1.71499C0.785192 0.5 0.358682 1.65797 1.06634 2.26108L4.17309 4.90888C4.56611 5.24385 5.14955 5.22446 5.51948 4.86414L8.23788 2.21635C8.88064 1.59029 8.4374 0.5 7.54014 0.5Z" fill="#14142D"/>
+</svg>
+          </button>
+          <ul class="dropdown-search-form-options" role="listbox" tabindex="-1">
+            <li role="presentation" class="current-value">Select</li>
+            <div class="dropdown-li-container">
+              <li role="option" data-value="center">Center</li>
+              <li role="option" data-value="suburbs" >Suburbs</li>
+              <li role="option" data-value="downtown">Downtown</li>
+            </div>
+          </ul>
+        </div>
       </div>
+
+      <div class="filter-btn-container">
+        
+        <button class="btn filter-btn">
+          <svg class="filtr-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4 21V14" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M4 10V3" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 21V12" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 8V3" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 21V16" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 12V3" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M1 14H7" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M9 8H15" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17 16H23" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+        </button>
+
+        
+        <button type="button" class="btn btn-primary form-find-btn">
+          <svg class="search-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#FFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M21 21L16.65 16.65" stroke="#FFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+          Find
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+  <div>
+</section>
+ 
+  <script src="../assets/js/search-form.js"></script>
+
     </main>
 
     <!-- Подключаем футер -->

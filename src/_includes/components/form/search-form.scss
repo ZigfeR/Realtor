@@ -1,0 +1,252 @@
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
+@use "sass:map";
+
+/* Форма поиска */
+.search-form-container {
+  max-width: 1680px;
+  //   padding-bottom: 96px;
+
+  .search-form {
+    @include flex-container(flex, column, nowrap, center, flex-start, 0);
+
+    /* Вкладки для выбора типа */
+    .form-tabs {
+      display: flex;
+      align-items: center;
+
+      .tab {
+        display: flex;
+        height: 65px;
+        padding: 15px;
+        justify-content: center;
+        align-items: center;
+        min-width: 200px;
+        z-index: 1;
+
+        border-radius: var(--border-radius, 35px) var(--border-radius, 35px) 0 0;
+        border: none;
+        background: var(--White, #fff);
+        color: var(--Main-color, #593dff);
+
+        font-size: map.get(vars.$h5, size);
+        font-weight: map.get(vars.$h5, weight);
+        line-height: map.get(vars.$h5, line-height);
+        letter-spacing: map.get(vars.$h5, letter-spacing);
+
+        cursor: pointer;
+
+        box-shadow: 4px -4px 30px 0 rgba(var(--Main-color-rgb), 0.1);
+
+        &.active {
+          background: var(--Main-color, #593dff);
+          color: var(--White, #fff);
+        }
+      }
+    }
+
+    /* Форма поиска */
+    .form-fields {
+      @include flex-container(flex, row, nowrap, flex-start, center, 1px);
+      width: 1680px;
+      padding: 22px 30px 26px 0;
+
+      border-radius: 0 var(--border-radius, 35px) var(--border-radius, 35px)
+        var(--border-radius, 35px);
+      background: rgba(var(--White-rgb), 0.55);
+      box-shadow: -25px -25px 88px 0 rgba(var(--Main-color-rgb), 0.1);
+      backdrop-filter: blur(19.399999618530273px);
+
+      /* Меню выбора */
+      .form-dropdowns-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        /* Выпадающие списки */
+        .form-dropdown {
+          @include flex-container(
+            flex,
+            column,
+            nowrap,
+            space-between,
+            flex-start,
+            0
+          );
+
+          position: relative;
+          width: 356px;
+
+          padding-left: 30px;
+
+          /* Боковая полоска */
+          &:not(:last-child)::after {
+            position: absolute;
+            content: "";
+            width: 3px;
+            height: 100%;
+            border-radius: 2px;
+            background: var(--Main-color, #593dff);
+            opacity: 0.2;
+            top: 0;
+            right: 0;
+          }
+
+          &.disabled {
+            pointer-events: none; // Отключаем взаимодействие
+          }
+
+          .dropdown-label {
+            align-self: stretch;
+            color: var(--Main-color, #593dff);
+
+            font-size: map.get(vars.$h6, size);
+            font-weight: map.get(vars.$h6, weight);
+            line-height: map.get(vars.$h6, line-height);
+            letter-spacing: map.get(vars.$h6, letter-spacing);
+
+            z-index: 11;
+          }
+
+          .selected-value,
+          .current-value {
+            font-size: map.get(vars.$h4, size);
+            font-weight: map.get(vars.$h4, weight);
+            line-height: map.get(vars.$h4, line-height);
+            letter-spacing: map.get(vars.$h4, letter-spacing);
+          }
+
+          .dropdown-search-form-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            cursor: pointer;
+            background-color: transparent;
+            position: relative;
+            z-index: 1;
+            outline: none;
+            border: none;
+            gap: 5px;
+
+            &[aria-expanded="true"] {
+              opacity: 0;
+            }
+
+            &:hover {
+              span {
+                color: var(--Content-color, #14142d);
+              }
+
+              .small-arrow-svg {
+                path {
+                  fill: var(--Content-color, #14142d);
+                }
+              }
+            }
+
+            .selected-value {
+              color: rgba(var(--Content-color-rgb), 0.65);
+            }
+          }
+
+          .dropdown-search-form-options {
+            $with: 326px;
+            $padding: 20px;
+            $gap: 10px;
+
+            position: absolute;
+
+            top: 23px;
+            left: 0;
+            right: 0;
+            z-index: 10;
+
+            display: none;
+            border-radius: var(--border-radius, 35px);
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 25px;
+            padding: 0 $padding 20px $padding;
+
+            background: rgba(var(--White-rgb), 0.95);
+            box-shadow: 0 18px 19.4px 0 rgba(89, 61, 255, 0.25);
+            backdrop-filter: blur(19.399999618530273px);
+
+            color: rgba(var(--Content-color-rgb), 0.65);
+
+            font-size: map.get(vars.$h5, size);
+            font-weight: map.get(vars.$h5, weight);
+            line-height: map.get(vars.$h5, line-height);
+            letter-spacing: map.get(vars.$h5, letter-spacing);
+
+            // Динамическое добавление колонок на основе высоты
+            &.multi-column {
+              .dropdown-li-container {
+                column-gap: $gap;
+              }
+            }
+
+            .dropdown-li-container {
+              display: flex;
+              flex-wrap: wrap;
+              align-items: flex-start;
+              gap: 12px;
+            }
+
+            li {
+              display: flex;
+              cursor: pointer;
+              width: $with;
+              padding: 8px 10px 2px 10px;
+
+              &.current-value {
+                color: var(--Content-color, #14142d);
+                padding: 5px 10px 2px 10px;
+                cursor: default;
+              }
+
+              &:not(.current-value):hover,
+              &.selected {
+                color: var(--Main-color, #593dff);
+                background: rgba(89, 61, 255, 0.15);
+                border-radius: 15px;
+              }
+            }
+          }
+        }
+      }
+
+      .filter-btn-container {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+
+        /* Кнопка фильтрации */
+        .filter-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          padding: 18px;
+
+          border-radius: 35px;
+          background: rgba(var(--White-rgb), 0.55);
+
+          svg {
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        /* Кнопка поиска */
+        .form-find-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 12px 30px;
+          gap: 10px;
+        }
+      }
+    }
+  }
+}

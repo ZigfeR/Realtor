@@ -8,6 +8,12 @@
 .header {
   background: var(--White, #fff);
   user-select: none;
+
+  .search-id > svg,
+  .language,
+  .menu-icon {
+    cursor: pointer;
+  }
 }
 
 /* Десктоп (ПК, ширина >= 1024px) */
