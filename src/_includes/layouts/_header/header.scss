@@ -231,7 +231,7 @@
             border-radius: 15px;
           }
 
-          &:hover {
+          &:not([aria-expanded="true"]):hover {
             color: var(--Main-color, #593dff);
 
             svg {
@@ -251,6 +251,7 @@
           padding: 0 5px 14px 5px;
           margin: 0;
           border-radius: 15px;
+          background: var(--White, #fff);
           box-shadow: 0 4px 45px 0 rgba(var(--Main-color-rgb), 0.25);
           display: none;
           z-index: 100;
@@ -267,7 +268,7 @@
             cursor: pointer;
             padding: 0 19px 0 5px;
 
-            &:hover,
+            &:not(.lang-current-value):hover,
             &.selected {
               color: var(--Main-color, #593dff);
               border-radius: 15px;
