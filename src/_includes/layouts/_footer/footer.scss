@@ -2,6 +2,9 @@
 @use "../../../assets/scss/variables" as vars;
 @use "../../../assets/scss/mixins" as *;
 
+/* ==========================
+   Футер
+   ========================== */
 .footer {
   background-color: var(--secondary-color);
   color: white;
@@ -19,3 +22,6 @@
     }
   }
 }
+/* ==========================
+   Конец футера
+   ========================== */
