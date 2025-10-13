@@ -1,0 +1,8 @@
+{% macro blockCard(property) %}
+  <div class="key-features-block">
+    {% include property.image %}
+    <div class="key-features__content">
+      <p class="key-features__description">{{ property.description }}</p>
+    </div>
+  </div>
+{% endmacro %}

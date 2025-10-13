@@ -1,0 +1,55 @@
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
+@use "sass:map";
+
+/* ==========================
+   Ключевые особенности
+   ========================== */
+.key-features {
+  user-select: none;
+
+  .container-key-features {
+    @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
+
+    padding: 80px 70px;
+
+    .key-features-header {
+      @include flex-container(flex, column, wrap, unset, flex-start, 0);
+
+      h2 {
+        align-items: center;
+        align-self: stretch;
+
+        span {
+          color: var(--Main-color, #593dff);
+        }
+      }
+    }
+
+    .key-features-blocks-container {
+      @include flex-container(flex, row, wrap, unset, center, 40px);
+      align-self: stretch;
+
+      p {
+        color: var(--Content-color, #14142d);
+        text-align: center;
+        //   transition: color 0.3s ease; /* плавная анимация */
+
+        font-size: map.get(vars.$h4, size);
+        font-weight: map.get(vars.$h4, weight);
+        line-height: map.get(vars.$h4, line-height);
+        letter-spacing: map.get(vars.$h4, letter-spacing);
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* количество строк */
+        line-clamp: 3; /* стандартное свойство для совместимости */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+/* ==========================
+   Конец ключевых особенностей
+   ========================== */

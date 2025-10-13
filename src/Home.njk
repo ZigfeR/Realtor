@@ -8,6 +8,9 @@
 
 {# Подключаем компонент  #}
 {% block content %}
+  <!--  Первый экран -->
   {% include "layouts/Home/first-screen.njk" %}
+  <!--  Ключевые особенности -->
+  {% include "layouts/Home/key-features.njk" %}
   <script src="../assets/js/search-form.js"></script>
 {% endblock %}

@@ -1,0 +1,62 @@
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
+@use "sass:map";
+
+.key-features-block {
+  max-width: 415px;
+  height: 269px;
+  position: relative;
+  padding-top: 52px;
+
+  svg {
+    @include flex-center(row, center, center);
+    position: absolute;
+    top: 0;
+    left: 30px;
+    width: 92px;
+    height: 92px;
+    padding: 20px;
+
+    border-radius: 45px;
+    background: var(--Main-color, #593dff);
+    box-shadow: -25px -10px 85px 0 rgba(var(--Main-color-rgb), 0.25);
+    transition: left 0.3s ease; /* плавная анимация */
+
+    path {
+      fill: var(--White, #fff);
+    }
+  }
+
+  .key-features__content {
+    @include flex-center(row, center, center);
+    width: 415px;
+    height: 218px;
+    padding: 65px 30px;
+    flex-shrink: 0;
+
+    border-radius: var(--border-radius);
+    background: var(--White, #fff);
+    box-shadow: -25px 20px 88px 0 rgba(var(--Main-color-rgb), 0.25);
+  }
+
+  &:hover {
+    svg {
+      left: 0;
+
+      background: var(--White, #fff);
+      box-shadow: -25px -10px 85px 0 rgba(var(--Main-color-rgb), 0.25);
+
+      path {
+        fill: var(--Main-color, #593dff);
+      }
+    }
+
+    .key-features__content {
+      background: var(--Main-color, #593dff);
+
+      .key-features__description {
+        color: var(--White, #fff);
+      }
+    }
+  }
+}

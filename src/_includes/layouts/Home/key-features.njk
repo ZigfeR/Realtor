@@ -1,0 +1,39 @@
+{% import "components/key-features-blocks/key-features-block.njk" as block %}
+
+<section class="key-features">
+  <div class="container container-key-features bg-realtor">
+    <!--  Заголовок ключевых особенностей -->
+    <div class="key-features-header">
+      <h2>Estate Agency <span>"Realtor"</span> Is This</h2>
+    </div>
+
+    <!-- Блоки ключевых особенностей -->
+    <div class="key-features-blocks-container">
+        {% set property = {
+        description: "The largest database of real estate sales and rentals",
+        image: "components/icon/hotel-svg.njk"   
+        } %}
+        {{ block.blockCard(property) }}
+
+        {% set property = {
+        description: "Favourable terms of cooperation for sellers and buyers",
+        image: "components/icon/partner-hand-svg.njk"   
+        } %}
+        {{ block.blockCard(property) }}
+
+        {% set property = {
+        description: "Consulting and legal support",
+        image: "components/icon/conversation-svg.njk"   
+        } %}
+        {{ block.blockCard(property) }}
+
+        {% set property = {
+        description: "Qualified staff",
+        image: "components/icon/customer-experience-svg.njk"   
+        } %}
+        {{ block.blockCard(property) }}
+    </div>
+
+  <div>
+</section>
+ 
