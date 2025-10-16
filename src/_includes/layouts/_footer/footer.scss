@@ -17,6 +17,13 @@
   line-height: map.get(vars.$h5, line-height);
   letter-spacing: map.get(vars.$h5, letter-spacing);
 
+  @media (max-width: 949px) {
+    font-size: map.get(vars.$h6, size);
+    font-weight: map.get(vars.$h6, weight);
+    line-height: map.get(vars.$h6, line-height);
+    letter-spacing: map.get(vars.$h6, letter-spacing);
+  }
+
   a {
     color: rgba(var(--White-rgb), 0.65);
 
@@ -29,6 +36,10 @@
     @include flex-container(flex, row, nowrap, unset, flex-start, 0);
     padding: 40px 70px 50px 70px;
 
+    @media (min-width: 950px) and (max-width: 1780px) {
+      padding: 30px 25px 40px 25px;
+    }
+
     .footer__top {
       @include flex-container(
         flex,
@@ -40,8 +51,17 @@
       );
       width: 100%;
 
+      @media (min-width: 950px) and (max-width: 1780px) {
+        gap: 25px;
+      }
+
+      @media (max-width: 949px) {
+        flex-direction: column;
+      }
+
       .footer__row-container {
         @include flex-container(flex, column, nowrap, unset, flex-start, 35px);
+        width: 100%;
 
         .footer__logo {
           @include flex-container(flex, row, nowrap, unset, center, 30px);
@@ -82,6 +102,14 @@
           @include flex-container(flex, column, nowrap, unset, flex-start, 5px);
 
           user-select: text;
+
+          br {
+            display: none;
+
+            @media (min-width: 950px) and (max-width: 1780px) {
+              display: block;
+            }
+          }
         }
 
         .footer__logo-list {
@@ -102,30 +130,59 @@
 
         .multi-logo {
           @include flex-container(flex, row, nowrap, unset, flex-start, 15px);
+
+          width: 100%;
+
+          @media (max-width: 949px) {
+            justify-content: center;
+          }
+          @media (max-width: 449px) {
+            flex-direction: column;
+            align-items: center;
+          }
         }
       }
 
       .footer__row-box {
         @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
 
+        width: 100%;
+
         div {
           @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+        }
+
+        @media (max-width: 949px) {
+          flex-direction: row;
         }
       }
     }
   }
 }
+
 /* Футер низ */
 .footer__bottom {
   background: var(--Content-color, #14142d);
   padding: 15px 70px;
   @include flex-container(flex, row, nowrap, unset, center, 0);
 
+  @media (max-width: 949px) {
+    padding: 15px;
+  }
+
   .container {
     @include flex-container(flex, row, nowrap, space-between, center, 0);
 
+    @media (max-width: 949px) {
+      flex-direction: column;
+    }
+
     .left {
       @include flex-container(flex, row, nowrap, space-between, center, 45px);
+
+      @media (max-width: 949px) {
+        flex-direction: column;
+      }
     }
 
     .copyright {
