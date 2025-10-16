@@ -128,7 +128,7 @@
       @include flex-container(flex, row, nowrap, space-between, center, 45px);
     }
 
-    .das {
+    .copyright {
       font-size: map.get(vars.$h6, size);
       font-weight: map.get(vars.$h6, weight);
       line-height: map.get(vars.$h6, line-height);
