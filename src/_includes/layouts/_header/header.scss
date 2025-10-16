@@ -76,6 +76,8 @@
         }
 
         .nav-link {
+          color: var(--Content-color, #14142d);
+
           &.active,
           &:hover {
             color: var(--Main-color); /* Цвет активной ссылки */

@@ -1,0 +1,33 @@
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
+@use "sass:map";
+
+/* ==========================
+   Раздел вкладок
+   ========================== */
+
+.top-cards-header {
+  @include flex-container(flex, row, nowrap, space-between, flex-end, 0);
+  width: 100%;
+  //   align-items: center;
+  //   padding: 80px 0 40px 0;
+
+  .top-cards-header-left {
+    @include flex-container(flex, row, nowrap, unset, flex-start, 45px);
+    align-items: center;
+
+    .top-cards-h2 {
+      .top-cards-h2-color {
+        color: var(--Main-color, #593dff);
+      }
+    }
+
+    .top-cards-top-container {
+      @include flex-container(flex, row, nowrap, unset, flex-start, 25px);
+    }
+  }
+}
+
+/* ==========================
+   Конец раздела вкладок
+   ========================== */

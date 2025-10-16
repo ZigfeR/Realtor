@@ -25,3 +25,12 @@ main {
   background-repeat: no-repeat;
   background-position: left top 30px;
 }
+
+a {
+  color: rgba(var(--Main-color-rgb), 0.6);
+  transition: color 0.3s ease; /* плавная анимация */
+
+  &:hover {
+    color: var(--Main-color, #593dff);
+  }
+}

@@ -18,11 +18,13 @@
   line-height: map.get(vars.$h5, line-height);
   letter-spacing: map.get(vars.$h5, letter-spacing);
 
-  color: var(--White, #fff);
+  color: var(--Content-color, #14142d);
+
+  @include flex-center(row, center, center);
 
   /* Базовый стиль */
   &.btn-primary {
-    @include flex-center(row, center, center);
+    color: var(--White, #fff);
 
     background-color: var(--Main-color, #593dff);
 
@@ -40,6 +42,21 @@
 
     &:hover {
       background-color: rgba(var(--White-rgb), 0.65);
+    }
+  }
+
+  /* Кнопки вкладки */
+  &.btn-tabs {
+    color: var(--Content-color, #14142d);
+    background-color: var(--White, #fff);
+    box-shadow: 0 4px 45px 0 rgba(89, 61, 255, 0.25);
+    padding: 12px 25px;
+
+    &:hover,
+    &.active {
+      color: var(--White, #fff);
+
+      background-color: var(--Main-color, #593dff);
     }
   }
 

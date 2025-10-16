@@ -13,6 +13,14 @@ body {
   letter-spacing: vars.$body-letter-spacing;
 }
 
+/* ====== ССЫЛКИ ====== */
+a {
+  font-size: map.get(vars.$h5, size);
+  font-weight: map.get(vars.$h5, weight);
+  line-height: map.get(vars.$h5, line-height);
+  letter-spacing: map.get(vars.$h5, letter-spacing);
+}
+
 /* ====== DESKTOP HEADINGS ====== */
 h1 {
   font-size: map.get(vars.$h1, size);

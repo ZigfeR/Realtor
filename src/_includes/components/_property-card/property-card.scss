@@ -1,47 +1,214 @@
-/* Стили для карточки товара */
 @use "../../../assets/scss/variables" as vars;
 @use "../../../assets/scss/mixins" as *;
+@use "sass:map";
 
-.properties {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-}
+/* ==========================
+   Карта товара
+   ========================== */
 
 .property-card {
-  background: var(--White, #fff);
+  width: 415px;
+  height: 510px;
+
   border-radius: var(--border-radius);
-  box-shadow: var(--card-shadow);
-  overflow: hidden; /* Для обрезки углов изображения */
-}
 
-.property-card__image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
-}
+  background: var(--White, #fff);
+  box-shadow: 0 10px 80px 0 rgba(var(--Main-color-rgb), 0.25);
 
-.property-card__content {
-  padding: 1rem;
-  text-align: center;
-}
+  font-size: map.get(vars.$h6, size);
+  font-weight: map.get(vars.$h6, weight);
+  line-height: map.get(vars.$h6, line-height);
+  letter-spacing: map.get(vars.$h6, letter-spacing);
 
-.property-card__title {
-  font-size: 1.5rem;
-  margin: 0.5rem 0;
-}
+  /* Блок "срочно" */
+  &.urgently {
+    box-shadow: 0 10px 80px 0 rgba(var(--Attracting-attention-color-rgb), 0.25);
 
-.property-card__description {
-  margin: 0.5rem 0;
-  color: var(--Content-color);
-}
+    .description__top-value-price {
+      color: var(--Attracting-attention-color, #e722aa);
+    }
+  }
 
-.property-card__price {
-  font-weight: bold;
-  color: var(--Main-color, #593dff);
-  display: block;
-  margin: 0.5rem 0;
+  /* Блок изображения */
+  .property-card__image-container {
+    display: flex;
+    position: relative;
+
+    height: 245px;
+    img {
+      width: 100%;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    .property-card__mark {
+      position: absolute;
+
+      display: flex;
+      padding: 9px 16px;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+
+      z-index: 10;
+
+      border-radius: var(--border-radius);
+      background: var(--Main-color, #593dff);
+      color: var(--White, #fff);
+
+      &.property-card__Exclusive,
+      &.property-card__Urgently {
+        bottom: -24px;
+        right: 20px;
+      }
+
+      &.property-card__Urgently {
+        background: var(--Attracting-attention-color, #e722aa);
+      }
+
+      &.property-card__New {
+        border-radius: 3px 15px 15px 3px;
+        box-shadow: 0 4px 20px 0 rgba(255, 255, 255, 0.15);
+        top: 16px;
+        left: -13px;
+
+        svg {
+          position: absolute;
+          left: 0;
+          bottom: -7px;
+        }
+      }
+      &.property-card__none {
+        border-radius: 3px 15px 15px 3px;
+        box-shadow: 0 4px 20px 0 rgba(255, 255, 255, 0.15);
+        top: 16px;
+        left: -13px;
+
+        svg {
+          position: absolute;
+          left: 0;
+          bottom: -7px;
+        }
+      }
+    }
+  }
+
+  /* Блок контента */
+  .property-card__content {
+    @include flex-container(flex, column, nowrap, unset, center, 22px);
+    padding: 40px 20px 35px 20px;
+
+    .property-card__description {
+      @include flex-container(flex, column, nowrap, unset, flex-start, 10px);
+      width: 100%;
+
+      .description__top {
+        @include flex-container(flex, row, nowrap, space-between, center, 0);
+        width: 100%;
+
+        .description__top-left {
+          @include flex-container(flex, row, nowrap, unset, center, 15px);
+
+          .description__top-value-price {
+            color: var(--Main-color, #593dff);
+
+            font-size: map.get(vars.$h3, size);
+            font-weight: map.get(vars.$h3, weight);
+            line-height: map.get(vars.$h3, line-height);
+            letter-spacing: map.get(vars.$h3, letter-spacing);
+          }
+
+          .description__top-price-info {
+            color: rgba(var(--Content-color-rgb), 0.6);
+          }
+        }
+
+        .description__top-value-id {
+          user-select: text;
+
+          color: rgba(var(--Main-color-rgb), 0.6);
+        }
+      }
+
+      .description__info {
+        font-size: map.get(vars.$h3, size);
+        font-weight: map.get(vars.$h3, weight);
+        line-height: map.get(vars.$h3, line-height);
+        letter-spacing: map.get(vars.$h3, letter-spacing);
+      }
+
+      .description__location {
+        .description__location-city {
+          @include flex-container(flex, row, nowrap, center, center, 10px);
+        }
+      }
+    }
+
+    /* Промежуточная линия */
+    .property-card__description-line {
+      width: 100%;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--Main-color, #593dff);
+      opacity: 0.2;
+    }
+
+    .property-card__details {
+      @include flex-container(flex, row, nowrap, flex-start, center, 25px);
+      width: 100%;
+
+      .details__block {
+        @include flex-center(row, center, center);
+        gap: 10px;
+
+        color: rgba(var(--Main-color-rgb), 0.6);
+      }
+    }
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease; /* плавная анимация */
+  }
+  // .container-top-cards {
+
+  //   &.container-top-selling {
+  //     padding: 0 70px;
+  //   }
+
+  //   &.container-top-rentals {
+  //     padding-bottom: 0;
+  //   }
+
+  //   .top-cards-container__top {
+  //     @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+  //     width: 100%;
+
+  //     p {
+  //       max-width: 1325px;
+  //       padding: 40px 0;
+
+  //       color: var(--Content-color, #14142d);
+
+  //       font-size: map.get(vars.$h4, size);
+  //       font-weight: map.get(vars.$h4, weight);
+  //       line-height: map.get(vars.$h4, line-height);
+  //       letter-spacing: map.get(vars.$h4, letter-spacing);
+  //     }
+  //   }
+  // }
+  // .top-cards-container__bottom {
+  //   @include flex-container(flex, row, nowrap, unset, flex-start, 40px);
+  //   width: 100%;
+
+  //   &.top-selling-bottom-container {
+  //     background: rgba(var(--Main-color-rgb), 0.05);
+  //     padding: 40px 70px 80px 70px;
+  //   }
+  //   &.top-rentals-bottom-container {
+  //     padding: 0 70px 70px 70px;
+  //   }
+  // }
 }
+/* ==========================
+   Конец карты товара
+   ========================== */

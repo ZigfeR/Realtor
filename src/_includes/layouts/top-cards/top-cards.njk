@@ -1,0 +1,20 @@
+{% import "components/tabs/tabs.njk" as tabs %}
+{% import "components/_property-card/property-card.njk" as card %}
+
+{% macro renderBlock(block) %}
+  <section class="top-section {{ block.sectionClass }}">
+    <div class="container container-top-cards container-{{ block.sectionClass }}">
+        <div class="top-cards-container__top 
+        {{ block.sectionClass }}-top-container">
+            {{ tabs.tabs(block.propertyTab) }}
+            <p>{{ block.text }}</p>
+        </div>
+    </div>
+    <div class="top-cards-container__bottom 
+    {{ block.sectionClass }}-bottom-container">
+        {% for cardItem in block.propertyCards %}
+          {{ card.propertyCard(cardItem) }}
+        {% endfor %}
+    </div>
+  </section>
+{% endmacro %}

@@ -1,16 +1,255 @@
 {# Создаем страницу Home #}
 {% extends "layouts/_base.njk" %}
 {% set title = "Home" %}
-{% set activePage = "/home" %}  {# Устанавливаем активную страницу #}
-{% set additional_styles = [
-  "../assets/scss/property-card.css"
-] %}  {# Устанавливаем список дополнительных стилей для этой страницы #}
+{% set activePage = "/home" %}
 
-{# Подключаем компонент  #}
+
+{% import "layouts/top-cards/top-cards.njk" as tabs %}
+
 {% block content %}
-  <!--  Первый экран -->
+  <!-- Первый экран -->
   {% include "layouts/Home/first-screen.njk" %}
-  <!--  Ключевые особенности -->
+
+  <!-- Ключевые особенности -->
   {% include "layouts/Home/key-features.njk" %}
+
+  <!-- Топ продаж -->
+  {% set sellingBlock = {
+    sectionClass: "top-selling",
+    text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable",
+    propertyTab: {
+      topName: "Selling",
+      link: "#",
+      buttons: [
+        { btnClassName: "top-cards-btn btn-tabs active", btnName: "Flats" },
+        { btnClassName: "top-cards-btn btn-tabs", btnName: "Mansions" },
+        { btnClassName: "top-cards-btn btn-tabs", btnName: "Offices" },
+        { btnClassName: "top-cards-btn btn-tabs", btnName: "Commercial Real Estate" },
+        { btnClassName: "top-cards-btn btn-tabs", btnName: "Garages" },
+        { btnClassName: "top-cards-btn btn-tabs", btnName: "Land" }
+      ]
+    },
+    propertyCards: [
+      {
+        images: [
+          "/assets/images/property-card/property1.jpg",
+          "/assets/images/property-card/property2.jpg",
+          "/assets/images/property-card/property3.jpg"
+        ],
+        image: "/assets/images/property-card/property2.jpg",
+        mark: "Exclusive",
+        markSVG: "components/icon/two-stars-svg.njk", 
+        topValuePrice: "88 000",
+        topPriceInfo: "for all",
+        topValueId: "23201",
+        description: "3-room flat, district Center",
+        locationCity: "Ivano-Frankivsk",
+        detailsBlocks: [
+          { detailsSVG: "components/icon/floor-svg.njk", 
+            detailsValue: "4/4" },
+          { detailsSVG: "components/icon/opened-door-svg.njk", 
+            detailsValue: "3" },
+          { detailsSVG: "components/icon/area-floor-size-svg.njk", 
+            detailsValue: "56 m²" }
+        ]
+      },
+      {
+        images: [
+          "/assets/images/property-card/property1.jpg",
+          "/assets/images/property-card/property2.jpg",
+          "/assets/images/property-card/property3.jpg"
+        ],
+        image: "/assets/images/property-card/property2.jpg",
+        topValuePrice: "61 500",
+        topPriceInfo: "for all",
+        topValueId: "23690",
+        description: "1-room flat, district Ivasyuka",
+        locationCity: "Ivano-Frankivsk",
+        detailsBlocks: [
+          { detailsSVG: "components/icon/floor-svg.njk", 
+            detailsValue: "8/10" },
+          { detailsSVG: "components/icon/opened-door-svg.njk", 
+            detailsValue: "1" },
+          { detailsSVG: "components/icon/bed-svg.njk", 
+            detailsValue: "1" },
+          { detailsSVG: "components/icon/area-floor-size-svg.njk", 
+            detailsValue: "42 m²" }
+        ]
+      },
+      {
+      className: "urgently",
+        images: [
+          "/assets/images/property-card/property1.jpg",
+          "/assets/images/property-card/property2.jpg",
+          "/assets/images/property-card/property3.jpg"
+        ],
+        image: "/assets/images/property-card/property2.jpg",
+        mark: "Urgently",
+        markSVG: "components/icon/hot-svg.njk", 
+        topValuePrice: "82 200",
+        topPriceInfo: "for all",
+        topValueId: "23483",
+        description: "1-room flat, district Center",
+        locationCity: "Ivano-Frankivsk",
+        detailsBlocks: [
+          { detailsSVG: "components/icon/floor-svg.njk", 
+            detailsValue: "3/11" },
+          { detailsSVG: "components/icon/opened-door-svg.njk", 
+            detailsValue: "1" },
+          { detailsSVG: "components/icon/bed-svg.njk", 
+            detailsValue: "1" },
+          { detailsSVG: "components/icon/area-floor-size-svg.njk", 
+            detailsValue: "48 m²" }
+        ]
+      },
+      {
+        images: [
+          "/assets/images/property-card/property1.jpg",
+          "/assets/images/property-card/property2.jpg",
+          "/assets/images/property-card/property3.jpg"
+        ],
+        image: "/assets/images/property-card/property2.jpg",
+        mark: "New",
+        markSVG: "components/icon/vector-new-svg.njk", 
+        topValuePrice: "118 000",
+        topPriceInfo: "for all",
+        topValueId: "23578",
+        description: "2-room flat, district Bam",
+        locationCity: "Ivano-Frankivsk",
+        detailsBlocks: [
+          { detailsSVG: "components/icon/floor-svg.njk", 
+            detailsValue: "5/10" },
+          { detailsSVG: "components/icon/opened-door-svg.njk", 
+            detailsValue: "2" },
+          { detailsSVG: "components/icon/bed-svg.njk", 
+            detailsValue: "1" },
+          { detailsSVG: "components/icon/area-floor-size-svg.njk", 
+            detailsValue: "69 m²" }
+        ]
+      }
+    ]
+  } %}
+  {{ tabs.renderBlock(sellingBlock) }}
+ 
+  <!-- Топ аренды -->
+  {% set rentalsBlock = {
+    sectionClass: "top-rentals",
+    text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable",
+    propertyTab: {
+      topName: "Rentals",
+      link: "#",
+      buttons: [
+        { btnClassName: "top-cards-btn btn-tabs active", btnName: "Flats" },
+        { btnClassName: "top-cards-btn btn-tabs", btnName: "Mansions" },
+        { btnClassName: "top-cards-btn btn-tabs", btnName: "Offices" },
+        { btnClassName: "top-cards-btn btn-tabs", btnName: "Commercial Real Estate" },
+        { btnClassName: "top-cards-btn btn-tabs", btnName: "Garages" },
+        { btnClassName: "top-cards-btn btn-tabs", btnName: "Land" }
+      ]
+    },
+    propertyCards: [
+      {
+        images: [
+          "/assets/images/property-card/property1.jpg",
+          "/assets/images/property-card/property2.jpg",
+          "/assets/images/property-card/property3.jpg"
+        ],
+        image: "/assets/images/property-card/property2.jpg",
+        mark: "none",
+        markSVG: "components/icon/sold-svg.njk", 
+        topValuePrice: "900",
+        topPriceInfo: "per month",
+        topValueId: "23201",
+        description: "2-room flat, district Center",
+        locationCity: "Ivano-Frankivsk",
+        detailsBlocks: [
+          { detailsSVG: "components/icon/floor-svg.njk", 
+            detailsValue: "3/4" },
+          { detailsSVG: "components/icon/opened-door-svg.njk", 
+            detailsValue: "2" },
+          { detailsSVG: "components/icon/bed-svg.njk", 
+            detailsValue: "1" },
+          { detailsSVG: "components/icon/area-floor-size-svg.njk", 
+            detailsValue: "66 m²" }
+        ]
+      },
+      {
+        images: [
+          "/assets/images/property-card/property1.jpg",
+          "/assets/images/property-card/property2.jpg",
+          "/assets/images/property-card/property3.jpg"
+        ],
+        image: "/assets/images/property-card/property2.jpg",
+        mark: "none",
+        markSVG: "components/icon/leased-svg.njk", 
+        topValuePrice: "700",
+        topPriceInfo: "per month",
+        topValueId: "23202",
+        description: "3-room flat, district Center",
+        locationCity: "Ivano-Frankivsk",
+        detailsBlocks: [
+          { detailsSVG: "components/icon/floor-svg.njk", 
+            detailsValue: "1/4" },
+          { detailsSVG: "components/icon/opened-door-svg.njk", 
+            detailsValue: "3" },
+          { detailsSVG: "components/icon/bed-svg.njk", 
+            detailsValue: "2" },
+          { detailsSVG: "components/icon/area-floor-size-svg.njk", 
+            detailsValue: "79 m²" }
+        ]
+      },
+      {
+        images: [
+          "/assets/images/property-card/property1.jpg",
+          "/assets/images/property-card/property2.jpg",
+          "/assets/images/property-card/property3.jpg"
+        ],
+        image: "/assets/images/property-card/property2.jpg",
+        mark: "none",
+        markSVG: "components/icon/on-deposit-svg.njk", 
+        topValuePrice: "1500",
+        topPriceInfo: "per month",
+        topValueId: "23203",
+        description: "1-room flat, district Center",
+        locationCity: "Ivano-Frankivsk",
+        detailsBlocks: [
+          { detailsSVG: "components/icon/floor-svg.njk", 
+            detailsValue: "2/6" },
+          { detailsSVG: "components/icon/opened-door-svg.njk", 
+            detailsValue: "1" },
+          { detailsSVG: "components/icon/bed-svg.njk", 
+            detailsValue: "1" },
+          { detailsSVG: "components/icon/area-floor-size-svg.njk", 
+            detailsValue: "36 m²" }
+        ]
+      },
+      {
+        images: [
+          "/assets/images/property-card/property1.jpg",
+          "/assets/images/property-card/property2.jpg",
+          "/assets/images/property-card/property3.jpg"
+        ],
+        image: "/assets/images/property-card/property2.jpg",
+        mark: "none",
+        markSVG: "components/icon/withdraw-svg.njk", 
+        topValuePrice: "2 000",
+        topPriceInfo: "per month",
+        topValueId: "23201",
+        description: "1-room flat, district Center",
+        locationCity: "Ivano-Frankivsk",
+        detailsBlocks: [
+          { detailsSVG: "components/icon/floor-svg.njk", 
+            detailsValue: "8/10" },
+          { detailsSVG: "components/icon/opened-door-svg.njk", 
+            detailsValue: "1" },
+          { detailsSVG: "components/icon/bed-svg.njk", 
+            detailsValue: "1" },
+          { detailsSVG: "components/icon/area-floor-size-svg.njk", 
+            detailsValue: "42 m²" }
+        ]
+      }
+    ]
+  } %}
+  {{ tabs.renderBlock(rentalsBlock) }}
   <script src="../assets/js/search-form.js"></script>
 {% endblock %}

@@ -1,0 +1,18 @@
+{% macro tabs(property) %}
+  <div class="top-cards-header">
+    <div class="top-cards-header-left">
+        <h2 class="top-cards-h2">
+            <span class="top-cards-h2-color">TOP</span>
+            {{ property.topName }}
+        </h2>
+        <div class="top-cards-top-container">
+        {% for button in property.buttons %}
+            <button class="btn {{ button.btnClassName }}">
+            {{ button.btnName }}
+            </button>
+        {% endfor %}
+        </div>
+    </div>
+    <a href="{{ property.link }}">View All</a>
+  </div>
+{% endmacro %}

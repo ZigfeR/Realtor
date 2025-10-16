@@ -1,12 +1,58 @@
-<!-- Макрос для карточки товара, принимает объект property -->
 {% macro propertyCard(property) %}
-  <article class="property-card">
-    <img src="{{ property.image }}" alt="{{ property.title }}" class="property-card__image">
+  <article class="property-card {{ property.className }}">
+    <div class="property-card__image-container">
+      {# Основа под сплайд #}
+      {# {% if property.images and property.images.length %}
+        {% for image in property.images %}
+          <img src="{{ image }}" alt="{{ property.locationCity }}" 
+          class="property-card__image">
+        {% endfor %}
+      {% endif %} #}
+      <img src="{{ property.image }}" alt="{{ property.locationCity }}" 
+      class="property-card__image">
+      {% if property.markSVG %}
+        <span class="property-card__{{ property.mark }} property-card__mark">
+          {% include property.markSVG %}
+          {{ property.mark }}
+          </span>
+      {% endif %}
+    </div>
     <div class="property-card__content">
-      <h2 class="property-card__title">{{ property.title }}</h2>
-      <p class="property-card__description">{{ property.description }}</p>
-      <span class="property-card__price">{{ property.price }}</span>
-      {% button "Подробнее", "btn-primary", 'onclick="handlePropertyClick()"' %}
+      <div class="property-card__description">
+        <div class="description__top">
+          <div class="description__top-left">
+            <span class="description__top-value-price">
+              $ {{ property.topValuePrice }}
+              </span>
+            <span class="description__top-price-info">
+              {{ property.topPriceInfo }}
+              </span>
+          </div>
+          <span class="description__top-value-id">
+            id {{ property.topValueId }}
+            </span>
+        </div>
+        <p class="description__info">{{ property.description }}</p>
+        <div class="description__location">
+          <span class="description__location-city">
+            {% include "components/icon/location-pointer-svg.njk" %}
+            {{ property.locationCity }}
+          </span>
+        </div>
+      </div>
+      <div class="property-card__description-line">
+
+      </div>
+      {% if property.detailsBlocks and property.detailsBlocks.length %}
+        <div class="property-card__details">
+          {% for detail in property.detailsBlocks %}
+            <div class="details__block">
+              {% include detail.detailsSVG %}
+              <span class="details__value">{{ detail.detailsValue }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
   </article>
-{% endmacro %} 
+{% endmacro %}

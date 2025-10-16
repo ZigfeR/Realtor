@@ -1,0 +1,55 @@
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
+@use "sass:map";
+
+/* ==========================
+   Секция ТОП
+   ========================== */
+.top-section {
+  user-select: none;
+
+  .container-top-cards {
+    @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+    padding: 70px;
+
+    &.container-top-selling {
+      padding: 0 70px;
+    }
+
+    &.container-top-rentals {
+      padding-bottom: 0;
+    }
+
+    .top-cards-container__top {
+      @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+      width: 100%;
+
+      p {
+        max-width: 1325px;
+        padding: 40px 0;
+
+        color: var(--Content-color, #14142d);
+
+        font-size: map.get(vars.$h4, size);
+        font-weight: map.get(vars.$h4, weight);
+        line-height: map.get(vars.$h4, line-height);
+        letter-spacing: map.get(vars.$h4, letter-spacing);
+      }
+    }
+  }
+  .top-cards-container__bottom {
+    @include flex-container(flex, row, nowrap, unset, flex-start, 40px);
+    width: 100%;
+
+    &.top-selling-bottom-container {
+      background: rgba(var(--Main-color-rgb), 0.05);
+      padding: 40px 70px 80px 70px;
+    }
+    &.top-rentals-bottom-container {
+      padding: 0 70px 70px 70px;
+    }
+  }
+}
+/* ==========================
+   Конец секции ТОП
+   ========================== */

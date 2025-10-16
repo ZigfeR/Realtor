@@ -74,5 +74,6 @@
 
   &:active {
     transform: translateY(1px);
+    transition: transform 0.3s ease; /* плавная анимация */
   }
 }
