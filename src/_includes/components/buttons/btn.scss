@@ -22,6 +22,15 @@
 
   @include flex-center(row, center, center);
 
+  @media (min-width: 950px) and (max-width: 1780px) {
+    font-size: map.get(vars.$h6, size) !important;
+    font-weight: map.get(vars.$h6, weight) !important;
+    line-height: map.get(vars.$h6, line-height) !important;
+    letter-spacing: map.get(vars.$h6, letter-spacing) !important;
+
+    padding: 9px 36px;
+  }
+
   /* Базовый стиль */
   &.btn-primary {
     color: var(--White, #fff);

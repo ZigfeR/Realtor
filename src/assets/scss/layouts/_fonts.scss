@@ -65,7 +65,7 @@ h6 {
 }
 
 /* ====== TABLET ====== */
-@media (min-width: 480px) and (max-width: 1023px) {
+@media (min-width: 950px) and (max-width: 1780px) {
   body {
     font-size: map.get(vars.$body-tablet, size);
     line-height: map.get(vars.$body-tablet, line-height);
@@ -103,7 +103,7 @@ h6 {
 }
 
 /* ====== MOBILE ====== */
-@media (max-width: 479px) {
+@media (max-width: 949px) {
   body {
     font-size: map.get(vars.$body-mobile, size);
     line-height: map.get(vars.$body-mobile, line-height);
