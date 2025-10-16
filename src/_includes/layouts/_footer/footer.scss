@@ -1,27 +1,147 @@
 /* Стили для футера */
 @use "../../../assets/scss/variables" as vars;
 @use "../../../assets/scss/mixins" as *;
+@use "sass:map";
 
 /* ==========================
    Футер
    ========================== */
 .footer {
-  background-color: var(--secondary-color);
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    a {
-      color: white;
-      text-decoration: none;
+  user-select: none;
+
+  background: rgba(var(--Content-color-rgb), 0.8);
+  color: var(--White, #fff);
+
+  font-size: map.get(vars.$h5, size);
+  font-weight: map.get(vars.$h5, weight);
+  line-height: map.get(vars.$h5, line-height);
+  letter-spacing: map.get(vars.$h5, letter-spacing);
+
+  a {
+    color: rgba(var(--White-rgb), 0.65);
+
+    &:hover {
+      color: var(--White, #fff);
+    }
+  }
+
+  .container-footer {
+    @include flex-container(flex, row, nowrap, unset, flex-start, 0);
+    padding: 40px 70px 50px 70px;
+
+    .footer__top {
+      @include flex-container(
+        flex,
+        row,
+        nowrap,
+        space-between,
+        flex-start,
+        40px
+      );
+      width: 100%;
+
+      .footer__row-container {
+        @include flex-container(flex, column, nowrap, unset, flex-start, 35px);
+
+        .footer__logo {
+          @include flex-container(flex, row, nowrap, unset, center, 30px);
+
+          svg {
+            width: 110.636px;
+            height: 87.063px;
+
+            path {
+              fill: var(--White, #fff);
+            }
+          }
+
+          .logo-box {
+            @include flex-container(flex, column, nowrap, center, center, 0);
+
+            .logo-span-main {
+              font-family: Buenard;
+              font-size: 27px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+              letter-spacing: 0.54px;
+            }
+            .logo-span-sub {
+              font-family: Alexandria;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: normal;
+              letter-spacing: 0.96px;
+              text-transform: capitalize;
+            }
+          }
+        }
+
+        .footer__logo-address {
+          @include flex-container(flex, column, nowrap, unset, flex-start, 5px);
+
+          user-select: text;
+        }
+
+        .footer__logo-list {
+          @include flex-container(flex, column, nowrap, unset, flex-start, 5px);
+        }
+
+        .footer__logo-social {
+          @include flex-container(flex, row, nowrap, unset, flex-start, 25px);
+
+          svg {
+            &:hover {
+              path {
+                fill: var(--Content-color, #14142d);
+              }
+            }
+          }
+        }
+
+        .multi-logo {
+          @include flex-container(flex, row, nowrap, unset, flex-start, 15px);
+        }
+      }
+
+      .footer__row-box {
+        @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
+
+        div {
+          @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+        }
+      }
     }
   }
 }
-/* ==========================
-   Конец футера
-   ========================== */
+/* Футер низ */
+.footer__bottom {
+  background: var(--Content-color, #14142d);
+  padding: 15px 70px;
+  @include flex-container(flex, row, nowrap, unset, center, 0);
+
+  .container {
+    @include flex-container(flex, row, nowrap, space-between, center, 0);
+
+    .left {
+      @include flex-container(flex, row, nowrap, space-between, center, 45px);
+    }
+
+    .das {
+      font-size: map.get(vars.$h6, size);
+      font-weight: map.get(vars.$h6, weight);
+      line-height: map.get(vars.$h6, line-height);
+      letter-spacing: map.get(vars.$h6, letter-spacing);
+    }
+  }
+
+  &,
+  a {
+    color: rgba(var(--White-rgb), 0.65);
+  }
+
+  a:hover {
+    color: var(--White, #fff);
+  }
+}
