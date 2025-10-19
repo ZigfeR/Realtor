@@ -38,7 +38,7 @@
     }
   }
   .top-cards-container__bottom {
-    @include flex-container(flex, row, nowrap, unset, flex-start, 40px);
+    @include flex-container(flex, row, nowrap, center, center, 40px);
     width: 100%;
 
     &.top-selling-bottom-container {

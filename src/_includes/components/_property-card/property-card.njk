@@ -14,6 +14,11 @@
         <span class="property-card__{{ property.mark }} property-card__mark">
           {% include property.markSVG %}
           {{ property.mark }}
+        </span>
+      {% endif %}
+      {% if property.markSVGp %}
+          <span class="property-card__{{ property.markp }}">
+            {% include property.markSVGp %}
           </span>
       {% endif %}
     </div>
