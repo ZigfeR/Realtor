@@ -1,0 +1,25 @@
+/* Стили для рекламы */
+@use "../../assets/scss/variables" as vars;
+@use "../../assets/scss/mixins" as *;
+@use "sass:map";
+
+/* ==========================
+   Реклама
+   ========================== */
+.section-ads {
+  user-select: none;
+
+  background: var(--White, #fff);
+
+  .container-ads {
+    @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
+    padding: 70px 45px;
+    height: 355px;
+    background-image: url("/assets/images/ads/ads.png");
+    background-repeat: no-repeat;
+
+    h1 {
+      color: #fff;
+    }
+  }
+}
