@@ -25,15 +25,6 @@
       @include flex-container(flex, column, wrap, unset, flex-start, 50px);
       max-width: 870px;
 
-      h1 {
-        align-items: center;
-        align-self: stretch;
-
-        span {
-          color: var(--Main-color, #593dff);
-        }
-      }
-
       p {
         color: var(--Content-color, #14142d);
 

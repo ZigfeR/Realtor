@@ -26,12 +26,6 @@
         @include flex-container(flex, row, nowrap, space-between, center, 0);
         width: 100%;
 
-        .review-h2 {
-          .review-h2-color {
-            color: var(--Main-color, #593dff);
-          }
-        }
-
         div {
           @include flex-container(flex, row, nowrap, unset, center, 45px);
         }

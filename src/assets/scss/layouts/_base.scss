@@ -34,3 +34,13 @@ a {
     color: var(--Main-color, #593dff);
   }
 }
+
+/* Базовый стиль заголовков */
+.global-h {
+  align-items: center;
+  align-self: stretch;
+
+  .global-h-color {
+    color: var(--Main-color, #593dff);
+  }
+}

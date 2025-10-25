@@ -16,12 +16,6 @@
     @include flex-container(flex, row, nowrap, unset, flex-start, 45px);
     align-items: center;
 
-    .top-cards-h2 {
-      .top-cards-h2-color {
-        color: var(--Main-color, #593dff);
-      }
-    }
-
     .top-cards-top-container {
       @include flex-container(flex, row, nowrap, unset, flex-start, 25px);
     }
