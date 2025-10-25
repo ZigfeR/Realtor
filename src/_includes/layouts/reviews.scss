@@ -1,0 +1,127 @@
+/* Стили для обзоров */
+@use "../../assets/scss/variables" as vars;
+@use "../../assets/scss/mixins" as *;
+@use "sass:map";
+
+/* ==========================
+   Обззоры
+   ========================== */
+.reviews {
+  user-select: none;
+
+  background: var(--White, #fff);
+
+  .container-reviews {
+    @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+    // padding: 70px 40px;
+    // padding-bottom: 0;
+
+    .review-header {
+      @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
+      width: 100%;
+      padding: 70px 40px;
+      padding-bottom: 20px;
+
+      .review-header-top {
+        @include flex-container(flex, row, nowrap, space-between, center, 0);
+        width: 100%;
+
+        .review-h2 {
+          .review-h2-color {
+            color: var(--Main-color, #593dff);
+          }
+        }
+
+        div {
+          @include flex-container(flex, row, nowrap, unset, center, 45px);
+        }
+      }
+
+      .review-header-bottom {
+        @include flex-center(row, center, center);
+
+        max-width: 1325px;
+      }
+    }
+  }
+
+  .review-body {
+    background: rgba(var(--Main-color-rgb), 0.05);
+    padding: 40px 0;
+    // padding-bottom: 120px;
+
+    .container-review-body {
+      @include flex-container(flex, row, nowrap, space-between, flex-start, 0);
+
+      .review-body-left-container {
+        @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+        width: 485px;
+
+        .left-container-box {
+          @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+
+          position: relative;
+
+          .color-box {
+            width: 300px;
+            height: 320px;
+
+            border-radius: 0 35px 35px 0;
+            background: var(--Main-color, #593dff);
+          }
+
+          .left-container-box-img {
+            position: absolute;
+            top: 15px;
+            left: 70px;
+            max-width: unset;
+
+            /* стартовое состояние — справа и невидим */
+            transform: translateX(200px);
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+
+            &.active {
+              transform: translateX(0);
+              opacity: 1;
+            }
+          }
+        }
+
+        .left-container-box-p {
+          padding: 80px 70px;
+          padding-bottom: 0;
+
+          .box-p {
+            color: var(--Content-color, #14142d);
+            font-size: map.get(vars.$h5, size);
+            font-weight: map.get(vars.$h5, weight);
+            line-height: map.get(vars.$h5, line-height);
+            letter-spacing: map.get(vars.$h5, letter-spacing);
+
+            .box-p-color {
+              color: var(--Main-color, #593dff);
+            }
+
+            .box-p-color,
+            .box-p-bold {
+              font-size: map.get(vars.$h3, size);
+              font-weight: map.get(vars.$h3, weight);
+              line-height: map.get(vars.$h3, line-height);
+              letter-spacing: map.get(vars.$h3, letter-spacing);
+            }
+          }
+        }
+
+        .pagination {
+          padding-left: 70px;
+        }
+      }
+    }
+
+    .review-cards {
+      @include flex-container(flex, row, nowrap, unset, center, 40px);
+      padding: 115px 0 25px 0;
+    }
+  }
+}

@@ -1,0 +1,151 @@
+/* Стили для обзоров */
+@use "../../assets/scss/variables" as vars;
+@use "../../assets/scss/mixins" as *;
+@use "sass:map";
+
+/* ==========================
+   Карточка отзывов
+   ========================== */
+.review-card {
+  @include flex-container(flex, column, nowrap, unset, flex-start, 20px);
+
+  width: 415px;
+  height: 450px;
+
+  padding: 15px 30px 30px 30px;
+
+  border-radius: 35px;
+  background: #fff;
+  box-shadow: -25px 20px 88px 0 rgba(var(--Main-color-rgb), 0.25);
+
+  .review-card__header {
+    position: relative;
+    @include flex-container(flex, row, nowrap, flex-end, center, 0);
+    width: 100%;
+
+    .avatar-wrapper {
+      position: absolute;
+      width: 102px;
+      height: 102px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--Main-color, #593dff);
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      top: -73px;
+      left: 20px;
+      z-index: 1;
+
+      .avatar {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+      }
+    }
+
+    // задний фон аватара копия
+    .avatar-copy {
+      position: absolute;
+
+      width: 120px;
+      height: 120px;
+      top: -91px;
+      left: 11px;
+    }
+
+    // задний фон аватара перекрытие
+    &::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 30px;
+      top: 0;
+      left: 10px;
+      background-color: var(--White, #fff);
+    }
+
+    //звезды
+    .stars {
+      display: flex;
+      flex-direction: row-reverse; /* чтобы звезды шли справа налево */
+      gap: 3px;
+
+      .star {
+        width: 28px;
+        height: 28px;
+
+        & svg path {
+          fill: rgba(var(--Main-color-rgb), 0.45);
+        }
+        &.filled svg path {
+          fill: var(--Main-color, #593dff);
+        }
+      }
+    }
+  }
+
+  .review-card__body {
+    @include flex-container(flex, column, nowrap, space-between, flex-start, 0);
+    height: 100%;
+
+    .review-card__body-top {
+      @include flex-container(
+        flex,
+        column,
+        nowrap,
+        space-between,
+        flex-start,
+        0
+      );
+
+      .persona-comment {
+        display: -webkit-box;
+        line-clamp: 7;
+        -webkit-line-clamp: 7;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .persona-name {
+        font-size: map.get(vars.$h3, size);
+        font-weight: map.get(vars.$h3, weight);
+        line-height: map.get(vars.$h3, line-height);
+        letter-spacing: map.get(vars.$h3, letter-spacing);
+      }
+
+      .persona-comment {
+        font-size: map.get(vars.$h5, size);
+        font-weight: map.get(vars.$h5, weight);
+        line-height: map.get(vars.$h5, line-height);
+        letter-spacing: map.get(vars.$h5, letter-spacing);
+      }
+    }
+
+    .review-card__body-bottom {
+      @include flex-container(flex, row, nowrap, space-between, center, 0);
+      width: 100%;
+
+      .review-date {
+        color: rgba(var(--Content-color-rgb), 0.6);
+
+        font-size: map.get(vars.$h6, size);
+        font-weight: map.get(vars.$h6, weight);
+        line-height: map.get(vars.$h6, line-height);
+        letter-spacing: map.get(vars.$h6, letter-spacing);
+      }
+
+      .review-read-more {
+        cursor: pointer;
+        color: var(--Main-color, #593dff);
+
+        font-size: map.get(vars.$h5, size);
+        font-weight: map.get(vars.$h5, weight);
+        line-height: map.get(vars.$h5, line-height);
+        letter-spacing: map.get(vars.$h5, letter-spacing);
+      }
+    }
+  }
+}

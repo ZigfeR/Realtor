@@ -1,0 +1,54 @@
+{% import "components/review-cards/review-cards.njk" as cards %}
+
+{% macro renderBlockReview(block) %}
+  <section class="reviews">
+    <div class="container container-reviews">
+        <div class="review-header">
+            <div class="review-header-top">
+                <h2 class="review-h2">
+                    <span class="review-h2-color">Feedback</span>
+                    from Our Clients
+                </h2>
+                <div>
+                    <button class="btn btn-primary btn-review">+ Write Review</button>
+                    <a href="#">View All</a>
+                </div>
+            </div>
+            <div class="review-header-bottom">
+                <p>We are very grateful to our customers for their cooperation 
+                    and will be glad to meet again. You can also leave your 
+                    impressions after working with us!</p>
+            </div>
+        </div>
+    </div>
+    <div class="review-body">
+        <div class="container container-review-body">
+            <div class="review-body-left-container">
+                    <div class="left-container-box">
+                        <div class="color-box"></div>
+                        <img class="left-container-box-img" src="/assets/images/image-review-block.png" alt="dialogs" />
+                    </div>
+                    <div class="left-container-box-p">
+                        <p class="box-p">
+                        Overall rating
+                        <span class="box-p-color">5</span>
+                        <span class="box-p-bold">of</span>
+                        <span class="box-p-color">5</span>.
+                        </p>
+                        <p class="box-p">
+                        Total votes:
+                        <span class="box-p-color">{{ block.totalVotes }}</span>
+                        </p>
+                    </div>
+                    <div class="pagination"></div>
+            </div>
+            <div class="review-cards">
+                {% for cardItem in block.propertyCards %}
+                    {{ cards.reviewCard(cardItem) }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+  </section>
+{% endmacro %}
+

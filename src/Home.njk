@@ -5,6 +5,7 @@
 
 
 {% import "layouts/top-cards/top-cards.njk" as tabs %}
+{% import "layouts/reviews.njk" as reviews %}
 
 {% block content %}
   <!-- Первый экран -->
@@ -254,6 +255,40 @@
 
   <!-- Блок рекламы -->
   {% include "layouts/ads.njk" %}
+
+  <!-- Отзывы -->
+  {% set reviewsBlock = {
+    totalVotes: "40",
+    propertyCards: [
+      {
+      image: "/assets/images/avatars/avatar1.png",
+      name: "Alina",
+      comment: "I sincerely thank your agency, especially Marina Kujawski for 
+      the promptness in finding housing for our needs. We, immigrants from Kherson,
+      the promptness in finding housing for our needs. We, immigrants from Kherson,
+      have been looking for affordable housing in the place for almost a month...",
+      date: "May 27, 2022",
+      stars: "5"
+      },
+      {
+      image: "/assets/images/avatars/avatar2.png",
+      name: "Vitaly Petrovich",
+      comment: "The best company in Ivano-Frankivsk, but there is room for improvement.",
+      date: "October 5, 2023",
+      stars: "4"
+      },
+      {
+      image: "/assets/images/avatars/avatar3.png",
+      name: "Roman Oliynyk",
+      comment: "Thank you very much for your help in finding an apartment! 
+      I really liked the approach to the client and the precise work. 
+      I have recommended the agency's services to more than one friend",
+      date: "May 27, 2022",
+      stars: "5"
+      }
+    ]
+  } %}
+  {{ reviews.renderBlockReview(reviewsBlock) }}
 
   <script src="../assets/js/search-form.js"></script>
 {% endblock %}
