@@ -1,0 +1,41 @@
+{% macro partners(property) %}
+    <section class="partners">
+        <div class="container container-partners">
+            <div class="partners-header">
+                <div class="partners-header-top">
+                    <h2 class="global-h">
+                        Our 
+                        <span class="global-h-color">
+                        Partners
+                        </span>
+                    </h2>
+                    <a href="#">View All</a>
+                </div>
+                <div class="partners-header-bottom">
+                    {% for images in property.logo %}
+                        <img src="{{ images.image }}" alt="{{ images.imageName }}" 
+                        class="partners__image">
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="partners-body">
+                <div class="container container-partners-body">
+                    {% for images in property.images %}
+                        <div class="partners-body-box">
+                            <img src="{{ images.image }}" 
+                            alt="{{ images.imageName }}" class="partners__image">
+                            <p>
+                                {% if images.markSVG is defined and images.markSVG %}
+                                    {% include images.markSVG %}
+                                {% endif %}
+                                {{ images.text }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+ 
+ 

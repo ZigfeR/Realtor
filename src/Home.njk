@@ -6,6 +6,8 @@
 
 {% import "layouts/top-cards/top-cards.njk" as tabs %}
 {% import "layouts/reviews.njk" as reviews %}
+{% import "layouts/Home/partners.njk" as partners %}
+
 
 {% block content %}
   <!-- Первый экран -->
@@ -291,7 +293,50 @@
   {{ reviews.renderBlockReview(reviewsBlock) }}
 
   <!-- Партнеры -->
-  {% include "layouts/ads.njk" %}
+   {% set propertyImg = {
+        logo: [
+        {
+          image: "/assets/images/property-card/property1.jpg",
+          imageName: "Наше Мисто"
+        },
+        {
+          image: "/assets/images/property-card/property2.jpg",
+          imageName: "Doom2000"
+        },
+        {
+          image: "/assets/images/property-card/property3.jpg",
+          imageName: "ibud"
+        },
+        {
+          image: "/assets/images/property-card/property1.jpg",
+          imageName: "vox"
+        }
+        ],
+        images: [
+        {
+          image: "/assets/images/property-card/property1.jpg",
+          imageName: "Luxury Real Estate",
+          text: "Luxury Real Estate"
+        },
+        {
+          image: "/assets/images/property-card/property2.jpg",
+          imageName: "Real Estate in the Carpathians",
+          text: "Real Estate in the Carpathians"
+        },
+        {
+          image: "/assets/images/property-card/property3.jpg",
+          imageName: "Exclusives",
+          markSVG: "components/icon/two-stars-svg.njk",
+          text: "Exclusives"
+        },
+        {
+          image: "/assets/images/property-card/property1.jpg",
+          imageName: "Investment Projects",
+          text: "Investment Projects"
+        }
+        ]
+  } %}
+  {{ partners.partners(propertyImg) }}
 
   <!-- Партнеры -->
   {% include "layouts/ads.njk" %}
