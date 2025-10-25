@@ -7,6 +7,7 @@
 {% import "layouts/top-cards/top-cards.njk" as tabs %}
 {% import "layouts/reviews.njk" as reviews %}
 {% import "layouts/Home/partners.njk" as partners %}
+{% import "layouts/Home/why-choose-us.njk" as chooseUs %}
 
 
 {% block content %}
@@ -338,11 +339,33 @@
   } %}
   {{ partners.partners(propertyImg) }}
 
-  <!-- Партнеры -->
-  {% include "layouts/ads.njk" %}
-
-  <!-- Почему выбирают нас? -->
-  {% include "layouts/ads.njk" %}
+   <!-- Почему выбирают нас? -->
+   {% set propertyChooseUs = {
+        arrow: "components/icon/arrow-block-svg.njk",
+        paragrafs: [
+        {
+          markSVG: "components/icon/maximum-transaction-security-svg.njk",
+          markText: "Maximum transaction security",
+          paragraf: "We guarantee the legal purity of each transaction. We 
+          check documents, accompany the client at all stages and protect 
+          against risks"
+        },
+        {
+          markSVG: "components/icon/home-site-svg.njk",
+          markText: "Large database of verified objects",
+          paragraf: "Access to exclusive market offers! We know where to find 
+          the perfect apartment or house for your requirements"
+        },
+        {
+          markSVG: "components/icon/saving-your-time-svg.njk",
+          markText: "Saving your time",
+          paragraf: "We take care of all the hassle: selection, viewings, 
+          negotiations, and closing the deal. All you have to do is take the 
+          keys to your ideal home!"
+        }
+        ]
+  } %}
+  {{ chooseUs.chooseUs(propertyChooseUs) }}
 
   <!-- Достижения -->
   {% include "layouts/ads.njk" %}

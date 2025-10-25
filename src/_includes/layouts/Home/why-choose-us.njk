@@ -1,0 +1,42 @@
+{% macro chooseUs(property) %}
+    <section class="chooseUs">
+        <div class="container container-chooseUs">
+            <div class="partners-header">
+                <h2 class="global-h">
+                    Why 
+                    <span class="global-h-color">
+                    Choose
+                    </span>
+                     Us?
+                </h2>
+            </div>
+            <div class="chooseUs-body">
+                <div class="container container-chooseUs-body">
+                    <div class="container-chooseUs-block">
+                        {% for paragrafs in property.paragrafs %}
+                            <div class="chooseUs-box">
+                                <div class="chooseUs-box-shadow">
+                                    <div class="svg-container">
+                                        {% include paragrafs.markSVG %}
+                                    </div>
+                                    <p class="box-shadow-p">
+                                        {{ paragrafs.markText }}
+                                    </p>
+                                </div>
+                                <div class="chooseUs-box-content">
+                                    <p class="box-content-p">
+                                        {{ paragrafs.paragraf }}
+                                    </p>
+                                    {% include property.arrow %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <img src="" alt="Почему выбирают нас">
+                </div>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+ 
+ 
