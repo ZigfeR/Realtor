@@ -1,7 +1,9 @@
 /* ==========================
     Base Styles
    ========================== */
-@use "../variables" as vars;
+@use "_variables" as vars;
+@use "_mixins" as *;
+@use "sass:color";
 
 html,
 body {
