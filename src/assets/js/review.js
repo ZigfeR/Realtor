@@ -32,19 +32,27 @@ starsContainers.forEach((container) => {
   }
 });
 
-//Анимация изображения при скролле
-const element = document.querySelector(".left-container-box-img");
+// Анимация при скролле: цветной блок + изображение
+const triggers = document.querySelectorAll(".left-container-box");
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        element.classList.add("active");
-        observer.unobserve(element); // чтобы не повторялось
-      }
-    });
-  },
-  { threshold: 0.3 }
-); // 0.3 = активируется при 30% видимости
+triggers.forEach((container) => {
+  const colorBox = container.querySelector(".color-box");
+  const image = container.querySelector(".left-container-box-img");
 
-observer.observe(element);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Активируем оба — но с задержкой в CSS
+          colorBox?.classList.add("active");
+          image?.classList.add("active");
+
+          observer.unobserve(container);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  observer.observe(container);
+});
