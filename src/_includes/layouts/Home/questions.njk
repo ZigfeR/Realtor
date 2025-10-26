@@ -1,0 +1,75 @@
+{% set faqData = [
+  {
+    question: "How can I contact a realtor?",
+    answer: "You can call us at <strong>+380 123 456 789</strong> or fill out the contact form.",
+    open: true
+  },
+  {
+    question: "What happens if my booking is cancelled?",
+    answer: "You will receive a full refund within 3–5 business days."
+  },
+  {
+    question: "How do I determine the rental value of my property?",
+    answer: "We conduct a free market analysis based on location, condition, and demand."
+  },
+  {
+    question: "Can I insure my apartment against damage caused by rent?",
+    answer: "Yes, we offer insurance packages starting at $10/month."
+  },
+  {
+    question: "How does the lease extension procedure work?",
+    answer: "You need to notify us 30 days before the end of the contract."
+  }
+] %}
+
+<!-- 1. ОПРЕДЕЛЯЕМ МАКРОС -->
+{% macro faq(items) %}
+  <div class="faq">
+    <div class="container">
+      {% for item in items %}
+        <details class="faq-item" {% if item.open %}open{% endif %}>
+          <summary class="faq-question">
+            {{ item.question }}
+            <span class="faq-icon">
+              {% include "components/icon/arrow-block-svg.njk" %}
+            </span>
+          </summary>
+          <div class="faq-answer">
+            <p>{{ item.answer | safe }}</p>
+          </div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+{% endmacro %}
+
+<!-- 2. ИСПОЛЬЗУЕМ СЕКЦИЮ -->
+<section class="questions">
+  <div class="container container-questions">
+    <!-- Заголовок -->
+    <div class="questions-header">
+      <div class="questions-header-top">
+        <h2 class="questions-h2 global-h">
+          General  
+          <span class="questions-h2-color global-h-color">Questions</span>
+        </h2>
+        <a href="#">View All</a>
+      </div>
+      <div class="questions-header-bottom">
+        <p>
+          Here you will find the most frequently asked questions about our agency. 
+          If you did not find what you were looking for, perhaps your question will be found on the 
+          <a href="#">FAQ</a> page or you can ask your question there.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Тело с FAQ -->
+  <div class="questions-body">
+    <div class="container container-questions-cards">
+      <!-- 3. ВЫЗЫВАЕМ МАКРОС -->
+      {{ faq(faqData) }}
+    </div>
+  </div>
+</section>
