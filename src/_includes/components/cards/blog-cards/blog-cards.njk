@@ -1,0 +1,21 @@
+{% macro blogCard(property) %}
+    <div class="blog-card">
+        <div class="blog-card__header">
+            <img src="{{ property.image }}" class="blog-card__img" 
+            alt="{{ property.alt }}" />
+            <p class="blog-category">{{ property.category }}</p>
+        </div>
+        <div class="blog-card__body">
+          <div class="blog-card__body-top">
+            <p class="blog-card__theme">{{ property.theme }}</p>
+            <p class="blog-card__comment">
+              {{ property.comment }}
+            </p>
+          </div>
+          <div class="blog-card__body-bottom">
+            <p class="blog-date">{{ property.date }}</p>
+            <a href="{{ property.url }}" class="blog-read-more">Read More</a>
+          </div>
+        </div>
+    </div>
+{% endmacro %}

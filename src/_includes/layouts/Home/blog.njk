@@ -1,0 +1,31 @@
+{% import "components/cards/blog-cards/blog-cards.njk" as cards %}
+
+{% macro renderBlockBlog(block) %}
+  <section class="blogs">
+    <div class="container container-blogs">
+        <div class="blog-header">
+            <div class="blog-header-top">
+                <h2 class="blog-h2 global-h">
+                    Our 
+                    <span class="blog-h2-color global-h-color">Blog</span>
+                </h2>
+                <a href="#">View All</a>
+            </div>
+            <div class="blog-header-bottom">
+                <p>There are many variations of passages of Lorem Ipsum available, 
+                    but the majority have suffered alteration in some form, 
+                    by injected humour, or randomised words which don't look 
+                    even slightly believable</p>
+            </div>
+        </div>
+    </div>
+    <div class="blog-body">
+        <div class="container container-blog-cards">
+            {% for cardItem in block.propertyCards %}
+                {{ cards.blogCard(cardItem) }}
+            {% endfor %}
+        </div>
+    </div>
+  </section>
+{% endmacro %}
+

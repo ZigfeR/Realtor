@@ -9,6 +9,7 @@
 {% import "layouts/Home/partners.njk" as partners %}
 {% import "layouts/Home/why-choose-us.njk" as chooseUs %}
 {% import "layouts/Home/valued-customers.njk" as customers %}
+{% import "layouts/Home/blog.njk" as blogs %}
 
 
 {% block content %}
@@ -395,7 +396,21 @@
   {{ customers.customers(propertyImgCustomers) }}
 
   <!-- Блоги -->
-  {% include "layouts/ads.njk" %}
+  {% set blogsBlock = {
+    propertyCards: [
+      {
+      image: "/assets/images/avatars/avatar1.png",
+      name: "Alina",
+      comment: "I sincerely thank your agency, especially Marina Kujawski for 
+      the promptness in finding housing for our needs. We, immigrants from Kherson,
+      the promptness in finding housing for our needs. We, immigrants from Kherson,
+      have been looking for affordable housing in the place for almost a month...",
+      date: "May 27, 2022",
+      stars: "5"
+      }
+    ]
+  } %}
+  {{ blogs.renderBlockBlog(blogsBlock) }}
 
   <!-- Вопросы -->
   {% include "layouts/ads.njk" %}
