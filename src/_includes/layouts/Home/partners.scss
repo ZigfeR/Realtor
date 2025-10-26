@@ -1,0 +1,127 @@
+@use "../../assets/scss/variables" as vars;
+@use "../../assets/scss/mixins" as *;
+@use "sass:map";
+
+/* ==========================
+   Партнеры
+   ========================== */
+.partners {
+  user-select: none;
+  padding: 80px 40px;
+
+  .container-partners {
+    @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+
+    .partners-header {
+      @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
+      width: 100%;
+      padding: 70px 50px;
+      padding-bottom: 120px;
+
+      .partners-header-top {
+        @include flex-container(flex, row, nowrap, space-between, center, 0);
+        width: 100%;
+      }
+
+      .partners-header-bottom {
+        @include flex-container(flex, row, nowrap, space-around, center, 0);
+        width: 100%;
+
+        .partners__image {
+          cursor: pointer;
+          position: relative;
+          width: 294px;
+          height: 99px;
+          object-fit: contain;
+          display: block;
+          background: var(--White, #fff);
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.08);
+          }
+        }
+      }
+    }
+  }
+
+  .partners-body {
+    position: relative;
+
+    // Фиолетовая полоса на заднем плане
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 210px; // высота полосы
+      background: var(--Main-color, #593dff);
+    }
+
+    .container-partners-body {
+      @include flex-container(flex, row, nowrap, center, center, 40px);
+      position: relative;
+      height: 325px;
+
+      .partners-body-box {
+        @include flex-container(flex, row, nowrap, center, flex-start, 0);
+
+        background: var(--White, #fff);
+        box-shadow: -25px 20px 88px 0 rgba(var(--Main-color-rgb), 0.25);
+
+        border-radius: var(--border-radius);
+        text-align: center;
+        transition: transform 0.3s ease;
+        position: relative;
+        width: 415px;
+        height: 247px;
+        padding: 153px 30px 30px 30px;
+        flex-shrink: 0;
+        margin-top: 100px;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+
+        .partners__image {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 313px;
+          height: auto;
+          object-fit: contain;
+
+          &.luxury {
+            top: 12px;
+          }
+          &.carpathians {
+            top: 1px;
+          }
+          &.exclusives {
+            top: 8px;
+          }
+          &.investment {
+            top: -20px;
+          }
+        }
+
+        p {
+          @include flex-center(row, center, center);
+          gap: 5px;
+          color: var(--Content-color, #14142d);
+          font-size: map.get(vars.$h3, size);
+          font-weight: map.get(vars.$h3, weight);
+          line-height: map.get(vars.$h3, line-height);
+          letter-spacing: map.get(vars.$h3, letter-spacing);
+
+          path {
+            fill: var(--Content-color, #14142d);
+          }
+        }
+      }
+    }
+  }
+}

@@ -18,21 +18,21 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="partners-body">
-                <div class="container container-partners-body">
-                    {% for images in property.images %}
-                        <div class="partners-body-box">
-                            <img src="{{ images.image }}" 
-                            alt="{{ images.imageName }}" class="partners__image">
-                            <p>
-                                {% if images.markSVG is defined and images.markSVG %}
-                                    {% include images.markSVG %}
-                                {% endif %}
-                                {{ images.text }}
-                            </p>
-                        </div>
-                    {% endfor %}
-                </div>
+        </div>
+        <div class="partners-body">
+            <div class="container container-partners-body">
+                {% for images in property.images %}
+                    <a href="#" class="partners-body-box">
+                        <img src="{{ images.image }}" 
+                        alt="{{ images.imageName }}" class="partners__image {{ images.imageClass }}">
+                        <p>
+                            {% if images.markSVG is defined and images.markSVG %}
+                                {% include images.markSVG %}
+                            {% endif %}
+                            {{ images.text }}
+                        </p>
+                    </a>
+                {% endfor %}
             </div>
         </div>
     </section>
