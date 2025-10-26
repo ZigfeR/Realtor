@@ -8,6 +8,7 @@
 {% import "layouts/reviews.njk" as reviews %}
 {% import "layouts/Home/partners.njk" as partners %}
 {% import "layouts/Home/why-choose-us.njk" as chooseUs %}
+{% import "layouts/Home/valued-customers.njk" as customers %}
 
 
 {% block content %}
@@ -370,8 +371,28 @@
   <!-- Достижения -->
   {% include "layouts/Home/company-achivements.njk" %}
 
-  <!-- Банки -->
-  {% include "layouts/ads.njk" %}
+  <!-- Наши уважаемые клиенты -->
+  {% set propertyImgCustomers = {
+        logo: [
+        {
+          image: "/assets/images/property-card/property1.jpg",
+          imageName: "Наше Мисто"
+        },
+        {
+          image: "/assets/images/property-card/property2.jpg",
+          imageName: "Doom2000"
+        },
+        {
+          image: "/assets/images/property-card/property3.jpg",
+          imageName: "ibud"
+        },
+        {
+          image: "/assets/images/property-card/property1.jpg",
+          imageName: "vox"
+        }
+        ]
+  } %}
+  {{ customers.customers(propertyImgCustomers) }}
 
   <!-- Блоги -->
   {% include "layouts/ads.njk" %}

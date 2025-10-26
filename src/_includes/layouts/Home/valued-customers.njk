@@ -1,0 +1,30 @@
+{% macro customers(property) %}
+    <section class="valued-customers">
+        <div class="container container-valued-customers">
+            <div class="valued-customers-header">
+                <div class="valued-customers-header-top">
+                    <h2 class="global-h">
+                        Our Valued
+                        <span class="global-h-color">
+                        Customers
+                        </span>
+                    </h2>
+                    <a href="#">View All</a>
+                </div>
+                <p>
+                    We have had the honor of working with a variety of clients 
+                    from various industries. Here are some of the clients we 
+                    have had the pleasure of serving:
+                </p>
+                <div class="valued-customers-header-bottom">
+                    {% for images in property.logo %}
+                        <img src="{{ images.image }}" alt="{{ images.imageName }}" 
+                        class="valued-customers__image">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+ 
+ 
