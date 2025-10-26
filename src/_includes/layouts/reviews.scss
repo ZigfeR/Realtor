@@ -52,49 +52,6 @@
         width: 485px;
         overflow: hidden;
 
-        .left-container-box {
-          @include flex-container(flex, column, nowrap, unset, flex-start, 0);
-
-          position: relative;
-
-          // Цветной блок — выезжает первым
-          .color-box {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 300px;
-            height: 320px;
-            border-radius: 0 35px 35px 0;
-            background: var(--Main-color, #593dff);
-
-            transform: translateX(-100%);
-            opacity: 0;
-            transition: transform 0.8s ease, opacity 0.8s ease;
-
-            &.active {
-              transform: translateX(0);
-              opacity: 1;
-            }
-          }
-
-          // Изображение — выезжает ПОСЛЕ цветного блока
-          .left-container-box-img {
-            position: absolute;
-            top: 15px;
-            left: 70px;
-            max-width: unset;
-
-            transform: translateX(200px);
-            opacity: 0;
-            transition: transform 0.8s ease 0.6s, opacity 0.8s ease 0.6s; // ← ЗАДЕРЖКА!
-
-            &.active {
-              transform: translateX(0);
-              opacity: 1;
-            }
-          }
-        }
-
         .left-container-box-p {
           padding: 400px 70px 0 70px;
 
