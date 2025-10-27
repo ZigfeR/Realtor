@@ -1,0 +1,100 @@
+@use "../../assets/scss/variables" as vars;
+@use "../../assets/scss/mixins" as *;
+@use "sass:map";
+
+/* ==========================
+   Достижения
+   ========================== */
+.company-achivements {
+  user-select: none;
+
+  .container-company-achivements {
+    @include flex-container(flex, column, nowrap, unset, flex-start, 40px);
+
+    padding: 80px 0 40px 0;
+
+    .company-achivements-header {
+      @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
+      width: 100%;
+      padding: 0 70px;
+
+      .company-achivements-header-bottom {
+        max-width: 1325px;
+      }
+    }
+
+    .company-achivements-content {
+      @include flex-container(flex, row, nowrap, space-between, flex-start, 0);
+      width: 100%;
+
+      .left-container-box {
+        .left-container-box-img {
+          width: 380px;
+          height: 356px;
+        }
+      }
+
+      .company-achivements-content-right-container {
+        @include flex-container(flex, row, wrap, flex-end, center, 45px);
+
+        .right-container-box {
+          @include flex-container(
+            flex,
+            column,
+            nowrap,
+            unset,
+            flex-start,
+            20px
+          );
+
+          width: 640px;
+          height: 285px;
+          padding: 15px 38px 30px 30px;
+
+          border-radius: var(--border-radius);
+          background-color: rgba(var(--Main-color-rgb), 0.1);
+          transition: background-color 0.3s ease, color 0.3s ease;
+
+          .right-container-box__top {
+            color: var(--Main-color, #593dff);
+
+            .container-box-value {
+              font-size: map.get(vars.$h1, size);
+              font-weight: map.get(vars.$h1, weight);
+              line-height: map.get(vars.$h1, line-height);
+              letter-spacing: map.get(vars.$h1, letter-spacing);
+            }
+
+            .container-box-text {
+              font-size: map.get(vars.$h3, size);
+              font-weight: map.get(vars.$h3, weight);
+              line-height: map.get(vars.$h3, line-height);
+              letter-spacing: map.get(vars.$h3, letter-spacing);
+            }
+          }
+
+          .container-box-content {
+            color: rgba(var(--Content-color-rgb), 0.4);
+
+            font-size: map.get(vars.$h5, size);
+            font-weight: map.get(vars.$h5, weight);
+            line-height: map.get(vars.$h5, line-height);
+            letter-spacing: map.get(vars.$h5, letter-spacing);
+          }
+
+          &:hover {
+            background-color: var(--Main-color, #593dff);
+
+            .right-container-box__top {
+              color: var(--White, #fff);
+            }
+
+            .container-box-content {
+              color: var(--White, #fff);
+            }
+          }
+        }
+      }
+    }
+  }
+}
