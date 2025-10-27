@@ -1,8 +1,9 @@
 {% set faqData = [
   {
     question: "How can I contact a realtor?",
-    answer: "You can call us at <strong>+380 123 456 789</strong> or fill out the contact form.",
-    open: true
+    answer: "If you are going to use a passage of Lorem Ipsum, you need to be 
+    sure there isn't anything embarrassing hidden in the middle of text"
+    
   },
   {
     question: "What happens if my booking is cancelled?",
@@ -22,54 +23,51 @@
   }
 ] %}
 
-<!-- 1. ОПРЕДЕЛЯЕМ МАКРОС -->
-{% macro faq(items) %}
-  <div class="faq">
-    <div class="container">
-      {% for item in items %}
-        <details class="faq-item" {% if item.open %}open{% endif %}>
-          <summary class="faq-question">
-            {{ item.question }}
-            <span class="faq-icon">
-              {% include "components/icon/arrow-block-svg.njk" %}
-            </span>
-          </summary>
-          <div class="faq-answer">
-            <p>{{ item.answer | safe }}</p>
-          </div>
-        </details>
-      {% endfor %}
-    </div>
-  </div>
-{% endmacro %}
-
-<!-- 2. ИСПОЛЬЗУЕМ СЕКЦИЮ -->
 <section class="questions">
   <div class="container container-questions">
-    <!-- Заголовок -->
     <div class="questions-header">
       <div class="questions-header-top">
         <h2 class="questions-h2 global-h">
-          General  
-          <span class="questions-h2-color global-h-color">Questions</span>
+          General <span class="questions-h2-color global-h-color">Questions</span>
         </h2>
         <a href="#">View All</a>
       </div>
       <div class="questions-header-bottom">
         <p>
-          Here you will find the most frequently asked questions about our agency. 
-          If you did not find what you were looking for, perhaps your question will be found on the 
+          Here you will find the most frequently asked questions about our agency.
+          If you did not find what you were looking for, perhaps your question will be found on the
           <a href="#">FAQ</a> page or you can ask your question there.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- Тело с FAQ -->
   <div class="questions-body">
     <div class="container container-questions-cards">
-      <!-- 3. ВЫЗЫВАЕМ МАКРОС -->
-      {{ faq(faqData) }}
+      <div class="faq-accordion">
+        <ul class="faq-list">
+          {% for item in faqData %}
+            <li class="faq-item {{ 'is-open' if item.open else '' }}">
+              <div class="faq-label">
+                <span class="faq-question-text">{{ item.question }}</span>
+                <span class="faq-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                    <path class="icon-line horizontal" d="M22.5 10C23.8807 10 25 11.1193 25 12.5C25 13.8807 23.8807 15 22.5 15H2.5C1.11929 15 0 13.8807 0 12.5C0 11.1193 1.11929 10 2.5 10H22.5Z" fill="#593dff"/>
+                    <path class="icon-line vertical" d="M10 2.5C10 1.11929 11.1193 0 12.5 0C13.8807 0 15 1.11929 15 2.5V22.5C15 23.8807 13.8807 25 12.5 25C11.1193 25 10 23.8807 10 22.5V2.5Z" fill="#593dff"/>
+                  </svg>
+                </span>
+              </div>
+              <ul class="faq-answer-list">
+                <li>
+                  <div class="faq-answer-content">
+                    <p>{{ item.answer | safe }}</p>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
   </div>
 </section>
