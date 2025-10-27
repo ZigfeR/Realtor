@@ -28,10 +28,26 @@ main {
 
   &.left {
     background-position: left top 30px;
+
+    &.center {
+      background-position: left top 50%;
+    }
+
+    &.bottom {
+      background-position: left bottom 70px;
+    }
   }
 
   &.right {
     background-position: right top 30px;
+
+    &.center {
+      background-position: right top 50%;
+    }
+
+    &.bottom {
+      background-position: right bottom 70px;
+    }
   }
 }
 

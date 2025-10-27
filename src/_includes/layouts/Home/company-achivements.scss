@@ -10,7 +10,6 @@
 
   .container-company-achivements {
     @include flex-container(flex, column, nowrap, unset, flex-start, 40px);
-
     padding: 80px 0 40px 0;
 
     .company-achivements-header {
@@ -93,6 +92,41 @@
               color: var(--White, #fff);
             }
           }
+        }
+      }
+    }
+  }
+
+  .company-achivements-body {
+    @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+    padding: 40px 0;
+
+    .container-company-achivements-body {
+      @include flex-container(flex, row, nowrap, unset, flex-start, 25px);
+      padding: 0 70px;
+
+      width: 100%;
+
+      .container-achivements-left {
+        img {
+          width: 173px;
+          height: 132.777px;
+          max-width: unset;
+        }
+      }
+
+      .container-achivements-right {
+        max-width: 1580px;
+
+        h5 {
+          font-weight: 700;
+        }
+
+        p {
+          font-size: map.get(vars.$h5, size);
+          font-weight: map.get(vars.$h5, weight);
+          line-height: map.get(vars.$h5, line-height);
+          letter-spacing: map.get(vars.$h5, letter-spacing);
         }
       }
     }
