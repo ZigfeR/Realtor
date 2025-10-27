@@ -1,0 +1,50 @@
+@use "../../assets/scss/variables" as vars;
+@use "../../assets/scss/mixins" as *;
+@use "sass:map";
+
+/* ==========================
+   Партнеры
+   ========================== */
+.blogs {
+  user-select: none;
+  padding: 40px 0;
+  background: var(--White, #fff);
+
+  .container-blogs {
+    @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+
+    .blog-header {
+      @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
+      width: 100%;
+      padding: 0 70px;
+      padding-bottom: 40px;
+
+      .blog-header-top {
+        @include flex-container(flex, row, nowrap, space-between, center, 0);
+        width: 100%;
+      }
+
+      .blog-header-bottom {
+        p {
+          max-width: 1325px;
+        }
+      }
+    }
+  }
+
+  .blog-body {
+    background: rgba(var(--Main-color-rgb), 0.05);
+    padding: 40px 100px;
+
+    .container-blog-cards {
+      @include flex-container(
+        flex,
+        row,
+        nowrap,
+        space-between,
+        flex-start,
+        40px
+      );
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {% macro blogCard(property) %}
-    <div class="blog-card">
+    <a href="{{ property.url }}" class="blog-card">
         <div class="blog-card__header">
             <img src="{{ property.image }}" class="blog-card__img" 
             alt="{{ property.alt }}" />
@@ -14,8 +14,8 @@
           </div>
           <div class="blog-card__body-bottom">
             <p class="blog-date">{{ property.date }}</p>
-            <a href="{{ property.url }}" class="blog-read-more">Read More</a>
+            <p class="blog-read-more">Read More</p>
           </div>
         </div>
-    </div>
+    </a>
 {% endmacro %}
