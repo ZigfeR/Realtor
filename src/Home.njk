@@ -296,7 +296,7 @@
   {{ reviews.renderBlockReview(reviewsBlock) }}
 
   <!-- Партнеры -->
-   {% set propertyImg = {
+  {% set propertyImg = {
         logo: [
         {
           image: "/assets/images/partners/misto.png",
@@ -345,8 +345,8 @@
   } %}
   {{ partners.partners(propertyImg) }}
 
-   <!-- Почему выбирают нас? -->
-   {% set propertyChooseUs = {
+  <!-- Почему выбирают нас? -->
+  {% set propertyChooseUs = {
         arrow: "components/icon/arrow-block-svg.njk",
         paragrafs: [
         {
@@ -359,8 +359,7 @@
         {
           markSVG: "components/icon/home-site-svg.njk",
           markText: "Large database of verified objects",
-          paragraf: "Access to exclusive market offers! We know where to find 
-          the perfect apartment or house for your requirements"
+          paragraf: "Access to exclusive market offers!<br/>We know where to find the perfect apartment or house for your requirements."
         },
         {
           markSVG: "components/icon/saving-your-time-svg.njk",

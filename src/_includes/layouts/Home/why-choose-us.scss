@@ -1,0 +1,115 @@
+@use "../../assets/scss/variables" as vars;
+@use "../../assets/scss/mixins" as *;
+@use "sass:map";
+
+/* ==========================
+   Почпему выбирают нас
+   ========================== */
+.chooseUs {
+  user-select: none;
+
+  .container-chooseUs {
+    @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
+    background-image: url(../images/home/image-block-why-choose-us.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 727.82px 562px;
+    padding: 80px 0 0 0;
+
+    .chooseUs-header {
+      @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+      width: 100%;
+      padding: 0 70px;
+    }
+
+    .chooseUs-body {
+      @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+      width: 100%;
+      padding: 0 115px;
+
+      .container-chooseUs-block {
+        @include flex-container(flex, column, nowrap, unset, flex-start, 45px);
+        width: 100%;
+
+        .chooseUs-box {
+          @include flex-container(flex, row, nowrap, unset, flex-start, 0);
+          height: 160px;
+
+          .chooseUs-box-shadow {
+            @include flex-container(flex, row, nowrap, unset, center, 0);
+            position: relative;
+            width: 370px;
+            height: 160px;
+
+            padding: 30px 30px 24px 77px;
+
+            border-radius: var(--border-radius);
+            background-color: var(--White, #fff);
+            box-shadow: -25px 20px 88px 0 rgba(var(--Main-color-rgb), 0.25);
+            transition: background-color 0.3s ease, color 0.3s ease;
+
+            .svg-container {
+              position: absolute;
+              @include flex-center(row, center, center);
+
+              width: 92px;
+              height: 92px;
+              background-color: var(--Main-color, #593dff);
+              border-radius: 50%;
+              transition: background-color 0.3s ease;
+
+              top: 50%;
+              left: 0;
+              transform: translate(-50%, -50%);
+              transition: left 0.3s ease; /* плавная анимация */
+
+              svg {
+                path {
+                  fill: var(--White, #fff);
+                  transition: fill 0.3s ease;
+                }
+              }
+            }
+          }
+
+          .chooseUs-box-content {
+            @include flex-container(flex, row, nowrap, unset, flex-start, 0);
+            width: 625px;
+
+            .box-content-p {
+              padding: 25px 40px;
+              color: rgba(var(--Content-color-rgb), 0.4);
+
+              font-size: map.get(vars.$h5, size);
+              font-weight: map.get(vars.$h5, weight);
+              line-height: map.get(vars.$h5, line-height);
+              letter-spacing: map.get(vars.$h5, letter-spacing);
+            }
+
+            svg {
+              display: none;
+            }
+          }
+
+          &:hover {
+            .chooseUs-box-shadow {
+              background: var(--Main-color, #593dff);
+              color: var(--White, #fff);
+
+              .svg-container {
+                background: var(--White, #fff);
+                left: -15px;
+
+                svg {
+                  path {
+                    fill: var(--Main-color, #593dff);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
