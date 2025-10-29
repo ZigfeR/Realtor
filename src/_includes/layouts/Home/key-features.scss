@@ -18,7 +18,7 @@
     }
 
     .key-features-blocks-container {
-      @include flex-container(flex, row, wrap, unset, center, 40px);
+      @include flex-container(flex, row, wrap, space-between, center, 0);
       align-self: stretch;
 
       p {
