@@ -10,11 +10,13 @@
             <p>{{ block.text }}</p>
         </div>
     </div>
-    <div class="top-cards-container__bottom 
-    {{ block.sectionClass }}-bottom-container">
-        {% for cardItem in block.propertyCards %}
-          {{ card.propertyCard(cardItem) }}
-        {% endfor %}
+    <div class="{{ block.sectionClass }}__bottom">
+      <div class="container top-cards-container__bottom 
+      {{ block.sectionClass }}-bottom-container">
+          {% for cardItem in block.propertyCards %}
+            {{ card.propertyCard(cardItem) }}
+          {% endfor %}
+      </div>
     </div>
   </section>
 {% endmacro %}
