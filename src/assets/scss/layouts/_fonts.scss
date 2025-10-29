@@ -65,77 +65,103 @@ h6 {
 }
 
 /* ====== TABLET ====== */
-@media (min-width: 950px) and (max-width: 1780px) {
+@media (min-width: 481px) and (max-width: 1024px) {
   body {
     font-size: map.get(vars.$body-tablet, size);
     line-height: map.get(vars.$body-tablet, line-height);
+    letter-spacing: map.get(vars.$body-tablet, letter-spacing);
+  }
+
+  a {
+    font-size: map.get(vars.$h5-tablet, size);
+    line-height: map.get(vars.$h5-tablet, line-height);
+    letter-spacing: map.get(vars.$h5-tablet, letter-spacing);
   }
 
   h1 {
     font-size: map.get(vars.$h1-tablet, size);
     line-height: map.get(vars.$h1-tablet, line-height);
+    letter-spacing: map.get(vars.$h1-tablet, letter-spacing);
   }
 
   h2 {
     font-size: map.get(vars.$h2-tablet, size);
     line-height: map.get(vars.$h2-tablet, line-height);
+    letter-spacing: map.get(vars.$h2-tablet, letter-spacing);
   }
 
   h3 {
     font-size: map.get(vars.$h3-tablet, size);
     line-height: map.get(vars.$h3-tablet, line-height);
+    letter-spacing: map.get(vars.$h3-tablet, letter-spacing);
   }
 
   h4 {
     font-size: map.get(vars.$h4-tablet, size);
     line-height: map.get(vars.$h4-tablet, line-height);
+    letter-spacing: map.get(vars.$h4-tablet, letter-spacing);
   }
 
   h5 {
     font-size: map.get(vars.$h5-tablet, size);
     line-height: map.get(vars.$h5-tablet, line-height);
+    letter-spacing: map.get(vars.$h5-tablet, letter-spacing);
   }
 
   h6 {
     font-size: map.get(vars.$h6-tablet, size);
     line-height: map.get(vars.$h6-tablet, line-height);
+    letter-spacing: map.get(vars.$h6-tablet, letter-spacing);
   }
 }
 
 /* ====== MOBILE ====== */
-@media (max-width: 949px) {
+@media (max-width: 480px) {
   body {
     font-size: map.get(vars.$body-mobile, size);
     line-height: map.get(vars.$body-mobile, line-height);
+    letter-spacing: map.get(vars.$body-mobile, letter-spacing);
+  }
+
+  a {
+    font-size: map.get(vars.$h5-mobile, size);
+    line-height: map.get(vars.$h5-mobile, line-height);
+    letter-spacing: map.get(vars.$h5-mobile, letter-spacing);
   }
 
   h1 {
     font-size: map.get(vars.$h1-mobile, size);
     line-height: map.get(vars.$h1-mobile, line-height);
+    letter-spacing: map.get(vars.$h1-mobile, letter-spacing);
   }
 
   h2 {
     font-size: map.get(vars.$h2-mobile, size);
     line-height: map.get(vars.$h2-mobile, line-height);
+    letter-spacing: map.get(vars.$h2-mobile, letter-spacing);
   }
 
   h3 {
     font-size: map.get(vars.$h3-mobile, size);
     line-height: map.get(vars.$h3-mobile, line-height);
+    letter-spacing: map.get(vars.$h3-mobile, letter-spacing);
   }
 
   h4 {
     font-size: map.get(vars.$h4-mobile, size);
     line-height: map.get(vars.$h4-mobile, line-height);
+    letter-spacing: map.get(vars.$h4-mobile, letter-spacing);
   }
 
   h5 {
     font-size: map.get(vars.$h5-mobile, size);
     line-height: map.get(vars.$h5-mobile, line-height);
+    letter-spacing: map.get(vars.$h5-mobile, letter-spacing);
   }
 
   h6 {
     font-size: map.get(vars.$h6-mobile, size);
     line-height: map.get(vars.$h6-mobile, line-height);
+    letter-spacing: map.get(vars.$h6-mobile, letter-spacing);
   }
 }

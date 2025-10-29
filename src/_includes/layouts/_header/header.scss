@@ -112,7 +112,7 @@
 
     /* Правая часть */
     .right-actions {
-      @include flex-container(flex, row, nowrap, flex-end, center, 1rem);
+      @include flex-container(flex, row, nowrap, flex-end, center, 25px);
 
       /* Идентификатор поиска */
       .search-id {

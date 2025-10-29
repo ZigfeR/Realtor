@@ -1,18 +1,19 @@
 {% macro tabs(property) %}
   <div class="top-cards-header">
-    <div class="top-cards-header-left">
-        <h2 class="top-cards-h2 global-h">
-            <span class="top-cards-h2-color global-h-color">TOP</span>
-            {{ property.topName }}
-        </h2>
-        <div class="top-cards-top-container">
-        {% for button in property.buttons %}
-            <button class="btn {{ button.btnClassName }}">
+    {# Навзание #}
+    <h2 class="top-cards-h2 global-h">
+        <span class="top-cards-h2-color global-h-color">TOP</span>
+        {{ property.topName }}
+    </h2>
+    {# Табы #}
+    <div class="top-cards-top-container">
+      {% for button in property.buttons %}
+          <button class="btn {{ button.btnClassName }}">
             {{ button.btnName }}
-            </button>
-        {% endfor %}
-        </div>
+          </button>
+      {% endfor %}
     </div>
+    {# Ссылка #}
     <a href="{{ property.link }}">View All</a>
   </div>
 {% endmacro %}

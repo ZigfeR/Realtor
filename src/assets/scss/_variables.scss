@@ -54,48 +54,59 @@ $body-font-weight: map.get($h4, weight);
 $h1-tablet: (
   size: 36px,
   line-height: 44px,
+  letter-spacing: 0.36px,
 );
 $h2-tablet: (
   size: 24px,
   line-height: 32px,
+  letter-spacing: 0.24px,
 );
 $h3-tablet: (
   size: 20px,
   line-height: 26px,
+  letter-spacing: 0.24px,
 );
 $h4-tablet: (
   size: 18px,
   line-height: 28px,
+  letter-spacing: 0.2px,
 );
 $h5-tablet: (
   size: 14px,
   line-height: 20px,
+  letter-spacing: 0.18px,
 );
 $h6-tablet: (
   size: 12px,
   line-height: 22px,
 );
+
 $body-tablet: (
   size: 18px,
   line-height: 28px,
+  letter-spacing: 0.2px,
 );
 
 /* === Mobile === */
 $h1-mobile: (
   size: 24px,
   line-height: 32px,
+  letter-spacing: 0.24px,
 );
 $h2-mobile: (
   size: 20px,
   line-height: 26px,
+  letter-spacing: 0.2px,
 );
 $h3-mobile: (
   size: 14px,
   line-height: 20px,
+  letter-spacing: 0.2px,
 );
 $h4-mobile: (
   size: 18px,
   line-height: 28px,
+  letter-spacing: 0.18px,
 );
 $h5-mobile: (
   size: 14px,
@@ -105,7 +116,9 @@ $h6-mobile: (
   size: 12px,
   line-height: 22px,
 );
+
 $body-mobile: (
   size: 18px,
   line-height: 28px,
+  letter-spacing: 0.18px,
 );
