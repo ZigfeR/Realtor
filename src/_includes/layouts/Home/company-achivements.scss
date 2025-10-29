@@ -15,7 +15,7 @@
     .company-achivements-header {
       @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
       width: 100%;
-      padding: 0 70px;
+      padding: 0 var(--padding);
 
       .company-achivements-header-bottom {
         max-width: var(--paragraf-with, 1325px);
@@ -35,6 +35,8 @@
 
       .company-achivements-content-right-container {
         @include flex-container(flex, row, wrap, flex-end, center, 45px);
+
+        padding: 0 var(--padding);
 
         .right-container-box {
           @include flex-container(
