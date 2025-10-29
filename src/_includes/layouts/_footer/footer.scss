@@ -14,7 +14,7 @@
 
   @include responsive-typography(vars.$h5, vars.$h5-tablet, vars.$h5-mobile);
 
-  @media (max-width: 949px) {
+  @media (max-width: 480px) {
     @include responsive-typography(vars.$h6, vars.$h6-tablet, vars.$h6-mobile);
   }
 
@@ -30,7 +30,7 @@
     @include flex-container(flex, row, nowrap, unset, flex-start, 0);
     padding: 40px 70px 50px 70px;
 
-    @media (min-width: 950px) and (max-width: 1780px) {
+    @media (min-width: 481px) and (max-width: 1024px) {
       padding: 30px 25px 40px 25px;
     }
 
@@ -45,11 +45,11 @@
       );
       width: 100%;
 
-      @media (min-width: 950px) and (max-width: 1780px) {
+      @media (min-width: 481px) and (max-width: 1024px) {
         gap: 25px;
       }
 
-      @media (max-width: 949px) {
+      @media (max-width: 480px) {
         flex-direction: column;
       }
 
@@ -100,7 +100,7 @@
           br {
             display: none;
 
-            @media (min-width: 950px) and (max-width: 1780px) {
+            @media (min-width: 481px) and (max-width: 1024px) {
               display: block;
             }
           }
@@ -127,7 +127,7 @@
 
           width: 100%;
 
-          @media (max-width: 949px) {
+          @media (max-width: 480px) {
             justify-content: center;
           }
           @media (max-width: 449px) {
@@ -146,7 +146,7 @@
           @include flex-container(flex, column, nowrap, unset, flex-start, 0);
         }
 
-        @media (max-width: 949px) {
+        @media (max-width: 480px) {
           flex-direction: row;
         }
       }
@@ -158,7 +158,7 @@
     background: var(--Content-color, #14142d);
     @include flex-container(flex, row, nowrap, unset, center, 0);
 
-    @media (max-width: 949px) {
+    @media (max-width: 480px) {
       padding: 15px;
     }
 
@@ -166,14 +166,14 @@
       @include flex-container(flex, row, nowrap, space-between, center, 0);
       padding: 15px 70px;
 
-      @media (max-width: 949px) {
+      @media (max-width: 480px) {
         flex-direction: column;
       }
 
       .left {
         @include flex-container(flex, row, nowrap, space-between, center, 45px);
 
-        @media (max-width: 949px) {
+        @media (max-width: 480px) {
           flex-direction: column;
         }
       }

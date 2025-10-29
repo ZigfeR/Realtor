@@ -415,7 +415,7 @@
 }
 
 /* Мобильный (ширина <= 949px) */
-@media (max-width: 949px) {
+@media (max-width: 480px) {
   .container-header {
     @include grid-container(grid, repeat(2, 1fr), auto, 1rem, start, center);
     .logo-header {

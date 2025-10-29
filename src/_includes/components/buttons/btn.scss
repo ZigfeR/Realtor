@@ -19,7 +19,7 @@
 
   @include flex-center(row, center, center);
 
-  @media (min-width: 950px) and (max-width: 1780px) {
+  @media (min-width: 481px) and (max-width: 1024px) {
     @include responsive-typography(vars.$h6, vars.$h6-tablet, vars.$h6-mobile);
 
     padding: 9px 36px;
