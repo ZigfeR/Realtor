@@ -10,10 +10,17 @@
 
   .container-top-cards {
     @include flex-container(flex, column, nowrap, unset, flex-start, 0);
-    padding: 70px;
+    padding: var(--padding);
 
     &.container-top-selling {
-      padding: 0 70px;
+      padding: 0 var(--padding);
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        padding: 0 var(--padding-tablet);
+      }
+      @media (max-width: 480px) {
+        padding: 0 var(--padding-mobile);
+      }
     }
 
     &.container-top-rentals {
@@ -30,29 +37,16 @@
 
         color: var(--Content-color, #14142d);
 
-        font-size: map.get(vars.$h4, size);
-        font-weight: map.get(vars.$h4, weight);
-        line-height: map.get(vars.$h4, line-height);
-        letter-spacing: map.get(vars.$h4, letter-spacing);
-
-        @media (min-width: 481px) and (max-width: 1024px) {
-          font-size: map.get(vars.$h4-tablet, size);
-          font-weight: map.get(vars.$h4-tablet, weight);
-          line-height: map.get(vars.$h4-tablet, line-height);
-          letter-spacing: map.get(vars.$h4-tablet, letter-spacing);
-        }
-
-        @media (max-width: 480px) {
-          font-size: map.get(vars.$h4-mobile, size);
-          font-weight: map.get(vars.$h4-mobile, weight);
-          line-height: map.get(vars.$h4-mobile, line-height);
-          letter-spacing: map.get(vars.$h4-mobile, letter-spacing);
-        }
+        @include responsive-typography(
+          vars.$h4,
+          vars.$h4-tablet,
+          vars.$h4-mobile
+        );
       }
     }
 
     @media (min-width: 481px) and (max-width: 1024px) {
-      padding: 50px 25px;
+      padding: var(--padding-tablet);
     }
   }
 
@@ -61,12 +55,13 @@
     width: 100%;
 
     &.top-selling-bottom-container {
-      padding: 40px 70px 80px 70px;
+      padding: 40px var(--padding) 80px var(--padding);
     }
     &.top-rentals-bottom-container {
-      padding: 0 70px 70px 70px;
+      padding: 0 var(--padding) var(--padding) var(--padding);
     }
   }
+
   .top-selling__bottom {
     background: rgba(var(--Main-color-rgb), 0.05);
   }

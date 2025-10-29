@@ -1,12 +1,9 @@
-/* ==========================
-   VARIABLES
-   ========================== */
 @use "sass:map";
 
 /* Шрифт */
 $font-primary: "Alexandria", sans-serif;
 
-/* === Заголовки Desktop === */
+/* === Desktop === */
 $h1: (
   size: 52px,
   weight: 700,
@@ -44,81 +41,99 @@ $h6: (
   letter-spacing: 0.18px,
 );
 
-/* === Body наследует значения из H4 === */
-$body-font-size: map.get($h4, size);
-$body-line-height: map.get($h4, line-height);
-$body-letter-spacing: map.get($h4, letter-spacing);
-$body-font-weight: map.get($h4, weight);
+$body: (
+  size: map.get($h4, size),
+  weight: map.get($h4, weight),
+  line-height: map.get($h4, line-height),
+  letter-spacing: map.get($h4, letter-spacing),
+);
 
 /* === Tablet === */
 $h1-tablet: (
   size: 36px,
+  weight: map.get($h1, weight),
   line-height: 44px,
   letter-spacing: 0.36px,
 );
 $h2-tablet: (
   size: 24px,
+  weight: map.get($h2, weight),
   line-height: 32px,
   letter-spacing: 0.24px,
 );
 $h3-tablet: (
   size: 20px,
+  weight: map.get($h3, weight),
   line-height: 26px,
   letter-spacing: 0.24px,
 );
 $h4-tablet: (
   size: 18px,
+  weight: map.get($h4, weight),
   line-height: 28px,
   letter-spacing: 0.2px,
 );
 $h5-tablet: (
   size: 14px,
+  weight: map.get($h5, weight),
   line-height: 20px,
   letter-spacing: 0.18px,
 );
 $h6-tablet: (
   size: 12px,
+  weight: map.get($h6, weight),
   line-height: 22px,
+  letter-spacing: 0,
 );
 
 $body-tablet: (
-  size: 18px,
-  line-height: 28px,
-  letter-spacing: 0.2px,
+  size: map.get($h4-tablet, size),
+  weight: map.get($h4-tablet, weight),
+  line-height: map.get($h4-tablet, line-height),
+  letter-spacing: map.get($h4-tablet, letter-spacing),
 );
 
 /* === Mobile === */
 $h1-mobile: (
   size: 24px,
+  weight: map.get($h1, weight),
   line-height: 32px,
   letter-spacing: 0.24px,
 );
 $h2-mobile: (
   size: 20px,
+  weight: map.get($h2, weight),
   line-height: 26px,
   letter-spacing: 0.2px,
 );
 $h3-mobile: (
   size: 14px,
+  weight: map.get($h3, weight),
   line-height: 20px,
   letter-spacing: 0.2px,
 );
 $h4-mobile: (
   size: 18px,
+  weight: map.get($h4, weight),
   line-height: 28px,
   letter-spacing: 0.18px,
 );
 $h5-mobile: (
   size: 14px,
+  weight: map.get($h5, weight),
   line-height: 20px,
+  letter-spacing: 0,
 );
 $h6-mobile: (
   size: 12px,
+  weight: map.get($h6, weight),
   line-height: 22px,
+  letter-spacing: 0,
 );
 
 $body-mobile: (
-  size: 18px,
-  line-height: 28px,
-  letter-spacing: 0.18px,
+  size: map.get($h4-mobile, size),
+  weight: map.get($h4-mobile, weight),
+  line-height: map.get($h4-mobile, line-height),
+  letter-spacing: map.get($h4-mobile, letter-spacing),
 );

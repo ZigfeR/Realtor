@@ -2,6 +2,7 @@
     MIXINS
    ========================== */
 @use "_variables" as vars;
+@use "sass:map";
 
 /* Универсальный миксин для Flexbox */
 /* Использование: @include flex-container($display, $direction, $wrap, $justify, $align, $gap); 
@@ -75,5 +76,26 @@
   &:active {
     transform: translateY(1px);
     transition: transform 0.3s ease; /* плавная анимация */
+  }
+}
+
+// Базовый миксин для применения стилей из карты
+@mixin apply-typography($map) {
+  font-size: map.get($map, size);
+  font-weight: map.get($map, weight);
+  line-height: map.get($map, line-height);
+  letter-spacing: map.get($map, letter-spacing);
+}
+
+// Универсальный миксин для адаптивной типографики
+@mixin responsive-typography($desktop-map, $tablet-map, $mobile-map) {
+  @include apply-typography($desktop-map);
+
+  @media (min-width: 481px) and (max-width: 1024px) {
+    @include apply-typography($tablet-map);
+  }
+
+  @media (max-width: 480px) {
+    @include apply-typography($mobile-map);
   }
 }
