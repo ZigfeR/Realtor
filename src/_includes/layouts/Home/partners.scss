@@ -7,10 +7,10 @@
    ========================== */
 .partners {
   user-select: none;
-  padding: 80px 40px;
 
   .container-partners {
     @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+    padding: 40px 0;
 
     .partners-header {
       @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
