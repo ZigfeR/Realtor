@@ -78,9 +78,9 @@
         color: var(--Content-color, #14142d);
 
         @include responsive-typography(
-          vars.$h3,
-          vars.$h3-tablet,
-          vars.$h3-mobile
+          vars.$h5,
+          vars.$h5-tablet,
+          vars.$h5-mobile
         );
       }
     }
