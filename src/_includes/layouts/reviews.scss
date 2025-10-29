@@ -34,7 +34,7 @@
       .review-header-bottom {
         @include flex-center(row, center, center);
 
-        max-width: 1325px;
+        max-width: var(--paragraf-with, 1325px);
       }
     }
   }

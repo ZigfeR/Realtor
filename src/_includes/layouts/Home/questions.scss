@@ -22,7 +22,7 @@
     }
 
     .questions-header-bottom p {
-      max-width: 1325px;
+      max-width: var(--paragraf-with, 1325px);
 
       a {
         color: var(--Main-color, #593dff);

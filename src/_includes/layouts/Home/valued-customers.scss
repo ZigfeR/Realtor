@@ -23,7 +23,7 @@
       }
 
       p {
-        max-width: 1325px;
+        max-width: var(--paragraf-with, 1325px);
       }
 
       .valued-customers-header-bottom {

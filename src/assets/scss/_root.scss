@@ -2,6 +2,9 @@
    ROOT VARIABLES / COLORS
    ========================== */
 :root {
+  /* Параметры ширины */
+  --paragraf-with: 1325px;
+
   /* Основные цвета */
   --background: #fff;
   --White: #fff;
@@ -20,6 +23,7 @@
   // --Content-color-rgb: rgb(20, 20, 45);
   --Content-color-rgb: 20, 20, 45;
   --Attracting-attention-color: #e722aa;
+  // --Attracting-attention-color: rgb(231, 34, 170);
   --Attracting-attention-color-rgb: 231, 34, 170;
   --Adittional-color: #10ae27;
 }
