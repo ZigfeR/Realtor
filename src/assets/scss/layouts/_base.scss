@@ -113,3 +113,57 @@ a {
     }
   }
 }
+
+/* ==========================
+   Скролл кастомный
+   ========================== */
+/* Для всего сайта */
+::-webkit-scrollbar {
+  width: 8px; /* ширина вертикального скролла */
+
+  @media (max-width: 1024px) {
+    width: 4px; /* ширина вертикального скролла */
+  }
+}
+
+/* Полоса прокрутки (фон трека) */
+::-webkit-scrollbar-track {
+  background: transparent; /* фон области за ползунком */
+  border-radius: 5px;
+}
+
+/* Сам ползунок (ползущий элемент) */
+::-webkit-scrollbar-thumb {
+  background: var(--Main-color, #593dff);
+  border-radius: 5px;
+  opacity: 0.75;
+}
+
+/* При наведении — немного ярче */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--Main-color-rgb), 0.9);
+}
+
+/* Если хочешь применить кастомный скролл только к одному блоку */
+.custom-scroll {
+  overflow-y: auto;
+  scrollbar-width: thin; /* Для Firefox */
+  scrollbar-color: var(--Main-color, #593dff) transparent;
+}
+
+/* Firefox отдельно */
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;
+
+  @media (max-width: 1024px) {
+    width: 4px; /* ширина вертикального скролла */
+  }
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: var(--Main-color, #593dff);
+  border-radius: 5px;
+  opacity: 0.75;
+}
+/* ==========================
+   Конец скрола
+   ========================== */
