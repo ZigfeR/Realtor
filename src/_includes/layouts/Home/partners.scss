@@ -15,7 +15,7 @@
     .partners-header {
       @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
       width: 100%;
-      padding: 70px 50px;
+      padding: 50px 70px;
       padding-bottom: 120px;
 
       .partners-header-top {
@@ -63,6 +63,7 @@
     .container-partners-body {
       @include flex-container(flex, row, nowrap, center, center, 40px);
       position: relative;
+      padding: 0 70px;
       height: 325px;
 
       .partners-body-box {
