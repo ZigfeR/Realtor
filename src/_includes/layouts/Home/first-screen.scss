@@ -28,10 +28,11 @@
       p {
         color: var(--Content-color, #14142d);
 
-        font-size: map.get(vars.$h4, size);
-        font-weight: map.get(vars.$h4, weight);
-        line-height: map.get(vars.$h4, line-height);
-        letter-spacing: map.get(vars.$h4, letter-spacing);
+        @include responsive-typography(
+          vars.$h4,
+          vars.$h4-tablet,
+          vars.$h4-mobile
+        );
 
         padding-right: 45px;
         align-items: center;

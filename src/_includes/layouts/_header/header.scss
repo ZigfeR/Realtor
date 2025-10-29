@@ -68,10 +68,11 @@
         @include flex-container(flex, row, nowrap, center, center, 45px);
 
         .nav-list {
-          font-size: map.get(vars.$h5, size);
-          font-weight: map.get(vars.$h5, weight);
-          line-height: map.get(vars.$h5, line-height);
-          letter-spacing: map.get(vars.$h5, letter-spacing);
+          @include responsive-typography(
+            vars.$h5,
+            vars.$h5-tablet,
+            vars.$h5-mobile
+          );
           position: relative;
         }
 
@@ -123,10 +124,11 @@
         align-items: center;
         gap: 10px;
 
-        font-size: map.get(vars.$h5, size);
-        font-weight: map.get(vars.$h5, weight);
-        line-height: map.get(vars.$h5, line-height);
-        letter-spacing: map.get(vars.$h5, letter-spacing);
+        @include responsive-typography(
+          vars.$h5,
+          vars.$h5-tablet,
+          vars.$h5-mobile
+        );
 
         .search-visually-hidden {
           opacity: 0.4;
@@ -149,10 +151,11 @@
           background: var(--White, #fff);
           box-shadow: 0 4px 45px 0 rgba(var(--Main-color-rgb), 0.25);
 
-          font-size: map.get(vars.$h6, size);
-          font-weight: map.get(vars.$h6, weight);
-          line-height: map.get(vars.$h6, line-height);
-          letter-spacing: map.get(vars.$h6, letter-spacing);
+          @include responsive-typography(
+            vars.$h6,
+            vars.$h6-tablet,
+            vars.$h6-mobile
+          );
 
           color: var(--Main-color, #593dff);
           box-sizing: border-box;
@@ -209,10 +212,11 @@
 
         .lang-selected-value,
         .lang-options {
-          font-size: map.get(vars.$h5, size);
-          font-weight: map.get(vars.$h5, weight);
-          line-height: map.get(vars.$h5, line-height);
-          letter-spacing: map.get(vars.$h5, letter-spacing);
+          @include responsive-typography(
+            vars.$h5,
+            vars.$h5-tablet,
+            vars.$h5-mobile
+          );
         }
 
         .lang-select-header {

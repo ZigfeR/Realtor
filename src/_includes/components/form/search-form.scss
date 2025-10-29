@@ -31,10 +31,11 @@
         background: var(--White, #fff);
         color: var(--Main-color, #593dff);
 
-        font-size: map.get(vars.$h5, size);
-        font-weight: map.get(vars.$h5, weight);
-        line-height: map.get(vars.$h5, line-height);
-        letter-spacing: map.get(vars.$h5, letter-spacing);
+        @include responsive-typography(
+          vars.$h5,
+          vars.$h5-tablet,
+          vars.$h5-mobile
+        );
 
         cursor: pointer;
 
@@ -103,20 +104,22 @@
             align-self: stretch;
             color: var(--Main-color, #593dff);
 
-            font-size: map.get(vars.$h6, size);
-            font-weight: map.get(vars.$h6, weight);
-            line-height: map.get(vars.$h6, line-height);
-            letter-spacing: map.get(vars.$h6, letter-spacing);
+            @include responsive-typography(
+              vars.$h6,
+              vars.$h6-tablet,
+              vars.$h6-mobile
+            );
 
             z-index: 11;
           }
 
           .selected-value,
           .current-value {
-            font-size: map.get(vars.$h4, size);
-            font-weight: map.get(vars.$h4, weight);
-            line-height: map.get(vars.$h4, line-height);
-            letter-spacing: map.get(vars.$h4, letter-spacing);
+            @include responsive-typography(
+              vars.$h4,
+              vars.$h4-tablet,
+              vars.$h4-mobile
+            );
           }
 
           .dropdown-search-form-btn {
@@ -177,10 +180,11 @@
 
             color: rgba(var(--Content-color-rgb), 0.65);
 
-            font-size: map.get(vars.$h5, size);
-            font-weight: map.get(vars.$h5, weight);
-            line-height: map.get(vars.$h5, line-height);
-            letter-spacing: map.get(vars.$h5, letter-spacing);
+            @include responsive-typography(
+              vars.$h5,
+              vars.$h5-tablet,
+              vars.$h5-mobile
+            );
 
             // Динамическое добавление колонок на основе высоты
             &.multi-column {

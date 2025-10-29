@@ -58,27 +58,30 @@
             color: var(--Main-color, #593dff);
 
             .container-box-value {
-              font-size: map.get(vars.$h1, size);
-              font-weight: map.get(vars.$h1, weight);
-              line-height: map.get(vars.$h1, line-height);
-              letter-spacing: map.get(vars.$h1, letter-spacing);
+              @include responsive-typography(
+                vars.$h1,
+                vars.$h1-tablet,
+                vars.$h1-mobile
+              );
             }
 
             .container-box-text {
-              font-size: map.get(vars.$h3, size);
-              font-weight: map.get(vars.$h3, weight);
-              line-height: map.get(vars.$h3, line-height);
-              letter-spacing: map.get(vars.$h3, letter-spacing);
+              @include responsive-typography(
+                vars.$h3,
+                vars.$h3-tablet,
+                vars.$h3-mobile
+              );
             }
           }
 
           .container-box-content {
             color: rgba(var(--Content-color-rgb), 0.4);
 
-            font-size: map.get(vars.$h5, size);
-            font-weight: map.get(vars.$h5, weight);
-            line-height: map.get(vars.$h5, line-height);
-            letter-spacing: map.get(vars.$h5, letter-spacing);
+            @include responsive-typography(
+              vars.$h5,
+              vars.$h5-tablet,
+              vars.$h5-mobile
+            );
           }
 
           &:hover {

@@ -113,10 +113,11 @@
           @include flex-center(row, center, center);
           gap: 5px;
           color: var(--Content-color, #14142d);
-          font-size: map.get(vars.$h3, size);
-          font-weight: map.get(vars.$h3, weight);
-          line-height: map.get(vars.$h3, line-height);
-          letter-spacing: map.get(vars.$h3, letter-spacing);
+          @include responsive-typography(
+            vars.$h3,
+            vars.$h3-tablet,
+            vars.$h3-mobile
+          );
 
           path {
             fill: var(--Content-color, #14142d);

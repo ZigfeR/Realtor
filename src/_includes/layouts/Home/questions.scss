@@ -68,10 +68,11 @@
           @include flex-container(flex, row, nowrap, space-between, center, 0);
           padding: 20px 30px 18px;
           cursor: pointer;
-          font-size: map.get(vars.$h3, size);
-          font-weight: map.get(vars.$h3, weight);
-          line-height: map.get(vars.$h3, line-height);
-          letter-spacing: map.get(vars.$h3, letter-spacing);
+          @include responsive-typography(
+            vars.$h3,
+            vars.$h3-tablet,
+            vars.$h3-mobile
+          );
           background-color: var(--White, #fff);
           transition: background-color 0.3s ease, color 0.3s ease;
 
@@ -107,10 +108,11 @@
 
         .faq-answer-content p {
           margin: 0;
-          font-size: map.get(vars.$h4, size);
-          font-weight: map.get(vars.$h4, weight);
-          line-height: map.get(vars.$h4, line-height);
-          letter-spacing: map.get(vars.$h4, letter-spacing);
+          @include responsive-typography(
+            vars.$h4,
+            vars.$h4-tablet,
+            vars.$h4-mobile
+          );
         }
 
         /* Открытый элемент */

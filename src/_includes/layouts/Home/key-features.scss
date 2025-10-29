@@ -26,10 +26,11 @@
         text-align: center;
         //   transition: color 0.3s ease; /* плавная анимация */
 
-        font-size: map.get(vars.$h4, size);
-        font-weight: map.get(vars.$h4, weight);
-        line-height: map.get(vars.$h4, line-height);
-        letter-spacing: map.get(vars.$h4, letter-spacing);
+        @include responsive-typography(
+          vars.$h4,
+          vars.$h4-tablet,
+          vars.$h4-mobile
+        );
 
         display: -webkit-box;
         -webkit-line-clamp: 3; /* количество строк */

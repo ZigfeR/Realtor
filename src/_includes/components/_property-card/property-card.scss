@@ -15,10 +15,7 @@
   background: var(--White, #fff);
   box-shadow: 0 10px 80px 0 rgba(var(--Main-color-rgb), 0.25);
 
-  font-size: map.get(vars.$h6, size);
-  font-weight: map.get(vars.$h6, weight);
-  line-height: map.get(vars.$h6, line-height);
-  letter-spacing: map.get(vars.$h6, letter-spacing);
+  @include responsive-typography(vars.$h6, vars.$h6-tablet, vars.$h6-mobile);
 
   /* Блок "срочно" */
   &.urgently {
@@ -127,10 +124,11 @@
           .description__top-value-price {
             color: var(--Main-color, #593dff);
 
-            font-size: map.get(vars.$h3, size);
-            font-weight: map.get(vars.$h3, weight);
-            line-height: map.get(vars.$h3, line-height);
-            letter-spacing: map.get(vars.$h3, letter-spacing);
+            @include responsive-typography(
+              vars.$h3,
+              vars.$h3-tablet,
+              vars.$h3-mobile
+            );
           }
 
           .description__top-price-info {
@@ -146,10 +144,11 @@
       }
 
       .description__info {
-        font-size: map.get(vars.$h3, size);
-        font-weight: map.get(vars.$h3, weight);
-        line-height: map.get(vars.$h3, line-height);
-        letter-spacing: map.get(vars.$h3, letter-spacing);
+        @include responsive-typography(
+          vars.$h3,
+          vars.$h3-tablet,
+          vars.$h3-mobile
+        );
       }
 
       .description__location {
@@ -205,10 +204,11 @@
 
   //       color: var(--Content-color, #14142d);
 
-  //       font-size: map.get(vars.$h4, size);
-  //       font-weight: map.get(vars.$h4, weight);
-  //       line-height: map.get(vars.$h4, line-height);
-  //       letter-spacing: map.get(vars.$h4, letter-spacing);
+  //       @include responsive-typography(
+  // vars.$h4,
+  // vars.$h4-tablet,
+  // vars.$h4-mobile
+  // );
   //     }
   //   }
   // }

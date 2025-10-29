@@ -41,10 +41,11 @@
       border-radius: var(--border-radius);
       background: var(--Main-color, #593dff);
 
-      font-size: map.get(vars.$h6, size);
-      font-weight: map.get(vars.$h6, weight);
-      line-height: map.get(vars.$h6, line-height);
-      letter-spacing: map.get(vars.$h6, letter-spacing);
+      @include responsive-typography(
+        vars.$h6,
+        vars.$h6-tablet,
+        vars.$h6-mobile
+      );
     }
   }
 
@@ -67,18 +68,20 @@
       .blog-card__theme {
         color: var(--Content-color, #14142d);
 
-        font-size: map.get(vars.$h3, size);
-        font-weight: map.get(vars.$h3, weight);
-        line-height: map.get(vars.$h3, line-height);
-        letter-spacing: map.get(vars.$h3, letter-spacing);
+        @include responsive-typography(
+          vars.$h3,
+          vars.$h3-tablet,
+          vars.$h3-mobile
+        );
       }
       .blog-card__comment {
         color: var(--Content-color, #14142d);
 
-        font-size: map.get(vars.$h5, size);
-        font-weight: map.get(vars.$h5, weight);
-        line-height: map.get(vars.$h5, line-height);
-        letter-spacing: map.get(vars.$h5, letter-spacing);
+        @include responsive-typography(
+          vars.$h3,
+          vars.$h3-tablet,
+          vars.$h3-mobile
+        );
       }
     }
 
@@ -89,19 +92,21 @@
       .blog-date {
         color: rgba(var(--Content-color-rgb), 0.6);
 
-        font-size: map.get(vars.$h6, size);
-        font-weight: map.get(vars.$h6, weight);
-        line-height: map.get(vars.$h6, line-height);
-        letter-spacing: map.get(vars.$h6, letter-spacing);
+        @include responsive-typography(
+          vars.$h6,
+          vars.$h6-tablet,
+          vars.$h6-mobile
+        );
       }
       .blog-read-more {
         color: var(--Main-color, #593dff);
         text-align: center;
 
-        font-size: map.get(vars.$h5, size);
-        font-weight: map.get(vars.$h5, weight);
-        line-height: map.get(vars.$h5, line-height);
-        letter-spacing: map.get(vars.$h5, letter-spacing);
+        @include responsive-typography(
+          vars.$h5,
+          vars.$h5-tablet,
+          vars.$h5-mobile
+        );
       }
     }
   }

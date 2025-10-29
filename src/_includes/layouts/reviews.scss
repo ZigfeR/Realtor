@@ -57,10 +57,11 @@
 
           .box-p {
             color: var(--Content-color, #14142d);
-            font-size: map.get(vars.$h5, size);
-            font-weight: map.get(vars.$h5, weight);
-            line-height: map.get(vars.$h5, line-height);
-            letter-spacing: map.get(vars.$h5, letter-spacing);
+            @include responsive-typography(
+              vars.$h5,
+              vars.$h5-tablet,
+              vars.$h5-mobile
+            );
 
             .box-p-color {
               color: var(--Main-color, #593dff);
@@ -68,10 +69,11 @@
 
             .box-p-color,
             .box-p-bold {
-              font-size: map.get(vars.$h3, size);
-              font-weight: map.get(vars.$h3, weight);
-              line-height: map.get(vars.$h3, line-height);
-              letter-spacing: map.get(vars.$h3, letter-spacing);
+              @include responsive-typography(
+                vars.$h3,
+                vars.$h3-tablet,
+                vars.$h3-mobile
+              );
             }
           }
         }
