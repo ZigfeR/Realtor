@@ -13,8 +13,7 @@
                 </div>
                 <div class="partners-header-bottom">
                     {% for images in property.logo %}
-                        <img src="{{ images.image }}" alt="{{ images.imageName }}" 
-                        class="partners__image">
+                        {% include images.image %}
                     {% endfor %}
                 </div>
             </div>

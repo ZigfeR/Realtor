@@ -18,8 +18,7 @@
                 </p>
                 <div class="valued-customers-header-bottom">
                     {% for images in property.logo %}
-                        <img src="{{ images.image }}" alt="{{ images.imageName }}" 
-                        class="valued-customers__image">
+                         {% include images.image %}
                     {% endfor %}
                 </div>
             </div>
