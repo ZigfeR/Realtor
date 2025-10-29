@@ -19,7 +19,7 @@
     .review-header {
       @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
       width: 100%;
-      padding: 70px 40px;
+      padding: 70px;
       padding-bottom: 20px;
 
       .review-header-top {
