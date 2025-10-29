@@ -158,47 +158,47 @@
       }
     }
   }
-}
 
-/* Футер низ */
-.footer__bottom {
-  background: var(--Content-color, #14142d);
-  padding: 15px 70px;
-  @include flex-container(flex, row, nowrap, unset, center, 0);
-
-  @media (max-width: 949px) {
-    padding: 15px;
-  }
-
-  .container {
-    @include flex-container(flex, row, nowrap, space-between, center, 0);
+  /* Футер низ */
+  .footer__bottom {
+    background: var(--Content-color, #14142d);
+    @include flex-container(flex, row, nowrap, unset, center, 0);
 
     @media (max-width: 949px) {
-      flex-direction: column;
+      padding: 15px;
     }
 
-    .left {
-      @include flex-container(flex, row, nowrap, space-between, center, 45px);
+    .container {
+      @include flex-container(flex, row, nowrap, space-between, center, 0);
+      padding: 15px 70px;
 
       @media (max-width: 949px) {
         flex-direction: column;
       }
+
+      .left {
+        @include flex-container(flex, row, nowrap, space-between, center, 45px);
+
+        @media (max-width: 949px) {
+          flex-direction: column;
+        }
+      }
+
+      .copyright {
+        font-size: map.get(vars.$h6, size);
+        font-weight: map.get(vars.$h6, weight);
+        line-height: map.get(vars.$h6, line-height);
+        letter-spacing: map.get(vars.$h6, letter-spacing);
+      }
     }
 
-    .copyright {
-      font-size: map.get(vars.$h6, size);
-      font-weight: map.get(vars.$h6, weight);
-      line-height: map.get(vars.$h6, line-height);
-      letter-spacing: map.get(vars.$h6, letter-spacing);
+    &,
+    a {
+      color: rgba(var(--White-rgb), 0.65);
     }
-  }
 
-  &,
-  a {
-    color: rgba(var(--White-rgb), 0.65);
-  }
-
-  a:hover {
-    color: var(--White, #fff);
+    a:hover {
+      color: var(--White, #fff);
+    }
   }
 }

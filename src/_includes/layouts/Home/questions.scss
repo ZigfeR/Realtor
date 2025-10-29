@@ -41,105 +41,105 @@
 
   .questions-body {
     background-color: rgba(var(--Main-color-rgb), 0.05);
-    padding: 40px 147px 80px 270px;
 
     .container-questions-cards {
+      padding: 40px 147px 80px 270px;
       width: 100%;
-    }
-  }
-}
 
-/* ========== FAQ Accordion ========== */
-.faq-accordion {
-  .faq-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .faq-item {
-    background-color: var(--White, #fff);
-    border-radius: var(--border-radius);
-    box-shadow: -25px 20px 88px 0 rgba(var(--Main-color-rgb), 0.25);
-    overflow: hidden;
-  }
-
-  .faq-label {
-    @include flex-container(flex, row, nowrap, space-between, center, 0);
-    padding: 20px 30px 18px;
-    cursor: pointer;
-    font-size: map.get(vars.$h3, size);
-    font-weight: map.get(vars.$h3, weight);
-    line-height: map.get(vars.$h3, line-height);
-    letter-spacing: map.get(vars.$h3, letter-spacing);
-    background-color: var(--White, #fff);
-    transition: background-color 0.3s ease, color 0.3s ease;
-
-    .faq-icon {
-      @include flex-center(row, center, center);
-      width: 25px;
-      height: 25px;
-      transition: transform 0.3s ease;
-
-      svg path {
-        fill: var(--Main-color, #593dff);
-        transition: fill 0.3s ease;
-      }
-    }
-  }
-
-  /* Скрытый блок — только max-height */
-  .faq-answer-list {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-  }
-
-  /* Контент — с padding всегда */
-  .faq-answer-content {
-    padding: 0 190px 45px 30px; /* Всегда есть */
-    background-color: var(--Main-color, #593dff);
-    color: var(--White, #fff);
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .faq-answer-content p {
-    margin: 0;
-    font-size: map.get(vars.$h4, size);
-    font-weight: map.get(vars.$h4, weight);
-    line-height: map.get(vars.$h4, line-height);
-    letter-spacing: map.get(vars.$h4, letter-spacing);
-  }
-
-  /* Открытый элемент */
-  .faq-item.is-open {
-    .faq-label {
-      background-color: var(--Main-color, #593dff);
-      color: var(--White, #fff);
-      border-radius: var(--border-radius) var(--border-radius) 0 0;
-
-      .icon-line {
-        &.horizontal {
-          fill: white;
+      /* ========== FAQ Accordion ========== */
+      .faq-accordion {
+        .faq-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
         }
-        &.vertical {
+
+        .faq-item {
+          background-color: var(--White, #fff);
+          border-radius: var(--border-radius);
+          box-shadow: -25px 20px 88px 0 rgba(var(--Main-color-rgb), 0.25);
+          overflow: hidden;
+        }
+
+        .faq-label {
+          @include flex-container(flex, row, nowrap, space-between, center, 0);
+          padding: 20px 30px 18px;
+          cursor: pointer;
+          font-size: map.get(vars.$h3, size);
+          font-weight: map.get(vars.$h3, weight);
+          line-height: map.get(vars.$h3, line-height);
+          letter-spacing: map.get(vars.$h3, letter-spacing);
+          background-color: var(--White, #fff);
+          transition: background-color 0.3s ease, color 0.3s ease;
+
+          .faq-icon {
+            @include flex-center(row, center, center);
+            width: 25px;
+            height: 25px;
+            transition: transform 0.3s ease;
+
+            svg path {
+              fill: var(--Main-color, #593dff);
+              transition: fill 0.3s ease;
+            }
+          }
+        }
+
+        /* Скрытый блок — только max-height */
+        .faq-answer-list {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease;
+        }
+
+        /* Контент — с padding всегда */
+        .faq-answer-content {
+          padding: 0 190px 45px 30px; /* Всегда есть */
+          background-color: var(--Main-color, #593dff);
+          color: var(--White, #fff);
+          border-radius: 0 0 var(--border-radius) var(--border-radius);
           opacity: 0;
-          transform: scaleY(0);
+          transition: opacity 0.3s ease;
+        }
+
+        .faq-answer-content p {
+          margin: 0;
+          font-size: map.get(vars.$h4, size);
+          font-weight: map.get(vars.$h4, weight);
+          line-height: map.get(vars.$h4, line-height);
+          letter-spacing: map.get(vars.$h4, letter-spacing);
+        }
+
+        /* Открытый элемент */
+        .faq-item.is-open {
+          .faq-label {
+            background-color: var(--Main-color, #593dff);
+            color: var(--White, #fff);
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+
+            .icon-line {
+              &.horizontal {
+                fill: white;
+              }
+              &.vertical {
+                opacity: 0;
+                transform: scaleY(0);
+              }
+            }
+
+            .faq-icon {
+              transform: rotate(180deg);
+            }
+          }
+
+          .faq-answer-content {
+            opacity: 1;
+          }
         }
       }
-
-      .faq-icon {
-        transform: rotate(180deg);
-      }
-    }
-
-    .faq-answer-content {
-      opacity: 1;
     }
   }
 }

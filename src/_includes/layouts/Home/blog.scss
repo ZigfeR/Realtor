@@ -34,7 +34,6 @@
 
   .blog-body {
     background: rgba(var(--Main-color-rgb), 0.05);
-    padding: 40px 100px;
 
     .container-blog-cards {
       @include flex-container(
@@ -45,6 +44,7 @@
         flex-start,
         40px
       );
+      padding: 40px 70px;
     }
   }
 }
