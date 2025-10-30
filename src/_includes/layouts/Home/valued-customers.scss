@@ -7,7 +7,7 @@
    ========================== */
 .valued-customers {
   user-select: none;
-  padding: 40px 40px;
+  padding: 40px 70px;
 
   .container-valued-customers {
     @include flex-container(flex, column, nowrap, unset, flex-start, 0);
@@ -15,7 +15,7 @@
     .valued-customers-header {
       @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
       width: 100%;
-      padding: 0 70px;
+      // padding: 0 70px;
 
       .valued-customers-header-top {
         @include flex-container(flex, row, nowrap, space-between, center, 0);

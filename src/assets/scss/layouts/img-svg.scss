@@ -1,0 +1,101 @@
+.valued-customers__image {
+  transition: fill 0.3s ease;
+
+  // Приват
+  .privat-cls-1 {
+    fill: var(--Main-color, #593dff);
+  }
+  .privat-cls-2 {
+    fill: #3b2eb7;
+  }
+
+  // Райфайзен
+  .raiff-cls-11 {
+    fill: var(--Main-color, #593dff);
+  }
+
+  .raiff-cls-22 {
+    fill: #ffffff;
+  }
+  .raiff-cls-33 {
+    fill: #ffffff;
+  }
+
+  // УкрПочта
+  .ukrpost-cls-1 {
+    fill: var(--Main-color, #593dff);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    stroke: none;
+  }
+  .ukrpost-cls-2 {
+    fill: #8d81fc;
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    stroke: none;
+  }
+  .ukrpost-cls-3 {
+    fill: var(--Main-color, #593dff);
+    fill-opacity: 1;
+    fill-rule: nonzero;
+    stroke: none;
+  }
+
+  // Подорожник
+  .podoroj-cls-1 {
+    fill: #8d81fc;
+  }
+
+  .podoroj-cls-2 {
+    fill: #3b2eb7;
+  }
+
+  .podoroj-cls-3 {
+    fill: var(--Main-color, #593dff);
+  }
+
+  &:hover {
+    transition: fill 0.3s ease;
+
+    // Райфайзен
+    .raiff-cls-11 {
+      fill: #010101;
+    }
+
+    .raiff-cls-22 {
+      fill: #fef100;
+    }
+
+    // Приват
+    .privat-cls-1 {
+      fill: #67a600;
+    }
+    .privat-cls-2 {
+      fill: #231f20;
+    }
+
+    // УкрПочта
+    .ukrpost-cls-1 {
+      fill: #617171;
+    }
+    .ukrpost-cls-2 {
+      fill: #fabc26;
+    }
+    .ukrpost-cls-3 {
+      fill: #2c2e2c;
+    }
+
+    // Подорожник
+    .podoroj-cls-1 {
+      fill: #009e76;
+    }
+
+    .podoroj-cls-2 {
+      fill: #bedfd5;
+    }
+
+    .podoroj-cls-3 {
+      fill: #006c43;
+    }
+  }
+}
