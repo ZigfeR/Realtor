@@ -1,203 +1,278 @@
-/**
- * Инициализация состояния выпадающих списков при загрузке страницы
- */
-function initializeDropdowns() {
-  const dropdowns = document.querySelectorAll(".form-dropdown");
-  const allDropdowns = Array.from(dropdowns).sort(
-    (a, b) => a.dataset.step - b.dataset.step
-  );
-
-  dropdowns.forEach((dropdown) => {
-    const currentStep = parseInt(dropdown.dataset.step);
-    const prevDropdowns = allDropdowns.filter(
-      (d) => parseInt(d.dataset.step) < currentStep
+class DropdownManager {
+  constructor() {
+    this.portal = document.querySelector(".dropdowns-portal");
+    this.dropdowns = document.querySelectorAll(".form-dropdown");
+    this.allDropdowns = Array.from(this.dropdowns).sort(
+      (a, b) => a.dataset.step - b.dataset.step
     );
-    const allPrevSelected = prevDropdowns.every(
-      (d) => d.querySelector(".selected-value").textContent !== "Select"
-    );
+    this.currentOpen = null;
 
-    if (!allPrevSelected && currentStep !== 1) {
-      dropdown.classList.add("disabled");
-    } else {
-      dropdown.classList.remove("disabled");
-    }
-  });
-}
-
-/**
- * Обновление стилей колонок для выпадающего списка
- * @param {HTMLElement} options - Элемент ul.dropdown-search-form-options
- */
-function updateColumnLayout(options) {
-  const container = options.querySelector(".dropdown-li-container");
-  const items = container.querySelectorAll('li[role="option"]');
-  const itemCount = items.length;
-  const dropdown = options.closest(".form-dropdown");
-  const label = dropdown.querySelector(".dropdown-label");
-
-  // Сброс инлайн-стилей перед вычислением
-  options.style.width = "";
-  container.style.columnCount = "";
-
-  // Извлечение ширины .dropdown-label
-  const labelStyle = getComputedStyle(label);
-  const liWidth = parseFloat(labelStyle.width); // Ширина равна ширине метки
-  console.log("liWidth (from label):", liWidth); // Отладка
-
-  // Извлечение стилей из .dropdown-search-form-options
-  const style = getComputedStyle(options);
-  const paddingLeft = parseFloat(style.paddingLeft);
-  const paddingRight = parseFloat(style.paddingRight);
-
-  // Извлечение column-gap из .dropdown-li-container
-  const containerStyle = getComputedStyle(container);
-  const gap = parseFloat(containerStyle.columnGap) || 12; // Значение по умолчанию 12px, если не задано
-
-  // Определяем количество колонок
-  let columnCount = Math.ceil(itemCount / 11);
-
-  // Вычисляем новую ширину с учетом условия для 1 столбца
-  let totalWidth =
-    liWidth * columnCount +
-    paddingLeft +
-    paddingRight +
-    gap * (columnCount - 1);
-  if (columnCount === 1) {
-    totalWidth -= 3 + 10; // Вычитаем 3px для одного столбца
-  }
-  options.style.width = `${totalWidth}px`; // Применяем новую ширину
-
-  // Устанавливаем column-count для .dropdown-li-container
-  container.style.columnCount = columnCount;
-
-  // Добавляем или убираем класс multi-column
-  if (columnCount > 1) {
-    options.classList.add("multi-column");
-  } else {
-    options.classList.remove("multi-column");
+    this.init();
   }
 
-  // Устанавливаем ширину li равной ширине label
-  items.forEach((item) => {
-    item.style.width = `${liWidth}px`;
-  });
-}
-
-/**
- * Обработчик событий кликов на документе для управления различными элементами формы
- * @param {Event} e - Объект события клика
- */
-document.addEventListener("click", function (e) {
-  const dropdowns = document.querySelectorAll(".form-dropdown");
-  const allDropdowns = Array.from(dropdowns).sort(
-    (a, b) => a.dataset.step - b.dataset.step
-  );
-
-  // Управление выпадающими списками
-  dropdowns.forEach((dropdown) => {
-    const btn = dropdown.querySelector(".dropdown-search-form-btn");
-    const options = dropdown.querySelector(".dropdown-search-form-options");
-    const selectedValue = btn.querySelector(".selected-value");
-
-    if (!options || !btn) return; // Пропускаем, если элементы не найдены
-
-    // Проверяем, можно ли открыть список (предыдущие шаги выбраны)
-    const currentStep = parseInt(dropdown.dataset.step);
-    const prevDropdowns = allDropdowns.filter(
-      (d) => parseInt(d.dataset.step) < currentStep
-    );
-    const allPrevSelected = prevDropdowns.every(
-      (d) => d.querySelector(".selected-value").textContent !== "Select"
-    );
-
-    if (!allPrevSelected && currentStep !== 1) {
-      dropdown.classList.add("disabled");
-    } else {
-      dropdown.classList.remove("disabled");
-    }
-
-    if (btn.contains(e.target)) {
-      e.preventDefault();
-      if (allPrevSelected || currentStep === 1) {
-        const expanded = btn.getAttribute("aria-expanded") === "true";
-        btn.setAttribute("aria-expanded", !expanded);
-        options.style.display = expanded ? "none" : "flex";
-
-        if (!expanded) {
-          // Обновляем макет колонок после открытия
-          setTimeout(() => updateColumnLayout(options), 0); // Таймаут для корректного расчета высоты
-        } else {
-          // Сбрасываем инлайн-ширину при закрытии
-          options.style.width = "";
-        }
-      }
-    } else if (!dropdown.contains(e.target)) {
-      btn.setAttribute("aria-expanded", "false");
-      options.style.display = "none";
-      // Сбрасываем инлайн-ширину при закрытии вне элемента
-      options.style.width = "";
-    }
-  });
-
-  // Управление кнопками формы
-  const formButtons = document.querySelectorAll(".filter-btn, .form-find-btn");
-  formButtons.forEach((button) => {
-    if (button.contains(e.target)) {
-      e.preventDefault();
-    }
-  });
-
-  // Переключение вкладок
-  const tabs = document.querySelectorAll(".form-tabs .tab");
-  if (e.target.classList.contains("tab")) {
-    e.preventDefault();
-    tabs.forEach((tab) => tab.classList.remove("active"));
-    e.target.classList.add("active");
+  init() {
+    this.createDropdownOptions();
+    this.bindEvents();
+    this.initializeDropdowns();
   }
-});
 
-/**
- * Обработчик выбора опций в выпадающих списках
- */
-document
-  .querySelectorAll('.dropdown-search-form-options li[role="option"]')
-  .forEach((option) => {
-    option.addEventListener("click", function (e) {
-      const dropdown = this.closest(".form-dropdown");
+  createDropdownOptions() {
+    this.dropdowns.forEach((dropdown) => {
       const btn = dropdown.querySelector(".dropdown-search-form-btn");
-      const selectedValue = btn.querySelector(".selected-value");
-      const options = dropdown.querySelector(".dropdown-search-form-options");
-      const allDropdowns = Array.from(
-        document.querySelectorAll(".form-dropdown")
-      ).sort((a, b) => a.dataset.step - b.dataset.step);
-      const allOptions = options.querySelectorAll('li[role="option"]');
+      const label = dropdown.querySelector(".dropdown-label");
+      const step = dropdown.dataset.step;
 
-      // Удаляем класс selected у всех опций в текущем списке
-      allOptions.forEach((opt) => opt.classList.remove("selected"));
-      // Добавляем класс selected к выбранной опции
-      this.classList.add("selected");
+      const options = document.createElement("ul");
+      options.className = "dropdown-search-form-options";
+      options.setAttribute("role", "listbox");
+      options.dataset.target = btn.id;
 
-      // Обновляем выбранное значение
-      selectedValue.textContent = this.textContent;
-      btn.setAttribute("aria-expanded", "false");
-      options.style.display = "none";
+      const currentValue = document.createElement("li");
+      currentValue.role = "presentation";
+      currentValue.className = "current-value";
+      currentValue.textContent = "Select";
+      options.appendChild(currentValue);
 
-      // Очищаем все последующие списки
-      const currentStep = parseInt(dropdown.dataset.step);
-      const nextDropdowns = allDropdowns.filter(
-        (d) => parseInt(d.dataset.step) > currentStep
-      );
-      nextDropdowns.forEach((d) => {
-        const nextBtn = d.querySelector(".dropdown-search-form-btn");
-        const nextSelectedValue = nextBtn.querySelector(".selected-value");
-        nextSelectedValue.textContent = "Select";
-        // Сбрасываем selected у опций в следующих списках
-        d.querySelectorAll('li[role="option"]').forEach((opt) =>
-          opt.classList.remove("selected")
-        );
+      const container = document.createElement("div");
+      container.className = "dropdown-li-container";
+
+      const items = this.getItemsForStep(step);
+      items.forEach((item) => {
+        const li = document.createElement("li");
+        li.role = "option";
+        li.dataset.value = item.value;
+        li.textContent = item.text;
+        container.appendChild(li);
       });
 
-      // Переинициализируем состояние после выбора
-      initializeDropdowns();
+      options.appendChild(container);
+      this.portal.appendChild(options);
     });
-  });
+  }
+
+  getItemsForStep(step) {
+    const data = {
+      1: [
+        { value: "apartment", text: "Apartment" },
+        { value: "house", text: "House" },
+        { value: "commercial", text: "Commercial" },
+      ],
+      2: [
+        { value: "ivano-frankivsk", text: "Ivano-Frankivsk reg." },
+        { value: "zaporizhzhia", text: "Zaporizhzhia reg." },
+        { value: "ternopil", text: "Ternopil reg." },
+        { value: "kirovograd", text: "Kirovograd reg." },
+        { value: "kyiv", text: "Kyiv reg." },
+        { value: "poltava", text: "Poltava reg." },
+        { value: "lviv", text: "Lviv reg." },
+        { value: "rivne", text: "Rivne reg." },
+        { value: "chernivtsi", text: "Chernivtsi reg." },
+        { value: "sumy", text: "Sumy reg." },
+        { value: "mykolaiv", text: "Mykolaiv reg." },
+        { value: "kharkiv", text: "Kharkiv reg." },
+        { value: "odesa", text: "Odesa reg." },
+        { value: "kherson", text: "Kherson reg." },
+        { value: "volyn", text: "Volyn reg." },
+        { value: "khmelnytskyi", text: "Khmelnytskyi reg." },
+        { value: "dnipropetrovsk", text: "Dnipropetrovsk reg." },
+        { value: "cherkasy", text: "Cherkasy reg." },
+        { value: "zhytomyr", text: "Zhytomyr reg." },
+        { value: "chernihiv", text: "Chernihiv reg." },
+        { value: "zakarpattia", text: "Zakarpattia reg." },
+      ],
+      3: [
+        { value: "newyork", text: "New York" },
+        { value: "london", text: "London" },
+        { value: "paris", text: "Paris" },
+      ],
+      4: [
+        { value: "center", text: "Center" },
+        { value: "suburbs", text: "Suburbs" },
+        { value: "downtown", text: "Downtown" },
+      ],
+    };
+    return data[step] || [];
+  }
+
+  bindEvents() {
+    // Блокируем ВСЁ, что может отправить форму
+    document.querySelector(".search-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      return false;
+    });
+
+    // Все клики — один обработчик
+    document.addEventListener("click", (e) => {
+      // Блокируем submit для всех кнопок в форме
+      if (e.target.closest("button") && e.target.closest(".search-form")) {
+        e.preventDefault();
+      }
+
+      const btn = e.target.closest(".dropdown-search-form-btn");
+      const option = e.target.closest(
+        '.dropdown-search-form-options li[role="option"]'
+      );
+
+      if (btn) {
+        this.toggleDropdown(btn);
+      } else if (option) {
+        this.selectOption(option);
+      } else if (this.currentOpen) {
+        const inDropdown =
+          this.currentOpen.btn.contains(e.target) ||
+          this.currentOpen.options.contains(e.target);
+        if (!inDropdown) {
+          this.closeCurrent();
+        }
+      }
+    });
+
+    // Переключение вкладок
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("tab")) {
+        document.querySelectorAll(".form-tabs .tab").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+        e.target.classList.add("active");
+      }
+    });
+
+    // Адаптация при ресайзе
+    window.addEventListener("resize", () => {
+      if (this.currentOpen) {
+        this.positionDropdown(this.currentOpen.btn, this.currentOpen.options);
+      }
+    });
+  }
+
+  toggleDropdown(btn) {
+    const isOpen = btn.getAttribute("aria-expanded") === "true";
+    this.closeCurrent();
+
+    if (!isOpen && this.canOpen(btn)) {
+      btn.setAttribute("aria-expanded", "true");
+      const options = this.portal.querySelector(
+        `.dropdown-search-form-options[data-target="${btn.id}"]`
+      );
+      options.classList.add("open");
+      this.currentOpen = { btn, options };
+      this.positionDropdown(btn, options);
+      this.updateColumnLayout(options, btn);
+    }
+  }
+
+  canOpen(btn) {
+    const dropdown = btn.closest(".form-dropdown");
+    const step = parseInt(dropdown.dataset.step);
+    if (step === 1) return true;
+
+    const prev = this.allDropdowns.filter(
+      (d) => parseInt(d.dataset.step) < step
+    );
+    return prev.every(
+      (d) => d.querySelector(".selected-value").textContent !== "Select"
+    );
+  }
+
+  positionDropdown(btn, options) {
+    const btnRect = btn.getBoundingClientRect();
+    const containerRect = document
+      .querySelector(".form-fields")
+      .getBoundingClientRect();
+
+    const top = btnRect.bottom - containerRect.top + 16; // +8px отступ снизу
+    const left = btnRect.left - containerRect.left - 30;
+
+    options.style.top = `${top}px`;
+    options.style.left = `${left}px`;
+    options.style.minWidth = `${btnRect.width}px`;
+  }
+
+  updateColumnLayout(options, btn) {
+    const container = options.querySelector(".dropdown-li-container");
+    const items = container.querySelectorAll('li[role="option"]');
+    const label = btn
+      .closest(".form-dropdown")
+      .querySelector(".dropdown-label");
+    const labelWidth = label.getBoundingClientRect().width;
+
+    let columnCount = Math.ceil(items.length / 11);
+    columnCount = Math.max(1, columnCount);
+
+    const gap = 12;
+    const padding = 40;
+    let totalWidth =
+      labelWidth * columnCount + padding + gap * (columnCount - 1);
+    if (columnCount === 1) totalWidth -= 13;
+
+    options.style.width = `${totalWidth}px`;
+    container.style.columnCount = columnCount;
+    items.forEach((item) => (item.style.width = `${labelWidth}px`));
+    options.classList.toggle("multi-column", columnCount > 1);
+  }
+
+  selectOption(option) {
+    const options = option.closest(".dropdown-search-form-options");
+    const btn = document.getElementById(options.dataset.target);
+    const selectedValue = btn.querySelector(".selected-value");
+
+    options
+      .querySelectorAll('li[role="option"]')
+      .forEach((li) => li.classList.remove("selected"));
+    option.classList.add("selected");
+    selectedValue.textContent = option.textContent;
+
+    this.closeCurrent();
+    this.resetNextSteps(btn.closest(".form-dropdown"));
+    this.initializeDropdowns();
+  }
+
+  resetNextSteps(currentDropdown) {
+    const step = parseInt(currentDropdown.dataset.step);
+    const next = this.allDropdowns.filter(
+      (d) => parseInt(d.dataset.step) > step
+    );
+    next.forEach((d) => {
+      const btn = d.querySelector(".dropdown-search-form-btn");
+      const span = btn.querySelector(".selected-value");
+      span.textContent = "Select";
+      const targetId = btn.id;
+      const opts = this.portal.querySelector(
+        `.dropdown-search-form-options[data-target="${targetId}"]`
+      );
+      if (opts) {
+        opts
+          .querySelectorAll('li[role="option"]')
+          .forEach((li) => li.classList.remove("selected"));
+      }
+    });
+  }
+
+  closeCurrent() {
+    if (this.currentOpen) {
+      this.currentOpen.btn.setAttribute("aria-expanded", "false");
+      this.currentOpen.options.classList.remove("open");
+      this.currentOpen.options.style.width = "";
+      this.currentOpen.options.style.minWidth = "";
+      this.currentOpen = null;
+    }
+  }
+
+  initializeDropdowns() {
+    this.dropdowns.forEach((dropdown) => {
+      const step = parseInt(dropdown.dataset.step);
+      const prev = this.allDropdowns.filter(
+        (d) => parseInt(d.dataset.step) < step
+      );
+      const allPrevSelected = prev.every(
+        (d) => d.querySelector(".selected-value").textContent !== "Select"
+      );
+      dropdown.classList.toggle("disabled", !allPrevSelected && step !== 1);
+    });
+  }
+}
+
+// === ЗАПУСК ===
+document.addEventListener("DOMContentLoaded", () => {
+  new DropdownManager();
+});

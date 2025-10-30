@@ -20,14 +20,6 @@
             <span class="selected-value">Select</span>
             {% include "components/icon/small-arrow-svg.njk" %}
           </button>
-          <ul class="dropdown-search-form-options" role="listbox" tabindex="-1">
-            <li role="presentation" class="current-value">Select</li>
-            <div class="dropdown-li-container">
-              <li role="option" data-value="apartment">Apartment</li>
-              <li role="option" data-value="house" >House</li>
-              <li role="option" data-value="commercial">Commercial</li>
-            </div>
-          </ul>
         </div>
 
         {# Выпадающий список для выбора региона #}
@@ -38,32 +30,6 @@
             <span class="selected-value">Select</span>
             {% include "components/icon/small-arrow-svg.njk" %}
           </button>
-          <ul class="dropdown-search-form-options " role="listbox" tabindex="-1">
-            <li role="presentation" class="current-value">Select</li>
-            <div class="dropdown-li-container">
-              <li role="option" data-value="ivano-frankivsk">Ivano-Frankivsk reg.</li>
-              <li role="option" data-value="zaporizhzhia">Zaporizhzhia reg.</li>
-              <li role="option" data-value="ternopil">Ternopil reg.</li>
-              <li role="option" data-value="kirovograd">Kirovograd reg.</li>
-              <li role="option" data-value="kyiv">Kyiv reg.</li>
-              <li role="option" data-value="poltava">Poltava reg.</li>
-              <li role="option" data-value="lviv">Lviv reg.</li>
-              <li role="option" data-value="rivne">Rivne reg.</li>
-              <li role="option" data-value="chernivtsi">Chernivtsi reg.</li>
-              <li role="option" data-value="sumy">Sumy reg.</li>
-              <li role="option" data-value="mykolaiv">Mykolaiv reg.</li>
-              <li role="option" data-value="kharkiv">Kharkiv reg.</li>
-              <li role="option" data-value="odesa">Odesa reg.</li>
-              <li role="option" data-value="kherson">Kherson reg.</li>
-              <li role="option" data-value="volyn">Volyn reg.</li>
-              <li role="option" data-value="khmelnytskyi">Khmelnytskyi reg.</li>
-              <li role="option" data-value="dnipropetrovsk">Dnipropetrovsk reg.</li>
-              <li role="option" data-value="cherkasy">Cherkasy reg.</li>
-              <li role="option" data-value="zhytomyr">Zhytomyr reg.</li>
-              <li role="option" data-value="chernihiv">Chernihiv reg.</li>
-              <li role="option" data-value="zakarpattia">Zakarpattia reg.</li>
-            </div>
-          </ul> 
         </div>
 
         {# Выпадающий список для выбора города #}
@@ -74,14 +40,6 @@
             <span class="selected-value">Select</span>
             {% include "components/icon/small-arrow-svg.njk" %}
           </button>
-          <ul class="dropdown-search-form-options" role="listbox" tabindex="-1">
-            <li role="presentation" class="current-value">Select</li>
-            <div class="dropdown-li-container">
-              <li role="option" data-value="newyork">New York</li>
-              <li role="option" data-value="london" >London</li>
-              <li role="option" data-value="paris">Paris</li>
-            </div>
-          </ul>
         </div>
 
         {# Выпадающий список для выбора района #}
@@ -92,20 +50,12 @@
             <span class="selected-value">Select</span>
             {% include "components/icon/small-arrow-svg.njk" %}
           </button>
-          <ul class="dropdown-search-form-options" role="listbox" tabindex="-1">
-            <li role="presentation" class="current-value">Select</li>
-            <div class="dropdown-li-container">
-              <li role="option" data-value="center">Center</li>
-              <li role="option" data-value="suburbs" >Suburbs</li>
-              <li role="option" data-value="downtown">Downtown</li>
-            </div>
-          </ul>
         </div>
       </div>
 
       <div class="filter-btn-container">
         {# Кнопка фильтрации #}
-        <button class="btn filter-btn">
+        <button type="button" class="btn filter-btn">
           {% include "components/icon/filtr-svg.njk" %}
         </button>
 
@@ -116,5 +66,8 @@
         </button>
       </div>
     </div>
+
+    <!-- Контейнер для всех выпадающих списков -->
+    <div class="dropdowns-portal"></div>
   </form>
 </div>

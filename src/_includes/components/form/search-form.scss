@@ -11,7 +11,7 @@
 
   .search-form {
     @include flex-container(flex, column, nowrap, center, flex-start, 0);
-
+    position: relative;
     /* Вкладки для выбора типа */
     .form-tabs {
       display: flex;
@@ -100,28 +100,6 @@
             pointer-events: none; // Отключаем взаимодействие
           }
 
-          .dropdown-label {
-            align-self: stretch;
-            color: var(--Main-color, #593dff);
-
-            @include responsive-typography(
-              vars.$h6,
-              vars.$h6-tablet,
-              vars.$h6-mobile
-            );
-
-            z-index: 11;
-          }
-
-          .selected-value,
-          .current-value {
-            @include responsive-typography(
-              vars.$h4,
-              vars.$h4-tablet,
-              vars.$h4-mobile
-            );
-          }
-
           .dropdown-search-form-btn {
             display: flex;
             align-items: center;
@@ -152,72 +130,6 @@
 
             .selected-value {
               color: rgba(var(--Content-color-rgb), 0.65);
-            }
-          }
-
-          .dropdown-search-form-options {
-            $with: 326px;
-            $padding: 20px;
-            $gap: 10px;
-
-            position: absolute;
-
-            top: 23px;
-            left: 0;
-            right: 0;
-            z-index: 10;
-
-            display: none;
-            border-radius: var(--border-radius, 35px);
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 25px;
-            padding: 0 $padding 20px $padding;
-
-            background: rgba(var(--White-rgb), 0.95);
-            box-shadow: 0 18px 19.4px 0 rgba(89, 61, 255, 0.25);
-            backdrop-filter: blur(19.399999618530273px);
-
-            color: rgba(var(--Content-color-rgb), 0.65);
-
-            @include responsive-typography(
-              vars.$h5,
-              vars.$h5-tablet,
-              vars.$h5-mobile
-            );
-
-            // Динамическое добавление колонок на основе высоты
-            &.multi-column {
-              .dropdown-li-container {
-                column-gap: $gap;
-              }
-            }
-
-            .dropdown-li-container {
-              display: flex;
-              flex-wrap: wrap;
-              align-items: flex-start;
-              gap: 12px;
-            }
-
-            li {
-              display: flex;
-              cursor: pointer;
-              //   width: $with;
-              padding: 8px 10px 2px 10px;
-
-              &.current-value {
-                color: var(--Content-color, #14142d);
-                padding: 5px 10px 2px 10px;
-                cursor: default;
-              }
-
-              &:not(.current-value):hover,
-              &.selected {
-                color: var(--Main-color, #593dff);
-                background: rgba(89, 61, 255, 0.15);
-                border-radius: 15px;
-              }
             }
           }
         }
@@ -252,6 +164,76 @@
           align-items: center;
           padding: 12px 30px;
           gap: 10px;
+        }
+      }
+    }
+
+    .dropdown-label {
+      align-self: stretch;
+      color: var(--Main-color, #593dff);
+
+      @include responsive-typography(
+        vars.$h6,
+        vars.$h6-tablet,
+        vars.$h6-mobile
+      );
+
+      z-index: 11;
+    }
+
+    .selected-value,
+    .current-value {
+      @include responsive-typography(
+        vars.$h4,
+        vars.$h4-tablet,
+        vars.$h4-mobile
+      );
+    }
+
+    .dropdown-search-form-options {
+      position: absolute;
+      z-index: 1000;
+      display: none;
+      flex-direction: column;
+      gap: 25px;
+      padding: 0 20px 20px 20px;
+      border-radius: var(--border-radius, 35px);
+      background: rgba(var(--White-rgb), 0.75);
+      box-shadow: 0 18px 19.4px 0 rgba(89, 61, 255, 0.25);
+      backdrop-filter: blur(19.4px);
+      color: rgba(var(--Content-color-rgb), 0.65);
+      @include responsive-typography(
+        vars.$h5,
+        vars.$h5-tablet,
+        vars.$h5-mobile
+      );
+
+      &.open {
+        display: flex;
+      }
+
+      .dropdown-li-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      li {
+        cursor: pointer;
+        padding: 8px 10px 2px 10px;
+        min-width: fit-content;
+
+        &.current-value {
+          color: var(--Content-color, #14142d);
+          padding: 5px 10px 2px 10px;
+          cursor: default;
+        }
+
+        &:not(.current-value):hover,
+        &.selected {
+          color: var(--Main-color, #593dff);
+          background: rgba(89, 61, 255, 0.15);
+          border-radius: 15px;
         }
       }
     }
