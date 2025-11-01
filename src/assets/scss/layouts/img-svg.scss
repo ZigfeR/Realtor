@@ -99,3 +99,70 @@
     }
   }
 }
+
+.partners__image {
+  .doom-cls-1,
+  .doom-cls-2,
+  .doom-cls-3,
+  .doom-cls-4,
+  .doom-cls-5,
+  .vox-cls-1,
+  .misto-cls-1,
+  .misto-cls-2 {
+    fill: var(--Main-color, #593dff);
+  }
+
+  .doom-cls-2 {
+    opacity: 0.6;
+  }
+
+  .doom-cls-7 {
+    fill: #3b2eb7;
+  }
+
+  .ibud-cls-1 {
+    fill-rule: evenodd;
+  }
+
+  .ibud-cls-1,
+  .ibud-cls-2 {
+    fill: #000;
+  }
+
+  &:hover {
+    .misto-cls-1 {
+      stroke: #226ce3;
+      stroke-miterlimit: 10;
+    }
+
+    .misto-cls-1,
+    .misto-cls-2 {
+      fill: #226ce3;
+    }
+
+    .doom-cls-1,
+    .doom-cls-7 {
+      fill: #090b0c;
+    }
+
+    .doom-cls-2 {
+      fill: #f69d25;
+    }
+
+    .doom-cls-3 {
+      fill: #eb3d95;
+    }
+
+    .doom-cls-4 {
+      fill: #262224;
+    }
+
+    .doom-cls-5 {
+      fill: #838486;
+    }
+
+    .vox-cls-1 {
+      fill: red;
+    }
+  }
+}
