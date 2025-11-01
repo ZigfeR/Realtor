@@ -101,6 +101,8 @@
 }
 
 .partners__image {
+  transition: fill 0.3s ease;
+
   .doom-cls-1,
   .doom-cls-2,
   .doom-cls-3,
@@ -130,6 +132,8 @@
   }
 
   &:hover {
+    transition: fill 0.3s ease;
+
     .misto-cls-1 {
       stroke: #226ce3;
       stroke-miterlimit: 10;
@@ -163,6 +167,106 @@
 
     .vox-cls-1 {
       fill: red;
+    }
+  }
+}
+
+.footer__logo-social {
+  transition: fill 0.3s ease;
+
+  .facebook-cls-1,
+  .instagram-cls-1,
+  .youtube-cls-1,
+  .twitter-cls-1,
+  .tiktok-cls-1 {
+    fill: transparent;
+  }
+  .tiktok-cls-1 {
+    stroke: transparent;
+  }
+
+  .facebook-cls-2,
+  .youtube-cls-2,
+  .instagram-cls-2,
+  .instagram-cls-3,
+  .instagram-cls-4,
+  .twitter-cls-2,
+  .tiktok-cls-2 {
+    fill: #ffffff;
+  }
+
+  .logo-social-youtube:hover {
+    transition: fill 0.3s ease;
+
+    .youtube-cls-1 {
+      fill: #ffffff;
+    }
+
+    .youtube-cls-2 {
+      fill: #ff0000;
+    }
+  }
+
+  .logo-social-facebook:hover {
+    transition: fill 0.3s ease;
+
+    .facebook-cls-1 {
+      fill: #ffffff;
+    }
+
+    .facebook-cls-2 {
+      fill: #1877f2;
+    }
+  }
+
+  .logo-social-instagram {
+    transition: all 0.3s ease;
+
+    &:hover {
+      .instagram-cls-1 {
+        fill: white; // белый квадрат
+      }
+
+      .instagram-cls-2 {
+        fill: #dc2cbb; // точка
+      }
+
+      .instagram-cls-3 {
+        fill: #f74c95; // внутренний круг
+      }
+
+      .instagram-cls-4 {
+        fill: url(#instagram-gradient); // градиентная обводка
+      }
+    }
+  }
+
+  .logo-social-twitter {
+    transition: all 0.3s ease;
+
+    &:hover {
+      .twitter-cls-1 {
+        fill: white;
+        stroke: white;
+      }
+
+      .twitter-cls-2 {
+        fill: black;
+      }
+    }
+  }
+
+  .logo-social-tiktok {
+    transition: all 0.3s ease;
+
+    &:hover {
+      .tiktok-cls-1 {
+        fill: white;
+      }
+
+      .tiktok-cls-2 {
+        fill: #220303;
+      }
     }
   }
 }

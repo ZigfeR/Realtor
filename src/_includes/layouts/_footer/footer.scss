@@ -112,14 +112,6 @@
 
         .footer__logo-social {
           @include flex-container(flex, row, nowrap, unset, flex-start, 25px);
-
-          svg {
-            &:hover {
-              path {
-                fill: var(--Content-color, #14142d);
-              }
-            }
-          }
         }
 
         .multi-logo {
