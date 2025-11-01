@@ -19,7 +19,7 @@
     .chooseUs-header {
       @include flex-container(flex, column, nowrap, unset, flex-start, 0);
       width: 100%;
-      padding: 0 70px;
+      padding: 0 var(--padding-horiz);
     }
 
     .chooseUs-body {
@@ -77,7 +77,7 @@
             width: 625px;
 
             .box-content-p {
-              padding: 25px 40px;
+              padding: 25px var(--padding-vert);
               color: rgba(var(--Content-color-rgb), 0.4);
 
               @include responsive-typography(

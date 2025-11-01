@@ -19,7 +19,7 @@
     .review-header {
       @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
       width: 100%;
-      padding: var(--padding);
+      padding: var(--padding-horiz);
       padding-bottom: 20px;
 
       .review-header-top {
@@ -41,7 +41,7 @@
 
   .review-body {
     background: rgba(var(--Main-color-rgb), 0.05);
-    padding: 40px 0;
+    padding: var(--padding-vert) 0;
     // padding-bottom: 120px;
 
     .container-review-body {
@@ -53,7 +53,7 @@
         overflow: hidden;
 
         .left-container-box-p {
-          padding: 400px 70px 0 70px;
+          padding: 400px var(--padding-horiz) 0 var(--padding-horiz);
 
           .box-p {
             color: var(--Content-color, #14142d);
@@ -79,14 +79,14 @@
         }
 
         .pagination {
-          padding-left: var(--padding);
+          padding-left: var(--padding-horiz);
         }
       }
     }
 
     .review-cards {
-      @include flex-container(flex, row, nowrap, unset, center, 40px);
-      padding: 115px var(--padding) 25px 0;
+      @include flex-container(flex, row, nowrap, unset, center, var(--gap));
+      padding: 115px var(--padding-horiz) 25px 0;
     }
   }
 }

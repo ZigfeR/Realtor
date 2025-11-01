@@ -28,7 +28,7 @@
 
   .container-footer {
     @include flex-container(flex, row, nowrap, unset, flex-start, 0);
-    padding: 40px 70px 50px 70px;
+    padding: var(--padding-vert) var(--padding-horiz) 50px var(--padding-horiz);
 
     @media (min-width: 481px) and (max-width: 1024px) {
       padding: 30px 25px 40px 25px;
@@ -41,7 +41,7 @@
         nowrap,
         space-between,
         flex-start,
-        40px
+        var(--gap)
       );
       width: 100%;
 
@@ -156,7 +156,7 @@
 
     .container {
       @include flex-container(flex, row, nowrap, space-between, center, 0);
-      padding: 15px 70px;
+      padding: 15px var(--padding-horiz);
 
       @media (max-width: 480px) {
         flex-direction: column;

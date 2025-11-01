@@ -11,7 +11,7 @@
   .container-key-features {
     @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
 
-    padding: 80px 70px;
+    padding: 80px var(--padding-horiz);
 
     .key-features-header {
       @include flex-container(flex, column, wrap, unset, flex-start, 0);

@@ -13,7 +13,7 @@
 
   .container-ads {
     @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
-    padding: 70px;
+    padding: var(--padding-horiz);
     height: 355px;
     background-image: url("/assets/images/ads/ads.png");
     background-repeat: no-repeat;

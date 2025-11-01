@@ -10,12 +10,12 @@
 
   .container-partners {
     @include flex-container(flex, column, nowrap, unset, flex-start, 0);
-    padding: 40px 0;
+    padding: var(--padding-vert) 0;
 
     .partners-header {
       @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
       width: 100%;
-      padding: 50px 70px;
+      padding: 50px var(--padding-horiz);
       padding-bottom: 120px;
 
       .partners-header-top {
@@ -61,9 +61,9 @@
     }
 
     .container-partners-body {
-      @include flex-container(flex, row, nowrap, center, center, 40px);
+      @include flex-container(flex, row, nowrap, center, center, var(--gap));
       position: relative;
-      padding: 0 70px;
+      padding: 0 var(--padding-horiz);
       height: 325px;
 
       .partners-body-box {

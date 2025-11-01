@@ -4,7 +4,7 @@
 
 .questions {
   user-select: none;
-  padding: 40px 0 0;
+  padding: var(--padding-vert) 0 0;
   background-color: var(--White, #fff);
 
   .container-questions {
@@ -14,7 +14,7 @@
   .questions-header {
     @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
     width: 100%;
-    padding: 0 70px 40px;
+    padding: 0 var(--padding-horiz) var(--padding-vert);
 
     .questions-header-top {
       @include flex-container(flex, row, nowrap, space-between, center, 0);
@@ -43,7 +43,7 @@
     background-color: rgba(var(--Main-color-rgb), 0.05);
 
     .container-questions-cards {
-      padding: 40px 147px 80px 270px;
+      padding: var(--padding-vert) 147px 80px 270px;
       width: 100%;
 
       /* ========== FAQ Accordion ========== */

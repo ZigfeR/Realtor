@@ -108,7 +108,7 @@
   /* Блок контента */
   .property-card__content {
     @include flex-container(flex, column, nowrap, unset, center, 22px);
-    padding: 40px 20px 35px 20px;
+    padding: var(--padding-vert) 20px 35px 20px;
 
     .property-card__description {
       @include flex-container(flex, column, nowrap, unset, flex-start, 10px);
@@ -184,46 +184,6 @@
     transform: translateY(-5px);
     transition: transform 0.3s ease; /* плавная анимация */
   }
-  // .container-top-cards {
-
-  //   &.container-top-selling {
-  //     padding: 0 70px;
-  //   }
-
-  //   &.container-top-rentals {
-  //     padding-bottom: 0;
-  //   }
-
-  //   .top-cards-container__top {
-  //     @include flex-container(flex, column, nowrap, unset, flex-start, 0);
-  //     width: 100%;
-
-  //     p {
-  //       max-width: var(--paragraf-with, 1325px);
-  //       padding: 40px 0;
-
-  //       color: var(--Content-color, #14142d);
-
-  //       @include responsive-typography(
-  // vars.$h4,
-  // vars.$h4-tablet,
-  // vars.$h4-mobile
-  // );
-  //     }
-  //   }
-  // }
-  // .top-cards-container__bottom {
-  //   @include flex-container(flex, row, nowrap, unset, flex-start, 40px);
-  //   width: 100%;
-
-  //   &.top-selling-bottom-container {
-  //     background: rgba(var(--Main-color-rgb), 0.05);
-  //     padding: 40px 70px 80px 70px;
-  //   }
-  //   &.top-rentals-bottom-container {
-  //     padding: 0 70px 70px 70px;
-  //   }
-  // }
 }
 /* ==========================
    Конец карты товара

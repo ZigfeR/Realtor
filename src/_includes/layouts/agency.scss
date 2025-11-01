@@ -10,11 +10,11 @@
 
   .company-achivements-body {
     @include flex-container(flex, column, nowrap, unset, flex-start, 0);
-    padding: 40px 0;
+    padding: var(--padding-vert) 0;
 
     .container-company-achivements-body {
       @include flex-container(flex, row, nowrap, unset, flex-start, 25px);
-      padding: 0 70px;
+      padding: 0 var(--padding-horiz);
 
       width: 100%;
 

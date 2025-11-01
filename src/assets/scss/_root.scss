@@ -13,9 +13,14 @@
   /* Тени, бордюры и т.п. */
   --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   --border-radius: 35px;
-  --padding: 70px;
-  --padding-tablet: 25px;
-  --padding-mobile: 20px;
+
+  --padding-horiz: 70px;
+  --padding-horiz-tablet: 25px;
+  --padding-horiz-mobile: 20px;
+
+  --padding-vert: 40px;
+
+  --gap: 40px;
 
   /* Специфичные цвета проекта */
   --Main-color: #593dff;

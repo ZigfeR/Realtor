@@ -18,7 +18,7 @@
 
   .container-header {
     @include grid-container(grid, auto 1fr auto, auto, 0, start, center);
-    padding: 15px 70px 30px 70px;
+    padding: 15px var(--padding-horiz) 30px var(--padding-horiz);
 
     /* Лого */
     .logo-header {
@@ -390,7 +390,7 @@
       @include flex-container(flex, row, nowrap, center, center, 0);
       list-style: none;
 
-      gap: 40px !important;
+      gap: var(--gap) !important;
       .nav-list {
         font-size: map.get(vars.$h6, size) !important;
         font-weight: map.get(vars.$h6, weight) !important;

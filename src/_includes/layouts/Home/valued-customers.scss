@@ -7,7 +7,7 @@
    ========================== */
 .valued-customers {
   user-select: none;
-  padding: 40px 70px;
+  padding: var(--padding-vert) var(--padding-horiz);
 
   .container-valued-customers {
     @include flex-container(flex, column, nowrap, unset, flex-start, 0);

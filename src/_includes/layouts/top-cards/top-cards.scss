@@ -10,10 +10,10 @@
 
   .container-top-cards {
     @include flex-container(flex, column, nowrap, unset, flex-start, 0);
-    padding: var(--padding);
+    padding: var(--padding-horiz);
 
     &.container-top-selling {
-      padding: 0 var(--padding);
+      padding: 0 var(--padding-horiz);
 
       @media (min-width: 481px) and (max-width: 1024px) {
         padding: 0 var(--padding-tablet);
@@ -33,7 +33,7 @@
 
       p {
         max-width: var(--paragraf-with, 1325px);
-        padding: 40px 0;
+        padding: var(--padding-vert) 0;
 
         color: var(--Content-color, #14142d);
 
@@ -51,14 +51,15 @@
   }
 
   .top-cards-container__bottom {
-    @include flex-container(flex, row, nowrap, center, center, 40px);
+    @include flex-container(flex, row, nowrap, center, center, var(--gap));
     width: 100%;
 
     &.top-selling-bottom-container {
-      padding: 40px var(--padding) 80px var(--padding);
+      padding: var(--padding-vert) var(--padding-horiz) 80px
+        var(--padding-horiz);
     }
     &.top-rentals-bottom-container {
-      padding: 0 var(--padding) var(--padding) var(--padding);
+      padding: 0 var(--padding-horiz) var(--padding-horiz) var(--padding-horiz);
     }
   }
 

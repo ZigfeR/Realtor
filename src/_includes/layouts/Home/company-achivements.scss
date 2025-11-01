@@ -9,13 +9,20 @@
   user-select: none;
 
   .container-company-achivements {
-    @include flex-container(flex, column, nowrap, unset, flex-start, 40px);
-    padding: 80px 0 40px 0;
+    @include flex-container(
+      flex,
+      column,
+      nowrap,
+      unset,
+      flex-start,
+      var(--gap)
+    );
+    padding: 80px 0 var(--padding-vert) 0;
 
     .company-achivements-header {
       @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
       width: 100%;
-      padding: 0 var(--padding);
+      padding: 0 var(--padding-horiz);
 
       .company-achivements-header-bottom {
         max-width: var(--paragraf-with, 1325px);
@@ -36,7 +43,7 @@
       .company-achivements-content-right-container {
         @include flex-container(flex, row, wrap, flex-end, center, 45px);
 
-        padding: 0 var(--padding);
+        padding: 0 var(--padding-horiz);
 
         .right-container-box {
           @include flex-container(

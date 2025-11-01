@@ -7,7 +7,7 @@
    ========================== */
 .blogs {
   user-select: none;
-  padding: 40px 0;
+  padding: var(--padding-vert) 0;
   background: var(--White, #fff);
 
   .container-blogs {
@@ -16,8 +16,8 @@
     .blog-header {
       @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
       width: 100%;
-      padding: 0 70px;
-      padding-bottom: 40px;
+      padding: 0 var(--padding-horiz);
+      padding-bottom: var(--padding-vert);
 
       .blog-header-top {
         @include flex-container(flex, row, nowrap, space-between, center, 0);
@@ -42,9 +42,9 @@
         nowrap,
         space-between,
         flex-start,
-        40px
+        var(--gap)
       );
-      padding: 40px 70px;
+      padding: var(--padding-vert) var(--padding-horiz);
     }
   }
 }
