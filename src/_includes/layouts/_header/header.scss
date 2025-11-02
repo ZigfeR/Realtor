@@ -20,6 +20,25 @@
     @include grid-container(grid, auto 1fr auto, auto, 0, start, center);
     padding: 15px var(--padding-horiz) 30px var(--padding-horiz);
 
+    @media (min-width: 481px) and (max-width: 1024px) {
+      @include grid-container(
+        grid,
+        repeat(2, 1fr),
+        repeat(2, auto),
+        var(--gap),
+        start,
+        start
+      );
+
+      padding: 15px var(--padding-horiz-tablet) 30px var(--padding-horiz-tablet);
+    }
+
+    @media (max-width: 480px) {
+      @include grid-container(grid, repeat(2, 1fr), auto, 0, start, center);
+
+      padding: 15px var(--padding-horiz-mobile) 30px var(--padding-horiz-mobile);
+    }
+
     /* Лого */
     .logo-header {
       @include flex-container(flex, row, nowrap, flex-start, center, 25px);
@@ -58,25 +77,99 @@
           text-transform: capitalize;
         }
       }
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        @include flex-container(flex, row, nowrap, flex-start, center, 20px);
+
+        svg {
+          width: 91px;
+          height: 71px;
+        }
+
+        .logo-box {
+          .logo-span-main {
+            font-size: 28px;
+            letter-spacing: 0.56px;
+          }
+
+          .logo-span-sub {
+            font-size: 16px;
+            letter-spacing: 0.96px;
+          }
+        }
+      }
+
+      @media (max-width: 480px) {
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
+        width: 64px;
+
+        svg {
+          width: 63px;
+          height: 49px;
+        }
+
+        .logo-box {
+          display: flex;
+          flex-direction: column;
+
+          .logo-span-main {
+            font-size: 13px;
+            letter-spacing: 0.26px;
+          }
+
+          .logo-span-sub {
+            font-size: 8px;
+            letter-spacing: 0.48px;
+            text-transform: capitalize;
+          }
+        }
+      }
     }
 
     /* Навигация */
     .nav {
       @include flex-center(row, center, center);
 
-      & .ul {
+      @media (min-width: 481px) and (max-width: 1024px) {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+        @include flex-center(row, flex-start, center, var(--gap));
+        padding-left: 110px;
+      }
+
+      @media (max-width: 480px) {
+        display: none; /* Навигация скрыта */
+      }
+
+      .ul {
         @include flex-container(flex, row, nowrap, center, center, 45px);
 
-        .nav-list {
-          @include responsive-typography(
-            vars.$h5,
-            vars.$h5-tablet,
-            vars.$h5-mobile
+        @media (min-width: 481px) and (max-width: 1024px) {
+          @include flex-container(
+            flex,
+            row,
+            nowrap,
+            center,
+            center,
+            var(--gap)
           );
+          list-style: none;
+        }
+
+        .nav-list {
           position: relative;
         }
 
         .nav-link {
+          @include responsive-typography(
+            vars.$h5,
+            vars.$h4-tablet,
+            vars.$h4-mobile
+          );
           color: var(--Content-color, #14142d);
 
           &.active,
@@ -84,29 +177,36 @@
             color: var(--Main-color); /* Цвет активной ссылки */
             transition: color 0.3s ease; /* плавная анимация */
           }
-        }
 
-        /* Создаем подчеркивание с помощью ::after */
-        .nav-link::after {
-          content: "";
-          position: absolute;
-          right: 0;
-          bottom: 0; /* внизу ссылки */
-          width: 0; /* изначально ширина 0 */
-          height: 5px; /* толщина линии */
-          background-color: var(--Main-color, #593dff); /* цвет подчеркивания */
-          border-radius: 3px; /* скругление концов */
-          transition: width 0.3s ease; /* плавная анимация */
-        }
+          /* Создаем подчеркивание с помощью ::after */
+          &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0; /* внизу ссылки */
+            width: 0; /* изначально ширина 0 */
+            height: 5px; /* толщина линии */
+            background-color: var(
+              --Main-color,
+              #593dff
+            ); /* цвет подчеркивания */
+            border-radius: 3px; /* скругление концов */
+            transition: width 0.3s ease; /* плавная анимация */
 
-        .nav-link.active::after {
-          width: 24px;
-        }
+            @media (min-width: 481px) and (max-width: 1024px) {
+              bottom: -5px;
+            }
+          }
 
-        /* При наведении увеличиваем ширину до 100% */
-        .nav-link:hover::after,
-        .nav-link.active:hover::after {
-          width: 100%;
+          &.active::after {
+            width: 24px;
+          }
+
+          /* При наведении увеличиваем ширину до 100% */
+          &:hover::after,
+          &.active:hover::after {
+            width: 100%;
+          }
         }
       }
     }
@@ -114,6 +214,28 @@
     /* Правая часть */
     .right-actions {
       @include flex-container(flex, row, nowrap, flex-end, center, 25px);
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+
+        @include flex-container(flex, row, nowrap, space-between, center, 0);
+
+        .btn {
+          padding: 9px 37px 9px 36px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        grid-column: 3 / 3;
+        @include flex-container(flex, row, wrap, flex-end, center, 15px);
+
+        flex-wrap: wrap;
+
+        .btn {
+          order: 3;
+        }
+      }
 
       /* Идентификатор поиска */
       .search-id {
@@ -126,8 +248,8 @@
 
         @include responsive-typography(
           vars.$h5,
-          vars.$h5-tablet,
-          vars.$h5-mobile
+          vars.$h4-tablet,
+          vars.$h4-mobile
         );
 
         .search-visually-hidden {
@@ -153,8 +275,8 @@
 
           @include responsive-typography(
             vars.$h6,
-            vars.$h6-tablet,
-            vars.$h6-mobile
+            vars.$h4-tablet,
+            vars.$h4-mobile
           );
 
           color: var(--Main-color, #593dff);
@@ -210,12 +332,16 @@
         position: relative;
         display: inline-block;
 
+        @media (max-width: 480px) {
+          display: none; /* Навигация скрыта */
+        }
+
         .lang-selected-value,
         .lang-options {
           @include responsive-typography(
             vars.$h5,
-            vars.$h5-tablet,
-            vars.$h5-mobile
+            vars.$h4-tablet,
+            vars.$h4-mobile
           );
         }
 
@@ -335,138 +461,14 @@
           }
         }
       }
-    }
-  }
-}
 
-// // /* Десктоп (ПК, ширина >= 1024px) */
-// @media (min-width: 1024px) {
-// }
-
-/* Планшет (ширина от 950px до 1780px) */
-@media (min-width: 950px) and (max-width: 1780px) {
-  .container-header {
-    @include grid-container(
-      grid,
-      repeat(2, 1fr),
-      repeat(2, auto),
-      1rem,
-      start,
-      start
-    );
-
-    padding: 15px 25px 30px 25px !important;
-
-    .logo-header {
-      grid-column: 1 / 2;
-      grid-row: 1 / 2;
-      @include flex-container(flex, row, nowrap, flex-start, center, 0.5rem);
-
-      svg {
-        width: 91.526px;
-        height: 71.699px;
+      .btn-primary {
+        @include responsive-typography(
+          vars.$h5,
+          vars.$h4-tablet,
+          vars.$h4-mobile
+        );
       }
-
-      .logo-box {
-        .logo-span-main {
-          font-size: 28px !important;
-          letter-spacing: 0.56px !important;
-        }
-
-        .logo-span-sub {
-          font-size: 16px !important;
-          letter-spacing: 0.96px !important;
-        }
-      }
-    }
-
-    nav {
-      grid-column: 1 / 3;
-      grid-row: 2 / 3;
-      @include flex-center(row, center, center, 1rem);
-    }
-
-    nav ul {
-      @include flex-container(flex, row, nowrap, center, center, 0);
-      list-style: none;
-
-      gap: var(--gap) !important;
-      .nav-list {
-        font-size: map.get(vars.$h6, size) !important;
-        font-weight: map.get(vars.$h6, weight) !important;
-        line-height: map.get(vars.$h6, line-height) !important;
-        letter-spacing: map.get(vars.$h6, letter-spacing) !important;
-      }
-    }
-
-    .right-actions {
-      grid-column: 2 / 3;
-      grid-row: 1 / 2;
-      @include flex-container(flex, row, nowrap, flex-end, center, 1rem);
-
-      .search-id {
-        font-size: map.get(vars.$h6, size) !important;
-        font-weight: map.get(vars.$h6, weight) !important;
-        line-height: map.get(vars.$h6, line-height) !important;
-        letter-spacing: map.get(vars.$h6, letter-spacing) !important;
-      }
-    }
-  }
-}
-
-/* Мобильный (ширина <= 949px) */
-@media (max-width: 480px) {
-  .container-header {
-    @include grid-container(grid, repeat(2, 1fr), auto, 1rem, start, center);
-    .logo-header {
-      flex-direction: column !important;
-      gap: 0 !important;
-      justify-content: center !important;
-      svg {
-        width: 63px !important;
-        height: 49px !important;
-      }
-
-      .logo-box {
-        display: flex;
-        flex-direction: column !important;
-
-        .logo-span-main {
-          font-size: 13px !important;
-          letter-spacing: 0.26px !important;
-        }
-
-        .logo-span-sub {
-          font-size: 8px !important;
-          letter-spacing: 0.48px !important;
-          text-transform: capitalize !important;
-        }
-      }
-    }
-  }
-
-  .logo {
-    grid-column: 1 / 2;
-    @include flex-container(flex, row, nowrap, flex-start, center, 0.5rem);
-  }
-
-  nav,
-  .lang-select {
-    display: none !important; /* Навигация скрыта */
-  }
-
-  .right-actions {
-    grid-column: 2 / 3;
-    @include flex-container(flex, row, wrap, flex-end, center, 1rem);
-
-    flex-wrap: wrap !important;
-    .btn {
-      order: 3;
-    }
-
-    .btn {
-      padding: 5px 25px;
-      gap: 5px;
     }
   }
 }
