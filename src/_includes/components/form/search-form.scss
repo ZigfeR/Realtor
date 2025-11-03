@@ -9,6 +9,9 @@
   width: 94.5%;
   //   padding-bottom: 96px;
 
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
   .search-form {
     @include flex-container(flex, column, nowrap, center, flex-start, 0);
     position: relative;
@@ -16,6 +19,10 @@
     .form-tabs {
       display: flex;
       align-items: center;
+
+      @media (max-width: 480px) {
+        width: 100%;
+      }
 
       .tab {
         display: flex;
@@ -33,13 +40,25 @@
 
         @include responsive-typography(
           vars.$h5,
-          vars.$h5-tablet,
-          vars.$h5-mobile
+          vars.$h4-tablet,
+          vars.$h4-mobile
         );
 
         cursor: pointer;
 
         box-shadow: 4px -4px 30px 0 rgba(var(--Main-color-rgb), 0.1);
+
+        @media (min-width: 481px) and (max-width: 1024px) {
+          min-width: 180px;
+          height: 55px;
+        }
+
+        @media (max-width: 480px) {
+          min-width: 138px;
+          width: 100%;
+
+          height: 55px;
+        }
 
         &.active {
           background: var(--Main-color, #593dff);
@@ -60,12 +79,25 @@
       box-shadow: -25px -25px 88px 0 rgba(var(--Main-color-rgb), 0.1);
       backdrop-filter: blur(19.399999618530273px);
 
+      @media (max-width: 480px) {
+        flex-direction: column;
+        gap: 24px;
+        padding: 20px 20px 24px 15px;
+
+        border-radius: 0 0 var(--border-radius, 35px) var(--border-radius, 35px);
+      }
+
       /* Меню выбора */
       .form-dropdowns-container {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
         width: 100%;
+
+        @media (max-width: 480px) {
+          flex-direction: column;
+          gap: 12px;
+        }
 
         /* Выпадающие списки */
         .form-dropdown {
@@ -83,6 +115,17 @@
 
           padding-left: 30px;
 
+          @media (min-width: 481px) and (max-width: 1024px) {
+            padding-left: 20px;
+            max-width: 193px;
+          }
+          @media (max-width: 480px) {
+            padding-left: 0px;
+            gap: 8px;
+
+            max-width: unset;
+          }
+
           /* Боковая полоска */
           &:not(:last-child)::after {
             position: absolute;
@@ -94,6 +137,10 @@
             opacity: 0.2;
             top: 0;
             right: 0;
+
+            @media (max-width: 480px) {
+              display: none;
+            }
           }
 
           &.disabled {
@@ -112,8 +159,17 @@
             border: none;
             gap: 5px;
 
+            @media (min-width: 481px) and (max-width: 1024px) {
+              max-width: 153px;
+            }
+
             &[aria-expanded="true"] {
               opacity: 0;
+            }
+
+            .small-arrow-svg {
+              width: 11px;
+              height: 5px;
             }
 
             &:hover {
@@ -130,6 +186,11 @@
 
             .selected-value {
               color: rgba(var(--Content-color-rgb), 0.65);
+
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 100%;
             }
           }
         }
@@ -139,6 +200,12 @@
         display: flex;
         align-items: center;
         gap: 25px;
+
+        @media (max-width: 480px) {
+          justify-content: flex-end;
+
+          width: 100%;
+        }
 
         /* Кнопка фильтрации */
         .filter-btn {
@@ -155,6 +222,15 @@
             width: 24px;
             height: 24px;
           }
+
+          &:hover {
+            background: rgba(var(--Main-color-rgb), 0.55);
+          }
+
+          @media (max-width: 1024px) {
+            padding: 11px;
+            gap: 15px;
+          }
         }
 
         /* Кнопка поиска */
@@ -164,6 +240,27 @@
           align-items: center;
           padding: 12px 30px;
           gap: 10px;
+
+          @include responsive-typography(
+            vars.$h5,
+            vars.$h4-tablet,
+            vars.$h4-mobile
+          );
+
+          @media (min-width: 481px) and (max-width: 1024px) {
+            padding: 11px;
+
+            .find-text {
+              display: none;
+            }
+          }
+          @media (max-width: 480px) {
+            padding: 9px 25px;
+
+            .find-text {
+              display: block;
+            }
+          }
         }
       }
     }
@@ -174,7 +271,7 @@
 
       @include responsive-typography(
         vars.$h6,
-        vars.$h6-tablet,
+        vars.$h5-tablet,
         vars.$h6-mobile
       );
 
@@ -192,7 +289,7 @@
 
     .dropdown-search-form-options {
       position: absolute;
-      z-index: 1000;
+      z-index: 100;
       display: none;
       flex-direction: column;
       gap: 25px;
@@ -204,18 +301,31 @@
       color: rgba(var(--Content-color-rgb), 0.65);
       @include responsive-typography(
         vars.$h5,
-        vars.$h5-tablet,
-        vars.$h5-mobile
+        vars.$h4-tablet,
+        vars.$h4-mobile
       );
 
       &.open {
         display: flex;
+
+        @media (min-width: 481px) and (max-width: 1024px) {
+          gap: 15px;
+        }
       }
 
       .dropdown-li-container {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
+
+        @media (min-width: 481px) and (max-width: 1024px) {
+          &.grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 8px;
+          }
+        }
       }
 
       li {

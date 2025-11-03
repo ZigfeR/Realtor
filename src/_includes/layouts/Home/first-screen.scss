@@ -21,10 +21,33 @@
     padding: var(--padding-horiz);
     padding-bottom: 48px;
 
+    @media (min-width: 481px) and (max-width: 1024px) {
+      background-size: 500px 407px;
+      gap: 50px;
+      height: unset;
+      padding: 20px var(--padding-horiz-tablet);
+    }
+
+    @media (max-width: 480px) {
+      background-size: 100%;
+      background-position: right 280px;
+      padding: 0px var(--padding-horiz-mobile);
+      height: unset;
+      gap: 220px;
+    }
+
     .first-screen-header {
       @include flex-container(flex, column, wrap, unset, flex-start, 50px);
       max-width: 870px;
 
+      @media (min-width: 481px) and (max-width: 1024px) {
+        gap: 35px;
+        max-width: 479px;
+      }
+
+      @media (max-width: 480px) {
+        gap: 24px;
+      }
       p {
         color: var(--Content-color, #14142d);
 
@@ -37,6 +60,10 @@
         padding-right: 45px;
         align-items: center;
         align-self: stretch;
+
+        @media (max-width: 480px) {
+          padding-right: 0;
+        }
       }
     }
   }

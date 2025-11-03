@@ -180,8 +180,13 @@ class DropdownManager {
       .querySelector(".form-fields")
       .getBoundingClientRect();
 
-    const top = btnRect.bottom - containerRect.top + 16; // +8px отступ снизу
-    const left = btnRect.left - containerRect.left - 30;
+    const top =
+      btnRect.bottom -
+      containerRect.top +
+      (window.innerWidth <= 1024 ? 25 : 16);
+
+    const leftOffset = window.innerWidth <= 480 ? -13 : -30;
+    const left = btnRect.left - containerRect.left + leftOffset;
 
     options.style.top = `${top}px`;
     options.style.left = `${left}px`;
@@ -196,14 +201,18 @@ class DropdownManager {
       .querySelector(".dropdown-label");
     const labelWidth = label.getBoundingClientRect().width;
 
-    let columnCount = Math.ceil(items.length / 11);
-    columnCount = Math.max(1, columnCount);
+    const isMobile = window.innerWidth <= 480;
+    let columnCount = isMobile ? 1 : Math.ceil(items.length / 11);
 
     const gap = 12;
     const padding = 40;
     let totalWidth =
       labelWidth * columnCount + padding + gap * (columnCount - 1);
+
     if (columnCount === 1) totalWidth -= 13;
+    if (columnCount > 1) totalWidth += 80;
+
+    container.classList.toggle("grid", columnCount > 1);
 
     options.style.width = `${totalWidth}px`;
     container.style.columnCount = columnCount;
