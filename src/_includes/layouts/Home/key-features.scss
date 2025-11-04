@@ -13,6 +13,17 @@
 
     padding: 80px var(--padding-horiz);
 
+    @media (min-width: 481px) and (max-width: 1024px) {
+      gap: var(--gap, 40px);
+      padding: 20px var(--padding-horiz-tablet);
+    }
+
+    @media (max-width: 480px) {
+      gap: 24px;
+      padding: 20px var(--padding-horiz-mobile);
+      padding-top: 30px;
+    }
+
     .key-features-header {
       @include flex-container(flex, column, wrap, unset, flex-start, 0);
     }
@@ -20,6 +31,15 @@
     .key-features-blocks-container {
       @include flex-container(flex, row, wrap, space-between, center, 0);
       align-self: stretch;
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        gap: 90px;
+      }
+
+      @media (max-width: 480px) {
+        flex-direction: column;
+        gap: 24px;
+      }
 
       p {
         color: var(--Content-color, #14142d);
@@ -29,7 +49,7 @@
         @include responsive-typography(
           vars.$h4,
           vars.$h4-tablet,
-          vars.$h4-mobile
+          vars.$h5-mobile
         );
 
         display: -webkit-box;

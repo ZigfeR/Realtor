@@ -8,6 +8,42 @@
   position: relative;
   padding-top: 52px;
 
+  @media (min-width: 481px) and (max-width: 1024px) {
+    height: 214px;
+    padding-top: 32px;
+  }
+
+  @media (max-width: 480px) {
+    max-width: unset;
+    height: unset;
+    @include flex-container(flex, row, nowrap, space-between, center, 10px);
+
+    padding: 10px 18px 10px 15px;
+    align-self: stretch;
+
+    border-radius: 35px;
+    background: #fff;
+    box-shadow: -25px 20px 88px 0 rgba(89, 61, 255, 0.25);
+
+    &:hover {
+      background: var(--Main-color, #593dff);
+      svg {
+        background: var(--White, #fff);
+        box-shadow: -25px -10px 85px 0 rgba(var(--Main-color-rgb), 0.25);
+
+        path {
+          fill: var(--Main-color, #593dff);
+        }
+      }
+
+      .key-features__content {
+        .key-features__description {
+          color: var(--White, #fff);
+        }
+      }
+    }
+  }
+
   svg {
     @include flex-center(row, center, center);
     position: absolute;
@@ -25,6 +61,25 @@
     path {
       fill: var(--White, #fff);
     }
+
+    @media (min-width: 481px) and (max-width: 1024px) {
+      // top: 20px;
+      left: 20px;
+      width: 72px;
+      height: 72px;
+      padding: 17px;
+    }
+
+    @media (max-width: 480px) {
+      position: relative;
+      left: unset;
+      top: unset;
+      flex-shrink: 0;
+
+      width: 48px;
+      height: 48px;
+      padding: 9px;
+    }
   }
 
   .key-features__content {
@@ -32,30 +87,44 @@
     width: 415px;
     height: 218px;
     padding: 65px 30px;
-    flex-shrink: 0;
+    flex-shrink: 1;
 
     border-radius: var(--border-radius);
     background: var(--White, #fff);
     box-shadow: -25px 20px 88px 0 rgba(var(--Main-color-rgb), 0.25);
-  }
 
-  &:hover {
-    svg {
-      left: 0;
-
-      background: var(--White, #fff);
-      box-shadow: -25px -10px 85px 0 rgba(var(--Main-color-rgb), 0.25);
-
-      path {
-        fill: var(--Main-color, #593dff);
-      }
+    @media (min-width: 481px) and (max-width: 1024px) {
+      height: 181px;
     }
 
-    .key-features__content {
-      background: var(--Main-color, #593dff);
+    @media (max-width: 480px) {
+      width: 100%;
+      height: unset;
+      padding: 0;
+      background: unset;
+      box-shadow: unset;
+    }
+  }
 
-      .key-features__description {
-        color: var(--White, #fff);
+  @media (min-width: 481px) {
+    &:hover {
+      svg {
+        left: 0;
+
+        background: var(--White, #fff);
+        box-shadow: -25px -10px 85px 0 rgba(var(--Main-color-rgb), 0.25);
+
+        path {
+          fill: var(--Main-color, #593dff);
+        }
+      }
+
+      .key-features__content {
+        background: var(--Main-color, #593dff);
+
+        .key-features__description {
+          color: var(--White, #fff);
+        }
       }
     }
   }
