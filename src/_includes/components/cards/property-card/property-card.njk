@@ -13,7 +13,9 @@
       {% if property.markSVG %}
         <span class="property-card__{{ property.mark }} property-card__mark">
           {% include property.markSVG %}
-          {{ property.mark }}
+          <span>
+            {{ property.mark }}
+          </span>
         </span>
       {% endif %}
       {% if property.markSVGp %}
@@ -24,6 +26,12 @@
     </div>
     <div class="property-card__content">
       <div class="property-card__description">
+        <div class="description__comission">
+            <span class="description__comission-value">
+              {# {{ property.comission }} #}
+              comission-free
+            </span>
+        </div>
         <div class="description__top">
           <div class="description__top-left">
             <span class="description__top-value-price">
@@ -42,6 +50,11 @@
           <span class="description__location-city">
             {% include "components/icon/location-pointer-svg.njk" %}
             {{ property.locationCity }}
+          </span>
+          <span class="description__date">
+            {% include "components/icon/clock-svg.njk" %}
+            12 May 12:49
+            {# {{ property.date }} #}
           </span>
         </div>
       </div>
