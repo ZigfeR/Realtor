@@ -28,9 +28,8 @@
       <div class="property-card__description">
         <div class="description__comission">
             <span class="description__comission-value">
-              {# {{ property.comission }} #}
-              comission-free
-            </span>
+              {{ property.comission }}
+            </span> 
         </div>
         <div class="description__top">
           <div class="description__top-left">
@@ -53,8 +52,7 @@
           </span>
           <span class="description__date">
             {% include "components/icon/clock-svg.njk" %}
-            12 May 12:49
-            {# {{ property.date }} #}
+            {{ property.date }}
           </span>
         </div>
       </div>
