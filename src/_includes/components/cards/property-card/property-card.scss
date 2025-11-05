@@ -1,5 +1,5 @@
-@use "../../../assets/scss/variables" as vars;
-@use "../../../assets/scss/mixins" as *;
+@use "../../../../assets/scss/variables" as vars;
+@use "../../../../assets/scss/mixins" as *;
 @use "sass:map";
 
 /* ==========================
@@ -17,6 +17,10 @@
 
   @include responsive-typography(vars.$h6, vars.$h6-tablet, vars.$h6-mobile);
 
+  @media (min-width: 481px) and (max-width: 1024px) {
+    width: 375px;
+    height: 461px;
+  }
   /* Блок "срочно" */
   &.urgently {
     box-shadow: 0 10px 80px 0 rgba(var(--Attracting-attention-color-rgb), 0.25);
@@ -32,6 +36,11 @@
     position: relative;
 
     height: 245px;
+
+    @media (min-width: 481px) and (max-width: 1024px) {
+      height: 222px;
+    }
+
     img {
       width: 100%;
       border-radius: var(--border-radius) var(--border-radius) 0 0;
@@ -39,6 +48,12 @@
 
     .property-card__mark {
       position: absolute;
+
+      @include responsive-typography(
+        vars.$h6,
+        vars.$h4-tablet,
+        vars.$h6-mobile
+      );
 
       display: flex;
       padding: 9px 16px;
@@ -74,6 +89,7 @@
           bottom: -7px;
         }
       }
+
       &.property-card__none {
         border-radius: 3px 15px 15px 3px;
         box-shadow: 0 4px 20px 0 rgba(255, 255, 255, 0.15);
@@ -96,6 +112,7 @@
         transform: translate(-50%, -50%);
       }
     }
+
     .property-card__top {
       svg {
         position: absolute;
@@ -127,12 +144,17 @@
             @include responsive-typography(
               vars.$h3,
               vars.$h3-tablet,
-              vars.$h3-mobile
+              vars.$h2-mobile
             );
           }
 
           .description__top-price-info {
             color: rgba(var(--Content-color-rgb), 0.6);
+            @include responsive-typography(
+              vars.$h6,
+              vars.$h5-tablet,
+              vars.$h6-mobile
+            );
           }
         }
 
@@ -140,6 +162,11 @@
           user-select: text;
 
           color: rgba(var(--Main-color-rgb), 0.6);
+          @include responsive-typography(
+            vars.$h6,
+            vars.$h5-tablet,
+            vars.$h6-mobile
+          );
         }
       }
 
@@ -147,11 +174,21 @@
         @include responsive-typography(
           vars.$h3,
           vars.$h3-tablet,
-          vars.$h3-mobile
+          vars.$h5-mobile
         );
+
+        color: var(--Content-color, #14142d);
       }
 
       .description__location {
+        color: var(--Content-color, #14142d);
+
+        @include responsive-typography(
+          vars.$h6,
+          vars.$h4-tablet,
+          vars.$h5-mobile
+        );
+
         .description__location-city {
           @include flex-container(flex, row, nowrap, center, center, 10px);
         }
@@ -173,6 +210,11 @@
 
       .details__block {
         @include flex-center(row, center, center);
+        @include responsive-typography(
+          vars.$h6,
+          vars.$h4-tablet,
+          vars.$h6-mobile
+        );
         gap: 10px;
 
         color: rgba(var(--Main-color-rgb), 0.6);

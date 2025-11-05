@@ -1,5 +1,5 @@
 {% import "components/tabs/tabs.njk" as tabs %}
-{% import "components/_property-card/property-card.njk" as card %}
+{% import "components/cards/property-card/property-card.njk" as card %}
 
 {% macro renderBlock(block) %}
   <section class="top-section {{ block.sectionClass }}">
@@ -7,7 +7,9 @@
         <div class="top-cards-container__top 
         {{ block.sectionClass }}-top-container">
             {{ tabs.tabs(block.propertyTab) }}
-            <p>{{ block.text }}</p>
+            <p class="text-truncated">
+              {{ block.text | safe }} 
+            </p>
         </div>
     </div>
     <div class="{{ block.sectionClass }}__bottom">

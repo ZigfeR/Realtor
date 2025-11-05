@@ -16,6 +16,86 @@
 
   .top-cards-top-container {
     @include flex-container(flex, row, nowrap, unset, flex-start, 25px);
+
+    .top-cards-btn {
+      @include responsive-typography(
+        vars.$h5,
+        vars.$h4-tablet,
+        vars.$h5-mobile
+      );
+    }
+
+    .custom-dropdown {
+      position: relative;
+      width: 100%;
+
+      .dropdown-trigger {
+        @include flex-container(flex, row, nowrap, flex-start, center, 5px);
+        gap: 5px;
+        padding: 8px 15px;
+        border-radius: var(--border-radius, 35px);
+        background: var(--White, #fff);
+        box-shadow: 0 4px 45px 0 rgba(var(--Main-color-rgb), 0.25);
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        .dropdown-text {
+          @include responsive-typography(
+            vars.$h4,
+            vars.$h4-tablet,
+            vars.$h4-mobile
+          );
+        }
+
+        &:hover {
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+      }
+
+      &.open {
+        .dropdown-trigger {
+          box-shadow: unset;
+        }
+
+        .dropdown-list {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+
+      .dropdown-list {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        background: var(--White, #fff);
+        box-shadow: 0 4px 45px 0 rgba(var(--Main-color-rgb), 0.25);
+        border-radius: var(--border-radius, 35px);
+
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-item {
+        @include responsive-typography(
+          vars.$h4,
+          vars.$h4-tablet,
+          vars.$h4-mobile
+        );
+        padding: 8px 14px;
+
+        cursor: pointer;
+
+        &:hover {
+          color: var(--Main-color, #593dff);
+        }
+      }
+    }
   }
 
   @media (min-width: 481px) and (max-width: 1024px) {
@@ -47,11 +127,36 @@
       grid-row: 2 / 3;
     }
 
+    .top-cards-btn {
+      padding: 14px 25px 13px 25px;
+    }
+
     a {
       @include flex-container(flex, row, nowrap, flex-end, center, 0);
 
       grid-column: 2 / 3;
       grid-row: 1 / 2;
+
+      @include responsive-typography(
+        vars.$h4,
+        vars.$h4-tablet,
+        vars.$h5-mobile
+      );
+    }
+  }
+
+  @media (max-width: 480px) {
+    display: flex;
+
+    flex-direction: column;
+    gap: 24px;
+
+    .top-cards-h2 {
+      width: 100%;
+    }
+
+    a {
+      display: none;
     }
   }
 }

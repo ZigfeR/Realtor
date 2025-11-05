@@ -14,24 +14,27 @@
 
     &.container-top-selling {
       padding: 0 var(--padding-horiz);
-
-      @media (min-width: 481px) and (max-width: 1024px) {
-        padding: 0 var(--padding-tablet);
-      }
-      @media (max-width: 480px) {
-        padding: 0 var(--padding-mobile);
-      }
     }
 
     &.container-top-rentals {
       padding-bottom: 0;
     }
 
+    &.container-top-selling,
+    &.container-top-rentals {
+      @media (min-width: 481px) and (max-width: 1024px) {
+        padding: var(--padding-horiz-tablet);
+      }
+      @media (max-width: 480px) {
+        padding: var(--padding-horiz-mobile);
+      }
+    }
+
     .top-cards-container__top {
       @include flex-container(flex, column, nowrap, unset, flex-start, 0);
       width: 100%;
 
-      p {
+      .text-truncated {
         max-width: var(--paragraf-with, 1325px);
         padding: var(--padding-vert) 0;
 
@@ -42,17 +45,39 @@
           vars.$h4-tablet,
           vars.$h4-mobile
         );
-      }
-    }
 
-    @media (min-width: 481px) and (max-width: 1024px) {
-      padding: var(--padding-tablet);
+        @media (min-width: 481px) {
+          .top-read-more {
+            display: none;
+          }
+        }
+
+        @media (max-width: 480px) {
+          padding: 12px 0;
+        }
+
+        &.expanded {
+          .read-more {
+            display: none;
+          }
+        }
+      }
+
+      .read-more {
+        color: var(--Main-color, #593dff);
+        cursor: pointer;
+        text-decoration-line: underline;
+
+        &:hover {
+          text-decoration: unset;
+        }
+      }
     }
   }
 
   .top-cards-container__bottom {
     @include flex-container(flex, row, nowrap, center, center, var(--gap));
-    width: 100%;
+    // width: 100%;
 
     &.top-selling-bottom-container {
       padding: var(--padding-vert) var(--padding-horiz) 80px
@@ -67,6 +92,7 @@
     background: rgba(var(--Main-color-rgb), 0.05);
   }
 }
+
 /* ==========================
    Конец секции ТОП
    ========================== */
