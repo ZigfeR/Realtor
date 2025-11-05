@@ -63,13 +63,9 @@
         vars.$h4-tablet,
         vars.$h6-mobile
       );
+      @include flex-container(flex, row, nowrap, center, center, 5px);
 
-      display: flex;
       padding: 9px 16px;
-
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
 
       z-index: 10;
 
