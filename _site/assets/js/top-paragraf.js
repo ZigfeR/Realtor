@@ -1,33 +1,34 @@
-const MAX_CHARS = 120; // ← сколько символов показывать на мобильных
+const DEFAULT_MAX_CHARS = 120; // для всех, у кого не указан data-max-chars
+const SELECTOR = ".text-truncated, .review-header-p";
 
 const applyTruncation = () => {
   const isMobile = window.innerWidth <= 480;
 
-  document.querySelectorAll(".text-truncated").forEach((p) => {
-    // Убираем предыдущие изменения (если были)
-    if (p.dataset.originalText) {
-      p.innerHTML = p.dataset.originalText;
-      p.classList.remove("expanded");
-      delete p.dataset.originalText;
+  document.querySelectorAll(SELECTOR).forEach((el) => {
+    // Восстанавливаем оригинал
+    if (el.dataset.originalText) {
+      el.innerHTML = el.dataset.originalText;
+      el.classList.remove("expanded");
+      delete el.dataset.originalText;
     }
 
-    if (!isMobile) return; // На десктопе — ничего не делаем
+    if (!isMobile) return;
 
-    const fullText = p.textContent.trim();
+    const fullText = el.textContent.trim();
+    const maxChars = el.dataset.maxChars
+      ? parseInt(el.dataset.maxChars, 10)
+      : DEFAULT_MAX_CHARS;
 
-    // Сохраняем оригинал
-    p.dataset.originalText = fullText;
+    if (fullText.length <= maxChars) return;
 
-    if (fullText.length <= MAX_CHARS) return;
+    el.dataset.originalText = fullText;
 
-    // Обрезаем по слову
-    let visibleText = fullText.slice(0, MAX_CHARS);
+    let visibleText = fullText.slice(0, maxChars);
     const lastSpace = visibleText.lastIndexOf(" ");
     if (lastSpace > 0) {
       visibleText = visibleText.slice(0, lastSpace);
     }
 
-    // Создаём элементы
     const ellipsis = document.createElement("span");
     ellipsis.textContent = "… ";
 
@@ -36,23 +37,20 @@ const applyTruncation = () => {
     readMore.textContent = "Read More";
     readMore.style.cursor = "pointer";
 
-    // Вставляем
-    p.innerHTML = "";
-    p.appendChild(document.createTextNode(visibleText));
-    p.appendChild(ellipsis);
-    p.appendChild(readMore);
+    el.innerHTML = "";
+    el.appendChild(document.createTextNode(visibleText));
+    el.appendChild(ellipsis);
+    el.appendChild(readMore);
 
-    // Клик — раскрываем
     readMore.addEventListener("click", () => {
-      p.innerHTML = fullText;
-      p.classList.add("expanded");
+      el.innerHTML = fullText;
+      el.classList.add("expanded");
     });
   });
 };
-// Запуск при загрузке и при ресайзе
+
 applyTruncation();
 window.addEventListener("resize", () => {
-  // Небольшая задержка, чтобы избежать частых вызовов
   clearTimeout(window.truncateTimeout);
   window.truncateTimeout = setTimeout(applyTruncation, 100);
 });

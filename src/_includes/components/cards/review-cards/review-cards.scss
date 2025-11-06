@@ -18,10 +18,30 @@
   background: #fff;
   box-shadow: -25px 20px 88px 0 rgba(var(--Main-color-rgb), 0.25);
 
+  @media (min-width: 481px) and (max-width: 1024px) {
+    width: 228px;
+    height: 389px;
+
+    padding: 0px 30px 35px 30px;
+    gap: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 15px 20px 25px 15px;
+
+    width: 280px;
+    height: 214px;
+  }
+
   .review-card__header {
     position: relative;
     @include flex-container(flex, row, nowrap, flex-end, center, 0);
     width: 100%;
+
+    @media (min-width: 481px) and (max-width: 1024px) {
+      justify-content: flex-start;
+      padding-top: 58px;
+    }
 
     .avatar-wrapper {
       position: absolute;
@@ -38,10 +58,35 @@
       left: 20px;
       z-index: 1;
 
+      @media (min-width: 481px) and (max-width: 1024px) {
+        width: 82px;
+        height: 82px;
+        top: -45px;
+        left: 0px;
+      }
+
+      @media (max-width: 480px) {
+        top: -52px;
+        left: 10px;
+
+        width: 72px;
+        height: 72px;
+      }
+
       .avatar {
         width: 120px;
         height: 120px;
         object-fit: cover;
+
+        @media (min-width: 481px) and (max-width: 1024px) {
+          width: 96.471px;
+          height: 96.471px;
+        }
+
+        @media (max-width: 480px) {
+          width: 96.471px;
+          height: 96.471px;
+        }
       }
     }
 
@@ -53,6 +98,20 @@
       height: 120px;
       top: -91px;
       left: 11px;
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        width: 96.471px;
+        height: 96.471px;
+        top: -59px;
+        left: -7px;
+      }
+
+      @media (max-width: 480px) {
+        top: -75px;
+        left: -2px;
+        width: 96.471px;
+        height: 96.471px;
+      }
     }
 
     // задний фон аватара перекрытие
@@ -64,6 +123,16 @@
       top: 0;
       left: 10px;
       background-color: var(--White, #fff);
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        left: 0;
+        top: 10px;
+      }
+
+      @media (max-width: 480px) {
+        left: 0px;
+        width: 90px;
+      }
     }
 
     //звезды
@@ -81,6 +150,14 @@
         }
         &.filled svg path {
           fill: var(--Main-color, #593dff);
+        }
+
+        @media (max-width: 480px) {
+          &,
+          svg {
+            width: 20px;
+            height: 20px;
+          }
         }
       }
     }
@@ -100,6 +177,10 @@
         0
       );
 
+      @media (min-width: 481px) and (max-width: 1024px) {
+        gap: 25px;
+      }
+
       .persona-comment {
         display: -webkit-box;
         line-clamp: 7;
@@ -107,6 +188,22 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
+
+        @include responsive-typography(
+          vars.$h5,
+          vars.$h5-tablet,
+          vars.$h5-mobile
+        );
+
+        @media (min-width: 481px) and (max-width: 1024px) {
+          line-clamp: 6;
+          -webkit-line-clamp: 6;
+        }
+
+        @media (max-width: 480px) {
+          line-clamp: 4;
+          -webkit-line-clamp: 4;
+        }
       }
 
       .persona-name {
@@ -116,19 +213,17 @@
           vars.$h3-mobile
         );
       }
-
-      .persona-comment {
-        @include responsive-typography(
-          vars.$h5,
-          vars.$h5-tablet,
-          vars.$h5-mobile
-        );
-      }
     }
 
     .review-card__body-bottom {
       @include flex-container(flex, row, nowrap, space-between, center, 0);
       width: 100%;
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        gap: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
       .review-date {
         color: rgba(var(--Content-color-rgb), 0.6);
@@ -138,6 +233,10 @@
           vars.$h6-tablet,
           vars.$h6-mobile
         );
+
+        @media (min-width: 481px) and (max-width: 1024px) {
+          order: 2;
+        }
       }
 
       .review-read-more {
@@ -149,6 +248,10 @@
           vars.$h5-tablet,
           vars.$h5-mobile
         );
+
+        @media (min-width: 481px) and (max-width: 1024px) {
+          order: 1;
+        }
       }
     }
   }

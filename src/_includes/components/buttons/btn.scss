@@ -73,6 +73,10 @@
     background-color: rgba(var(--Content-color-rgb), 0.4);
     color: rgba(var(--White-rgb), 0.75);
   }
+
+  &.property__view-all-btn {
+    @include responsive-typography(vars.$h4, vars.$h4-tablet, vars.$h4-mobile);
+  }
 }
 /* ==========================
    Конец стилей для кнопок

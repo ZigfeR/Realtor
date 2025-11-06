@@ -114,14 +114,6 @@
       @include flex-container(flex, row, nowrap, center, center, var(--gap));
       width: 100%;
       padding-top: 25px;
-
-      .property__view-all-btn {
-        @include responsive-typography(
-          vars.$h4,
-          vars.$h4-tablet,
-          vars.$h4-mobile
-        );
-      }
     }
   }
 }

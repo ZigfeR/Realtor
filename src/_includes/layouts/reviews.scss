@@ -17,10 +17,22 @@
     // padding-bottom: 0;
 
     .review-header {
-      @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
+      @include flex-container(flex, column, nowrap, unset, flex-start, 40px);
       width: 100%;
       padding: var(--padding-horiz);
-      padding-bottom: 20px;
+      padding-bottom: 45px;
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        padding: 55px var(--padding-horiz-tablet) 35px
+          var(--padding-horiz-tablet);
+        gap: 25px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 35px var(--padding-horiz-mobile) 45px
+          var(--padding-horiz-mobile);
+        gap: 24px;
+      }
 
       .review-header-top {
         @include flex-container(flex, row, nowrap, space-between, center, 0);
@@ -28,6 +40,10 @@
 
         div {
           @include flex-container(flex, row, nowrap, unset, center, 45px);
+
+          @media (max-width: 480px) {
+            display: none;
+          }
         }
       }
 
@@ -35,6 +51,33 @@
         @include flex-center(row, center, center);
 
         max-width: var(--paragraf-with, 1325px);
+      }
+
+      .read-more {
+        color: var(--Main-color, #593dff);
+        cursor: pointer;
+        text-decoration-line: underline;
+
+        &:hover {
+          text-decoration: unset;
+        }
+      }
+
+      .review__review-cont-btn {
+        @include flex-container(flex, row, nowrap, flex-end, center, 0);
+        width: 100%;
+
+        .btn-review-mobile {
+          @include responsive-typography(
+            vars.$h4,
+            vars.$h4-tablet,
+            vars.$h4-mobile
+          );
+        }
+
+        @media (min-width: 481px) {
+          display: none;
+        }
       }
     }
   }
@@ -44,6 +87,10 @@
     padding: var(--padding-vert) 0;
     // padding-bottom: 120px;
 
+    @media (max-width: 480px) {
+      padding: 40px 0 25px 0;
+    }
+
     .container-review-body {
       @include flex-container(flex, row, nowrap, space-between, flex-start, 0);
 
@@ -52,14 +99,46 @@
         width: 485px;
         overflow: hidden;
 
+        @media (min-width: 481px) and (max-width: 1024px) {
+          width: 270px;
+        }
+
+        @media (max-width: 480px) {
+          display: none;
+        }
+
+        .left-container-box {
+          .color-box {
+            width: 156px;
+            height: 167px;
+          }
+
+          .left-container-box-img {
+            @media (min-width: 481px) and (max-width: 1024px) {
+              width: 215.68px;
+              height: 193px;
+            }
+          }
+        }
+
         .left-container-box-p {
           padding: 400px var(--padding-horiz) 0 var(--padding-horiz);
+
+          @media (min-width: 481px) and (max-width: 1024px) {
+            padding: 400px var(--padding-horiz-tablet) 0
+              var(--padding-horiz-tablet);
+          }
+
+          @media (max-width: 480px) {
+            padding: 400px var(--padding-horiz-mobile) 0
+              var(--padding-horiz-mobile);
+          }
 
           .box-p {
             color: var(--Content-color, #14142d);
             @include responsive-typography(
               vars.$h5,
-              vars.$h5-tablet,
+              vars.$h4-tablet,
               vars.$h5-mobile
             );
 
@@ -87,6 +166,27 @@
     .review-cards {
       @include flex-container(flex, row, nowrap, unset, center, var(--gap));
       padding: 115px var(--padding-horiz) 25px 0;
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        padding: 115px var(--padding-horiz-tablet) 25px 0;
+        gap: 20px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 0 var(--padding-horiz-mobile) 25px var(--padding-horiz-mobile);
+        gap: 60px;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .review__bottom-btn {
+    @include flex-container(flex, row, nowrap, center, center, 0);
+    width: 100%;
+    padding-top: 80px;
+
+    @media (min-width: 481px) {
+      display: none;
     }
   }
 }

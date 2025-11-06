@@ -15,32 +15,37 @@
                 </div>
             </div>
             <div class="review-header-bottom">
-                <p>We are very grateful to our customers for their cooperation 
+                <p class="review-header-p" data-max-chars="138">
+                    We are very grateful to our customers for their cooperation 
                     and will be glad to meet again. You can also leave your 
                     impressions after working with us!</p>
+            </div>
+
+            <div class="review__review-cont-btn">
+                <button class="btn btn-primary btn-review-mobile">+ Write Review</button>
             </div>
         </div>
     </div>
     <div class="review-body">
         <div class="container container-review-body">
             <div class="review-body-left-container">
-                    <div class="left-container-box">
-                        <div class="color-box"></div>
-                        <img class="left-container-box-img" src="/assets/images/image-review-block.png" alt="dialogs" />
-                    </div>
-                    <div class="left-container-box-p">
-                        <p class="box-p">
-                        Overall rating
-                        <span class="box-p-color">5</span>
-                        <span class="box-p-bold">of</span>
-                        <span class="box-p-color">5</span>.
-                        </p>
-                        <p class="box-p">
-                        Total votes:
-                        <span class="box-p-color">{{ block.totalVotes }}</span>
-                        </p>
-                    </div>
-                    <div class="pagination"></div>
+                <div class="left-container-box">
+                    <div class="color-box"></div>
+                    <img class="left-container-box-img" src="/assets/images/image-review-block.png" alt="dialogs" />
+                </div>
+                <div class="left-container-box-p">
+                    <p class="box-p">
+                    Overall rating
+                    <span class="box-p-color">5</span>
+                    <span class="box-p-bold">of</span>
+                    <span class="box-p-color">5</span>.
+                    </p>
+                    <p class="box-p">
+                    Total votes:
+                    <span class="box-p-color">{{ block.totalVotes }}</span>
+                    </p>
+                </div>
+                <div class="pagination"></div>
             </div>
             <div class="review-cards">
                 {% for cardItem in block.propertyCards %}
@@ -48,6 +53,12 @@
                 {% endfor %}
             </div>
         </div>
+    </div>
+    {# Кнопка смотреть все  #}
+    <div class="review__bottom-btn">
+        <button type="button" class="btn btn-primary property__view-all-btn">
+            <span class="find-text">View All</span>
+        </button>
     </div>
   </section>
 {% endmacro %}
