@@ -1,6 +1,6 @@
 {% macro chooseUs(property) %}
-    <section class="chooseUs">
-        <div class="container container-chooseUs">
+    <section class="chooseUs bg-realtor">
+        <div class="container container-chooseUs ">
             <div class="chooseUs-header">
                 <h2 class="global-h">
                     Why 
@@ -9,6 +9,10 @@
                     </span>
                      Us?
                 </h2>
+            </div>
+            <div class="container-chooseUs-mobile-img">
+                <img src="../assets/images/home/image-block-why-choose-us.png"
+                 alt="bg-mobile">
             </div>
             <div class="chooseUs-body">
                 <div class="container-chooseUs-block">
@@ -19,14 +23,14 @@
                                     {% include paragrafs.markSVG %}
                                 </div>
                                 <p class="box-shadow-p">
-                                    {{ paragrafs.markText }}
+                                    {{ paragrafs.markText | safe }}
                                 </p>
+                                {% include property.arrow %}
                             </div>
                             <div class="chooseUs-box-content">
                                 <p class="box-content-p">
                                     {{ paragrafs.paragraf | safe }}
                                 </p>
-                                {% include property.arrow %}
                             </div>
                         </div>
                     {% endfor %}

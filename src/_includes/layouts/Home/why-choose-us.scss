@@ -8,6 +8,10 @@
 .chooseUs {
   user-select: none;
 
+  &.bg-realtor {
+    background-position: right top 38%;
+  }
+
   .container-chooseUs {
     @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
     background-image: url(../images/home/image-block-why-choose-us.png);
@@ -16,10 +20,48 @@
     background-size: 727.82px 562px;
     padding: 80px 0 0 0;
 
+    @media (min-width: 481px) and (max-width: 1024px) {
+      padding: 0;
+      gap: 25px;
+      background-size: 497.302px 384px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 0;
+      padding-top: 60px;
+      gap: 12px;
+
+      background-image: unset;
+    }
+
     .chooseUs-header {
       @include flex-container(flex, column, nowrap, unset, flex-start, 0);
       width: 100%;
       padding: 0 var(--padding-horiz);
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        padding: 0 var(--padding-horiz-tablet);
+      }
+
+      @media (max-width: 480px) {
+        padding: 0 var(--padding-horiz-mobile);
+      }
+    }
+
+    .container-chooseUs-mobile-img {
+      display: none;
+
+      @media (max-width: 480px) {
+        @include flex-container(flex, row, nowrap, flex-end, center, 0);
+        width: 100%;
+        padding-top: 12px;
+
+        img {
+          max-width: unset;
+          width: 284px;
+          // height: 219px;
+        }
+      }
     }
 
     .chooseUs-body {
@@ -27,13 +69,43 @@
       width: 100%;
       padding: 0 115px;
 
+      @media (min-width: 481px) and (max-width: 1024px) {
+        padding: 0 65px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 0 var(--padding-horiz-mobile);
+      }
+
       .container-chooseUs-block {
         @include flex-container(flex, column, nowrap, unset, flex-start, 45px);
         width: 100%;
 
+        @media (min-width: 481px) and (max-width: 1024px) {
+          gap: 25px;
+        }
+
+        @media (max-width: 480px) {
+          gap: 24px;
+        }
+
         .chooseUs-box {
           @include flex-container(flex, row, nowrap, unset, flex-start, 0);
           height: 160px;
+
+          @media (min-width: 481px) and (max-width: 1024px) {
+            width: 432px;
+            flex-direction: column;
+            height: unset;
+            gap: 15px;
+          }
+
+          @media (max-width: 480px) {
+            width: 100%;
+            flex-direction: column;
+            height: unset;
+            gap: 12px;
+          }
 
           .chooseUs-box-shadow {
             @include flex-container(flex, row, nowrap, unset, center, 0);
@@ -46,7 +118,24 @@
             border-radius: var(--border-radius);
             background-color: var(--White, #fff);
             box-shadow: -25px 20px 88px 0 rgba(var(--Main-color-rgb), 0.25);
-            transition: background-color 0.3s ease, color 0.3s ease;
+
+            transition: all 0.3s ease;
+
+            @media (min-width: 481px) and (max-width: 1024px) {
+              width: 432px;
+              height: 126px;
+              justify-content: space-between;
+              padding: 35px 50px 39px 57px;
+              cursor: pointer;
+            }
+
+            @media (max-width: 480px) {
+              width: 100%;
+              height: 64px;
+              justify-content: space-between;
+              padding: 12px 15px 12px 73px;
+              cursor: pointer;
+            }
 
             .svg-container {
               position: absolute;
@@ -69,12 +158,76 @@
                   transition: fill 0.3s ease;
                 }
               }
+
+              @media (min-width: 481px) and (max-width: 1024px) {
+                width: 72px;
+                height: 72px;
+
+                svg {
+                  width: 50%;
+                }
+              }
+
+              @media (max-width: 480px) {
+                width: 40px;
+                height: 40px;
+                left: 35px;
+
+                svg {
+                  width: 50%;
+                }
+              }
+            }
+
+            .box-shadow-p {
+              @include responsive-typography(
+                vars.$h4,
+                vars.$h3-tablet,
+                vars.$h3-mobile
+              );
+
+              @media (min-width: 481px) and (max-width: 1024px) {
+                max-width: 310px;
+              }
+
+              @media (max-width: 480px) {
+                max-width: 162px;
+              }
+            }
+
+            .arrow-block-svg {
+              display: none;
+              transition: transform 0.5s ease;
+
+              @media (max-width: 1024px) {
+                display: block;
+              }
+
+              @media (max-width: 480px) {
+                width: 14px;
+              }
             }
           }
 
           .chooseUs-box-content {
             @include flex-container(flex, row, nowrap, unset, flex-start, 0);
             width: 625px;
+
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+
+            @media (max-width: 1024px) {
+              max-height: 0;
+              opacity: 0;
+              overflow: hidden;
+            }
+
+            @media (min-width: 481px) and (max-width: 1024px) {
+              width: 432px;
+            }
+
+            @media (max-width: 480px) {
+              width: 100%;
+            }
 
             .box-content-p {
               padding: 25px var(--padding-vert);
@@ -85,10 +238,14 @@
                 vars.$h5-tablet,
                 vars.$h5-mobile
               );
-            }
 
-            svg {
-              display: none;
+              @media (min-width: 481px) and (max-width: 1024px) {
+                padding: 0;
+              }
+
+              @media (max-width: 480px) {
+                padding: 0 15px;
+              }
             }
           }
 
@@ -101,11 +258,35 @@
                 background: var(--White, #fff);
                 left: -15px;
 
+                @media (max-width: 480px) {
+                  left: 35px;
+                }
+
                 svg {
                   path {
                     fill: var(--Main-color, #593dff);
                   }
                 }
+              }
+
+              .arrow-block-svg {
+                path {
+                  stroke: var(--White, #fff);
+                }
+              }
+            }
+          }
+
+          @media (max-width: 1024px) {
+            &.active {
+              .chooseUs-box-content {
+                overflow: visible;
+                max-height: 400px; // больше, чем нужно
+                opacity: 1;
+              }
+
+              .arrow-block-svg {
+                transform: rotate(90deg);
               }
             }
           }
