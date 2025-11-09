@@ -108,27 +108,21 @@
   .doom-cls-3,
   .doom-cls-4,
   .doom-cls-5,
+  .ibud-cls-1,
+  .ibud-cls-2,
   .vox-cls-1,
   .misto-cls-1,
   .misto-cls-2 {
     fill: var(--Main-color, #593dff);
   }
 
-  .doom-cls-2 {
+  .doom-cls-2,
+  .ibud-cls-2 {
     opacity: 0.6;
   }
 
   .doom-cls-7 {
     fill: #3b2eb7;
-  }
-
-  .ibud-cls-1 {
-    fill-rule: evenodd;
-  }
-
-  .ibud-cls-1,
-  .ibud-cls-2 {
-    fill: #000;
   }
 
   &:hover {
@@ -137,6 +131,12 @@
     .misto-cls-1 {
       stroke: #226ce3;
       stroke-miterlimit: 10;
+    }
+
+    .ibud-cls-1,
+    .ibud-cls-2 {
+      fill: #6396e7;
+      opacity: 1;
     }
 
     .misto-cls-1,
