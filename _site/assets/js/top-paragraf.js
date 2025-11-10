@@ -1,46 +1,40 @@
 const DEFAULT_MAX_CHARS = 120;
-const ACHIEVEMENTS_MAX_CHARS = 80;
 
-const SELECTOR_TRUNCATED =
-  ".text-truncated, .review-header-p, .company-achivements-header-p";
-const SELECTOR_ACHIEVEMENTS = ".container-achivements-header-p";
+// Массив всех селекторов, к которым применяется обрезка
+const TRUNCATED_SELECTORS = [
+  ".text-truncated",
+  ".review-header-p",
+  ".company-achivements-header-p",
+  ".valued-customers-header-p",
+  ".container-achivements-header-p",
+];
 
 const applyTruncation = () => {
   const isMobile = window.innerWidth <= 480;
 
   // Восстанавливаем оригинальный HTML для всех элементов
-  document
-    .querySelectorAll(`${SELECTOR_TRUNCATED}, ${SELECTOR_ACHIEVEMENTS}`)
-    .forEach((el) => {
-      if (el.dataset.originalHtml) {
-        el.innerHTML = el.dataset.originalHtml;
-        el.classList.remove("expanded");
-        delete el.dataset.originalHtml;
-      }
-    });
+  document.querySelectorAll(TRUNCATED_SELECTORS.join(", ")).forEach((el) => {
+    if (el.dataset.originalHtml) {
+      el.innerHTML = el.dataset.originalHtml;
+      el.classList.remove("expanded");
+      delete el.dataset.originalHtml;
+    }
+  });
 
   if (!isMobile) return;
 
-  // === Общие элементы ===
-  document.querySelectorAll(SELECTOR_TRUNCATED).forEach((el) => {
+  // Применяем обрезку ко всем элементам из списка
+  document.querySelectorAll(TRUNCATED_SELECTORS.join(", ")).forEach((el) => {
     const maxChars = el.dataset.maxChars
       ? parseInt(el.dataset.maxChars, 10)
       : DEFAULT_MAX_CHARS;
-    truncateWithHtmlPreserve(el, maxChars);
-  });
-
-  // === .container-achivements-header-p с отдельным лимитом ===
-  document.querySelectorAll(SELECTOR_ACHIEVEMENTS).forEach((el) => {
-    const maxChars = el.dataset.maxChars
-      ? parseInt(el.dataset.maxChars, 10)
-      : ACHIEVEMENTS_MAX_CHARS;
     truncateWithHtmlPreserve(el, maxChars);
   });
 };
 
 // === Основная функция обрезки с сохранением HTML ===
 const truncateWithHtmlPreserve = (container, maxChars) => {
-  // Сохраняем оригинальный HTML
+  // Сохраняем оригинальный HTML (только если ещё не сохранён)
   if (!container.dataset.originalHtml) {
     container.dataset.originalHtml = container.innerHTML;
   }
@@ -50,7 +44,6 @@ const truncateWithHtmlPreserve = (container, maxChars) => {
 
   if (textContent.length <= maxChars) return;
 
-  // Создаём временный контейнер для парсинга HTML
   const tempDiv = document.createElement("div");
   tempDiv.innerHTML = originalHtml;
 
@@ -58,7 +51,6 @@ const truncateWithHtmlPreserve = (container, maxChars) => {
   let truncatedHtml = "";
   let stop = false;
 
-  // Рекурсивно обходим все узлы
   const walk = (node) => {
     if (stop) return;
 
@@ -89,13 +81,13 @@ const truncateWithHtmlPreserve = (container, maxChars) => {
         "h6",
       ].includes(tag);
 
-      // Открывающий тег
+      // Открывающий тег с атрибутами
       const attrs = node.getAttributeNames().reduce((str, name) => {
         return `${str} ${name}="${node.getAttribute(name)}"`;
       }, "");
       truncatedHtml += `<${tag}${attrs}>`;
 
-      // Обходим детей
+      // Рекурсивно обходим детей
       node.childNodes.forEach(walk);
 
       // Закрывающий тег (кроме <br>)
@@ -103,7 +95,7 @@ const truncateWithHtmlPreserve = (container, maxChars) => {
         truncatedHtml += `</${tag}>`;
       }
 
-      // Если это блочный элемент и мы уже набрали лимит — можно остановиться
+      // Останавливаемся после блочного элемента, если лимит достигнут
       if (isBlock && charCount >= maxChars) {
         stop = true;
       }
@@ -112,10 +104,9 @@ const truncateWithHtmlPreserve = (container, maxChars) => {
 
   tempDiv.childNodes.forEach(walk);
 
-  // Обрезаем по последнему пробелу
+  // Обрезаем по последнему пробелу (не слишком рано)
   const lastSpace = truncatedHtml.lastIndexOf(" ");
   if (lastSpace > maxChars * 0.7) {
-    // не слишком близко к началу
     truncatedHtml = truncatedHtml.slice(0, lastSpace);
   }
 
@@ -129,7 +120,7 @@ const truncateWithHtmlPreserve = (container, maxChars) => {
   readMore.textContent = "Read More";
   readMore.style.cursor = "pointer";
 
-  // Очищаем и вставляем
+  // Вставляем обрезанный контент + ссылку
   container.innerHTML = "";
   container.appendChild(
     document.createRange().createContextualFragment(truncatedHtml)
@@ -137,15 +128,16 @@ const truncateWithHtmlPreserve = (container, maxChars) => {
   container.appendChild(ellipsis);
   container.appendChild(readMore);
 
-  // Обработчик раскрытия
+  // Обработчик "Read More"
   readMore.addEventListener("click", () => {
     container.innerHTML = container.dataset.originalHtml;
     container.classList.add("expanded");
   });
 };
 
-// Инициализация
+// === Инициализация ===
 applyTruncation();
+
 window.addEventListener("resize", () => {
   clearTimeout(window.truncateTimeout);
   window.truncateTimeout = setTimeout(applyTruncation, 100);

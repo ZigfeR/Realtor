@@ -9,6 +9,14 @@
   user-select: none;
   padding: var(--padding-vert) var(--padding-horiz);
 
+  @media (min-width: 481px) and (max-width: 1024px) {
+    padding: 20px var(--padding-horiz-tablet);
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px var(--padding-horiz-mobile);
+  }
+
   .container-valued-customers {
     @include flex-container(flex, column, nowrap, unset, flex-start, 0);
 
@@ -17,13 +25,36 @@
       width: 100%;
       // padding: 0 70px;
 
+      @media (min-width: 481px) and (max-width: 1024px) {
+        gap: 35px;
+      }
+
+      @media (max-width: 480px) {
+        gap: 24px;
+      }
+
       .valued-customers-header-top {
         @include flex-container(flex, row, nowrap, space-between, center, 0);
         width: 100%;
+
+        @media (max-width: 480px) {
+          a {
+            display: none;
+          }
+        }
       }
 
-      p {
+      .valued-customers-header-p {
         max-width: var(--paragraf-with, 1325px);
+
+        .read-more {
+          color: var(--Main-color, #593dff);
+          text-decoration-line: underline;
+
+          &:hover {
+            text-decoration: unset;
+          }
+        }
       }
 
       .valued-customers-header-bottom {
@@ -36,6 +67,15 @@
           100px
         );
         width: 100%;
+
+        @media (min-width: 481px) and (max-width: 1024px) {
+          gap: 20px;
+        }
+
+        @media (max-width: 480px) {
+          flex-wrap: wrap;
+          gap: 10px;
+        }
 
         .valued-customers__image {
           //   cursor: pointer;
@@ -50,6 +90,26 @@
           &:hover {
             transform: scale(1.08);
           }
+
+          @media (min-width: 481px) and (max-width: 1024px) {
+            width: 228px;
+            height: 74px;
+          }
+
+          @media (max-width: 480px) {
+            width: 135px;
+            height: 46px;
+          }
+        }
+      }
+
+      .valued-customers__bottom-btn {
+        display: none;
+
+        @media (max-width: 480px) {
+          width: 100%;
+          @include flex-center(row, center, center);
+          margin-top: 14px;
         }
       }
     }

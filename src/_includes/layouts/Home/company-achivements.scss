@@ -32,6 +32,11 @@
         max-width: var(--paragraf-with, 1325px);
       }
 
+      @media (min-width: 481px) and (max-width: 1024px) {
+        padding: 0 var(--padding-horiz-tablet);
+        gap: 32px;
+      }
+
       @media (max-width: 480px) {
         padding: 0 var(--padding-horiz-mobile);
         gap: 24px;

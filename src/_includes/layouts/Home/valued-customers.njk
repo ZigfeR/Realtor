@@ -11,7 +11,7 @@
                     </h2>
                     <a href="#">View All</a>
                 </div>
-                <p>
+                <p class="valued-customers-header-p" data-max-chars="130">
                     We have had the honor of working with a variety of clients 
                     from various industries. Here are some of the clients we 
                     have had the pleasure of serving:
@@ -20,6 +20,12 @@
                     {% for images in property.logo %}
                          {% include images.image %}
                     {% endfor %}
+                    {# Кнопка смотреть все  #}
+                    <div class="valued-customers__bottom-btn">
+                        <button type="button" class="btn btn-primary property__view-all-btn">
+                            <span class="find-text">View All</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
