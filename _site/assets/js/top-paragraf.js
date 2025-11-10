@@ -1,5 +1,6 @@
 const DEFAULT_MAX_CHARS = 120; // для всех, у кого не указан data-max-chars
-const SELECTOR = ".text-truncated, .review-header-p";
+const SELECTOR =
+  ".text-truncated, .review-header-p, .company-achivements-header-p";
 
 const applyTruncation = () => {
   const isMobile = window.innerWidth <= 480;
