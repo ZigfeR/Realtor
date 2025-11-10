@@ -7,6 +7,14 @@
   padding: var(--padding-vert) 0 0;
   background-color: var(--White, #fff);
 
+  @media (min-width: 481px) and (max-width: 1024px) {
+    padding: 60px 0 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 14px 0 0;
+  }
+
   .container-questions {
     @include flex-container(flex, column, nowrap, unset, flex-start, 0);
   }
@@ -16,24 +24,50 @@
     width: 100%;
     padding: 0 var(--padding-horiz) var(--padding-vert);
 
+    @media (min-width: 481px) and (max-width: 1024px) {
+      padding: 0 var(--padding-horiz-tablet) 25px var(--padding-horiz-tablet);
+      gap: 32px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 0 var(--padding-horiz-mobile) 24px var(--padding-horiz-mobile);
+      gap: 24px;
+    }
+
     .questions-header-top {
       @include flex-container(flex, row, nowrap, space-between, center, 0);
       width: 100%;
+
+      @media (max-width: 480px) {
+        a {
+          display: none;
+        }
+      }
     }
 
-    .questions-header-bottom p {
+    .questions-header-bottom {
       max-width: var(--paragraf-with, 1325px);
 
       a {
         color: var(--Main-color, #593dff);
-        font-family: Alexandria;
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 32px;
+        @include responsive-typography(
+          vars.$h3,
+          vars.$h4-tablet,
+          vars.$h4-mobile
+        );
         text-decoration: underline;
 
         &:hover {
           color: rgba(#593dff, 0.8);
+        }
+      }
+
+      .read-more {
+        color: var(--Main-color, #593dff);
+        text-decoration-line: underline;
+
+        &:hover {
+          text-decoration: unset;
         }
       }
     }
@@ -45,6 +79,18 @@
     .container-questions-cards {
       padding: var(--padding-vert) 147px 80px 270px;
       width: 100%;
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        padding: 15px var(--padding-horiz-tablet) 60px
+          var(--padding-horiz-tablet);
+        gap: 15px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 24px var(--padding-horiz-mobile) 34px
+          var(--padding-horiz-mobile);
+        gap: 12px;
+      }
 
       /* ========== FAQ Accordion ========== */
       .faq-accordion {
@@ -76,11 +122,30 @@
           background-color: var(--White, #fff);
           transition: background-color 0.3s ease, color 0.3s ease;
 
+          @media (min-width: 481px) and (max-width: 1024px) {
+            padding: 20px 35px 24px 30px;
+          }
+
+          @media (max-width: 480px) {
+            padding: 12px 25px;
+          }
+
+          .faq-question-text {
+            @media (max-width: 480px) {
+              max-width: 183px;
+            }
+          }
+
           .faq-icon {
             @include flex-center(row, center, center);
             width: 25px;
             height: 25px;
             transition: transform 0.3s ease;
+
+            @media (max-width: 480px) {
+              width: 20px;
+              height: 20px;
+            }
 
             svg path {
               fill: var(--Main-color, #593dff);
@@ -104,15 +169,23 @@
           border-radius: 0 0 var(--border-radius) var(--border-radius);
           opacity: 0;
           transition: opacity 0.3s ease;
-        }
 
-        .faq-answer-content p {
-          margin: 0;
-          @include responsive-typography(
-            vars.$h4,
-            vars.$h4-tablet,
-            vars.$h4-mobile
-          );
+          @media (min-width: 481px) and (max-width: 1024px) {
+            padding: 0 35px 24px 35px;
+          }
+
+          @media (max-width: 480px) {
+            padding: 0 15px 24px 25px;
+          }
+
+          & p {
+            margin: 0;
+            @include responsive-typography(
+              vars.$h4,
+              vars.$h4-tablet,
+              vars.$h5-mobile
+            );
+          }
         }
 
         /* Открытый элемент */
@@ -141,6 +214,16 @@
             opacity: 1;
           }
         }
+      }
+    }
+
+    .questions__bottom-btn {
+      display: none;
+
+      @media (max-width: 480px) {
+        width: 100%;
+        @include flex-center(row, center, center);
+        margin-top: 24px;
       }
     }
   }

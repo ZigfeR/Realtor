@@ -32,13 +32,11 @@
         </h2>
         <a href="#">View All</a>
       </div>
-      <div class="questions-header-bottom">
-        <p>
+        <p class="questions-header-bottom">
           Here you will find the most frequently asked questions about our agency.
           If you did not find what you were looking for, perhaps your question will be found on the
           <a href="#">FAQ</a> page or you can ask your question there.
         </p>
-      </div>
     </div>
   </div>
 
@@ -67,6 +65,12 @@
             </li>
           {% endfor %}
         </ul>
+      </div>
+      {# Кнопка смотреть все  #}
+      <div class="questions__bottom-btn">
+          <button type="button" class="btn btn-primary property__view-all-btn">
+              <span class="find-text">View All</span>
+          </button>
       </div>
     </div>
   </div>
