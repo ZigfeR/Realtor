@@ -7,6 +7,7 @@ const TRUNCATED_SELECTORS = [
   ".company-achivements-header-p",
   ".valued-customers-header-p",
   ".container-achivements-header-p",
+  ".blog-header-bottom",
 ];
 
 const applyTruncation = () => {

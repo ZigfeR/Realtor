@@ -11,12 +11,11 @@
                 </h2>
                 <a href="#">View All</a>
             </div>
-            <div class="blog-header-bottom">
-                <p>There are many variations of passages of Lorem Ipsum available, 
-                    but the majority have suffered alteration in some form, 
-                    by injected humour, or randomised words which don't look 
-                    even slightly believable</p>
-            </div>
+            <p class="blog-header-bottom">There are many variations of passages of Lorem Ipsum available, 
+                but the majority have suffered alteration in some form, 
+                by injected humour, or randomised words which don't look 
+                even slightly believable</p>
+            
         </div>
     </div>
     <div class="blog-body">
@@ -25,6 +24,12 @@
                 {{ cards.blogCard(cardItem) }}
             {% endfor %}
         </div>
+    </div>
+    {# Кнопка смотреть все  #}
+    <div class="blogs__bottom-btn">
+        <button type="button" class="btn btn-primary property__view-all-btn">
+            <span class="find-text">View All</span>
+        </button>
     </div>
   </section>
 {% endmacro %}

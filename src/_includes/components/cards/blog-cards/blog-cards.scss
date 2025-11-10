@@ -13,6 +13,18 @@
   box-shadow: -25px 20px 88px 0 rgba(var(--Main-color-rgb), 0.25);
   transition: transform 0.3s ease;
 
+  @media (min-width: 481px) and (max-width: 1024px) {
+    width: 229px;
+    height: 324px;
+    border-radius: 15px;
+  }
+
+  @media (max-width: 480px) {
+    width: 208px;
+    height: 281px;
+    border-radius: 15px;
+  }
+
   &:hover {
     transform: translateY(-5px);
   }
@@ -22,10 +34,32 @@
     height: 245px;
     width: 415px;
 
+    @media (min-width: 481px) and (max-width: 1024px) {
+      width: 229px;
+      height: 135.193px;
+    }
+
+    @media (max-width: 480px) {
+      width: 208px;
+      height: 123px;
+    }
+
     .blog-card__img {
       border-radius: var(--border-radius) var(--border-radius) 0 0;
       height: 245px;
       object-fit: contain;
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        height: 135.193px;
+        border-radius: var(--border-radius-tablet) var(--border-radius-tablet) 0
+          0;
+      }
+
+      @media (max-width: 480px) {
+        height: 123px;
+        border-radius: var(--border-radius-tablet) var(--border-radius-tablet) 0
+          0;
+      }
     }
 
     .blog-category {
@@ -43,9 +77,19 @@
 
       @include responsive-typography(
         vars.$h6,
-        vars.$h6-tablet,
-        vars.$h6-mobile
+        vars.$h4-tablet,
+        vars.$h5-mobile
       );
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        padding: 5px 33px;
+        bottom: -18px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 5px 20px;
+        bottom: -14px;
+      }
     }
   }
 
@@ -54,6 +98,14 @@
     width: 100%;
     height: 100%;
     padding: var(--padding-vert) 30px;
+
+    @media (min-width: 481px) and (max-width: 1024px) {
+      padding: 29px 8px 15px 13px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 25px 12px 27px 15px;
+    }
 
     .blog-card__body-top {
       @include flex-container(
@@ -74,6 +126,7 @@
           vars.$h3-mobile
         );
       }
+
       .blog-card__comment {
         color: var(--Content-color, #14142d);
 
@@ -82,6 +135,10 @@
           vars.$h5-tablet,
           vars.$h5-mobile
         );
+
+        @media (max-width: 1024px) {
+          display: none;
+        }
       }
     }
 
