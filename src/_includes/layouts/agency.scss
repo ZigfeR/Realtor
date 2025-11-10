@@ -12,33 +12,89 @@
     @include flex-container(flex, column, nowrap, unset, flex-start, 0);
     padding: var(--padding-vert) 0;
 
+    @media (min-width: 481px) and (max-width: 1024px) {
+      padding: 20px 0;
+    }
+
     .container-company-achivements-body {
       @include flex-container(flex, row, nowrap, unset, flex-start, 25px);
       padding: 0 var(--padding-horiz);
 
       width: 100%;
 
+      @media (min-width: 481px) and (max-width: 1024px) {
+        padding: 0 60px 0 var(--padding-horiz-tablet);
+        gap: 20px;
+      }
+
+      @media (max-width: 480px) {
+        flex-direction: column;
+        padding: 0 var(--padding-horiz-mobile);
+        gap: 12px;
+      }
+
       .container-achivements-left {
         img {
           width: 173px;
           height: 132.777px;
           max-width: unset;
+
+          @media (min-width: 481px) and (max-width: 1024px) {
+            width: 112px;
+            height: 85.96px;
+          }
+
+          @media (max-width: 480px) {
+            width: 63px;
+            height: 48px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          @include flex-container(flex, row, nowrap, unset, flex-start, 12px);
+
+          h5 {
+            font-weight: 700;
+          }
         }
       }
 
       .container-achivements-right {
         max-width: 1580px;
+        position: relative;
 
         h5 {
           font-weight: 700;
         }
 
+        .container-achivements-header-p,
         p {
           @include responsive-typography(
             vars.$h5,
-            vars.$h5-tablet,
+            vars.$h6-tablet,
+            vars.$h6-mobile
+          );
+        }
+
+        .dots {
+          display: none;
+        }
+
+        .read-more {
+          @include responsive-typography(
+            vars.$h5,
+            vars.$h6-tablet,
             vars.$h5-mobile
           );
+          position: absolute;
+          bottom: 0;
+          right: 0;
+
+          color: var(--Main-color, #593dff);
+
+          &:hover {
+            text-decoration: unset;
+          }
         }
       }
     }
