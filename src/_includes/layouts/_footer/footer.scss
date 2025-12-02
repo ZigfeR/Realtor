@@ -27,11 +27,17 @@
   }
 
   .container-footer {
-    @include flex-container(flex, row, nowrap, unset, flex-start, 0);
-    padding: var(--padding-vert) var(--padding-horiz) 50px var(--padding-horiz);
+    @include flex-container(flex, column, nowrap, unset, flex-start, 10px);
+    padding: 50px var(--padding-horiz);
 
     @media (min-width: 481px) and (max-width: 1024px) {
-      padding: 30px 25px 40px 25px;
+      padding: var(--padding-horiz-tablet) var(--padding-horiz-tablet) 40px
+        var(--padding-horiz-tablet);
+    }
+
+    @media (max-width: 480px) {
+      padding: 24px var(--padding-horiz-mobile) 34px var(--padding-horiz-mobile);
+      gap: 34px;
     }
 
     .footer__top {
@@ -51,18 +57,62 @@
 
       @media (max-width: 480px) {
         flex-direction: column;
+        gap: 34px;
       }
 
       .footer__row-container {
-        @include flex-container(flex, column, nowrap, unset, flex-start, 35px);
+        @include flex-container(
+          flex,
+          column,
+          nowrap,
+          space-between,
+          flex-start,
+          35px
+        );
         width: 100%;
+
+        h3 {
+          svg {
+            display: none;
+          }
+
+          @media (max-width: 480px) {
+            @include flex-center(row, center, center);
+
+            svg {
+              transition: transform 0.3s ease-out;
+
+              margin-left: 4px;
+            }
+          }
+        }
+
+        @media (max-width: 1024px) {
+          gap: 15px;
+        }
 
         .footer__logo {
           @include flex-container(flex, row, nowrap, unset, center, 30px);
 
+          margin-bottom: 42px;
+
+          @media (min-width: 481px) and (max-width: 1024px) {
+            gap: 7px;
+            margin-bottom: 15px;
+          }
+          @media (max-width: 480px) {
+            gap: 7px;
+            margin-bottom: 0;
+          }
+
           svg {
             width: 110.636px;
             height: 87.063px;
+
+            @media (max-width: 1024px) {
+              width: 89px;
+              height: 69px;
+            }
 
             path {
               fill: var(--White, #fff);
@@ -80,6 +130,7 @@
               line-height: normal;
               letter-spacing: 0.54px;
             }
+
             .logo-span-sub {
               font-family: Alexandria;
               font-size: 16px;
@@ -88,59 +139,244 @@
               line-height: normal;
               letter-spacing: 0.96px;
               text-transform: capitalize;
+
+              opacity: 0.65;
             }
           }
         }
 
         .footer__logo-address {
-          @include flex-container(flex, column, nowrap, unset, flex-start, 5px);
+          @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+          margin-bottom: 10px;
 
           user-select: text;
 
-          br {
-            display: none;
+          &,
+          a {
+            @include responsive-typography(
+              vars.$h5,
+              vars.$h3-tablet,
+              vars.$h4-mobile
+            );
+          }
 
-            @media (min-width: 481px) and (max-width: 1024px) {
-              display: block;
+          a {
+            color: var(--White, #fff);
+
+            &:hover {
+              color: rgba(var(--White-rgb), 0.65);
             }
+          }
+
+          @media (max-width: 1024px) {
+            margin-bottom: 0px;
           }
         }
 
         .footer__logo-list {
           @include flex-container(flex, column, nowrap, unset, flex-start, 5px);
-        }
 
-        .footer__logo-social {
-          @include flex-container(flex, row, nowrap, unset, flex-start, 25px);
-        }
-
-        .multi-logo {
-          @include flex-container(flex, row, nowrap, unset, flex-start, 15px);
-
-          width: 100%;
-
-          @media (max-width: 480px) {
-            justify-content: center;
+          &,
+          a {
+            @include responsive-typography(
+              vars.$h5,
+              vars.$h5-tablet,
+              vars.$h4-mobile
+            );
           }
-          @media (max-width: 449px) {
-            flex-direction: column;
+        }
+
+        .email-input {
+          padding: 7px 14px;
+          background: rgba(var(--White-rgb), 0.15);
+          border-radius: var(--border-radius);
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          color: rgba(var(--White-rgb), 0.6);
+
+          @media (min-width: 481px) and (max-width: 1024px) {
+            // max-width: 229px;
+          }
+
+          .email-input__icon-left {
+            width: 24px;
+            height: 24px;
+            opacity: 0.6;
+          }
+
+          .email-input__field {
+            border: none;
+            width: 100%;
+            background: transparent;
+            @include responsive-typography(
+              vars.$h5,
+              vars.$h6-tablet,
+              vars.$h5-mobile
+            );
+            outline: none;
+            color: rgba(var(--White-rgb), 0.85);
+
+            &::placeholder {
+              color: rgba(var(--White-rgb), 0.55);
+            }
+          }
+
+          .email-input__send {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
             align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+
+            &:hover {
+              opacity: 0.6;
+            }
           }
+        }
+
+        &.footer__logo-container {
+          gap: 25px;
         }
       }
 
       .footer__row-box {
-        @include flex-container(flex, column, nowrap, unset, flex-start, 50px);
+        @include flex-container(flex, column, nowrap, unset, flex-start, 60px);
+
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
 
         width: 100%;
 
+        @media (min-width: 481px) and (max-width: 1024px) {
+          gap: 25px;
+        }
+
+        @media (max-width: 480px) {
+          gap: 32px;
+        }
+
         div {
-          @include flex-container(flex, column, nowrap, unset, flex-start, 0);
+          @include flex-container(flex, column, nowrap, unset, flex-start, 5px);
+
+          @media (min-width: 481px) and (max-width: 1024px) {
+            gap: 10px;
+          }
+
+          @media (max-width: 480px) {
+            width: 100%;
+            gap: 10px;
+          }
+
+          a {
+            @include flex-container(
+              flex,
+              row,
+              nowrap,
+              flex-start,
+              center,
+              10px
+            );
+
+            @include responsive-typography(
+              vars.$h5,
+              vars.$h5-tablet,
+              vars.$h4-mobile
+            );
+
+            svg {
+              width: 24px;
+              height: 24px;
+
+              @media (min-width: 481px) and (max-width: 1024px) {
+                width: 16px;
+                height: 16px;
+              }
+            }
+          }
         }
 
         @media (max-width: 480px) {
           flex-direction: row;
         }
+      }
+    }
+
+    .footer__logo-social {
+      &.mobile {
+        @media (min-width: 481px) {
+          display: none;
+        }
+
+        @media (max-width: 480px) {
+          @include flex-container(
+            flex,
+            row,
+            nowrap,
+            space-between,
+            center,
+            25px
+          );
+          width: 100%;
+          a,
+          & svg {
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer__top-bottom {
+    @include flex-container(flex, row, nowrap, space-between, flex-end, 0);
+    width: 100%;
+
+    .footer__logo-social {
+      @include flex-container(flex, row, nowrap, unset, flex-start, 25px);
+
+      @media (max-width: 480px) {
+        display: none;
+      }
+
+      a,
+      & svg {
+        width: 32px;
+        height: 32px;
+
+        @media (min-width: 481px) and (max-width: 1024px) {
+          width: 26px;
+          height: 26px;
+        }
+      }
+    }
+
+    .multi-logo {
+      @include flex-container(flex, row, nowrap, unset, flex-start, 15px);
+
+      a,
+      & svg {
+        width: 60px;
+        height: 60px;
+
+        @media (min-width: 481px) and (max-width: 1024px) {
+          width: 37.808px;
+          height: 40px;
+        }
+
+        @media (max-width: 480px) {
+          width: 46px;
+          height: 49px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        width: 100%;
+        justify-content: space-between;
       }
     }
   }
@@ -150,23 +386,33 @@
     background: var(--Content-color, #14142d);
     @include flex-container(flex, row, nowrap, unset, center, 0);
 
-    @media (max-width: 480px) {
-      padding: 15px;
-    }
-
     .container {
       @include flex-container(flex, row, nowrap, space-between, center, 0);
       padding: 15px var(--padding-horiz);
 
+      @media (min-width: 481px) and (max-width: 1024px) {
+        padding: 10px var(--padding-horiz-tablet) 15px
+          var(--padding-horiz-tablet);
+      }
+
       @media (max-width: 480px) {
+        padding: 24px var(--padding-horiz-mobile) 12px
+          var(--padding-horiz-mobile);
         flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
       }
 
       .left {
         @include flex-container(flex, row, nowrap, space-between, center, 45px);
 
         @media (max-width: 480px) {
-          flex-direction: column;
+          flex-wrap: wrap;
+          align-items: flex-start;
+          gap: 12px 10px;
+          a {
+            width: calc(50% - 10px);
+          }
         }
       }
 

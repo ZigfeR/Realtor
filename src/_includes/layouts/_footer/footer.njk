@@ -16,8 +16,12 @@
         <div class="footer__logo-address">
           <span class="logo-address-street">10/4 Market Square St.</span>
           <span class="logo-address-city">Ivano-Frankivsk</span>
-          <a class="logo-address-office" href="tel:+380342501303">office:<br> +38 (0342) 501-303</a>
-          <a class="logo-address-phone" href="tel:+380673438074">mobile:<br> +38 (067) 343-80-74</a>
+          <a class="logo-address-office" href="tel:+380342501303">
+            office: +38 (0342) 501-303
+          </a>
+          <a class="logo-address-phone" href="tel:+380673438074">
+            mobile: +38 (067) 343-80-74
+          </a>
         </div>
         <!-- О нас -->
         <div class="footer__logo-list">
@@ -25,28 +29,42 @@
           <a href="#" class="logo-list-realtors">Our Rialtors</a>
           <a href="#" class="logo-list-contact">Contact Us</a>
         </div>
-        <!-- Соц сети -->
-        <div class="footer__logo-social">
-          <a href="#" class="logo-social-youtube">
-            {% include "components/icon/youtube-svg.njk" %}
-          </a>
-          <a href="#" class="logo-social-facebook">
-            {% include "components/icon/facebook-svg.njk" %}
-          </a>
-          <a href="#" class="logo-social-instagram">
-            {% include "components/icon/instagram-svg.njk" %}
-          </a>
-          <a href="#" class="logo-social-twitter">
-            {% include "components/icon/twitter-svg.njk" %}
-          </a>
-          <a href="#" class="logo-social-tiktok">
-            {% include "components/icon/tiktok-svg.njk" %}
-          </a>
+        <!-- Email input -->
+        <div class="email-input">
+          <span class="email-input__icon-left">
+            {% include "components/icon/mail-email.njk" %}
+          </span>
+          <input
+            type="email"
+            class="email-input__field"
+            placeholder="Enter your e-mail"
+          />
+          <button class="email-input__send">
+            {% include "components/icon/send-alt-filled.njk" %}
+          </button>
         </div>
+      </div>
+      <!-- Соц сети моб -->
+      <div class="footer__logo-social mobile">
+        <a href="#" class="logo-social-youtube">
+          {% include "components/icon/youtube-svg.njk" %}
+        </a>
+        <a href="#" class="logo-social-facebook">
+          {% include "components/icon/facebook-svg.njk" %}
+        </a>
+        <a href="#" class="logo-social-instagram">
+          {% include "components/icon/instagram-svg.njk" %}
+        </a>
+        <a href="#" class="logo-social-twitter">
+          {% include "components/icon/twitter-svg.njk" %}
+        </a>
+        <a href="#" class="logo-social-tiktok">
+          {% include "components/icon/tiktok-svg.njk" %}
+        </a>
       </div>
       <!-- Навигация -->
       <div class="footer__navigation-container footer__row-container">
-        <h3>Navigation</h3>
+        <h3>Navigation {% include "components/icon/arrow-list-mobile-svg.njk" %}</h3>
         <div class="footer__navigation-box footer__row-box">
           <div>
             <a href="#">Flats</a>
@@ -59,14 +77,14 @@
           <div>
             <a href="#">Luxury Real Estate</a>
             <a href="#">Real Estate in the Carpathians</a>
-            <a href="#">Exlusives</a>
+            <a href="#"> {% include "components/icon/two-stars-svg.njk" %} Exlusives</a>
             <a href="#">Investment Projects</a>
           </div>
         </div>
       </div>
       <!-- Лева часть -->
       <div class="footer__rowLeft-form footer__row-container">
-        <h3>Listing Form</h3>
+        <h3>Listing Form {% include "components/icon/arrow-list-mobile-svg.njk" %}</h3>
         <div class="footer__rowLeft-box footer__row-box">
           <div>
             <a href="#">Apartments in new buildings</a>
@@ -86,7 +104,7 @@
       </div>
       <!-- Правая часть -->
       <div class="footer__rowRight-form footer__row-container">
-        <h3>Listing Form</h3>
+        <h3>Listing Form {% include "components/icon/arrow-list-mobile-svg.njk" %}</h3>
         <div class="footer__rowRight-box footer__row-box">
           <div>
             <a href="#">Apartments in new buildings</a>
@@ -101,27 +119,48 @@
             <a href="#">Daily rentals</a>
           </div>
         </div>
-        <!-- Партнеры -->
-        <div class="multi-logo">
-            <a href="#">
-              <img src="/assets/images/b1.png" alt="olx">
-            </a>
-            <a href="#">
-              <img src="/assets/images/b2.png" alt="olx">
-            </a>
-            <a href="#">
-              <img src="/assets/images/b3.png" alt="olx">
-            </a>
-            <a href="#">
-              <img src="/assets/images/b4.png" alt="olx">
-            </a>
-            <a href="#">
-              <img src="/assets/images/b5.png" alt="olx">
-            </a>
-        </div>
+      </div>
+    </div>
+    <div class="footer__top-bottom">
+      <!-- Соц сети -->
+      <div class="footer__logo-social">
+        <a href="#" class="logo-social-youtube">
+          {% include "components/icon/youtube-svg.njk" %}
+        </a>
+        <a href="#" class="logo-social-facebook">
+          {% include "components/icon/facebook-svg.njk" %}
+        </a>
+        <a href="#" class="logo-social-instagram">
+          {% include "components/icon/instagram-svg.njk" %}
+        </a>
+        <a href="#" class="logo-social-twitter">
+          {% include "components/icon/twitter-svg.njk" %}
+        </a>
+        <a href="#" class="logo-social-tiktok">
+          {% include "components/icon/tiktok-svg.njk" %}
+        </a>
+      </div>
+      <!-- Партнеры -->
+      <div class="multi-logo">
+        <a href="#">
+          <img src="/assets/images/b1.png" alt="olx" />
+        </a>
+        <a href="#">
+          <img src="/assets/images/b2.png" alt="olx" />
+        </a>
+        <a href="#">
+          <img src="/assets/images/b3.png" alt="olx" />
+        </a>
+        <a href="#">
+          <img src="/assets/images/b4.png" alt="olx" />
+        </a>
+        <a href="#">
+          <img src="/assets/images/b5.png" alt="olx" />
+        </a>
       </div>
     </div>
   </div>
+  <!-- Нижняя часть -->
   <div class="footer__bottom">
     <div class="container">
       <div class="left">
@@ -135,5 +174,3 @@
     </div>
   </div>
 </footer>
-<!-- Нижняя часть -->
- 
