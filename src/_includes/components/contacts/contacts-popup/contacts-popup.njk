@@ -1,0 +1,55 @@
+{% macro renderCards(property) %}
+    <div class="contact-fab-popup-overlay {{ property.type }} hidden">
+        <div class="contact-fab-popup">
+            <button class="contact-fab-popup__close" type="button">
+                {% include "components/icon/close-svg.njk" %}
+            </button>
+
+            <div class="contact-fab-popup__header">
+                <h2 class="popup__title">Hello,</h2>
+                <p class="popup__subtitle">
+                    {{ property.greetings }}
+                </p>
+                <p class="popup__subtitle-work">
+                    Working hours - 10:00-19:00
+                </p>
+            </div>
+
+            <form class="contact-fab-popup__form">
+                <label class="contact-fab-popup__field">
+                    <span class="popup__label">Name and Last Name <span class="popup__label-mandatory">*</span></span>
+                    <div class="popup__input-wrapper">
+                        {% include "components/icon/persona-svg.njk" %}
+                        <input type="text" placeholder="Select" class="popup__input" />
+                    </div>
+                </label>
+
+                <label class="contact-fab-popup__field">
+                    <span class="popup__label">{{ property.valueInput }} <span class="popup__label-mandatory">*</span></span>
+                    <div class="popup__input-wrapper">
+                        {% include property.detailsSVG %}
+                        <input type="{{ property.typeInput }}" placeholder="Select" class="popup__input" />
+                    </div>
+                </label>
+                <div class="contact-fab-popup__field-container">
+                    <label class="contact-fab-popup__field">
+                        <span class="popup__label">Comment <span class="popup__label-mandatory">*</span></span>
+                        <div class="popup__textarea-wrapper">
+                            <textarea placeholder="Select" class="popup__textarea"></textarea>
+                        </div>
+                    </label>
+
+                    <label class="contact-fab-popup__checkbox-row">
+                        <input type="checkbox" class="popup__checkbox" />
+                        <span class="popup__checkbox-text">
+                            I agree to the <a href="#" class="popup__link">Privacy Police</a>
+                        </span>
+                    </label>
+                </div>
+                <button class="contact-fab-popup__submit btn btn-primary" type="submit">Confirm</button>
+            </form>
+        </div>
+    </div>
+{% endmacro %}
+ 
+ 

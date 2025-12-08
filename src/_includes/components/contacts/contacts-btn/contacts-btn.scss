@@ -1,0 +1,65 @@
+.contact-fab-container {
+  user-select: none;
+  position: fixed;
+
+  right: 0px;
+  top: 767px;
+
+  width: 80px;
+  height: 80px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 10px 0px 10px 0px;
+
+  border-radius: var(--border-radius) 0px 0px var(--border-radius);
+  background: rgba(var(--White-rgb), 0.45);
+  z-index: 10;
+
+  .contact-fab-btn {
+    width: 70px;
+    height: 59.79px;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 18px 14px 18px;
+    border-radius: var(--border-radius) 0px 0px var(--border-radius);
+    background: rgba(var(--Main-color-rgb), 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    svg {
+      transition: all 0.25s ease;
+    }
+
+    .close-svg {
+      opacity: 0;
+      display: none;
+    }
+
+    .phone-btn-svg {
+      opacity: 1;
+    }
+
+    &.active {
+      background: var(--Content-color, rgba(20, 20, 45, 1));
+
+      .close-svg {
+        opacity: 1;
+        display: block;
+      }
+      .phone-btn-svg {
+        opacity: 0;
+        display: none;
+      }
+    }
+    &:hover {
+      background-color: var(--Main-color-hover, #2b10c9);
+    }
+  }
+}

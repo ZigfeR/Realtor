@@ -1,0 +1,248 @@
+@use "../../assets/scss/variables" as vars;
+@use "../../assets/scss/mixins" as *;
+@use "sass:map";
+
+/* Попап обратного звонка */
+.contact-fab-popup-overlay {
+  /* Базовая геометрия оверлея */
+  position: fixed;
+  z-index: 10;
+  user-select: none;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+
+  top: 105px;
+  right: 85px;
+
+  /* Скрытое состояние попапа */
+  &.hidden {
+    display: none;
+  }
+
+  /* Сам попап внутри оверлея */
+  .contact-fab-popup {
+    position: relative;
+    /* menu callback */
+    width: 445px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    background: var(--White);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0px 10px 48px 0px rgba(var(--Main-color-rgb), 0.25);
+
+    /* Верхняя цветная шапка */
+    &__header {
+      /* text */
+      width: 100%;
+      /* Автолейаут */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 61px 25px 20px 30px;
+
+      border-radius: var(--border-radius) var(--border-radius) 0px 0px;
+      background: var(--Main-color, rgba(89, 61, 255, 1));
+      color: var(--White);
+
+      /* Заголовок попапа */
+      .popup__title {
+        @include responsive-typography(
+          vars.$h2,
+          vars.$h4-tablet,
+          vars.$h5-mobile
+        );
+      }
+
+      /* Подзаголовок/текст под заголовком */
+      .popup__subtitle,
+      .popup__subtitle-work {
+        @include responsive-typography(
+          vars.$h5,
+          vars.$h4-tablet,
+          vars.$h5-mobile
+        );
+      }
+    }
+
+    /* Кнопка закрытия (крестик) */
+    &__close {
+      position: absolute;
+      top: 25px;
+      right: 35px;
+      border: none;
+      background: transparent;
+      line-height: 0;
+      cursor: pointer;
+    }
+
+    /* Обёртка формы */
+    &__form {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 30px;
+      padding: 30px;
+
+      background: var(--White);
+
+      /* Блок одного поля формы (лейбл + инпут) */
+      & .contact-fab-popup__field,
+      .contact-fab-popup__field-container {
+        /* name */
+        width: 100%;
+        /* Автолейаут */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        /* Текст лейбла поля */
+        .popup__label,
+        .popup__label-mandatory {
+          @include responsive-typography(
+            vars.$h6,
+            vars.$h4-tablet,
+            vars.$h5-mobile
+          );
+          color: rgb(var(--Main-color-rgb), 0.6);
+        }
+        /* Красная звёздочка обязательного поля */
+        .popup__label-mandatory {
+          color: rgba(231, 34, 170, 0.6);
+        }
+
+        /* Обёртка инпута и текстовой области */
+        .popup__input-wrapper,
+        .popup__textarea-wrapper {
+          position: relative;
+          width: 100%;
+          background: rgb(var(--Main-color-rgb), 0.2);
+          border-radius: var(--border-radius);
+        }
+
+        /* Обёртка для textarea (другой радиус/отступы) */
+        .popup__textarea-wrapper {
+          border-radius: var(--border-radius);
+          padding: 12px 16px;
+        }
+
+        /* Текстовые поля и textarea */
+        .popup__input,
+        .popup__textarea {
+          width: 100%;
+          border: none;
+          background: transparent;
+          outline: none;
+          @include responsive-typography(
+            vars.$h5,
+            vars.$h4-tablet,
+            vars.$h5-mobile
+          );
+          color: var(--Main-color);
+
+          &::placeholder {
+            color: rgb(var(--Main-color-rgb), 0.45);
+          }
+        }
+
+        /* Текстовые поля */
+        .popup__input {
+          padding-left: 45px;
+        }
+
+        /* Размеры блока комментария */
+        .popup__textarea {
+          min-height: 143px;
+          resize: vertical;
+          padding: 5px 25px 5px 25px;
+        }
+
+        /* SVG‑иконка слева внутри инпута */
+        .popup__input-wrapper > svg {
+          position: absolute;
+          left: 14px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+
+      /* Строка с чекбоксом и текстом */
+      .contact-fab-popup__field-container {
+        gap: 12px;
+
+        .contact-fab-popup__checkbox-row {
+          display: flex;
+          align-items: center;
+          color: rgb(var(--Content-color-rgb));
+          gap: 15px;
+
+          &,
+          & .popup__link {
+            @include responsive-typography(
+              vars.$h5,
+              vars.$h4-tablet,
+              vars.$h5-mobile
+            );
+          }
+          /* Стилизованный чекбокс */
+          .popup__checkbox {
+            appearance: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 5px;
+            border: none;
+            background: rgb(var(--Main-color-rgb), 0.15);
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+
+            /* Состояние чекнутого чекбокса */
+            &:checked {
+              background: var(--Main-color);
+
+              &::after {
+                content: "";
+                position: absolute;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* Кнопка подтверждения */
+    &__submit {
+      width: 143px;
+      height: 60px;
+    }
+  }
+
+  /* открытие */
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.25s ease, visibility 0s linear 0s;
+  }
+
+  /* закрытие – плавно назад */
+  &.is-closing {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+  }
+}

@@ -29,4 +29,7 @@
 @use "../../_includes/layouts/Home/valued-customers";
 @use "../../_includes/layouts/Home/blog";
 @use "../../_includes/components/cards/blog-cards/blog-cards";
+@use "../../_includes/components/contacts/contacts-btn/contacts-btn";
+@use "../../_includes/components/contacts/contacts-list/contacts-list";
+@use "../../_includes/components/contacts/contacts-popup/contacts-popup";
 @use "../../_includes/layouts/Home/questions";

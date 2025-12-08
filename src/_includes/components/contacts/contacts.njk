@@ -1,0 +1,25 @@
+
+{% include "components/contacts/contacts-btn/contacts-btn.njk" %}
+{% include "components/contacts/contacts-list/contacts-list.njk" %}
+{# {% include "components/contacts/contacts-popup/contacts-popup.njk" %} #}
+{% import "components/contacts/contacts-popup/contacts-popup.njk" as contactsPopup %}
+
+<!-- Обратный звонок -->
+{% set callback = {
+type: "callback",
+greetings: "Leave us your phone number and we will contact you",
+typeInput: "tel",
+valueInput: "Phone Number",
+detailsSVG: "components/icon/mobile-phone-svg.njk"
+} %}
+{{ contactsPopup.renderCards(callback) }}
+
+<!-- Напишите нам -->
+{% set writeUs = {
+type: "writeUs",
+greetings: "Leave us your e-mail and we will contact you",
+typeInput: "email",
+valueInput: "E-mail",
+detailsSVG: "components/icon/mail-contacts-tr-svg.njk"
+} %}
+{{ contactsPopup.renderCards(writeUs) }}

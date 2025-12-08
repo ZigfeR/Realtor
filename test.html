@@ -1,158 +1,55 @@
-<footer class="footer">
-  <div class="container container-footer">
-    <!-- Верхняя часть -->
-    <div class="footer__top">
-      <!-- Контакты -->
-      <div class="footer__logo-container footer__row-container">
-        <!-- Лого -->
-        <div class="footer__logo">
-          {% include "components/logo-header.njk" %}
-          <div class="logo-box">
-            <span class="logo-span-main">REALTOR</span>
-            <span class="logo-span-sub">Estate Agency</span>
-          </div>
-        </div>
-        <!-- Адресса -->
-        <div class="footer__logo-address">
-          <span class="logo-address-street">10/4 Market Square St.</span>
-          <span class="logo-address-city">Ivano-Frankivsk</span>
-          <a class="logo-address-office" href="tel:+380342501303">
-            office: +38 (0342) 501-303
-          </a>
-          <a class="logo-address-phone" href="tel:+380673438074">
-            mobile: +38 (067) 343-80-74
-          </a>
-        </div>
-        <!-- О нас -->
-        <div class="footer__logo-list">
-          <a href="#" class="logo-list-about">About Us</a>
-          <a href="#" class="logo-list-realtors">Our Rialtors</a>
-          <a href="#" class="logo-list-contact">Contact Us</a>
-        </div>
-        <!-- Email input -->
-        <div class="email-input">
-          <span class="email-input__icon-left">
-            <img src="mail-icon.svg" alt="mail icon" />
-          </span>
-          <input
-            type="email"
-            class="email-input__field"
-            placeholder="Enter your e-mail"
-          />
-          <button class="email-input__send">
-            <img src="send-icon.svg" alt="send icon" />
-          </button>
-        </div>
-      </div>
-      <!-- Навигация -->
-      <div class="footer__navigation-container footer__row-container">
-        <h3>Navigation</h3>
-        <div class="footer__navigation-box footer__row-box">
-          <div>
-            <a href="#">Flats</a>
-            <a href="#">Mansions</a>
-            <a href="#">Offices</a>
-            <a href="#">Commercial Properties</a>
-            <a href="#">Garages</a>
-            <a href="#">Land</a>
-          </div>
-          <div>
-            <a href="#">Luxury Real Estate</a>
-            <a href="#">Real Estate in the Carpathians</a>
-            <a href="#">Exlusives</a>
-            <a href="#">Investment Projects</a>
-          </div>
-        </div>
-      </div>
-      <!-- Лева часть -->
-      <div class="footer__rowLeft-form footer__row-container">
-        <h3>Listing Form</h3>
-        <div class="footer__rowLeft-box footer__row-box">
-          <div>
-            <a href="#">Apartments in new buildings</a>
-            <a href="#">One-room apartments</a>
-            <a href="#">Two-room apartments</a>
-            <a href="#">Three-room apartments</a>
-          </div>
-          <div>
-            <a href="#">Secondary market</a>
-            <a href="#">Apartment rentals</a>
-            <a href="#">Mansions rentals</a>
-            <a href="#">Daily rentals</a>
-            <a href="#">Houses with renovation</a>
-            <a href="#">Raw houses</a>
-          </div>
-        </div>
-      </div>
-      <!-- Правая часть -->
-      <div class="footer__rowRight-form footer__row-container">
-        <h3>Listing Form</h3>
-        <div class="footer__rowRight-box footer__row-box">
-          <div>
-            <a href="#">Apartments in new buildings</a>
-            <a href="#">One-room apartments</a>
-            <a href="#">Two-room apartments</a>
-            <a href="#">Three-room apartments</a>
-          </div>
-          <div>
-            <a href="#">Secondary market</a>
-            <a href="#">Apartment rentals</a>
-            <a href="#">Mansions rentals</a>
-            <a href="#">Daily rentals</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer__top-bottom">
-      <!-- Соц сети -->
-      <div class="footer__logo-social">
-        <a href="#" class="logo-social-youtube">
-          {% include "components/icon/youtube-svg.njk" %}
-        </a>
-        <a href="#" class="logo-social-facebook">
-          {% include "components/icon/facebook-svg.njk" %}
-        </a>
-        <a href="#" class="logo-social-instagram">
-          {% include "components/icon/instagram-svg.njk" %}
-        </a>
-        <a href="#" class="logo-social-twitter">
-          {% include "components/icon/twitter-svg.njk" %}
-        </a>
-        <a href="#" class="logo-social-tiktok">
-          {% include "components/icon/tiktok-svg.njk" %}
-        </a>
-      </div>
-      <!-- Партнеры -->
-      <div class="multi-logo">
-        <a href="#">
-          <img src="/assets/images/b1.png" alt="olx" />
-        </a>
-        <a href="#">
-          <img src="/assets/images/b2.png" alt="olx" />
-        </a>
-        <a href="#">
-          <img src="/assets/images/b3.png" alt="olx" />
-        </a>
-        <a href="#">
-          <img src="/assets/images/b4.png" alt="olx" />
-        </a>
-        <a href="#">
-          <img src="/assets/images/b5.png" alt="olx" />
-        </a>
-      </div>
-    </div>
+<!-- Кнопка-триггер -->
+<div class="contact-fab">
+  <svg
+    width="28"
+    height="28"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+  >
+    <path
+      d="M21 11.5a8.5 8.5 0 0 1-13.2 7.1L3 20l1.4-4.8A8.5 8.5 0 1 1 21 11.5z"
+    />
+  </svg>
+</div>
+
+<!-- или можно использовать иконку телефона из твоего скрина -->
+
+<!-- Всплывающее окно -->
+<div class="contact-popup">
+  <div class="contact-header">
+    <h3>Свяжитесь с нами</h3>
+    <button class="contact-close">&times;</button>
   </div>
-  <!-- Нижняя часть -->
-  <div class="footer__bottom">
-    <div class="container">
-      <div class="left">
-        <a href="#">Terms and Conditions</a>
-        <a href="#">Privacy Police</a>
-        <a href="#">Help</a>
-        <a href="#">FAQ</a>
-        <a href="#">Useful Information</a>
+  <div class="contact-body">
+    <a href="tel:+79991234567" class="contact-item">
+      <div class="contact-icon phone">📞</div>
+      <div>
+        <div class="contact-title">Позвонить</div>
+        <div class="contact-subtitle">+7 (999) 123-45-67</div>
       </div>
-      <span class="copyright">© 2006-2025 All rights on the materials</span>
-    </div>
+    </a>
+    <a href="https://wa.me/79991234567" target="_blank" class="contact-item">
+      <div class="contact-icon whatsapp">💬</div>
+      <div>
+        <div class="contact-title">WhatsApp</div>
+        <div class="contact-subtitle">Написать в WhatsApp</div>
+      </div>
+    </a>
+    <a href="https://t.me/+79991234567" target="_blank" class="contact-item">
+      <div class="contact-icon telegram">✈️</div>
+      <div>
+        <div class="contact-title">Telegram</div>
+        <div class="contact-subtitle">@username или +7...</div>
+      </div>
+    </a>
+    <a href="mailto:info@site.ru" class="contact-item">
+      <div class="contact-icon email">✉️</div>
+      <div>
+        <div class="contact-title">E-mail</div>
+        <div class="contact-subtitle">info@site.ru</div>
+      </div>
+    </a>
   </div>
-</footer>
+</div>
