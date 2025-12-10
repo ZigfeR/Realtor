@@ -3,6 +3,12 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
+.cursor/
+.cursorrules
+docs/
+ideas/
+SPECS_DIGEST.md
+CHANGELOG.md
 # Папка сборки (зависит от SSG)
 # _site/           # Eleventy
 # _dist/           # Hugo, Parcel
