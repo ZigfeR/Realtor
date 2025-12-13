@@ -1,0 +1,1310 @@
+<!-- Базовый макет, который подключает хедер, футер и основной контент -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Динамический заголовок: используем title из фронтматтера или значение по умолчанию -->
+    <title>Catalog</title>
+
+    <!-- Подключаем минифицированный CSS -->
+    <link rel="stylesheet" href="../assets/scss/main.css">
+
+    <!-- Условное подключение дополнительных стилей -->
+    
+
+    <link rel="icon" href="../assets/images/logo.ico" type="image/x-icon">
+
+    <!-- Подключаем шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Buenard:wght@700&display=swap" rel="stylesheet">
+  </head>
+  <body class="custom-scroll">
+    <!-- Подключаем хедер -->
+    <header class="header">
+  <div class="container container-header">
+    <!-- ЛОГО -->
+    <div class="logo-header">
+      <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="800"
+  height="624"
+  viewBox="0 0 800 624"
+  fill="none"
+>
+  <path
+    d="M403.669 0C545.355 0 664.977 94.4679 702.987 223.854H722.935V271.56H799.999L748.623 330.275L799.999 392.661H705.045C669.469 525.798 548.021 623.853 403.669 623.853C259.318 623.852 137.869 525.798 102.294 392.661H0L51.376 330.275L0 271.56H77.0645V223.854H104.352C142.362 94.468 261.983 0.000214027 403.669 0ZM161.468 392.661H130.158C144.685 439.732 171.24 482.648 207.711 516.901L228.15 495.139C197.688 466.528 174.95 431.171 161.468 392.341V392.661ZM640.003 392.661C627.759 428.333 607.687 461.184 580.864 488.629L602.217 509.496C634.577 476.385 658.136 436.227 671.377 392.661H640.003ZM403.67 117.431C298.28 117.431 212.844 202.867 212.844 308.257C212.844 413.647 298.28 499.082 403.67 499.082C509.06 499.082 594.495 413.647 594.495 308.257C594.495 202.867 509.06 117.431 403.67 117.431ZM405.915 190.826C414.918 190.826 423.809 191.951 432.587 194.202C441.365 196.228 449.13 199.605 455.882 204.331C462.859 209.058 468.373 215.247 472.425 222.899C476.701 230.552 478.84 239.78 478.84 250.584C478.84 259.137 477.489 266.564 474.788 272.866C472.312 279.168 468.824 284.571 464.322 289.072C459.821 293.574 454.419 297.287 448.117 300.213C442.04 302.914 435.4 305.052 428.197 306.628C426.622 307.078 425.834 307.866 425.834 308.991C425.834 309.891 426.622 310.792 428.197 311.692C438.776 316.869 446.879 322.608 452.506 328.91C458.358 335.212 462.747 341.74 465.673 348.492C468.824 355.244 471.074 362.222 472.425 369.424C473.775 376.401 475.239 383.266 476.814 390.019C477.94 395.195 479.74 399.021 482.216 401.497C484.917 403.748 487.618 404.873 490.318 404.873C493.019 404.873 495.608 403.748 498.084 401.497C500.56 399.246 502.473 395.87 503.823 391.369C504.273 389.569 505.174 388.443 506.524 387.993C507.875 387.318 509.113 387.205 510.238 387.655C511.589 387.88 512.714 388.555 513.614 389.681C514.74 390.581 515.19 391.594 514.965 392.72C514.29 398.347 512.714 403.186 510.238 407.237C507.762 411.289 504.723 414.664 501.122 417.365C497.746 419.841 493.807 421.642 489.306 422.768C485.029 424.118 480.753 424.793 476.477 424.793C469.274 424.793 462.747 423.217 456.895 420.066C451.043 416.915 447.104 412.413 445.078 406.562C443.728 402.735 442.378 398.572 441.027 394.07C439.902 389.569 438.776 385.067 437.65 380.565C436.525 375.839 435.4 371.337 434.274 367.061C433.149 362.559 432.137 358.62 431.236 355.244C427.185 340.839 421.895 330.486 415.368 324.184C409.066 317.882 400.175 314.73 388.696 314.73C384.87 314.731 381.607 315.518 378.906 317.094C376.205 318.669 374.855 321.82 374.854 326.547V372.125C374.854 379.777 375.642 385.967 377.218 390.693C378.793 395.195 381.157 398.796 384.308 401.497C387.459 403.973 391.286 405.774 395.787 406.899C400.514 408.025 405.915 408.813 411.992 409.263C413.343 409.263 414.355 409.938 415.03 411.288C415.931 412.413 416.381 413.764 416.381 415.34C416.381 416.69 415.931 417.928 415.03 419.054C414.355 420.179 413.23 420.741 411.654 420.741C400.401 420.741 390.497 420.291 381.944 419.391C373.392 418.49 365.064 418.04 356.961 418.04C348.408 418.04 339.967 418.49 331.64 419.391C323.312 420.291 315.21 420.741 307.332 420.741C305.982 420.741 304.968 420.179 304.293 419.054C303.618 417.928 303.167 416.69 302.942 415.34C302.942 413.989 303.281 412.751 303.956 411.626C304.631 410.276 305.757 409.488 307.332 409.263C313.634 408.587 318.811 407.687 322.862 406.562C326.913 405.436 330.065 403.636 332.315 401.16C334.566 398.684 336.029 395.42 336.704 391.369C337.604 387.318 338.055 381.915 338.055 375.163V248.559C338.055 243.607 337.829 238.768 337.379 234.041C337.154 229.314 336.479 224.925 335.354 220.874C334.228 216.823 332.428 213.334 329.952 210.408C327.701 207.482 324.55 205.456 320.499 204.331C318.023 203.656 315.434 203.093 312.733 202.643C310.033 202.192 307.444 201.855 304.969 201.63C303.618 201.63 302.605 201.067 301.93 199.941C301.255 198.816 300.917 197.578 300.917 196.228C300.917 194.877 301.255 193.64 301.93 192.515C302.605 191.389 303.618 190.826 304.969 190.826C312.621 190.826 319.486 191.051 325.562 191.501C331.64 191.951 338.73 192.177 346.833 192.177C360.337 191.952 371.479 191.726 380.257 191.501C389.26 191.051 397.812 190.826 405.915 190.826ZM396.462 205.006C387.684 205.006 381.832 206.131 378.906 208.382C376.205 210.633 374.854 215.247 374.854 222.225V288.734C374.855 294.586 376.43 298.075 379.581 299.2C382.957 300.1 387.909 300.551 394.437 300.551C403.214 300.551 410.529 299.763 416.381 298.188C422.458 296.387 427.297 293.573 430.898 289.747C434.5 285.696 436.976 280.632 438.326 274.555C439.902 268.253 440.689 260.6 440.689 251.597C440.689 243.044 439.902 235.841 438.326 229.989C436.751 223.912 434.162 219.073 430.561 215.472C427.184 211.646 422.683 208.945 417.057 207.369C411.43 205.794 404.565 205.006 396.462 205.006ZM184.296 124.388C159.584 153.871 141.303 187.743 130.159 223.854H161.468V224.174C171.593 195.009 186.99 167.653 207.178 143.566L184.296 124.388ZM586.767 136.48C610.118 162.034 627.832 191.799 639.183 223.854H670.651C658.249 184.27 637.282 147.5 608.807 116.34L586.767 136.48Z"
+    fill="#14142D"
+  />
+</svg>
+
+      <div class="logo-box">
+        <span class="logo-span-main">REALTOR</span>
+        <span class="logo-span-sub">Estate Agency</span>
+      </div>
+    </div>
+
+    <!-- НАВИГАЦИЯ -->
+    
+
+
+<nav class="nav">
+  <ul class="ul">
+    
+  <li class="nav-list">
+    <a href="/home" class="nav-link ">
+      Home
+    </a>
+  </li>
+
+    
+  <li class="nav-list">
+    <a href="/catalog" class="nav-link active">
+      Catalog
+    </a>
+  </li>
+
+    
+  <li class="nav-list">
+    <a href="/about" class="nav-link ">
+      About Us
+    </a>
+  </li>
+
+    
+  <li class="nav-list">
+    <a href="/exclusives" class="nav-link ">
+      Exclusives
+    </a>
+  </li>
+
+    
+  <li class="nav-list">
+    <a href="/real-estate" class="nav-link ">
+      Real Estate in the Carpathians
+    </a>
+  </li>
+
+    
+  <li class="nav-list">
+    <a href="/blog" class="nav-link ">
+      Blog
+    </a>
+  </li>
+
+    
+  <li class="nav-list">
+    <a href="/contact" class="nav-link ">
+      Contact
+    </a>
+  </li>
+
+  </ul>
+</nav>
+
+
+     <!-- ПРАВАЯ ЧАСТЬ -->
+    <div class="right-actions">
+      <!-- Поиск -->
+      <div class="search-id">
+    <span class="search-visually-hidden">ID</span>
+    <input type="text" 
+       class="search-input" 
+       id="search-input" 
+       name="search-id" 
+       placeholder="12345678"
+       inputmode="numeric"
+       pattern="[0-9]*"
+       maxlength="8"
+       autocomplete="off">
+    <svg class="search-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#FFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M21 21L16.65 16.65" stroke="#FFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</div>
+      <!-- Выбор языка -->
+      <div class="lang-select">
+    <!-- Заголовок/кнопка -->
+    <button class="lang-select-header" aria-haspopup="listbox" aria-expanded="false">
+        <span class="lang-selected-value">EN</span>
+        <svg class="small-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
+  <path d="M7.54014 0.5H1.71499C0.785192 0.5 0.358682 1.65797 1.06634 2.26108L4.17309 4.90888C4.56611 5.24385 5.14955 5.22446 5.51948 4.86414L8.23788 2.21635C8.88064 1.59029 8.4374 0.5 7.54014 0.5Z" fill="#14142D"/>
+</svg>
+    </button>
+    
+    <!-- Выпадающий список -->
+    <ul class="lang-options" role="listbox" tabindex="-1">
+        <li role="presenoptiontation" class="lang-current-value">EN </li> <!-- Не кликабельный, дублирует selected-value -->
+        <li role="option" data-value="uk">UK</li>
+        <li role="option" data-value="en" class="selected">EN</li>
+        <li role="option" data-value="de">DE</li>
+    </ul>
+</div>  
+      <!-- Добавить элемент -->
+      <button class="btn btn-primary">+ Add Item</button>
+
+      <!-- Меню -->
+      <div class="menu-icon">
+  <div class="menu-toggle" id="menu-toggle">
+    <svg
+  class="hamburger"
+  xmlns="http://www.w3.org/2000/svg"
+  width="32"
+  height="26"
+  viewBox="0 0 32 26"
+  fill="none"
+>
+  <path
+    class="menu-line menu-line-top"
+    d="M8 2.5C8 1.11929 9.11929 0 10.5 0H29.5C30.8807 0 32 1.11929 32 2.5C32 3.88071 30.8807 5 29.5 5H10.5C9.11929 5 8 3.88071 8 2.5Z"
+    fill="#593DFF"
+  />
+  <path
+    class="menu-line menu-line-middle"
+    d="M0 12.5C0 11.1193 1.11929 10 2.5 10H29.5C30.8807 10 32 11.1193 32 12.5C32 13.8807 30.8807 15 29.5 15H2.5C1.11929 15 0 13.8807 0 12.5Z"
+    fill="#14142D"
+  />
+  <path
+    class="menu-line menu-line-bottom"
+    d="M0 23.5C0 22.1193 1.11929 21 2.5 21H29.5C30.8807 21 32 22.1193 32 23.5C32 24.8807 30.8807 26 29.5 26H2.5C1.11929 26 0 24.8807 0 23.5Z"
+    fill="#14142D"
+  />
+</svg>
+
+  </div>
+</div>
+    </div>
+  </div>
+</header> 
+
+    <!-- Подключаем основной контент -->
+    <main>
+        
+  <section class="first-screen first-screen--catalog">
+  <div class="container container-first-screen">
+    <!--  Заголовок первого экрана каталога -->
+    <div class="first-screen-header">
+      <h1 class="global-h">
+        Каталог недвижимости
+      </h1>
+      <p>
+        Подберите квартиру, дом или апартаменты по нужным параметрам — мы собрали все варианты в одном месте.
+      </p>
+    </div>
+    <!-- Форма поиска -->
+    <div class="search-form-container">
+  <form class="search-form">
+    
+    <div class="form-tabs">
+      
+      <button type="button" class="tab active" data-tab="selling">Selling</button>
+
+      
+      <button type="button" class="tab" data-tab="rent">Rent</button>
+    </div>
+
+    
+    <div class="form-fields">
+      <div class="form-dropdowns-container">
+        
+        <div class="form-dropdown" data-step="1">
+          <label class="dropdown-label" for="property-type-btn">Property Type</label>
+          <button class="dropdown-search-form-btn" id="property-type-btn" 
+          aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-value">Select</span>
+            <svg class="small-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
+  <path d="M7.54014 0.5H1.71499C0.785192 0.5 0.358682 1.65797 1.06634 2.26108L4.17309 4.90888C4.56611 5.24385 5.14955 5.22446 5.51948 4.86414L8.23788 2.21635C8.88064 1.59029 8.4374 0.5 7.54014 0.5Z" fill="#14142D"/>
+</svg>
+          </button>
+        </div>
+
+        
+        <div class="form-dropdown" data-step="2">
+          <label class="dropdown-label" for="region-btn">Region</label>
+          <button class="dropdown-search-form-btn" id="region-btn" 
+          aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-value">Select</span>
+            <svg class="small-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
+  <path d="M7.54014 0.5H1.71499C0.785192 0.5 0.358682 1.65797 1.06634 2.26108L4.17309 4.90888C4.56611 5.24385 5.14955 5.22446 5.51948 4.86414L8.23788 2.21635C8.88064 1.59029 8.4374 0.5 7.54014 0.5Z" fill="#14142D"/>
+</svg>
+          </button>
+        </div>
+
+        
+        <div class="form-dropdown" data-step="3">
+          <label class="dropdown-label" for="city-btn">City</label>
+          <button class="dropdown-search-form-btn" id="city-btn" 
+          aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-value">Select</span>
+            <svg class="small-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
+  <path d="M7.54014 0.5H1.71499C0.785192 0.5 0.358682 1.65797 1.06634 2.26108L4.17309 4.90888C4.56611 5.24385 5.14955 5.22446 5.51948 4.86414L8.23788 2.21635C8.88064 1.59029 8.4374 0.5 7.54014 0.5Z" fill="#14142D"/>
+</svg>
+          </button>
+        </div>
+
+        
+        <div class="form-dropdown" data-step="4">
+          <label class="dropdown-label" for="area-btn">Area of the City</label>
+          <button class="dropdown-search-form-btn" id="area-btn" 
+          aria-haspopup="listbox" aria-expanded="false">
+            <span class="selected-value">Select</span>
+            <svg class="small-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
+  <path d="M7.54014 0.5H1.71499C0.785192 0.5 0.358682 1.65797 1.06634 2.26108L4.17309 4.90888C4.56611 5.24385 5.14955 5.22446 5.51948 4.86414L8.23788 2.21635C8.88064 1.59029 8.4374 0.5 7.54014 0.5Z" fill="#14142D"/>
+</svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-btn-container">
+        
+        <button type="button" class="btn filter-btn">
+          <svg class="filtr-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4 21V14" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M4 10V3" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 21V12" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 8V3" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 21V16" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 12V3" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M1 14H7" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M9 8H15" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17 16H23" stroke="#593DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+        </button>
+
+        
+        <button type="button" class="btn btn-primary form-find-btn">
+          <svg class="search-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#FFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M21 21L16.65 16.65" stroke="#FFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+          <span class="find-text">Find</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Контейнер для всех выпадающих списков -->
+    <div class="dropdowns-portal"></div>
+  </form>
+</div>
+  </div>
+</section>
+
+
+  <section class="catalog-toolbar-section">
+  <div class="container">
+    <div class="catalog-toolbar">
+      <div class="catalog-toolbar__header">
+        <div class="catalog-toolbar__titles">
+          <p class="catalog-toolbar__eyebrow">
+            Search Results for <span>Offers Selling</span>
+          </p>
+          <h1 class="catalog-toolbar__heading">
+            <span class="catalog-toolbar__accent">Flats</span> of Ivano-Frankivsk
+          </h1>
+        </div>
+        <a class="catalog-toolbar__tag" href="#">
+          <span class="catalog-toolbar__tag-icon" aria-hidden="true">
+            <svg width="42" height="52" viewBox="0 0 42 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 2.5C11.8873 2.5 4.5 9.8873 4.5 19C4.5 28.1127 11.8873 35.5 21 35.5C30.1127 35.5 37.5 28.1127 37.5 19C37.5 9.8873 30.1127 2.5 21 2.5Z" fill="currentColor"/>
+              <path d="M21 16L23 19.7639L27 20.4721L24 23.2361L24.7082 27.2361L21 25.4721L17.2918 27.2361L18 23.2361L15 20.4721L19 19.7639L21 16Z" fill="white"/>
+              <path d="M9 31L6 50L21 42.5L36 50L33 31" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="catalog-toolbar__tag-text">Elite Apartments</span>
+        </a>
+      </div>
+
+      <div class="catalog-toolbar__footer">
+        <div class="catalog-toolbar__left">
+          <p class="catalog-toolbar__results">Showing 1 - 20 of 997 total results</p>
+          <div class="catalog-toolbar__views" role="group" aria-label="Переключение вида карточек">
+            <button class="catalog-toolbar__view-btn catalog-toolbar__view-btn--active" type="button" aria-pressed="true">
+              <span class="catalog-toolbar__view-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="3" width="8" height="8" rx="2" fill="currentColor"/>
+                  <rect x="13" y="3" width="8" height="8" rx="2" fill="currentColor"/>
+                  <rect x="3" y="13" width="18" height="8" rx="2" fill="currentColor"/>
+                </svg>
+              </span>
+              <span>Tile</span>
+            </button>
+            <button class="catalog-toolbar__view-btn" type="button" aria-pressed="false">
+              <span class="catalog-toolbar__view-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="5" width="4" height="4" rx="1" fill="currentColor"/>
+                  <rect x="9" y="5" width="12" height="3" rx="1.5" fill="currentColor" fill-opacity="0.3"/>
+                  <rect x="3" y="10" width="4" height="4" rx="1" fill="currentColor"/>
+                  <rect x="9" y="10" width="12" height="3" rx="1.5" fill="currentColor" fill-opacity="0.3"/>
+                  <rect x="3" y="15" width="4" height="4" rx="1" fill="currentColor"/>
+                  <rect x="9" y="15" width="12" height="3" rx="1.5" fill="currentColor" fill-opacity="0.3"/>
+                </svg>
+              </span>
+              <span>List</span>
+            </button>
+            <button class="catalog-toolbar__view-btn" type="button" aria-pressed="false">
+              <span class="catalog-toolbar__view-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="5" width="6" height="14" rx="2" fill="currentColor"/>
+                  <rect x="11" y="5" width="10" height="9" rx="2" fill="currentColor" fill-opacity="0.3"/>
+                  <rect x="11" y="15" width="10" height="4" rx="1.5" fill="currentColor" fill-opacity="0.3"/>
+                </svg>
+              </span>
+              <span>Table</span>
+            </button>
+          </div>
+        </div>
+        <div class="catalog-toolbar__right">
+          <button class="catalog-toolbar__sort" type="button">
+            <span class="catalog-toolbar__sort-label">Sort by:</span>
+            <span class="catalog-toolbar__sort-value">Most Relevant</span>
+            <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M1 1L6 5L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="catalog-toolbar__map-btn" type="button">
+            <span class="catalog-toolbar__map-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 6.5L9.5 4.5V18.5L4 20.5V6.5Z" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M9.5 4.5L15 6.5V20.5L9.5 18.5" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M15 6.5L20.5 4.5V18.5L15 20.5" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span>Map</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Блок рекламы -->
+  <section class="section-ads">
+    <div class="container container-ads">
+        <h1 class="h1-ads">Place for your advertisement</h1>
+        <button type="button" class="btn btn-book btn-ads">Book Now</button>
+    </div>
+</section>
+
+  
+  <!-- Топ продаж -->
+  
+  <section class="top-section top-selling">
+    <div class="container container-top-cards container-top-selling">
+        <div class="top-cards-container__top 
+        top-selling-top-container">
+            
+  <div class="top-cards-header">
+    
+    <h2 class="top-cards-h2 global-h">
+        <span class="top-cards-h2-color global-h-color">TOP</span>
+        Selling
+    </h2>
+    
+    <div class="top-cards-top-container">
+      
+    </div>
+    
+    <a href="#">View All</a>
+  </div>
+
+            <p class="text-truncated">
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable 
+            </p>
+        </div>
+    </div>
+    <div class="top-selling__bottom">
+      <div class="container top-cards-container__bottom 
+      top-selling-bottom-container">
+          
+            
+  <a href="" class="property-card ">
+    <div class="property-card__image-container">
+      
+      
+      <img src="/assets/images/property-card/property2.jpg" alt="Ivano-Frankivsk" 
+      class="property-card__image">
+      
+        <span class="property-card__Exclusive property-card__mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <g clip-path="url(#clip0_1205_750)">
+    <path d="M8.17777 23.8412L6.88667 19.471C6.82423 19.3077 6.74178 19.1293 6.64773 18.9589C6.55395 18.7882 6.44725 18.6228 6.33055 18.4676C6.21411 18.3127 6.08503 18.1638 5.94699 18.0258C5.80921 17.8883 5.66063 17.7592 5.5052 17.6425C5.35056 17.5263 5.18512 17.4194 5.01389 17.3251C4.84345 17.2313 4.66484 17.1488 4.48306 17.0801L0.131866 15.7955L4.50203 14.5044C4.66484 14.4423 4.84345 14.3601 5.01442 14.2658C5.18565 14.1715 5.35083 14.0645 5.50547 13.9483C5.66089 13.8316 5.80947 13.7025 5.94725 13.565C6.08529 13.427 6.21411 13.2784 6.33055 13.1232C6.44752 12.9678 6.55421 12.8024 6.64799 12.6319C6.74204 12.4615 6.82423 12.2829 6.89299 12.1011L8.17777 7.74963L9.46888 12.1198C9.53184 12.2837 9.61404 12.4623 9.70782 12.6322C9.80134 12.8024 9.9083 12.9678 10.0253 13.1235C10.1414 13.2784 10.2705 13.4272 10.4086 13.5653C10.5463 13.7028 10.6949 13.8319 10.8503 13.9486C11.005 14.0648 11.1704 14.1717 11.3417 14.266C11.5126 14.3601 11.691 14.4423 11.8722 14.5108L16.2237 15.7958L11.8538 17.0866C11.6907 17.1491 11.5121 17.2315 11.3414 17.3256C11.1702 17.4199 11.005 17.5269 10.8501 17.643C10.6947 17.7597 10.5461 17.8888 10.4083 18.0263C10.2703 18.1644 10.1414 18.313 10.025 18.4679C9.90777 18.6238 9.80108 18.789 9.70756 18.9592C9.61562 19.1262 9.53421 19.3019 9.46572 19.4813L8.17777 23.8412Z" fill="white"/>
+    <path d="M18.3317 11.1517L17.4107 8.03417C17.3738 7.9396 17.3227 7.82869 17.2648 7.72331C17.206 7.61689 17.1399 7.51415 17.0675 7.41799C16.995 7.32131 16.9147 7.22911 16.8293 7.14375C16.744 7.0584 16.652 6.97831 16.5553 6.9056C16.4587 6.8329 16.3562 6.76677 16.2503 6.70829C16.1444 6.64981 16.0332 6.5987 15.9205 6.55602L12.8219 5.64137L15.9392 4.72039C16.0332 4.68404 16.1444 4.63267 16.2505 4.57445C16.3562 4.51623 16.4587 4.4501 16.5551 4.37739C16.652 4.30469 16.744 4.2246 16.829 4.13951C16.9147 4.05416 16.9948 3.96195 17.0675 3.86501C17.1396 3.76885 17.206 3.66611 17.2648 3.55995C17.323 3.45457 17.3741 3.34367 17.417 3.23039L18.3317 0.131836L19.2524 3.24936C19.2893 3.34393 19.3404 3.45484 19.3984 3.56021C19.4571 3.66664 19.5232 3.76938 19.5957 3.86554C19.6681 3.96222 19.7485 4.05442 19.8338 4.13977C19.9192 4.22513 20.0111 4.30521 20.1078 4.37792C20.2045 4.45063 20.3069 4.51675 20.4129 4.57524C20.5188 4.63346 20.6299 4.68483 20.7427 4.7275L23.8412 5.64163L20.724 6.56261C20.6299 6.59896 20.5188 6.65033 20.4126 6.70855C20.3069 6.76677 20.2045 6.8329 20.1081 6.9056C20.0111 6.97831 19.9192 7.0584 19.8341 7.14349C19.7485 7.22884 19.6684 7.32105 19.5957 7.41799C19.5235 7.51415 19.4571 7.61689 19.3984 7.72305C19.3417 7.82579 19.2917 7.93354 19.2495 8.04365L18.3317 11.1517Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_1205_750">
+      <rect width="24" height="24" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+          <span>
+            Exclusive
+          </span>
+        </span>
+      
+      
+    </div>
+    <div class="property-card__content">
+      <div class="property-card__description">
+        <div class="description__comission">
+            <span class="description__comission-value">
+              comission-free
+            </span> 
+        </div>
+        <div class="description__top">
+          <div class="description__top-left">
+            <span class="description__top-value-price">
+              $ 88 000
+              </span>
+            <span class="description__top-price-info">
+              for all
+              </span>
+          </div>
+          <span class="description__top-value-id">
+            id 23201
+            </span>
+        </div>
+        <p class="description__info">3-room flat, district Center</p>
+        <div class="description__location">
+          <span class="description__location-city">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+  <g opacity="0.6">
+    <path d="M10.4882 0.115479C6.49516 0.115479 3.24661 3.36402 3.24661 7.35711C3.24661 8.4677 3.49164 9.53357 3.97848 10.5319C4.6481 11.876 6.60834 15.19 8.6836 18.6983L9.69438 20.408C9.86011 20.6888 10.1621 20.8612 10.4882 20.8612C10.8144 20.8612 11.1164 20.6888 11.2821 20.408L12.2922 18.6992C14.3534 15.2149 16.3012 11.9223 16.9837 10.5602C16.9899 10.5485 16.9964 10.5365 17.0022 10.5245C17.4851 9.53264 17.7299 8.46701 17.7299 7.35711C17.7299 3.36402 14.4813 0.115479 10.4882 0.115479ZM10.4882 9.98352C8.89959 9.98352 7.6069 8.69106 7.6069 7.10217C7.6069 5.51328 8.89959 4.22082 10.4882 4.22082C12.0769 4.22082 13.3696 5.51351 13.3696 7.10217C13.3696 8.69083 12.0769 9.98352 10.4882 9.98352Z" fill="#14142D"/>
+  </g>
+</svg>
+            Ivano-Frankivsk
+          </span>
+          <span class="description__date">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+  <g opacity="0.6" clip-path="url(#clip0_1767_1128)">
+    <path d="M10.5 0C4.70137 0 0 4.70137 0 10.5C0 16.2986 4.70137 21 10.5 21C16.2986 21 21 16.2986 21 10.5C21 4.70137 16.2986 0 10.5 0ZM14.0582 14.0582C13.5443 14.572 12.6906 14.5464 12.1767 14.0326L9.57337 11.4293C9.45164 11.3088 9.3555 11.1628 9.28889 11.001C9.22195 10.8409 9.1875 10.6716 9.1875 10.5V5.25C9.1875 4.52452 9.77452 3.9375 10.5 3.9375C11.2255 3.9375 11.8125 4.52452 11.8125 5.25V9.95662L14.0631 12.2072C14.5773 12.7214 14.5707 13.5453 14.0582 14.0582Z" fill="#14142D"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_1767_1128">
+      <rect width="21" height="21" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+            12 May 12:49
+          </span>
+        </div>
+      </div>
+      <div class="property-card__description-line">
+
+      </div>
+      
+        <div class="property-card__details">
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <g clip-path="url(#clip0_561_706)">
+    <rect width="24" height="24" rx="5" fill="#593DFF"/>
+    <path d="M15.2047 6.53434V8.06867H13.925H12.6453V9.6096V11.1505H11.3656H10.0859V12.7244V14.2982H8.81719H7.54844V15.8589V17.4196H6.27422H5V18.2098V19H6.90313H8.80625V17.4327V15.8655H10.0859H11.3656V14.3114V12.7573L12.6398 12.7599L13.9141 12.7639V11.2058V9.64911H15.1938H16.4734V8.10818V6.56726H17.7367H19V5.78363V5H17.1023H15.2047V6.53434Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_561_706">
+      <rect width="24" height="24" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+              <span class="details__value">4/4</span>
+            </div>
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.1358 3.40114H7.02358V22.5004H5.09521V1.47278H11.1358V3.40114Z" fill="#593DFF"/>
+  <path d="M10.3281 0.131836V23.8412L18.8785 22.5V1.473L10.3281 0.131836ZM12.5776 13.5632C12.2494 13.5632 11.9833 13.0974 11.9833 12.5231C11.9833 11.9486 12.2494 11.4831 12.5776 11.4831C12.9059 11.4831 13.1719 11.9489 13.1719 12.5231C13.1719 13.0974 12.9059 13.5632 12.5776 13.5632Z" fill="#593DFF"/>
+</svg>
+              <span class="details__value">3</span>
+            </div>
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="41" height="24" viewBox="0 0 41 24" fill="none">
+  <g clip-path="url(#clip0_561_718)">
+    <path d="M5.18187 8.55756L20.1778 0.0914617C20.285 0.031228 20.406 -0.000277036 20.529 1.83537e-06C20.6519 0.000280707 20.7728 0.032334 20.8797 0.0930534L35.8629 8.63316C36.2059 8.82814 36.3269 9.26505 36.1319 9.60806C36.072 9.71347 35.9863 9.80193 35.8828 9.86511L21.058 18.8899C20.82 19.0355 20.5295 19.0244 20.3067 18.8859L5.12536 9.81577C4.78713 9.61283 4.67651 9.17353 4.87945 8.8353C4.95066 8.71493 5.05588 8.61829 5.18187 8.55756ZM25.3754 22.5921C25.7566 22.6924 25.985 23.0847 25.8847 23.4667C25.7844 23.8479 25.3921 24.0763 25.0109 23.9761L22.6019 23.3394C22.2199 23.2391 21.9915 22.8468 22.0926 22.4648L22.7412 20.0104C22.8414 19.6284 23.233 19.4008 23.615 19.5011C23.997 19.6014 24.2254 19.9929 24.1251 20.3749L23.9015 21.2193L38.1772 12.984L37.3933 12.7739C37.0113 12.672 36.7845 12.2789 36.8863 11.8977C36.9882 11.5157 37.3814 11.2881 37.7634 11.3899L40.2153 12.0473C40.5973 12.1492 40.8241 12.5423 40.7223 12.9243L40.0776 15.3309C39.9758 15.7129 39.5826 15.9397 39.2006 15.8379C38.8186 15.736 38.5918 15.3428 38.6937 14.9608L38.8918 14.2207L24.6926 22.4115L25.3754 22.5921ZM16.2161 23.9753C15.8214 24.0079 15.4744 23.7142 15.4426 23.3203C15.4107 22.9256 15.7036 22.5786 16.0983 22.5467L16.8202 22.4855L1.86562 13.5482L2.05344 14.2502C2.15531 14.6314 1.92849 15.0245 1.54649 15.1264C1.16449 15.229 0.771349 15.0014 0.669482 14.6194L0.0248556 12.2136C-0.0770113 11.8316 0.149802 11.4385 0.531803 11.3366L2.98377 10.6793C3.36577 10.5774 3.75891 10.8042 3.86078 11.1862C3.96265 11.5682 3.73583 11.9605 3.35383 12.0632L2.53572 12.2821L17.7799 21.3936L17.7107 20.5794C17.6789 20.1855 17.9717 19.8385 18.3665 19.8067C18.7604 19.7741 19.1074 20.0677 19.1392 20.4617L19.3541 22.9916C19.3867 23.3856 19.0931 23.7325 18.6991 23.7652L16.2161 23.9753ZM20.5248 1.53511L6.9144 9.21889L20.6823 17.4446L34.1017 9.2746L20.5248 1.53511Z" fill="#593DFF"/>
+    <path d="M5.96875 9.78875L20.6917 18.0256L34.8576 9.0327L20.6917 1.23352L5.96875 9.78875Z" fill="#593DFF"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_561_718">
+      <rect width="40.7468" height="24" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+              <span class="details__value">56 m²</span>
+            </div>
+          
+        </div>
+      
+    </div>
+  </a>
+
+          
+            
+  <a href="" class="property-card ">
+    <div class="property-card__image-container">
+      
+      
+      <img src="/assets/images/property-card/property2.jpg" alt="Ivano-Frankivsk" 
+      class="property-card__image">
+      
+      
+    </div>
+    <div class="property-card__content">
+      <div class="property-card__description">
+        <div class="description__comission">
+            <span class="description__comission-value">
+              comission-free
+            </span> 
+        </div>
+        <div class="description__top">
+          <div class="description__top-left">
+            <span class="description__top-value-price">
+              $ 61 500
+              </span>
+            <span class="description__top-price-info">
+              for all
+              </span>
+          </div>
+          <span class="description__top-value-id">
+            id 23690
+            </span>
+        </div>
+        <p class="description__info">1-room flat, district Ivasyuka</p>
+        <div class="description__location">
+          <span class="description__location-city">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+  <g opacity="0.6">
+    <path d="M10.4882 0.115479C6.49516 0.115479 3.24661 3.36402 3.24661 7.35711C3.24661 8.4677 3.49164 9.53357 3.97848 10.5319C4.6481 11.876 6.60834 15.19 8.6836 18.6983L9.69438 20.408C9.86011 20.6888 10.1621 20.8612 10.4882 20.8612C10.8144 20.8612 11.1164 20.6888 11.2821 20.408L12.2922 18.6992C14.3534 15.2149 16.3012 11.9223 16.9837 10.5602C16.9899 10.5485 16.9964 10.5365 17.0022 10.5245C17.4851 9.53264 17.7299 8.46701 17.7299 7.35711C17.7299 3.36402 14.4813 0.115479 10.4882 0.115479ZM10.4882 9.98352C8.89959 9.98352 7.6069 8.69106 7.6069 7.10217C7.6069 5.51328 8.89959 4.22082 10.4882 4.22082C12.0769 4.22082 13.3696 5.51351 13.3696 7.10217C13.3696 8.69083 12.0769 9.98352 10.4882 9.98352Z" fill="#14142D"/>
+  </g>
+</svg>
+            Ivano-Frankivsk
+          </span>
+          <span class="description__date">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+  <g opacity="0.6" clip-path="url(#clip0_1767_1128)">
+    <path d="M10.5 0C4.70137 0 0 4.70137 0 10.5C0 16.2986 4.70137 21 10.5 21C16.2986 21 21 16.2986 21 10.5C21 4.70137 16.2986 0 10.5 0ZM14.0582 14.0582C13.5443 14.572 12.6906 14.5464 12.1767 14.0326L9.57337 11.4293C9.45164 11.3088 9.3555 11.1628 9.28889 11.001C9.22195 10.8409 9.1875 10.6716 9.1875 10.5V5.25C9.1875 4.52452 9.77452 3.9375 10.5 3.9375C11.2255 3.9375 11.8125 4.52452 11.8125 5.25V9.95662L14.0631 12.2072C14.5773 12.7214 14.5707 13.5453 14.0582 14.0582Z" fill="#14142D"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_1767_1128">
+      <rect width="21" height="21" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+            12 May 12:49
+          </span>
+        </div>
+      </div>
+      <div class="property-card__description-line">
+
+      </div>
+      
+        <div class="property-card__details">
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <g clip-path="url(#clip0_561_706)">
+    <rect width="24" height="24" rx="5" fill="#593DFF"/>
+    <path d="M15.2047 6.53434V8.06867H13.925H12.6453V9.6096V11.1505H11.3656H10.0859V12.7244V14.2982H8.81719H7.54844V15.8589V17.4196H6.27422H5V18.2098V19H6.90313H8.80625V17.4327V15.8655H10.0859H11.3656V14.3114V12.7573L12.6398 12.7599L13.9141 12.7639V11.2058V9.64911H15.1938H16.4734V8.10818V6.56726H17.7367H19V5.78363V5H17.1023H15.2047V6.53434Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_561_706">
+      <rect width="24" height="24" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+              <span class="details__value">8/10</span>
+            </div>
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.1358 3.40114H7.02358V22.5004H5.09521V1.47278H11.1358V3.40114Z" fill="#593DFF"/>
+  <path d="M10.3281 0.131836V23.8412L18.8785 22.5V1.473L10.3281 0.131836ZM12.5776 13.5632C12.2494 13.5632 11.9833 13.0974 11.9833 12.5231C11.9833 11.9486 12.2494 11.4831 12.5776 11.4831C12.9059 11.4831 13.1719 11.9489 13.1719 12.5231C13.1719 13.0974 12.9059 13.5632 12.5776 13.5632Z" fill="#593DFF"/>
+</svg>
+              <span class="details__value">1</span>
+            </div>
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M20.8048 2.34717H3.16819C2.47061 2.34717 1.90527 2.9125 1.90527 3.61009V10.2081H22.0677V3.60982C22.0677 2.9125 21.5024 2.34717 20.8048 2.34717Z" fill="#593DFF"/>
+  <path d="M9.92433 6.38306H5.00543C4.4933 6.38306 4.07812 6.79823 4.07812 7.31036V10.2082H10.8516V7.31036C10.8516 6.79823 10.4365 6.38306 9.92433 6.38306Z" fill="white"/>
+  <path d="M18.9678 6.38306H14.0489C13.5368 6.38306 13.1216 6.79823 13.1216 7.31036V10.2082H19.8951V7.31036C19.8951 6.79823 19.4799 6.38306 18.9678 6.38306Z" fill="white"/>
+  <path d="M23.8412 15.2247H0.131836V11.3899C0.131836 10.5882 0.781736 9.9386 1.58311 9.9386H22.3897C23.1913 9.9386 23.8409 10.5885 23.8409 11.3899L23.8412 15.2247Z" fill="#593DFF"/>
+  <path d="M20.9697 14.9556H3.0033H0.131836V18.8676V21.6258H3.0033V18.8676H20.9697V21.6258H23.8412V18.8676V14.9556H20.9697Z" fill="#593DFF"/>
+</svg>
+              <span class="details__value">1</span>
+            </div>
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="41" height="24" viewBox="0 0 41 24" fill="none">
+  <g clip-path="url(#clip0_561_718)">
+    <path d="M5.18187 8.55756L20.1778 0.0914617C20.285 0.031228 20.406 -0.000277036 20.529 1.83537e-06C20.6519 0.000280707 20.7728 0.032334 20.8797 0.0930534L35.8629 8.63316C36.2059 8.82814 36.3269 9.26505 36.1319 9.60806C36.072 9.71347 35.9863 9.80193 35.8828 9.86511L21.058 18.8899C20.82 19.0355 20.5295 19.0244 20.3067 18.8859L5.12536 9.81577C4.78713 9.61283 4.67651 9.17353 4.87945 8.8353C4.95066 8.71493 5.05588 8.61829 5.18187 8.55756ZM25.3754 22.5921C25.7566 22.6924 25.985 23.0847 25.8847 23.4667C25.7844 23.8479 25.3921 24.0763 25.0109 23.9761L22.6019 23.3394C22.2199 23.2391 21.9915 22.8468 22.0926 22.4648L22.7412 20.0104C22.8414 19.6284 23.233 19.4008 23.615 19.5011C23.997 19.6014 24.2254 19.9929 24.1251 20.3749L23.9015 21.2193L38.1772 12.984L37.3933 12.7739C37.0113 12.672 36.7845 12.2789 36.8863 11.8977C36.9882 11.5157 37.3814 11.2881 37.7634 11.3899L40.2153 12.0473C40.5973 12.1492 40.8241 12.5423 40.7223 12.9243L40.0776 15.3309C39.9758 15.7129 39.5826 15.9397 39.2006 15.8379C38.8186 15.736 38.5918 15.3428 38.6937 14.9608L38.8918 14.2207L24.6926 22.4115L25.3754 22.5921ZM16.2161 23.9753C15.8214 24.0079 15.4744 23.7142 15.4426 23.3203C15.4107 22.9256 15.7036 22.5786 16.0983 22.5467L16.8202 22.4855L1.86562 13.5482L2.05344 14.2502C2.15531 14.6314 1.92849 15.0245 1.54649 15.1264C1.16449 15.229 0.771349 15.0014 0.669482 14.6194L0.0248556 12.2136C-0.0770113 11.8316 0.149802 11.4385 0.531803 11.3366L2.98377 10.6793C3.36577 10.5774 3.75891 10.8042 3.86078 11.1862C3.96265 11.5682 3.73583 11.9605 3.35383 12.0632L2.53572 12.2821L17.7799 21.3936L17.7107 20.5794C17.6789 20.1855 17.9717 19.8385 18.3665 19.8067C18.7604 19.7741 19.1074 20.0677 19.1392 20.4617L19.3541 22.9916C19.3867 23.3856 19.0931 23.7325 18.6991 23.7652L16.2161 23.9753ZM20.5248 1.53511L6.9144 9.21889L20.6823 17.4446L34.1017 9.2746L20.5248 1.53511Z" fill="#593DFF"/>
+    <path d="M5.96875 9.78875L20.6917 18.0256L34.8576 9.0327L20.6917 1.23352L5.96875 9.78875Z" fill="#593DFF"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_561_718">
+      <rect width="40.7468" height="24" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+              <span class="details__value">42 m²</span>
+            </div>
+          
+        </div>
+      
+    </div>
+  </a>
+
+          
+            
+  <a href="" class="property-card urgently">
+    <div class="property-card__image-container">
+      
+      
+      <img src="/assets/images/property-card/property2.jpg" alt="Ivano-Frankivsk" 
+      class="property-card__image">
+      
+        <span class="property-card__Urgently property-card__mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24" fill="none">
+  <path d="M7.17418 0.227226C7.12717 0.366831 7.08017 0.754623 7.08017 1.11139C7.08017 2.25926 6.65712 3.88799 6.01472 5.25301C5.74836 5.81143 4.74558 7.44016 4.5889 7.57977C4.16585 7.92102 1.89394 11.225 1.48656 12.0782C0.593462 13.893 0.280095 15.9871 0.656136 17.6469C1.04784 19.4152 2.44233 21.7419 3.6958 22.6882C4.35387 23.1845 6.1244 24.0997 6.21841 23.9911C6.26541 23.9446 6.1714 23.774 6.03039 23.5878C5.8737 23.4172 5.63868 23.138 5.51333 22.9829C5.37232 22.8278 5.05895 22.2228 4.80826 21.6334C4.40088 20.7027 4.3382 20.3614 4.35387 19.1515C4.35387 17.9261 4.40088 17.6313 4.79259 16.8868C5.02761 16.4214 5.27831 15.9871 5.34098 15.9095C5.40365 15.8475 5.54467 16.1577 5.67002 16.6076C5.77969 17.0574 5.98338 17.5848 6.10873 17.7865C6.31242 18.0967 7.04883 18.5931 7.3152 18.5931C7.3622 18.5931 7.39354 17.864 7.39354 16.9799C7.39354 14.5445 8.12995 12.59 9.55577 11.256L10.0102 10.8217L10.2138 11.7989C10.3235 12.3419 10.5272 13.0244 10.6526 13.3191C10.8562 13.7844 12.5954 16.3439 12.8775 16.5765C12.9245 16.6231 13.1595 17.0729 13.4259 17.5848C13.8019 18.3759 13.8802 18.7016 13.8802 19.7564C13.8959 20.8267 13.8332 21.1215 13.4415 21.8815C13.1908 22.3779 12.7521 23.0294 12.4544 23.3396C12.1724 23.6499 11.9687 23.9446 12 23.9911C12.047 24.0222 12.5484 23.8205 13.1282 23.5413C15.0554 22.5796 16.6692 20.6871 17.2489 18.7482C17.3586 18.3604 17.5153 17.8485 17.5936 17.6003C17.954 16.4525 17.672 13.8 16.9983 11.923C16.4969 10.558 15.3374 8.18472 15.1807 8.24677C15.1024 8.26228 14.8987 8.63456 14.742 9.03787C14.46 9.76692 13.8959 10.527 13.6296 10.527C13.5669 10.527 13.5042 10.0771 13.5042 9.53424C13.5042 7.68835 12.7678 5.42364 11.624 3.7794C10.9659 2.83319 9.39909 1.28202 8.36498 0.552971C7.44054 -0.0985203 7.3152 -0.129543 7.17418 0.227226Z" fill="white"/>
+</svg>
+          <span>
+            Urgently
+          </span>
+        </span>
+      
+      
+    </div>
+    <div class="property-card__content">
+      <div class="property-card__description">
+        <div class="description__comission">
+            <span class="description__comission-value">
+              comission-free
+            </span> 
+        </div>
+        <div class="description__top">
+          <div class="description__top-left">
+            <span class="description__top-value-price">
+              $ 82 200
+              </span>
+            <span class="description__top-price-info">
+              for all
+              </span>
+          </div>
+          <span class="description__top-value-id">
+            id 23483
+            </span>
+        </div>
+        <p class="description__info">1-room flat, district Center</p>
+        <div class="description__location">
+          <span class="description__location-city">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+  <g opacity="0.6">
+    <path d="M10.4882 0.115479C6.49516 0.115479 3.24661 3.36402 3.24661 7.35711C3.24661 8.4677 3.49164 9.53357 3.97848 10.5319C4.6481 11.876 6.60834 15.19 8.6836 18.6983L9.69438 20.408C9.86011 20.6888 10.1621 20.8612 10.4882 20.8612C10.8144 20.8612 11.1164 20.6888 11.2821 20.408L12.2922 18.6992C14.3534 15.2149 16.3012 11.9223 16.9837 10.5602C16.9899 10.5485 16.9964 10.5365 17.0022 10.5245C17.4851 9.53264 17.7299 8.46701 17.7299 7.35711C17.7299 3.36402 14.4813 0.115479 10.4882 0.115479ZM10.4882 9.98352C8.89959 9.98352 7.6069 8.69106 7.6069 7.10217C7.6069 5.51328 8.89959 4.22082 10.4882 4.22082C12.0769 4.22082 13.3696 5.51351 13.3696 7.10217C13.3696 8.69083 12.0769 9.98352 10.4882 9.98352Z" fill="#14142D"/>
+  </g>
+</svg>
+            Ivano-Frankivsk
+          </span>
+          <span class="description__date">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+  <g opacity="0.6" clip-path="url(#clip0_1767_1128)">
+    <path d="M10.5 0C4.70137 0 0 4.70137 0 10.5C0 16.2986 4.70137 21 10.5 21C16.2986 21 21 16.2986 21 10.5C21 4.70137 16.2986 0 10.5 0ZM14.0582 14.0582C13.5443 14.572 12.6906 14.5464 12.1767 14.0326L9.57337 11.4293C9.45164 11.3088 9.3555 11.1628 9.28889 11.001C9.22195 10.8409 9.1875 10.6716 9.1875 10.5V5.25C9.1875 4.52452 9.77452 3.9375 10.5 3.9375C11.2255 3.9375 11.8125 4.52452 11.8125 5.25V9.95662L14.0631 12.2072C14.5773 12.7214 14.5707 13.5453 14.0582 14.0582Z" fill="#14142D"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_1767_1128">
+      <rect width="21" height="21" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+            12 May 12:49
+          </span>
+        </div>
+      </div>
+      <div class="property-card__description-line">
+
+      </div>
+      
+        <div class="property-card__details">
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <g clip-path="url(#clip0_561_706)">
+    <rect width="24" height="24" rx="5" fill="#593DFF"/>
+    <path d="M15.2047 6.53434V8.06867H13.925H12.6453V9.6096V11.1505H11.3656H10.0859V12.7244V14.2982H8.81719H7.54844V15.8589V17.4196H6.27422H5V18.2098V19H6.90313H8.80625V17.4327V15.8655H10.0859H11.3656V14.3114V12.7573L12.6398 12.7599L13.9141 12.7639V11.2058V9.64911H15.1938H16.4734V8.10818V6.56726H17.7367H19V5.78363V5H17.1023H15.2047V6.53434Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_561_706">
+      <rect width="24" height="24" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+              <span class="details__value">3/11</span>
+            </div>
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.1358 3.40114H7.02358V22.5004H5.09521V1.47278H11.1358V3.40114Z" fill="#593DFF"/>
+  <path d="M10.3281 0.131836V23.8412L18.8785 22.5V1.473L10.3281 0.131836ZM12.5776 13.5632C12.2494 13.5632 11.9833 13.0974 11.9833 12.5231C11.9833 11.9486 12.2494 11.4831 12.5776 11.4831C12.9059 11.4831 13.1719 11.9489 13.1719 12.5231C13.1719 13.0974 12.9059 13.5632 12.5776 13.5632Z" fill="#593DFF"/>
+</svg>
+              <span class="details__value">1</span>
+            </div>
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M20.8048 2.34717H3.16819C2.47061 2.34717 1.90527 2.9125 1.90527 3.61009V10.2081H22.0677V3.60982C22.0677 2.9125 21.5024 2.34717 20.8048 2.34717Z" fill="#593DFF"/>
+  <path d="M9.92433 6.38306H5.00543C4.4933 6.38306 4.07812 6.79823 4.07812 7.31036V10.2082H10.8516V7.31036C10.8516 6.79823 10.4365 6.38306 9.92433 6.38306Z" fill="white"/>
+  <path d="M18.9678 6.38306H14.0489C13.5368 6.38306 13.1216 6.79823 13.1216 7.31036V10.2082H19.8951V7.31036C19.8951 6.79823 19.4799 6.38306 18.9678 6.38306Z" fill="white"/>
+  <path d="M23.8412 15.2247H0.131836V11.3899C0.131836 10.5882 0.781736 9.9386 1.58311 9.9386H22.3897C23.1913 9.9386 23.8409 10.5885 23.8409 11.3899L23.8412 15.2247Z" fill="#593DFF"/>
+  <path d="M20.9697 14.9556H3.0033H0.131836V18.8676V21.6258H3.0033V18.8676H20.9697V21.6258H23.8412V18.8676V14.9556H20.9697Z" fill="#593DFF"/>
+</svg>
+              <span class="details__value">1</span>
+            </div>
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="41" height="24" viewBox="0 0 41 24" fill="none">
+  <g clip-path="url(#clip0_561_718)">
+    <path d="M5.18187 8.55756L20.1778 0.0914617C20.285 0.031228 20.406 -0.000277036 20.529 1.83537e-06C20.6519 0.000280707 20.7728 0.032334 20.8797 0.0930534L35.8629 8.63316C36.2059 8.82814 36.3269 9.26505 36.1319 9.60806C36.072 9.71347 35.9863 9.80193 35.8828 9.86511L21.058 18.8899C20.82 19.0355 20.5295 19.0244 20.3067 18.8859L5.12536 9.81577C4.78713 9.61283 4.67651 9.17353 4.87945 8.8353C4.95066 8.71493 5.05588 8.61829 5.18187 8.55756ZM25.3754 22.5921C25.7566 22.6924 25.985 23.0847 25.8847 23.4667C25.7844 23.8479 25.3921 24.0763 25.0109 23.9761L22.6019 23.3394C22.2199 23.2391 21.9915 22.8468 22.0926 22.4648L22.7412 20.0104C22.8414 19.6284 23.233 19.4008 23.615 19.5011C23.997 19.6014 24.2254 19.9929 24.1251 20.3749L23.9015 21.2193L38.1772 12.984L37.3933 12.7739C37.0113 12.672 36.7845 12.2789 36.8863 11.8977C36.9882 11.5157 37.3814 11.2881 37.7634 11.3899L40.2153 12.0473C40.5973 12.1492 40.8241 12.5423 40.7223 12.9243L40.0776 15.3309C39.9758 15.7129 39.5826 15.9397 39.2006 15.8379C38.8186 15.736 38.5918 15.3428 38.6937 14.9608L38.8918 14.2207L24.6926 22.4115L25.3754 22.5921ZM16.2161 23.9753C15.8214 24.0079 15.4744 23.7142 15.4426 23.3203C15.4107 22.9256 15.7036 22.5786 16.0983 22.5467L16.8202 22.4855L1.86562 13.5482L2.05344 14.2502C2.15531 14.6314 1.92849 15.0245 1.54649 15.1264C1.16449 15.229 0.771349 15.0014 0.669482 14.6194L0.0248556 12.2136C-0.0770113 11.8316 0.149802 11.4385 0.531803 11.3366L2.98377 10.6793C3.36577 10.5774 3.75891 10.8042 3.86078 11.1862C3.96265 11.5682 3.73583 11.9605 3.35383 12.0632L2.53572 12.2821L17.7799 21.3936L17.7107 20.5794C17.6789 20.1855 17.9717 19.8385 18.3665 19.8067C18.7604 19.7741 19.1074 20.0677 19.1392 20.4617L19.3541 22.9916C19.3867 23.3856 19.0931 23.7325 18.6991 23.7652L16.2161 23.9753ZM20.5248 1.53511L6.9144 9.21889L20.6823 17.4446L34.1017 9.2746L20.5248 1.53511Z" fill="#593DFF"/>
+    <path d="M5.96875 9.78875L20.6917 18.0256L34.8576 9.0327L20.6917 1.23352L5.96875 9.78875Z" fill="#593DFF"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_561_718">
+      <rect width="40.7468" height="24" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+              <span class="details__value">48 m²</span>
+            </div>
+          
+        </div>
+      
+    </div>
+  </a>
+
+          
+            
+  <a href="" class="property-card ">
+    <div class="property-card__image-container">
+      
+      
+      <img src="/assets/images/property-card/property2.jpg" alt="Ivano-Frankivsk" 
+      class="property-card__image">
+      
+        <span class="property-card__New property-card__mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" viewBox="0 0 11 8" fill="none">
+  <path d="M11 8V0H0L11 8Z" fill="#14142D"/>
+</svg>
+          <span>
+            New
+          </span>
+        </span>
+      
+      
+    </div>
+    <div class="property-card__content">
+      <div class="property-card__description">
+        <div class="description__comission">
+            <span class="description__comission-value">
+              comission-free
+            </span> 
+        </div>
+        <div class="description__top">
+          <div class="description__top-left">
+            <span class="description__top-value-price">
+              $ 118 000
+              </span>
+            <span class="description__top-price-info">
+              for all
+              </span>
+          </div>
+          <span class="description__top-value-id">
+            id 23578
+            </span>
+        </div>
+        <p class="description__info">2-room flat, district Bam</p>
+        <div class="description__location">
+          <span class="description__location-city">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+  <g opacity="0.6">
+    <path d="M10.4882 0.115479C6.49516 0.115479 3.24661 3.36402 3.24661 7.35711C3.24661 8.4677 3.49164 9.53357 3.97848 10.5319C4.6481 11.876 6.60834 15.19 8.6836 18.6983L9.69438 20.408C9.86011 20.6888 10.1621 20.8612 10.4882 20.8612C10.8144 20.8612 11.1164 20.6888 11.2821 20.408L12.2922 18.6992C14.3534 15.2149 16.3012 11.9223 16.9837 10.5602C16.9899 10.5485 16.9964 10.5365 17.0022 10.5245C17.4851 9.53264 17.7299 8.46701 17.7299 7.35711C17.7299 3.36402 14.4813 0.115479 10.4882 0.115479ZM10.4882 9.98352C8.89959 9.98352 7.6069 8.69106 7.6069 7.10217C7.6069 5.51328 8.89959 4.22082 10.4882 4.22082C12.0769 4.22082 13.3696 5.51351 13.3696 7.10217C13.3696 8.69083 12.0769 9.98352 10.4882 9.98352Z" fill="#14142D"/>
+  </g>
+</svg>
+            Ivano-Frankivsk
+          </span>
+          <span class="description__date">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+  <g opacity="0.6" clip-path="url(#clip0_1767_1128)">
+    <path d="M10.5 0C4.70137 0 0 4.70137 0 10.5C0 16.2986 4.70137 21 10.5 21C16.2986 21 21 16.2986 21 10.5C21 4.70137 16.2986 0 10.5 0ZM14.0582 14.0582C13.5443 14.572 12.6906 14.5464 12.1767 14.0326L9.57337 11.4293C9.45164 11.3088 9.3555 11.1628 9.28889 11.001C9.22195 10.8409 9.1875 10.6716 9.1875 10.5V5.25C9.1875 4.52452 9.77452 3.9375 10.5 3.9375C11.2255 3.9375 11.8125 4.52452 11.8125 5.25V9.95662L14.0631 12.2072C14.5773 12.7214 14.5707 13.5453 14.0582 14.0582Z" fill="#14142D"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_1767_1128">
+      <rect width="21" height="21" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+            12 May 12:49
+          </span>
+        </div>
+      </div>
+      <div class="property-card__description-line">
+
+      </div>
+      
+        <div class="property-card__details">
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <g clip-path="url(#clip0_561_706)">
+    <rect width="24" height="24" rx="5" fill="#593DFF"/>
+    <path d="M15.2047 6.53434V8.06867H13.925H12.6453V9.6096V11.1505H11.3656H10.0859V12.7244V14.2982H8.81719H7.54844V15.8589V17.4196H6.27422H5V18.2098V19H6.90313H8.80625V17.4327V15.8655H10.0859H11.3656V14.3114V12.7573L12.6398 12.7599L13.9141 12.7639V11.2058V9.64911H15.1938H16.4734V8.10818V6.56726H17.7367H19V5.78363V5H17.1023H15.2047V6.53434Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_561_706">
+      <rect width="24" height="24" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+              <span class="details__value">5/10</span>
+            </div>
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.1358 3.40114H7.02358V22.5004H5.09521V1.47278H11.1358V3.40114Z" fill="#593DFF"/>
+  <path d="M10.3281 0.131836V23.8412L18.8785 22.5V1.473L10.3281 0.131836ZM12.5776 13.5632C12.2494 13.5632 11.9833 13.0974 11.9833 12.5231C11.9833 11.9486 12.2494 11.4831 12.5776 11.4831C12.9059 11.4831 13.1719 11.9489 13.1719 12.5231C13.1719 13.0974 12.9059 13.5632 12.5776 13.5632Z" fill="#593DFF"/>
+</svg>
+              <span class="details__value">2</span>
+            </div>
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M20.8048 2.34717H3.16819C2.47061 2.34717 1.90527 2.9125 1.90527 3.61009V10.2081H22.0677V3.60982C22.0677 2.9125 21.5024 2.34717 20.8048 2.34717Z" fill="#593DFF"/>
+  <path d="M9.92433 6.38306H5.00543C4.4933 6.38306 4.07812 6.79823 4.07812 7.31036V10.2082H10.8516V7.31036C10.8516 6.79823 10.4365 6.38306 9.92433 6.38306Z" fill="white"/>
+  <path d="M18.9678 6.38306H14.0489C13.5368 6.38306 13.1216 6.79823 13.1216 7.31036V10.2082H19.8951V7.31036C19.8951 6.79823 19.4799 6.38306 18.9678 6.38306Z" fill="white"/>
+  <path d="M23.8412 15.2247H0.131836V11.3899C0.131836 10.5882 0.781736 9.9386 1.58311 9.9386H22.3897C23.1913 9.9386 23.8409 10.5885 23.8409 11.3899L23.8412 15.2247Z" fill="#593DFF"/>
+  <path d="M20.9697 14.9556H3.0033H0.131836V18.8676V21.6258H3.0033V18.8676H20.9697V21.6258H23.8412V18.8676V14.9556H20.9697Z" fill="#593DFF"/>
+</svg>
+              <span class="details__value">1</span>
+            </div>
+          
+            <div class="details__block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="41" height="24" viewBox="0 0 41 24" fill="none">
+  <g clip-path="url(#clip0_561_718)">
+    <path d="M5.18187 8.55756L20.1778 0.0914617C20.285 0.031228 20.406 -0.000277036 20.529 1.83537e-06C20.6519 0.000280707 20.7728 0.032334 20.8797 0.0930534L35.8629 8.63316C36.2059 8.82814 36.3269 9.26505 36.1319 9.60806C36.072 9.71347 35.9863 9.80193 35.8828 9.86511L21.058 18.8899C20.82 19.0355 20.5295 19.0244 20.3067 18.8859L5.12536 9.81577C4.78713 9.61283 4.67651 9.17353 4.87945 8.8353C4.95066 8.71493 5.05588 8.61829 5.18187 8.55756ZM25.3754 22.5921C25.7566 22.6924 25.985 23.0847 25.8847 23.4667C25.7844 23.8479 25.3921 24.0763 25.0109 23.9761L22.6019 23.3394C22.2199 23.2391 21.9915 22.8468 22.0926 22.4648L22.7412 20.0104C22.8414 19.6284 23.233 19.4008 23.615 19.5011C23.997 19.6014 24.2254 19.9929 24.1251 20.3749L23.9015 21.2193L38.1772 12.984L37.3933 12.7739C37.0113 12.672 36.7845 12.2789 36.8863 11.8977C36.9882 11.5157 37.3814 11.2881 37.7634 11.3899L40.2153 12.0473C40.5973 12.1492 40.8241 12.5423 40.7223 12.9243L40.0776 15.3309C39.9758 15.7129 39.5826 15.9397 39.2006 15.8379C38.8186 15.736 38.5918 15.3428 38.6937 14.9608L38.8918 14.2207L24.6926 22.4115L25.3754 22.5921ZM16.2161 23.9753C15.8214 24.0079 15.4744 23.7142 15.4426 23.3203C15.4107 22.9256 15.7036 22.5786 16.0983 22.5467L16.8202 22.4855L1.86562 13.5482L2.05344 14.2502C2.15531 14.6314 1.92849 15.0245 1.54649 15.1264C1.16449 15.229 0.771349 15.0014 0.669482 14.6194L0.0248556 12.2136C-0.0770113 11.8316 0.149802 11.4385 0.531803 11.3366L2.98377 10.6793C3.36577 10.5774 3.75891 10.8042 3.86078 11.1862C3.96265 11.5682 3.73583 11.9605 3.35383 12.0632L2.53572 12.2821L17.7799 21.3936L17.7107 20.5794C17.6789 20.1855 17.9717 19.8385 18.3665 19.8067C18.7604 19.7741 19.1074 20.0677 19.1392 20.4617L19.3541 22.9916C19.3867 23.3856 19.0931 23.7325 18.6991 23.7652L16.2161 23.9753ZM20.5248 1.53511L6.9144 9.21889L20.6823 17.4446L34.1017 9.2746L20.5248 1.53511Z" fill="#593DFF"/>
+    <path d="M5.96875 9.78875L20.6917 18.0256L34.8576 9.0327L20.6917 1.23352L5.96875 9.78875Z" fill="#593DFF"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_561_718">
+      <rect width="40.7468" height="24" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+              <span class="details__value">69 m²</span>
+            </div>
+          
+        </div>
+      
+    </div>
+  </a>
+
+          
+      </div>
+    </div>
+    
+    <div class="top__bottom-btn">
+      <button type="button" class="btn btn-primary property__view-all-btn">
+        <span class="find-text">View All</span>
+      </button>
+    </div>
+  </section>
+
+
+
+
+  <!-- Агенция -->
+  <section class="agency">
+    <div class="company-achivements-body">
+        <div class="container container-company-achivements-body bg-realtor right bottom">
+            <div class="container-achivements-left">
+                <img src="/assets/images/logo/logo-old.png" alt="logo" />
+            </div>
+            <div class="container-achivements-right">
+                <h5>Real Estate Agency "REALTOR"</h5>
+                <div class="container-achivements-header-p" data-max-chars="360">
+                    <p>
+                        • information services in the direction of sale and rental, including daily,
+                        exchange, purchase of residential real estate - apartments, mansions,
+                        residential buildings, cottages <br />
+                        • primary and secondary markets; commercial real estate <br />
+                        • hypermarkets, shopping centers, shops, minimarkets, restaurants, cafes,
+                        bars, offices, entertainment venues, wholesale bases, etc.; industrial real
+                        estate <br />
+                        • integral property complexes, ready-made businesses, separate workshops,
+                        warehouses, agro-industrial complexes, etc.; land plots - for the
+                        construction of hypermarkets from 1 to 10 hectares, shopping centers,
+                        industrial enterprises, residential high-rise buildings, residential private
+                        houses, cottages.
+                    </p>
+                    <br />
+                    <p>
+                        Small and large investment projects. Expert assessment. Support in drawing
+                        up a purchase and sale agreement, drawing up a loan, etc. The commission is
+                        paid to us by property owners under exclusive agreements. For buyers, we
+                        have options for every taste and price range - The large real estate
+                        database has been maintained since 2006.
+                    </p>
+                    <br />
+                    <p>
+                        We will help owners quickly and profitably sell their real estate, whether
+                        it is an apartment or a mansion, commercial real estate or land. The agency
+                        employs two certified realtors and one certified appraiser. The agency is a
+                        member of the Ukrainian Association of Real Estate Professionals and the
+                        National Association of Realtors (NAR).
+                    </p>
+                </div>
+            </div>
+        </div> 
+    </div> 
+</section> 
+
+  <script src="../assets/js/search-form.js"></script>
+
+    </main>
+
+    <!-- Подключаем футер -->
+    <footer class="footer">
+  <div class="container container-footer">
+    <!-- Верхняя часть -->
+    <div class="footer__top">
+      <!-- Контакты -->
+      <div class="footer__logo-container footer__row-container">
+        <!-- Лого -->
+        <div class="footer__logo">
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="800"
+  height="624"
+  viewBox="0 0 800 624"
+  fill="none"
+>
+  <path
+    d="M403.669 0C545.355 0 664.977 94.4679 702.987 223.854H722.935V271.56H799.999L748.623 330.275L799.999 392.661H705.045C669.469 525.798 548.021 623.853 403.669 623.853C259.318 623.852 137.869 525.798 102.294 392.661H0L51.376 330.275L0 271.56H77.0645V223.854H104.352C142.362 94.468 261.983 0.000214027 403.669 0ZM161.468 392.661H130.158C144.685 439.732 171.24 482.648 207.711 516.901L228.15 495.139C197.688 466.528 174.95 431.171 161.468 392.341V392.661ZM640.003 392.661C627.759 428.333 607.687 461.184 580.864 488.629L602.217 509.496C634.577 476.385 658.136 436.227 671.377 392.661H640.003ZM403.67 117.431C298.28 117.431 212.844 202.867 212.844 308.257C212.844 413.647 298.28 499.082 403.67 499.082C509.06 499.082 594.495 413.647 594.495 308.257C594.495 202.867 509.06 117.431 403.67 117.431ZM405.915 190.826C414.918 190.826 423.809 191.951 432.587 194.202C441.365 196.228 449.13 199.605 455.882 204.331C462.859 209.058 468.373 215.247 472.425 222.899C476.701 230.552 478.84 239.78 478.84 250.584C478.84 259.137 477.489 266.564 474.788 272.866C472.312 279.168 468.824 284.571 464.322 289.072C459.821 293.574 454.419 297.287 448.117 300.213C442.04 302.914 435.4 305.052 428.197 306.628C426.622 307.078 425.834 307.866 425.834 308.991C425.834 309.891 426.622 310.792 428.197 311.692C438.776 316.869 446.879 322.608 452.506 328.91C458.358 335.212 462.747 341.74 465.673 348.492C468.824 355.244 471.074 362.222 472.425 369.424C473.775 376.401 475.239 383.266 476.814 390.019C477.94 395.195 479.74 399.021 482.216 401.497C484.917 403.748 487.618 404.873 490.318 404.873C493.019 404.873 495.608 403.748 498.084 401.497C500.56 399.246 502.473 395.87 503.823 391.369C504.273 389.569 505.174 388.443 506.524 387.993C507.875 387.318 509.113 387.205 510.238 387.655C511.589 387.88 512.714 388.555 513.614 389.681C514.74 390.581 515.19 391.594 514.965 392.72C514.29 398.347 512.714 403.186 510.238 407.237C507.762 411.289 504.723 414.664 501.122 417.365C497.746 419.841 493.807 421.642 489.306 422.768C485.029 424.118 480.753 424.793 476.477 424.793C469.274 424.793 462.747 423.217 456.895 420.066C451.043 416.915 447.104 412.413 445.078 406.562C443.728 402.735 442.378 398.572 441.027 394.07C439.902 389.569 438.776 385.067 437.65 380.565C436.525 375.839 435.4 371.337 434.274 367.061C433.149 362.559 432.137 358.62 431.236 355.244C427.185 340.839 421.895 330.486 415.368 324.184C409.066 317.882 400.175 314.73 388.696 314.73C384.87 314.731 381.607 315.518 378.906 317.094C376.205 318.669 374.855 321.82 374.854 326.547V372.125C374.854 379.777 375.642 385.967 377.218 390.693C378.793 395.195 381.157 398.796 384.308 401.497C387.459 403.973 391.286 405.774 395.787 406.899C400.514 408.025 405.915 408.813 411.992 409.263C413.343 409.263 414.355 409.938 415.03 411.288C415.931 412.413 416.381 413.764 416.381 415.34C416.381 416.69 415.931 417.928 415.03 419.054C414.355 420.179 413.23 420.741 411.654 420.741C400.401 420.741 390.497 420.291 381.944 419.391C373.392 418.49 365.064 418.04 356.961 418.04C348.408 418.04 339.967 418.49 331.64 419.391C323.312 420.291 315.21 420.741 307.332 420.741C305.982 420.741 304.968 420.179 304.293 419.054C303.618 417.928 303.167 416.69 302.942 415.34C302.942 413.989 303.281 412.751 303.956 411.626C304.631 410.276 305.757 409.488 307.332 409.263C313.634 408.587 318.811 407.687 322.862 406.562C326.913 405.436 330.065 403.636 332.315 401.16C334.566 398.684 336.029 395.42 336.704 391.369C337.604 387.318 338.055 381.915 338.055 375.163V248.559C338.055 243.607 337.829 238.768 337.379 234.041C337.154 229.314 336.479 224.925 335.354 220.874C334.228 216.823 332.428 213.334 329.952 210.408C327.701 207.482 324.55 205.456 320.499 204.331C318.023 203.656 315.434 203.093 312.733 202.643C310.033 202.192 307.444 201.855 304.969 201.63C303.618 201.63 302.605 201.067 301.93 199.941C301.255 198.816 300.917 197.578 300.917 196.228C300.917 194.877 301.255 193.64 301.93 192.515C302.605 191.389 303.618 190.826 304.969 190.826C312.621 190.826 319.486 191.051 325.562 191.501C331.64 191.951 338.73 192.177 346.833 192.177C360.337 191.952 371.479 191.726 380.257 191.501C389.26 191.051 397.812 190.826 405.915 190.826ZM396.462 205.006C387.684 205.006 381.832 206.131 378.906 208.382C376.205 210.633 374.854 215.247 374.854 222.225V288.734C374.855 294.586 376.43 298.075 379.581 299.2C382.957 300.1 387.909 300.551 394.437 300.551C403.214 300.551 410.529 299.763 416.381 298.188C422.458 296.387 427.297 293.573 430.898 289.747C434.5 285.696 436.976 280.632 438.326 274.555C439.902 268.253 440.689 260.6 440.689 251.597C440.689 243.044 439.902 235.841 438.326 229.989C436.751 223.912 434.162 219.073 430.561 215.472C427.184 211.646 422.683 208.945 417.057 207.369C411.43 205.794 404.565 205.006 396.462 205.006ZM184.296 124.388C159.584 153.871 141.303 187.743 130.159 223.854H161.468V224.174C171.593 195.009 186.99 167.653 207.178 143.566L184.296 124.388ZM586.767 136.48C610.118 162.034 627.832 191.799 639.183 223.854H670.651C658.249 184.27 637.282 147.5 608.807 116.34L586.767 136.48Z"
+    fill="#14142D"
+  />
+</svg>
+
+          <div class="logo-box">
+            <span class="logo-span-main">REALTOR</span>
+            <span class="logo-span-sub">Estate Agency</span>
+          </div>
+        </div>
+        <!-- Адресса -->
+        <div class="footer__logo-address">
+          <span class="logo-address-street">10/4 Market Square St.</span>
+          <span class="logo-address-city">Ivano-Frankivsk</span>
+          <a class="logo-address-office" href="tel:+380342501303">
+            office: +38 (0342) 501-303
+          </a>
+          <a class="logo-address-phone" href="tel:+380673438074">
+            mobile: +38 (067) 343-80-74
+          </a>
+        </div>
+        <!-- О нас -->
+        <div class="footer__logo-list">
+          <a href="#" class="logo-list-about">About Us</a>
+          <a href="#" class="logo-list-realtors">Our Rialtors</a>
+          <a href="#" class="logo-list-contact">Contact Us</a>
+        </div>
+        <!-- Email input -->
+        <div class="email-input">
+          <span class="email-input__icon-left">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <g opacity="0.6">
+    <path d="M17.25 11.25C13.95 11.25 11.25 13.95 11.25 17.25C11.25 20.55 13.95 23.25 17.25 23.25C20.55 23.25 23.25 20.55 23.25 17.25C23.25 13.95 20.55 11.25 17.25 11.25ZM19.5 18H18V19.5C18 19.95 17.7 20.25 17.25 20.25C16.8 20.25 16.5 19.95 16.5 19.5V18H15C14.55 18 14.25 17.7 14.25 17.25C14.25 16.8 14.55 16.5 15 16.5H16.5V15C16.5 14.55 16.8 14.25 17.25 14.25C17.7 14.25 18 14.55 18 15V16.5H19.5C19.95 16.5 20.25 16.8 20.25 17.25C20.25 17.7 19.95 18 19.5 18Z" fill="white"/>
+    <path d="M9.75 17.25C9.75 16.2 9.975 15.15 10.425 14.25C10.275 14.25 10.125 14.175 10.05 14.1L8.85 13.05L5.025 16.35C4.875 16.425 4.65 16.5 4.5 16.5C4.275 16.5 4.05 16.425 3.9 16.275C3.6 15.975 3.675 15.525 3.975 15.225L7.65 12.075L3.975 8.925C3.675 8.625 3.6 8.175 3.9 7.875C4.2 7.575 4.65 7.5 4.95 7.8L10.425 12.6L15.9 7.8C16.2 7.5 16.65 7.575 16.95 7.875C17.25 8.175 17.175 8.625 16.875 8.925L15.75 9.9C16.2 9.825 16.725 9.75 17.25 9.75C18.3 9.75 19.35 9.975 20.25 10.35V6.75C20.25 5.475 19.275 4.5 18 4.5H3C1.725 4.5 0.75 5.475 0.75 6.75V17.25C0.75 18.525 1.725 19.5 3 19.5H10.125C9.9 18.825 9.75 18 9.75 17.25Z" fill="white"/>
+  </g>
+</svg>
+          </span>
+          <input
+            type="email"
+            class="email-input__field"
+            placeholder="Enter your e-mail"
+          />
+          <button class="email-input__send">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <g clip-path="url(#clip0_1789_1123)">
+    <path d="M20.7825 3.21745C20.6813 3.1167 20.5534 3.04695 20.4139 3.01639C20.2744 2.98584 20.1291 2.99574 19.995 3.04495L3.495 9.04495C3.3527 9.09892 3.23019 9.19491 3.14374 9.32016C3.05729 9.44542 3.01099 9.59401 3.01099 9.7462C3.01099 9.89839 3.05729 10.047 3.14374 10.1722C3.23019 10.2975 3.3527 10.3935 3.495 10.4474L9.9375 13.0199L14.6925 8.24995L15.75 9.30745L10.9725 14.0849L13.5525 20.5275C13.6081 20.667 13.7043 20.7866 13.8286 20.8709C13.953 20.9551 14.0998 21.0001 14.25 20.9999C14.4016 20.9968 14.5486 20.9479 14.6718 20.8595C14.795 20.7711 14.8885 20.6475 14.94 20.5049L20.94 4.00495C20.9911 3.87226 21.0034 3.72777 20.9755 3.58834C20.9477 3.44891 20.8807 3.32028 20.7825 3.21745Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_1789_1123">
+      <rect width="24" height="24" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+          </button>
+        </div>
+      </div>
+      <!-- Соц сети моб -->
+      <div class="footer__logo-social mobile">
+        <a href="#" class="logo-social-youtube">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="youtube-cls-1" d="M12 22V10L22 15.6842L12 22Z" />
+<path class="youtube-cls-2" d="M31.1276 8.37357C30.7641 7.01353 29.6928 5.94221 28.3327 5.57867C25.8677 4.91797 15.9821 4.91797 15.9821 4.91797C15.9821 4.91797 6.09651 4.91797 3.63144 5.57867C2.2714 5.94221 1.20009 7.01353 0.836543 8.37357C0.175842 10.8386 0.175842 15.9823 0.175842 15.9823C0.175842 15.9823 0.175842 21.126 0.836543 23.5911C1.20009 24.9512 2.2714 26.0225 3.63144 26.386C6.09651 27.0467 15.9821 27.0467 15.9821 27.0467C15.9821 27.0467 25.8677 27.0467 28.3327 26.386C29.6928 26.0225 30.7641 24.9512 31.1276 23.5911C31.7883 21.126 31.7883 15.9823 31.7883 15.9823C31.7883 15.9823 31.7883 10.8386 31.1276 8.37357ZM12.8208 20.7242V11.2405L21.0338 15.9823L12.8208 20.7242Z" />
+</svg>
+
+        </a>
+        <a href="#" class="logo-social-facebook">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_19_231)">
+<path class="facebook-cls-1" d="M17.5 25H14V17H11.5V13.5H13.5V9.5L16.5 7H20.5V10.5H18L17.5 13.5H20.5V17H17.5V25Z" fill="white"/>
+<path class="facebook-cls-2" d="M15.9821 0.175781C7.25244 0.175781 0.175812 7.25241 0.175812 15.982C0.175812 24.7116 7.25244 31.7883 15.9821 31.7883C24.7117 31.7883 31.7883 24.7116 31.7883 15.982C31.7883 7.25241 24.7117 0.175781 15.9821 0.175781ZM20.5381 10.1176H18.8957C17.5985 10.1176 17.3463 10.734 17.3463 11.6381V13.6322H20.4493L20.0355 16.7639H17.3463V24.7633H14.1152V16.7639H11.426V13.6322H14.1152V11.328C14.1152 8.64898 15.7474 7.20113 18.1303 7.20113C18.9347 7.19762 19.7383 7.23907 20.5381 7.32512V10.1176Z" fill="#1877F2"/>
+</g>
+<defs>
+<clipPath id="clip0_19_231">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+        </a>
+        <a href="#" class="logo-social-instagram">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_19_234)">
+    <rect x="7" y="7" width="18" height="18" rx="5" class="instagram-cls-1"/>
+    <path d="M21.5884 11.2948C21.5884 10.7901 21.1792 10.3809 20.6744 10.3809C20.1697 10.3809 19.7605 10.7901 19.7605 11.2948C19.7605 11.7996 20.1697 12.2088 20.6744 12.2088C21.1795 12.2084 21.5884 11.7996 21.5884 11.2948Z" class="instagram-cls-2" />
+    <path d="M15.9821 11.7949C13.6694 11.7949 11.7948 13.6695 11.7948 15.9822C11.7948 16.5603 11.9121 17.1111 12.1239 17.612C12.3357 18.1129 12.6424 18.5642 13.0214 18.9429C13.779 19.7005 14.8261 20.1694 15.9824 20.1694C17.1387 20.1694 18.1854 19.7009 18.9434 18.9429C19.3224 18.5639 19.6291 18.1129 19.8409 17.612C20.0527 17.1111 20.17 16.5603 20.17 15.9822C20.1693 13.6695 18.2947 11.7949 15.9821 11.7949Z" class="instagram-cls-3"/>
+    <path d="M15.9821 0.175781C7.25244 0.175781 0.175812 7.25241 0.175812 15.982C0.175812 24.7116 7.25244 31.7883 15.9821 31.7883C24.7117 31.7883 31.7883 24.7116 31.7883 15.982C31.7883 7.25241 24.7117 0.175781 15.9821 0.175781ZM24.7633 19.5781C24.7633 22.4419 22.4419 24.7633 19.5782 24.7633H12.386C9.52222 24.7633 7.20081 22.4419 7.20081 19.5781V12.3859C7.20081 11.3122 7.52712 10.3146 8.08631 9.48707C9.01818 8.10771 10.596 7.20078 12.386 7.20078H19.5785C21.3681 7.20078 22.9463 8.10771 23.8782 9.48672C24.437 10.3143 24.7633 11.3118 24.7633 12.3859V19.5781Z" class="instagram-cls-4"/>
+  </g>
+  <defs>
+    <linearGradient id="instagram-gradient" x1="25.5" y1="5" x2="6" y2="28.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BA00ED"/>
+      <stop offset="0.5" stop-color="#FF5689"/>
+      <stop offset="1" stop-color="#FFC420"/>
+    </linearGradient>
+    <clipPath id="clip0_19_234">
+      <rect width="32" height="32" fill="white"/>
+    </clipPath>
+  </defs>
+</svg> 
+        </a>
+        <a href="#" class="logo-social-twitter">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_19_239)">
+<path class="twitter-cls-1" d="M8 25H6L14 17L6.5 7H12L17 13L22.5 7H24.5L17.5 14.5L25.5 25H20L14.5 18L8 25Z"/>
+<path class="twitter-cls-2" d="M8.91843 8.25781L20.4746 23.7058H23.0914L11.5352 8.25781H8.91843Z"/>
+<path class="twitter-cls-2" d="M15.9821 0.175781C7.25244 0.175781 0.175812 7.25241 0.175812 15.982C0.175812 24.7116 7.25244 31.7883 15.9821 31.7883C24.7117 31.7883 31.7883 24.7116 31.7883 15.982C31.7883 7.25241 24.7117 0.175781 15.9821 0.175781ZM19.8571 24.9403L14.596 17.9058L8.08456 24.9403H6.41085L13.8482 16.9058L6.45757 7.02375H12.1538L16.9989 13.5022L22.9955 7.02375H24.6692L17.7467 14.5026L25.5533 24.9403H19.8571Z"/>
+</g>
+<defs>
+<clipPath id="clip0_19_239">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+        </a>
+        <a href="#" class="logo-social-tiktok">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_19_243)">
+<path class="tiktok-cls-1" d="M15 17V13.5C13.8333 13.5 11 13.5 9 16.5C6.99999 19.5 8.16666 22.1667 9 23.5C9.66666 24.6667 11.9 26.8 15.5 26C19.1 25.2 20.3333 22 20.5 20.5V12.5C20.8333 12.6667 21.6 13.1 22 13.5C22.4 13.9 24.5 14.3333 25.5 14.5V11C24.8333 10.8333 23.2 10.3 22 9.5C20.8 8.7 20.5 6.83333 20.5 6H17C17.1667 10.5 17.4 19.8 17 21C16.5 22.5 15 22.5 13 22.5C11 22.5 10.5 19.5 11.5 18C12.5 16.5 14 16.8333 15 17Z"  />
+<path class="tiktok-cls-2" d="M15.9821 0.175781C7.25244 0.175781 0.175812 7.25241 0.175812 15.982C0.175812 24.7116 7.25244 31.7883 15.9821 31.7883C24.7117 31.7883 31.7883 24.7116 31.7883 15.982C31.7883 7.25241 24.7117 0.175781 15.9821 0.175781ZM25.4795 11.8643V14.2381C24.3601 14.2384 23.2726 14.0192 22.247 13.5865C21.5873 13.308 20.973 12.9493 20.411 12.5159L20.4278 19.8222C20.4208 21.4675 19.7699 23.0134 18.5918 24.1777C17.6329 25.1254 16.4183 25.7282 15.1015 25.9235C14.792 25.9691 14.4773 25.9927 14.1587 25.9927C12.7492 25.9927 11.4109 25.536 10.3164 24.6937C10.1106 24.535 9.91351 24.3632 9.72595 24.1781C8.44915 22.9161 7.79091 21.2058 7.90155 19.4067C7.98621 18.0372 8.53451 16.7309 9.44846 15.7074C10.6578 14.3526 12.3498 13.6006 14.1587 13.6006C14.477 13.6006 14.792 13.6244 15.1015 13.6701V14.5479V16.9894C14.8082 16.8928 14.4949 16.8394 14.1686 16.8394C12.5159 16.8394 11.1787 18.1879 11.2033 19.8419C11.2191 20.9002 11.7969 21.8251 12.6498 22.3351C13.0505 22.5746 13.5114 22.7232 14.0031 22.7503C14.3884 22.7713 14.7587 22.7176 15.1011 22.6045C16.282 22.2143 17.1338 21.1054 17.1338 19.7973L17.1377 14.9044V5.97141H20.4068C20.4099 6.29526 20.4429 6.61138 20.5037 6.91767C20.7503 8.15723 21.4493 9.23276 22.4215 9.96582C23.2694 10.6054 24.3253 10.9844 25.4697 10.9844C25.4704 10.9844 25.4799 10.9844 25.4792 10.9837L25.4795 11.8643Z" />
+</g>
+<defs>
+<clipPath id="clip0_19_243">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+        </a>
+      </div>
+      <!-- Навигация -->
+      <div class="footer__navigation-container footer__row-container">
+        <h3>Navigation <svg xmlns="http://www.w3.org/2000/svg" class="arrow-list-mobile-svg" width="8" height="5" viewBox="0 0 8 5" fill="none">
+  <path d="M6.82725 0H1.0021C0.0723016 0 -0.354209 1.15797 0.353448 1.76108L3.46019 4.40888C3.85322 4.74385 4.43666 4.72446 4.80659 4.36414L7.52499 1.71635C8.16774 1.09029 7.72451 0 6.82725 0Z" fill="white"/>
+</svg></h3>
+        <div class="footer__navigation-box footer__row-box">
+          <div>
+            <a href="#">Flats</a>
+            <a href="#">Mansions</a>
+            <a href="#">Offices</a>
+            <a href="#">Commercial Properties</a>
+            <a href="#">Garages</a>
+            <a href="#">Land</a>
+          </div>
+          <div>
+            <a href="#">Luxury Real Estate</a>
+            <a href="#">Real Estate in the Carpathians</a>
+            <a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <g clip-path="url(#clip0_1205_750)">
+    <path d="M8.17777 23.8412L6.88667 19.471C6.82423 19.3077 6.74178 19.1293 6.64773 18.9589C6.55395 18.7882 6.44725 18.6228 6.33055 18.4676C6.21411 18.3127 6.08503 18.1638 5.94699 18.0258C5.80921 17.8883 5.66063 17.7592 5.5052 17.6425C5.35056 17.5263 5.18512 17.4194 5.01389 17.3251C4.84345 17.2313 4.66484 17.1488 4.48306 17.0801L0.131866 15.7955L4.50203 14.5044C4.66484 14.4423 4.84345 14.3601 5.01442 14.2658C5.18565 14.1715 5.35083 14.0645 5.50547 13.9483C5.66089 13.8316 5.80947 13.7025 5.94725 13.565C6.08529 13.427 6.21411 13.2784 6.33055 13.1232C6.44752 12.9678 6.55421 12.8024 6.64799 12.6319C6.74204 12.4615 6.82423 12.2829 6.89299 12.1011L8.17777 7.74963L9.46888 12.1198C9.53184 12.2837 9.61404 12.4623 9.70782 12.6322C9.80134 12.8024 9.9083 12.9678 10.0253 13.1235C10.1414 13.2784 10.2705 13.4272 10.4086 13.5653C10.5463 13.7028 10.6949 13.8319 10.8503 13.9486C11.005 14.0648 11.1704 14.1717 11.3417 14.266C11.5126 14.3601 11.691 14.4423 11.8722 14.5108L16.2237 15.7958L11.8538 17.0866C11.6907 17.1491 11.5121 17.2315 11.3414 17.3256C11.1702 17.4199 11.005 17.5269 10.8501 17.643C10.6947 17.7597 10.5461 17.8888 10.4083 18.0263C10.2703 18.1644 10.1414 18.313 10.025 18.4679C9.90777 18.6238 9.80108 18.789 9.70756 18.9592C9.61562 19.1262 9.53421 19.3019 9.46572 19.4813L8.17777 23.8412Z" fill="white"/>
+    <path d="M18.3317 11.1517L17.4107 8.03417C17.3738 7.9396 17.3227 7.82869 17.2648 7.72331C17.206 7.61689 17.1399 7.51415 17.0675 7.41799C16.995 7.32131 16.9147 7.22911 16.8293 7.14375C16.744 7.0584 16.652 6.97831 16.5553 6.9056C16.4587 6.8329 16.3562 6.76677 16.2503 6.70829C16.1444 6.64981 16.0332 6.5987 15.9205 6.55602L12.8219 5.64137L15.9392 4.72039C16.0332 4.68404 16.1444 4.63267 16.2505 4.57445C16.3562 4.51623 16.4587 4.4501 16.5551 4.37739C16.652 4.30469 16.744 4.2246 16.829 4.13951C16.9147 4.05416 16.9948 3.96195 17.0675 3.86501C17.1396 3.76885 17.206 3.66611 17.2648 3.55995C17.323 3.45457 17.3741 3.34367 17.417 3.23039L18.3317 0.131836L19.2524 3.24936C19.2893 3.34393 19.3404 3.45484 19.3984 3.56021C19.4571 3.66664 19.5232 3.76938 19.5957 3.86554C19.6681 3.96222 19.7485 4.05442 19.8338 4.13977C19.9192 4.22513 20.0111 4.30521 20.1078 4.37792C20.2045 4.45063 20.3069 4.51675 20.4129 4.57524C20.5188 4.63346 20.6299 4.68483 20.7427 4.7275L23.8412 5.64163L20.724 6.56261C20.6299 6.59896 20.5188 6.65033 20.4126 6.70855C20.3069 6.76677 20.2045 6.8329 20.1081 6.9056C20.0111 6.97831 19.9192 7.0584 19.8341 7.14349C19.7485 7.22884 19.6684 7.32105 19.5957 7.41799C19.5235 7.51415 19.4571 7.61689 19.3984 7.72305C19.3417 7.82579 19.2917 7.93354 19.2495 8.04365L18.3317 11.1517Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_1205_750">
+      <rect width="24" height="24" fill="white"/>
+    </clipPath>
+  </defs>
+</svg> Exlusives</a>
+            <a href="#">Investment Projects</a>
+          </div>
+        </div>
+      </div>
+      <!-- Лева часть -->
+      <div class="footer__rowLeft-form footer__row-container">
+        <h3>Listing Form <svg xmlns="http://www.w3.org/2000/svg" class="arrow-list-mobile-svg" width="8" height="5" viewBox="0 0 8 5" fill="none">
+  <path d="M6.82725 0H1.0021C0.0723016 0 -0.354209 1.15797 0.353448 1.76108L3.46019 4.40888C3.85322 4.74385 4.43666 4.72446 4.80659 4.36414L7.52499 1.71635C8.16774 1.09029 7.72451 0 6.82725 0Z" fill="white"/>
+</svg></h3>
+        <div class="footer__rowLeft-box footer__row-box">
+          <div>
+            <a href="#">Apartments in new buildings</a>
+            <a href="#">One-room apartments</a>
+            <a href="#">Two-room apartments</a>
+            <a href="#">Three-room apartments</a>
+          </div>
+          <div>
+            <a href="#">Secondary market</a>
+            <a href="#">Apartment rentals</a>
+            <a href="#">Mansions rentals</a>
+            <a href="#">Daily rentals</a>
+            <a href="#">Houses with renovation</a>
+            <a href="#">Raw houses</a>
+          </div>
+        </div>
+      </div>
+      <!-- Правая часть -->
+      <div class="footer__rowRight-form footer__row-container">
+        <h3>Listing Form <svg xmlns="http://www.w3.org/2000/svg" class="arrow-list-mobile-svg" width="8" height="5" viewBox="0 0 8 5" fill="none">
+  <path d="M6.82725 0H1.0021C0.0723016 0 -0.354209 1.15797 0.353448 1.76108L3.46019 4.40888C3.85322 4.74385 4.43666 4.72446 4.80659 4.36414L7.52499 1.71635C8.16774 1.09029 7.72451 0 6.82725 0Z" fill="white"/>
+</svg></h3>
+        <div class="footer__rowRight-box footer__row-box">
+          <div>
+            <a href="#">Apartments in new buildings</a>
+            <a href="#">One-room apartments</a>
+            <a href="#">Two-room apartments</a>
+            <a href="#">Three-room apartments</a>
+          </div>
+          <div>
+            <a href="#">Secondary market</a>
+            <a href="#">Apartment rentals</a>
+            <a href="#">Mansions rentals</a>
+            <a href="#">Daily rentals</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__top-bottom">
+      <!-- Соц сети -->
+      <div class="footer__logo-social">
+        <a href="#" class="logo-social-youtube">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="youtube-cls-1" d="M12 22V10L22 15.6842L12 22Z" />
+<path class="youtube-cls-2" d="M31.1276 8.37357C30.7641 7.01353 29.6928 5.94221 28.3327 5.57867C25.8677 4.91797 15.9821 4.91797 15.9821 4.91797C15.9821 4.91797 6.09651 4.91797 3.63144 5.57867C2.2714 5.94221 1.20009 7.01353 0.836543 8.37357C0.175842 10.8386 0.175842 15.9823 0.175842 15.9823C0.175842 15.9823 0.175842 21.126 0.836543 23.5911C1.20009 24.9512 2.2714 26.0225 3.63144 26.386C6.09651 27.0467 15.9821 27.0467 15.9821 27.0467C15.9821 27.0467 25.8677 27.0467 28.3327 26.386C29.6928 26.0225 30.7641 24.9512 31.1276 23.5911C31.7883 21.126 31.7883 15.9823 31.7883 15.9823C31.7883 15.9823 31.7883 10.8386 31.1276 8.37357ZM12.8208 20.7242V11.2405L21.0338 15.9823L12.8208 20.7242Z" />
+</svg>
+
+        </a>
+        <a href="#" class="logo-social-facebook">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_19_231)">
+<path class="facebook-cls-1" d="M17.5 25H14V17H11.5V13.5H13.5V9.5L16.5 7H20.5V10.5H18L17.5 13.5H20.5V17H17.5V25Z" fill="white"/>
+<path class="facebook-cls-2" d="M15.9821 0.175781C7.25244 0.175781 0.175812 7.25241 0.175812 15.982C0.175812 24.7116 7.25244 31.7883 15.9821 31.7883C24.7117 31.7883 31.7883 24.7116 31.7883 15.982C31.7883 7.25241 24.7117 0.175781 15.9821 0.175781ZM20.5381 10.1176H18.8957C17.5985 10.1176 17.3463 10.734 17.3463 11.6381V13.6322H20.4493L20.0355 16.7639H17.3463V24.7633H14.1152V16.7639H11.426V13.6322H14.1152V11.328C14.1152 8.64898 15.7474 7.20113 18.1303 7.20113C18.9347 7.19762 19.7383 7.23907 20.5381 7.32512V10.1176Z" fill="#1877F2"/>
+</g>
+<defs>
+<clipPath id="clip0_19_231">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+        </a>
+        <a href="#" class="logo-social-instagram">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_19_234)">
+    <rect x="7" y="7" width="18" height="18" rx="5" class="instagram-cls-1"/>
+    <path d="M21.5884 11.2948C21.5884 10.7901 21.1792 10.3809 20.6744 10.3809C20.1697 10.3809 19.7605 10.7901 19.7605 11.2948C19.7605 11.7996 20.1697 12.2088 20.6744 12.2088C21.1795 12.2084 21.5884 11.7996 21.5884 11.2948Z" class="instagram-cls-2" />
+    <path d="M15.9821 11.7949C13.6694 11.7949 11.7948 13.6695 11.7948 15.9822C11.7948 16.5603 11.9121 17.1111 12.1239 17.612C12.3357 18.1129 12.6424 18.5642 13.0214 18.9429C13.779 19.7005 14.8261 20.1694 15.9824 20.1694C17.1387 20.1694 18.1854 19.7009 18.9434 18.9429C19.3224 18.5639 19.6291 18.1129 19.8409 17.612C20.0527 17.1111 20.17 16.5603 20.17 15.9822C20.1693 13.6695 18.2947 11.7949 15.9821 11.7949Z" class="instagram-cls-3"/>
+    <path d="M15.9821 0.175781C7.25244 0.175781 0.175812 7.25241 0.175812 15.982C0.175812 24.7116 7.25244 31.7883 15.9821 31.7883C24.7117 31.7883 31.7883 24.7116 31.7883 15.982C31.7883 7.25241 24.7117 0.175781 15.9821 0.175781ZM24.7633 19.5781C24.7633 22.4419 22.4419 24.7633 19.5782 24.7633H12.386C9.52222 24.7633 7.20081 22.4419 7.20081 19.5781V12.3859C7.20081 11.3122 7.52712 10.3146 8.08631 9.48707C9.01818 8.10771 10.596 7.20078 12.386 7.20078H19.5785C21.3681 7.20078 22.9463 8.10771 23.8782 9.48672C24.437 10.3143 24.7633 11.3118 24.7633 12.3859V19.5781Z" class="instagram-cls-4"/>
+  </g>
+  <defs>
+    <linearGradient id="instagram-gradient" x1="25.5" y1="5" x2="6" y2="28.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BA00ED"/>
+      <stop offset="0.5" stop-color="#FF5689"/>
+      <stop offset="1" stop-color="#FFC420"/>
+    </linearGradient>
+    <clipPath id="clip0_19_234">
+      <rect width="32" height="32" fill="white"/>
+    </clipPath>
+  </defs>
+</svg> 
+        </a>
+        <a href="#" class="logo-social-twitter">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_19_239)">
+<path class="twitter-cls-1" d="M8 25H6L14 17L6.5 7H12L17 13L22.5 7H24.5L17.5 14.5L25.5 25H20L14.5 18L8 25Z"/>
+<path class="twitter-cls-2" d="M8.91843 8.25781L20.4746 23.7058H23.0914L11.5352 8.25781H8.91843Z"/>
+<path class="twitter-cls-2" d="M15.9821 0.175781C7.25244 0.175781 0.175812 7.25241 0.175812 15.982C0.175812 24.7116 7.25244 31.7883 15.9821 31.7883C24.7117 31.7883 31.7883 24.7116 31.7883 15.982C31.7883 7.25241 24.7117 0.175781 15.9821 0.175781ZM19.8571 24.9403L14.596 17.9058L8.08456 24.9403H6.41085L13.8482 16.9058L6.45757 7.02375H12.1538L16.9989 13.5022L22.9955 7.02375H24.6692L17.7467 14.5026L25.5533 24.9403H19.8571Z"/>
+</g>
+<defs>
+<clipPath id="clip0_19_239">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+        </a>
+        <a href="#" class="logo-social-tiktok">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_19_243)">
+<path class="tiktok-cls-1" d="M15 17V13.5C13.8333 13.5 11 13.5 9 16.5C6.99999 19.5 8.16666 22.1667 9 23.5C9.66666 24.6667 11.9 26.8 15.5 26C19.1 25.2 20.3333 22 20.5 20.5V12.5C20.8333 12.6667 21.6 13.1 22 13.5C22.4 13.9 24.5 14.3333 25.5 14.5V11C24.8333 10.8333 23.2 10.3 22 9.5C20.8 8.7 20.5 6.83333 20.5 6H17C17.1667 10.5 17.4 19.8 17 21C16.5 22.5 15 22.5 13 22.5C11 22.5 10.5 19.5 11.5 18C12.5 16.5 14 16.8333 15 17Z"  />
+<path class="tiktok-cls-2" d="M15.9821 0.175781C7.25244 0.175781 0.175812 7.25241 0.175812 15.982C0.175812 24.7116 7.25244 31.7883 15.9821 31.7883C24.7117 31.7883 31.7883 24.7116 31.7883 15.982C31.7883 7.25241 24.7117 0.175781 15.9821 0.175781ZM25.4795 11.8643V14.2381C24.3601 14.2384 23.2726 14.0192 22.247 13.5865C21.5873 13.308 20.973 12.9493 20.411 12.5159L20.4278 19.8222C20.4208 21.4675 19.7699 23.0134 18.5918 24.1777C17.6329 25.1254 16.4183 25.7282 15.1015 25.9235C14.792 25.9691 14.4773 25.9927 14.1587 25.9927C12.7492 25.9927 11.4109 25.536 10.3164 24.6937C10.1106 24.535 9.91351 24.3632 9.72595 24.1781C8.44915 22.9161 7.79091 21.2058 7.90155 19.4067C7.98621 18.0372 8.53451 16.7309 9.44846 15.7074C10.6578 14.3526 12.3498 13.6006 14.1587 13.6006C14.477 13.6006 14.792 13.6244 15.1015 13.6701V14.5479V16.9894C14.8082 16.8928 14.4949 16.8394 14.1686 16.8394C12.5159 16.8394 11.1787 18.1879 11.2033 19.8419C11.2191 20.9002 11.7969 21.8251 12.6498 22.3351C13.0505 22.5746 13.5114 22.7232 14.0031 22.7503C14.3884 22.7713 14.7587 22.7176 15.1011 22.6045C16.282 22.2143 17.1338 21.1054 17.1338 19.7973L17.1377 14.9044V5.97141H20.4068C20.4099 6.29526 20.4429 6.61138 20.5037 6.91767C20.7503 8.15723 21.4493 9.23276 22.4215 9.96582C23.2694 10.6054 24.3253 10.9844 25.4697 10.9844C25.4704 10.9844 25.4799 10.9844 25.4792 10.9837L25.4795 11.8643Z" />
+</g>
+<defs>
+<clipPath id="clip0_19_243">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+        </a>
+      </div>
+      <!-- Партнеры -->
+      <div class="multi-logo">
+        <a href="#">
+          <img src="/assets/images/b1.png" alt="olx" />
+        </a>
+        <a href="#">
+          <img src="/assets/images/b2.png" alt="olx" />
+        </a>
+        <a href="#">
+          <img src="/assets/images/b3.png" alt="olx" />
+        </a>
+        <a href="#">
+          <img src="/assets/images/b4.png" alt="olx" />
+        </a>
+        <a href="#">
+          <img src="/assets/images/b5.png" alt="olx" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Нижняя часть -->
+  <div class="footer__bottom">
+    <div class="container">
+      <div class="left">
+        <a href="#">Terms and Conditions</a>
+        <a href="#">Privacy Police</a>
+        <a href="#">Help</a>
+        <a href="#">FAQ</a>
+        <a href="#">Useful Information</a>
+      </div>
+      <span class="copyright">© 2006-2025 All rights on the materials</span>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Подключаем скрипты -->
+    <script src="../assets/js/example.js"></script>
+    <script src="../assets/js/header.js"></script>
+  </body>
+</html>

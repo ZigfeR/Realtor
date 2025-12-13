@@ -3,9 +3,10 @@ const sass = require("sass");
 const CleanCSS = require("clean-css");
 
 module.exports = function (eleventyConfig) {
-  // Отслеживание изменений в папке src/_includes
+  // Отслеживание изменений в папках с шаблонами и стилями
   eleventyConfig.addWatchTarget("src/_includes/**/*.{scss,njk,md,html}");
-  eleventyConfig.addWatchTarget("assets/**/*.{scss,njk,md,html}");
+  eleventyConfig.addWatchTarget("src/assets/**/*.{scss,njk,md,html}");
+  eleventyConfig.addWatchTarget("src/assets/scss/**/*.scss");
 
   // Поддержка SCSS как шаблонов
   eleventyConfig.addTemplateFormats("scss");
