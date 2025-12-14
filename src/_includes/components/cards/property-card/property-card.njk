@@ -10,13 +10,32 @@
       {% endif %} #}
       <img src="{{ property.image }}" alt="{{ property.locationCity }}" 
       class="property-card__image">
-      {% if property.markSVG %}
-        <span class="property-card__{{ property.mark }} property-card__mark">
-          {% include property.markSVG %}
-          <span>
-            {{ property.mark }}
+      {# Стикеры: поддержка нескольких (циклом) + обратная совместимость #}
+      {% set propertyStickers = property.stickers or property.marks %}
+      {% if propertyStickers and (propertyStickers is not string) and propertyStickers.length %}
+        <div class="property-card__marks">
+          {% for sticker in propertyStickers %}
+            {% set stickerLabel = sticker.mark or sticker.label or sticker.name or sticker %}
+            {% set stickerSvg = sticker.markSVG or sticker.svg or sticker.icon %}
+            <span class="property-card__{{ stickerLabel }} property-card__mark">
+              {% if stickerSvg %}
+                {% include stickerSvg %}
+              {% endif %}
+              <span>
+                {{ stickerLabel }}
+              </span>
+            </span>
+          {% endfor %}
+        </div>
+      {% elseif property.markSVG %}
+        <div class="property-card__marks">
+          <span class="property-card__{{ property.mark }} property-card__mark">
+            {% include property.markSVG %}
+            <span>
+              {{ property.mark }}
+            </span>
           </span>
-        </span>
+        </div>
       {% endif %}
       {% if property.markSVGp %}
           <span class="property-card__{{ property.markp }}">

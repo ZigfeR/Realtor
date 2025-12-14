@@ -1,0 +1,281 @@
+@use "../../assets/scss/variables" as vars;
+@use "../../assets/scss/mixins" as *;
+@use "sass:map";
+
+/* ==========================
+   Average Selling Price (Catalog stats)
+   ========================== */
+.catalog-stats-section {
+  background: var(--White, #fff);
+}
+
+.catalog-stats {
+  /* Чтобы элементы внутри могли “выйти” на ширину .container */
+  --catalog-stats-pad: var(--padding-horiz);
+
+  padding: 52px var(--catalog-stats-pad) 52px var(--catalog-stats-pad);
+
+  @media (min-width: 481px) and (max-width: 1024px) {
+    --catalog-stats-pad: var(--padding-horiz-tablet);
+    padding: 52px var(--catalog-stats-pad) 52px var(--catalog-stats-pad);
+  }
+
+  @media (max-width: 480px) {
+    --catalog-stats-pad: var(--padding-horiz-mobile);
+    padding: 44px var(--catalog-stats-pad) 44px var(--catalog-stats-pad);
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      gap: 14px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: var(--Content-color, #14142d);
+    font-weight: map.get(vars.$h2, weight);
+    @include responsive-typography(vars.$h2, vars.$h2-tablet, vars.$h2-mobile);
+  }
+
+  &__title-accent {
+    color: var(--Main-color, #593dff);
+  }
+
+  &__subtitle {
+    margin: 0;
+    max-width: 760px;
+    color: #000;
+    font-weight: map.get(vars.$h4, weight);
+    white-space: nowrap;
+    @include responsive-typography(vars.$h4, vars.$h4-tablet, vars.$h4-mobile);
+  }
+
+  &__link {
+    color: var(--Main-color, #593dff);
+    text-decoration: none;
+    font-weight: map.get(vars.$h3, weight);
+    @include responsive-typography(vars.$h3, vars.$h3-tablet, vars.$h3-mobile);
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--Main-color-hover, #2b10c9);
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(var(--Main-color-rgb), 0.35);
+      outline-offset: 4px;
+      border-radius: 10px;
+    }
+  }
+
+  &__body {
+    position: relative;
+    margin-top: 24px;
+    padding: 52px 0;
+
+    @media (max-width: 480px) {
+      padding: 32px 0;
+    }
+  }
+
+  &__bar {
+    position: absolute;
+    /* Полоса на всю ширину .container (с учётом паддингов секции) */
+    left: calc(var(--catalog-stats-pad) * -1);
+    right: calc(var(--catalog-stats-pad) * -1);
+    top: 60%;
+    transform: translateY(-50%);
+    height: 100px;
+    background: var(--Main-color, #593dff);
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 128px;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+  }
+
+  &__illustration {
+    flex: 0 0 auto;
+    padding-left: 30px;
+
+    img {
+      display: block;
+      width: 294px;
+      height: auto;
+      max-width: 100%;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @media (max-width: 1024px) {
+      padding-left: 0;
+    }
+  }
+
+  &__cards {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    margin: 0;
+    padding: 34px 0 0;
+    list-style: none;
+
+    /* Локальный “glow” под карточками как в макете */
+    &::before {
+      content: "";
+      position: absolute;
+      left: -80px;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 260px;
+      background: rgba(var(--Main-color-rgb), 0.55);
+      filter: blur(55px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    @media (max-width: 1024px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-top: 0;
+    }
+
+    @media (max-width: 480px) {
+      gap: 16px;
+    }
+  }
+}
+
+.catalog-stats-card {
+  width: 415px;
+  min-height: 134px;
+  padding: 15px 35px;
+  border-radius: var(--border-radius, 35px);
+  background: var(--White, #fff);
+  box-shadow: -25px 20px 88px rgba(var(--Main-color-rgb), 0.25);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  will-change: transform;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: -25px 25px 95px rgba(var(--Main-color-rgb), 0.28);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    width: min(415px, 100%);
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 14px 18px;
+    gap: 14px;
+  }
+
+  &__price {
+    color: var(--Main-color, #593dff);
+    font-weight: map.get(vars.$h1, weight);
+    @include responsive-typography(vars.$h1, vars.$h1-tablet, vars.$h1-mobile);
+    white-space: nowrap;
+  }
+
+  &__type {
+    margin-top: 2px;
+    color: var(--Content-color, #14142d);
+    font-weight: map.get(vars.$h3, weight);
+    @include responsive-typography(vars.$h3, vars.$h3-tablet, vars.$h3-mobile);
+  }
+
+  &__side {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__badge {
+    width: 75px;
+    height: 73px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    color: var(--Main-color, #593dff);
+  }
+
+  &__badge-icon {
+    display: block;
+    color: currentColor;
+  }
+
+  &__badge-value {
+    font-weight: map.get(vars.$h5, weight);
+    @include responsive-typography(vars.$h5, vars.$h5-tablet, vars.$h5-mobile);
+  }
+
+  &__period {
+    opacity: 0.65;
+    color: var(--Content-color, #14142d);
+    font-weight: map.get(vars.$h6, weight);
+    @include responsive-typography(vars.$h6, vars.$h6-tablet, vars.$h6-mobile);
+    white-space: nowrap;
+  }
+
+  &--down {
+    .catalog-stats-card__badge {
+      background: rgba(var(--Attracting-attention-color-rgb), 0.25);
+      color: var(--Attracting-attention-color, #e722aa);
+    }
+  }
+
+  &--up {
+    .catalog-stats-card__badge {
+      background: rgba(var(--Adittional-color-rgb, 16, 174, 39), 0.25);
+      color: var(--Adittional-color, #10ae27);
+    }
+  }
+
+  &--flat {
+    .catalog-stats-card__badge {
+      background: rgba(var(--Main-color-rgb), 0.1);
+      color: var(--Main-color, #593dff);
+    }
+
+    .catalog-stats-card__badge-icon {
+      display: none;
+    }
+  }
+}
+
+/* ==========================
+   Конец блока Average Selling Price
+   ========================== */
+
+

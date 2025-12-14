@@ -1,0 +1,18 @@
+{% import "components/cards/property-card/property-card.njk" as card %}
+
+{# Секция плиток объектов под тулбаром каталога #}
+<section class="catalog-grid-section{% if catalogGridPagination %} catalog-grid-section--with-pagination{% endif %}">
+  <div class="container catalog-grid">
+    {% for item in catalogGridCards %}
+      {{ card.propertyCard(item) }}
+    {% endfor %}
+  </div>
+
+  {% if catalogGridPagination %}
+    <div class="container catalog-grid-pagination">
+      {% include "layouts/catalog-pagination.njk" %}
+    </div>
+  {% endif %}
+</section>
+
+

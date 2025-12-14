@@ -4,9 +4,154 @@
 {% import "layouts/top-cards/top-cards.njk" as tabs %}
 
 {% block content %}
+  {% set catalogGridCards = [
+    {
+      image: "/assets/images/property-card/property1.jpg",
+        marks: [
+        { mark: "Urgently", markSVG: "components/icon/hot-svg.njk" }
+      ],
+      topValuePrice: "88 000",
+      topPriceInfo: "for all",
+      topValueId: "23201",
+      description: "3-room flat, district Center",
+      date: "12 May 12:49",
+      comission: "comission-free",
+      locationCity: "Ivano-Frankivsk",
+      detailsBlocks: [
+        { detailsSVG: "components/icon/floor-svg.njk", detailsValue: "4/4" },
+        { detailsSVG: "components/icon/opened-door-svg.njk", detailsValue: "3" },
+        { detailsSVG: "components/icon/area-floor-size-svg.njk", detailsValue: "56 m²" }
+      ]
+    },
+    {
+      image: "/assets/images/property-card/property2.jpg",
+      topValuePrice: "61 500",
+      topPriceInfo: "for all",
+      topValueId: "23690",
+      description: "1-room flat, district Ivasyuka",
+      date: "12 May 12:49",
+      comission: "comission-free",
+      locationCity: "Ivano-Frankivsk",
+      detailsBlocks: [
+        { detailsSVG: "components/icon/floor-svg.njk", detailsValue: "8/10" },
+        { detailsSVG: "components/icon/opened-door-svg.njk", detailsValue: "1" },
+        { detailsSVG: "components/icon/bed-svg.njk", detailsValue: "1" },
+        { detailsSVG: "components/icon/area-floor-size-svg.njk", detailsValue: "42 m²" }
+      ]
+    },
+    {
+      className: "urgently",
+      image: "/assets/images/property-card/property3.jpg",
+        marks: [
+        { mark: "Urgently", markSVG: "components/icon/hot-svg.njk" },
+        { mark: "Exclusive", markSVG: "components/icon/two-stars-svg.njk" }
+      ],
+
+
+      topValuePrice: "82 200",
+      topPriceInfo: "for all",
+      topValueId: "23483",
+      description: "1-room flat, district Center",
+      date: "12 May 12:49",
+      comission: "comission-free",
+      locationCity: "Ivano-Frankivsk",
+      detailsBlocks: [
+        { detailsSVG: "components/icon/floor-svg.njk", detailsValue: "3/11" },
+        { detailsSVG: "components/icon/opened-door-svg.njk", detailsValue: "1" },
+        { detailsSVG: "components/icon/bed-svg.njk", detailsValue: "1" },
+        { detailsSVG: "components/icon/area-floor-size-svg.njk", detailsValue: "48 m²" }
+      ]
+    },
+    {
+      image: "/assets/images/property-card/property1.jpg",
+      mark: "New",
+      markSVG: "components/icon/vector-new-svg.njk",
+      topValuePrice: "118 000",
+      topPriceInfo: "for all",
+      topValueId: "23578",
+      description: "2-room flat, district Bam",
+      date: "12 May 12:49",
+      comission: "comission-free",
+      locationCity: "Ivano-Frankivsk",
+      detailsBlocks: [
+        { detailsSVG: "components/icon/floor-svg.njk", detailsValue: "5/10" },
+        { detailsSVG: "components/icon/opened-door-svg.njk", detailsValue: "2" },
+        { detailsSVG: "components/icon/bed-svg.njk", detailsValue: "1" },
+        { detailsSVG: "components/icon/area-floor-size-svg.njk", detailsValue: "69 m²" }
+      ]
+    },
+    {
+      image: "/assets/images/property-card/property2.jpg",
+      topValuePrice: "74 900",
+      topPriceInfo: "for all",
+      topValueId: "24112",
+      description: "2-room flat, district Pasichna",
+      date: "14 May 09:15",
+      comission: "comission-free",
+      locationCity: "Ivano-Frankivsk",
+      detailsBlocks: [
+        { detailsSVG: "components/icon/floor-svg.njk", detailsValue: "7/9" },
+        { detailsSVG: "components/icon/opened-door-svg.njk", detailsValue: "2" },
+        { detailsSVG: "components/icon/area-floor-size-svg.njk", detailsValue: "61 m²" }
+      ]
+    },
+    {
+      image: "/assets/images/property-card/property3.jpg",
+      topValuePrice: "95 000",
+      topPriceInfo: "for all",
+      topValueId: "24205",
+      description: "3-room flat, district Center",
+      date: "14 May 11:02",
+      comission: "comission-free",
+      locationCity: "Ivano-Frankivsk",
+      detailsBlocks: [
+        { detailsSVG: "components/icon/floor-svg.njk", detailsValue: "2/5" },
+        { detailsSVG: "components/icon/opened-door-svg.njk", detailsValue: "3" },
+        { detailsSVG: "components/icon/area-floor-size-svg.njk", detailsValue: "72 m²" }
+      ]
+    },
+    {
+      image: "/assets/images/property-card/property1.jpg",
+      topValuePrice: "52 300",
+      topPriceInfo: "for all",
+      topValueId: "24377",
+      description: "1-room flat, district Kaskad",
+      date: "15 May 10:24",
+      comission: "comission-free",
+      locationCity: "Ivano-Frankivsk",
+      detailsBlocks: [
+        { detailsSVG: "components/icon/floor-svg.njk", detailsValue: "9/12" },
+        { detailsSVG: "components/icon/opened-door-svg.njk", detailsValue: "1" },
+        { detailsSVG: "components/icon/area-floor-size-svg.njk", detailsValue: "39 m²" }
+      ]
+    },
+    {
+      image: "/assets/images/property-card/property2.jpg",
+      topValuePrice: "136 000",
+      topPriceInfo: "for all",
+      topValueId: "24401",
+      description: "4-room flat, district Center",
+      date: "15 May 13:40",
+      comission: "comission-free",
+      locationCity: "Ivano-Frankivsk",
+      detailsBlocks: [
+        { detailsSVG: "components/icon/floor-svg.njk", detailsValue: "6/9" },
+        { detailsSVG: "components/icon/opened-door-svg.njk", detailsValue: "4" },
+        { detailsSVG: "components/icon/area-floor-size-svg.njk", detailsValue: "98 m²" }
+      ]
+    }
+  ] %}
+
   {% include "layouts/Home/first-screen-catalog.njk" %}
   {% include "components/catalog-toolbar/catalog-toolbar.njk" %}
-
+  {% set catalogGridPagination = false %}
+  {% include "layouts/catalog-grid.njk" %}
+  {% include "layouts/catalog-stats.njk" %}
+  {# Опциональная пагинация под карточками (нижний правый угол) #}
+  {% set catalogGridPagination = true %}
+  {% set catalogPagination = { pages: [1, 2, 3, 4], current: 2 } %}
+  {% include "layouts/catalog-grid.njk" %}
+  {% set catalogGridPagination = false %}
   <!-- Блок рекламы -->
   {% include "layouts/ads.njk" %}
 
@@ -135,4 +280,6 @@
   {% include "layouts/agency.njk" %}
 
   <script src="../assets/js/search-form.js"></script>
+  <script src="../assets/js/catalog-toolbar.js"></script>
+  <script src="../assets/js/catalog-stats.js"></script>
 {% endblock %}

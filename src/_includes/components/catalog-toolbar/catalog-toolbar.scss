@@ -4,18 +4,16 @@
 
 .catalog-toolbar-section {
   padding-top: 24px;
+
 }
 
 .catalog-toolbar {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 28px;
   padding: 32px 30px 28px;
-  border-radius: var(--border-radius, 35px);
-  border: 1px solid rgba(var(--Content-color-rgb), 0.08);
-  background: rgba(var(--White-rgb), 0.98);
-  box-shadow: -25px 18px 48px rgba(var(--Main-color-rgb), 0.12);
-  backdrop-filter: blur(6px);
+
 
   &__header {
     @include flex-container(flex, row, wrap, space-between, flex-start, 32px);
@@ -63,8 +61,7 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 
     &:hover {
-      transform: translateY(-2px);
-      box-shadow: -25px 24px 96px rgba(var(--Main-color-rgb), 0.18);
+      background: rgba(var(--White-rgb), 0.65);
     }
   }
 
@@ -107,37 +104,16 @@
   }
 
   &__view-btn {
+    /* Переиспользуем общие стили табов из `components/buttons/btn.scss` (.btn.btn-tabs) */
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    height: 60px;
-    padding: 12px 25px;
-    border-radius: 35px;
-    border: 1px solid rgba(var(--Content-color-rgb), 0.12);
-    background: var(--White, #fff);
-    color: var(--Content-color, #14142d);
-    font-weight: 500;
-    font-size: map.get(vars.$h5, size);
-    line-height: map.get(vars.$h5, line-height);
-    box-shadow: 0 4px 45px rgba(var(--Main-color-rgb), 0.25);
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-
-    &:hover {
-      border-color: rgba(var(--Main-color-rgb), 0.35);
-      box-shadow: 0 8px 28px rgba(var(--Main-color-rgb), 0.22);
-    }
-
-    &--active {
-      background: var(--Main-color, #593dff);
-      color: var(--White, #fff);
-      border-color: transparent;
-      box-shadow: 0 12px 28px rgba(var(--Main-color-rgb), 0.25);
-    }
   }
 
   &__view-icon {
     display: inline-flex;
+    /* Иконка всегда акцентная, но на hover/active становится белой (как текст в .btn-tabs) */
+    color: var(--Main-color, #593dff);
 
     svg {
       width: 24px;
@@ -146,12 +122,17 @@
     }
   }
 
+  &__view-btn:hover &__view-icon,
+  &__view-btn:focus-visible &__view-icon,
+  &__view-btn.active &__view-icon {
+    color: var(--White, #fff);
+  }
+
   &__right {
     @include flex-container(flex, row, wrap, flex-end, center, 24px);
   }
 
   &__sort {
-    @include reset-button();
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -160,11 +141,33 @@
     font-size: map.get(vars.$h4, size);
     line-height: map.get(vars.$h4, line-height);
     cursor: pointer;
+    padding: 12px 16px;
+    border-radius: 35px;
+    border: 1px solid transparent;
+    background: transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      background: rgba(var(--White-rgb), 0.55);
+    }
+
+    &.is-open {
+      background: rgba(var(--White-rgb), 0.75);
+      box-shadow: 0px 18px 19.399999618530273px 0px rgba(89, 61, 255, 0.25);
+      backdrop-filter: blur(38.79999923706055px);
+      border-bottom-color: transparent;
+      border-radius:  0;
+    }
 
     svg {
       width: 12px;
       height: 6px;
       display: block;
+      transition: transform 0.2s ease;
+    }
+
+    &.is-open svg {
+      transform: rotate(180deg);
     }
   }
 
@@ -215,6 +218,49 @@
     }
   }
 
+  /* ===== Sort dropdown (portal) ===== */
+  &__dropdowns-portal {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__sort-dropdown {
+    position: absolute;
+    z-index: 120;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px;
+    border-radius: 0 0 var(--border-radius, 35px) var(--border-radius, 35px);
+    background: rgba(var(--White-rgb), 0.75);
+    box-shadow: 0px 18px 19.399999618530273px 0px rgba(89, 61, 255, 0.25);
+    backdrop-filter: blur(38.79999923706055px);
+    backdrop-filter: blur(19.4px);
+    pointer-events: auto;
+  
+    border-top: none;
+
+    &.open {
+      display: flex;
+    }
+  }
+
+  &__sort-option {
+    display: block;
+    text-decoration: none;
+    color: rgba(var(--Content-color-rgb), 0.85);
+    padding: 10px 12px;
+    border-radius: 15px;
+    @include responsive-typography(vars.$h5, vars.$h4-tablet, vars.$h4-mobile);
+
+    &:hover,
+    &.active {
+      color: var(--Main-color, #593dff);
+      background: rgba(var(--Main-color-rgb), 0.15);
+    }
+  }
+
   @media (max-width: 1024px) {
     padding: 24px 22px;
     gap: 22px;
@@ -236,6 +282,13 @@
 
     &__views {
       gap: 16px;
+    }
+  }
+
+  /* На мобайле дополнительные виды не показываем вообще */
+  @media (max-width: 480px) {
+    &__views {
+      display: none;
     }
   }
 }

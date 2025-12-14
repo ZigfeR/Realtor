@@ -1,0 +1,62 @@
+{# 
+  Catalog Pagination (static / optional)
+
+  Usage:
+  - Set `catalogGridPagination = true` before including `layouts/catalog-grid.njk`.
+  - Optionally pass `catalogPagination`:
+    {
+      pages: [1,2,3,4],
+      current: 2
+    }
+#}
+
+{% set p = catalogPagination if catalogPagination is defined else { pages: [1, 2, 3, 4], current: 2 } %}
+
+<nav class="catalog-pagination" aria-label="Catalog pagination">
+  <a class="catalog-pagination__item catalog-pagination__item--control" href="#" aria-label="First page">
+    <span class="catalog-pagination__control">
+      <span class="catalog-pagination__bar" aria-hidden="true"></span>
+      <svg class="catalog-pagination__icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6.5 1L2 6L6.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </a>
+
+  <a class="catalog-pagination__item catalog-pagination__item--control" href="#" aria-label="Previous page">
+    <span class="catalog-pagination__control">
+      <svg class="catalog-pagination__icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6.5 1L2 6L6.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </a>
+
+  {% for page in p.pages %}
+    {% set isActive = page == p.current %}
+    <a
+      class="catalog-pagination__item{% if isActive %} is-active{% endif %}"
+      href="#"
+      aria-label="Page {{ page }}"
+      {% if isActive %}aria-current="page"{% endif %}
+    >
+      <span class="catalog-pagination__text">{{ page }}</span>
+    </a>
+  {% endfor %}
+
+  <a class="catalog-pagination__item catalog-pagination__item--control" href="#" aria-label="Next page">
+    <span class="catalog-pagination__control">
+      <svg class="catalog-pagination__icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M1.5 1L6 6L1.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </a>
+
+  <a class="catalog-pagination__item catalog-pagination__item--control" href="#" aria-label="Last page">
+    <span class="catalog-pagination__control">
+      <svg class="catalog-pagination__icon" width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M1.5 1L6 6L1.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="catalog-pagination__bar" aria-hidden="true"></span>
+    </span>
+  </a>
+</nav>
+
