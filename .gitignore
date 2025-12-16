@@ -10,7 +10,7 @@ ideas/
 SPECS_DIGEST.md
 CHANGELOG.md
 # Папка сборки (зависит от SSG)
- _site/
+_site/
 # _dist/           # Hugo, Parcel
 # build/           # Gulp, Webpack
 # public/          # Gatsby, Hugo
