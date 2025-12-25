@@ -3,3 +3,191 @@
     {% include "components/icon/menu-icon.njk" %}
   </div>
 </div>
+
+
+<!-- Fullscreen Menu Overlay -->
+<div class="menu-overlay" id="menu-overlay">
+  <div class="menu-container">
+    <!-- Header Menu -->
+    <div class="menu-header">
+      <div class="menu-header-content">
+        <div class="menu-header-left">
+          <div class="menu-logo">
+            {% include "components/logo-header.njk" %}
+          </div>
+
+          <button class="menu-btn menu-btn-login" type="button">
+            {% include "components/icon/persona-svg.njk" %}
+            <span>Login</span>
+          </button>
+        </div>
+
+        <div class="menu-header-right">
+
+          <div class="menu-lang-switcher">
+            <div class="lang-current">
+              <span>EN</span>
+              {% include "components/icon/small-arrow-svg.njk" %}
+            </div>
+            <div class="lang-dropdown">
+              <div class="lang-option active">EN</div>
+              <div class="lang-option">UK</div>
+              <div class="lang-option">DE</div>
+            </div>
+          </div>
+
+          <button class="menu-btn menu-btn-add-item" type="button">
+            <span>+ Add Item</span>
+          </button>
+
+          <button class="menu-close-btn" id="menu-close-btn" type="button">
+            {% include "components/icon/close-svg.njk" %}
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-divider"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="menu-content">
+      <!-- Main Navigation -->
+      <div class="menu-section menu-main-nav is-open">
+        <h2 class="menu-section-title">
+          <button class="menu-accordion-toggle" type="button" aria-expanded="true" aria-controls="menu-panel-main">
+            <span>Main</span>
+          </button>
+        </h2>
+        <div class="menu-accordion-panel" id="menu-panel-main">
+          <ul class="menu-list menu-nav-list">
+          <li><a href="#home" class="menu-nav-item active">Home</a></li>
+          <li><a href="#about" class="menu-nav-item">About Us</a></li>
+          <li><a href="#exclusives" class="menu-nav-item">Exclusives</a></li>
+          <li><a href="#real-estate-carpathians" class="menu-nav-item">Real Estate in the Carpathians</a></li>
+          <li><a href="#blog" class="menu-nav-item">Blog</a></li>
+          <li><a href="#contact" class="menu-nav-item">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Real Estate Section -->
+      <div class="menu-section menu-real-estate">
+        <h2 class="menu-section-title">
+          <button class="menu-accordion-toggle" type="button" aria-expanded="false" aria-controls="menu-panel-real-estate">
+            <span>Real Estate</span>
+          </button>
+        </h2>
+        <div class="menu-accordion-panel" id="menu-panel-real-estate">
+          <ul class="menu-list">
+          <li><a href="#flats" class="menu-nav-item">Flats</a></li>
+          <li><a href="#mansions" class="menu-nav-item">Mansions</a></li>
+          <li><a href="#offices" class="menu-nav-item">Offices</a></li>
+          <li><a href="#commercial-real-estate" class="menu-nav-item">Commercial Real Estate</a></li>
+          <li><a href="#garages" class="menu-nav-item">Garages</a></li>
+          <li><a href="#land" class="menu-nav-item">Land</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Our Services Section -->
+      <div class="menu-section menu-services">
+        <h2 class="menu-section-title">
+          <button class="menu-accordion-toggle" type="button" aria-expanded="false" aria-controls="menu-panel-services">
+            <span>Our Services</span>
+          </button>
+        </h2>
+        <div class="menu-accordion-panel" id="menu-panel-services">
+          <ul class="menu-list">
+          <li><a href="#selling" class="menu-nav-item">Selling</a></li>
+          <li><a href="#rent" class="menu-nav-item">Rent</a></li>
+          <li><a href="#daily-rent" class="menu-nav-item">Daily Rent</a></li>
+          <li><a href="#investment-projects" class="menu-nav-item">Investment Projects</a></li>
+          <li><a href="#luxury-real-estate" class="menu-nav-item">Luxury Real Estate</a></li>
+          <li><a href="#construction-of-houses" class="menu-nav-item">Construction of Houses</a></li>
+          <li><a href="#hotel-booking" class="menu-nav-item">Hotel Booking</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Information Section -->
+      <div class="menu-section menu-information">
+        <h2 class="menu-section-title">
+          <button class="menu-accordion-toggle" type="button" aria-expanded="false" aria-controls="menu-panel-information">
+            <span>Information</span>
+          </button>
+        </h2>
+        <div class="menu-accordion-panel" id="menu-panel-information">
+          <ul class="menu-list">
+          <li><a href="#directory" class="menu-nav-item">Directory</a></li>
+          <li><a href="#weather" class="menu-nav-item">Weather</a></li>
+          <li><a href="#faq" class="menu-nav-item">FAQ</a></li>
+          <li><a href="#help" class="menu-nav-item">Help</a></li>
+          <li><a href="#land-info" class="menu-nav-item">Land</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- About Us Section -->
+      <div class="menu-section menu-about">
+        <h2 class="menu-section-title">
+          <button class="menu-accordion-toggle" type="button" aria-expanded="false" aria-controls="menu-panel-about">
+            <span>About Us</span>
+          </button>
+        </h2>
+        <div class="menu-accordion-panel" id="menu-panel-about">
+          <ul class="menu-list">
+          <li><a href="#reviews" class="menu-nav-item">Reviews</a></li>
+          <li><a href="#partners" class="menu-nav-item">Partners</a></li>
+          <li><a href="#our-customers" class="menu-nav-item">Our Customers</a></li>
+          <li><a href="#our-realtors" class="menu-nav-item">Our Realtors</a></li>
+          <li><a href="#vacancies-jobs" class="menu-nav-item">Vacancies Jobs</a></li>
+          <li><a href="#faq-about" class="menu-nav-item">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Best Offer Section -->
+      <div class="menu-section menu-best-offer">
+        <h2 class="menu-section-title">Best Offer</h2>
+        <div class="best-offer-content">
+          <div class="best-offer-image">
+            <!-- Placeholder for best offer image -->
+            <div class="best-offer-placeholder">
+              <span>Best Offer Image</span>
+            </div>
+
+            <div class="best-offer-dots" aria-hidden="true">
+              <span class="best-offer-dot active"></span>
+              <span class="best-offer-dot"></span>
+              <span class="best-offer-dot"></span>
+              <span class="best-offer-dot"></span>
+            </div>
+          </div>
+          <a href="#read-more" class="best-offer-cta">Read More</a>
+        </div>
+         <!-- Social Media Section -->
+      <div class="menu-section menu-socials">
+        <div class="social-links">
+          <a href="#" class="social-link">
+            {% include "components/icon/facebook-svg.njk" %}
+          </a>
+          <a href="#" class="social-link">
+            {% include "components/icon/instagram-svg.njk" %}
+          </a>
+          <a href="#" class="social-link">
+            {% include "components/icon/twitter-svg.njk" %}
+          </a>
+          <a href="#" class="social-link">
+            {% include "components/icon/youtube-svg.njk" %}
+          </a>
+          <a href="#" class="social-link">
+            {% include "components/icon/tiktok-svg.njk" %}
+          </a>
+        </div>
+      </div>
+      </div>
+
+     
+    </div>
+  </div>
+</div>

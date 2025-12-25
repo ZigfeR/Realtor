@@ -332,10 +332,6 @@
         position: relative;
         display: inline-block;
 
-        @media (max-width: 480px) {
-          display: none; /* Навигация скрыта */
-        }
-
         .lang-selected-value,
         .lang-options {
           @include responsive-typography(

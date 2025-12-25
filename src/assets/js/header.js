@@ -108,7 +108,7 @@ const topLine = hamburger.querySelector(".menu-line-top");
 const middleLine = hamburger.querySelector(".menu-line-middle");
 const bottomLine = hamburger.querySelector(".menu-line-bottom");
 
-toggle.addEventListener("click", function () {
+/* toggle.addEventListener("click", function () {
   this.classList.toggle("active");
   if (this.classList.contains("active")) {
     // Верхняя линия исчезает
@@ -124,7 +124,7 @@ toggle.addEventListener("click", function () {
     middleLine.style.transform = "none";
     bottomLine.style.transform = "none";
   }
-});
+}); */
 /* ==========================
     Конец бургер-меню
    ========================== */

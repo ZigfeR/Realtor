@@ -1,11 +1,13 @@
 const path = require("node:path");
+const { fileURLToPath } = require("node:url");
 const sass = require("sass");
 const CleanCSS = require("clean-css");
 
 module.exports = function (eleventyConfig) {
-  // Отслеживание изменений в папке src/_includes
+  // Отслеживание изменений в папках с шаблонами и стилями
   eleventyConfig.addWatchTarget("src/_includes/**/*.{scss,njk,md,html}");
-  eleventyConfig.addWatchTarget("assets/**/*.{scss,njk,md,html}");
+  eleventyConfig.addWatchTarget("src/assets/**/*.{scss,njk,md,html}");
+  eleventyConfig.addWatchTarget("src/assets/scss/**/*.scss");
 
   // Поддержка SCSS как шаблонов
   eleventyConfig.addTemplateFormats("scss");
@@ -28,7 +30,13 @@ module.exports = function (eleventyConfig) {
         sourceMap: true,
       });
       console.log("CSS generated:", result.css.slice(0, 100)); // Отладка
-      this.addDependencies(inputPath, result.loadedUrls);
+
+      // Важно: sass возвращает loadedUrls как URL (file://...), а Eleventy ждёт пути к файлам.
+      // Без конвертации 11ty не понимает зависимость и не пересобирает main.scss при изменении партиалов.
+      const dependencyPaths = (result.loadedUrls || [])
+        .filter((u) => u && u.protocol === "file:")
+        .map((u) => fileURLToPath(u));
+      this.addDependencies(inputPath, dependencyPaths);
       return async (data) => {
         return new CleanCSS({}).minify(result.css).styles;
       };
