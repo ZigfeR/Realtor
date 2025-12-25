@@ -1,0 +1,159 @@
+@use "../../assets/scss/mixins" as *;
+
+/* ==========================
+   Секция плиток каталога
+   ========================== */
+.catalog-grid-section {
+  background: rgba(var(--Main-color-rgb), 0.05);
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--gap);
+  padding: var(--padding-vert) var(--padding-horiz) 80px var(--padding-horiz);
+
+  /* Карточка в сетке должна тянуться по колонке */
+  .property-card {
+    width: 100%;
+  }
+
+  @media (min-width: 481px) and (max-width: 1024px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: var(--padding-horiz-tablet);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    padding: var(--padding-horiz-mobile);
+  }
+}
+
+/* ==========================
+   Вид LIST для плиток каталога
+   - desktop: 2 карточки в ряд
+   - tablet: 1 карточка в ряд
+   - mobile: переключателя нет, но на всякий случай оставляем 1 колонку
+   ========================== */
+.catalog-grid.catalog-grid--list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  @media (min-width: 481px) and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================
+   Pagination под карточками (опционально)
+   ========================== */
+.catalog-grid-section--with-pagination {
+  .catalog-grid {
+    padding-bottom: 32px;
+  }
+
+  @media (min-width: 481px) and (max-width: 1024px) {
+    .catalog-grid {
+      padding-bottom: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .catalog-grid {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+.catalog-grid-pagination {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 var(--padding-horiz) 80px var(--padding-horiz);
+
+  @media (min-width: 481px) and (max-width: 1024px) {
+    padding: 0 var(--padding-horiz-tablet) 60px var(--padding-horiz-tablet);
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 var(--padding-horiz-mobile) 44px var(--padding-horiz-mobile);
+  }
+}
+
+.catalog-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  max-width: 441px;
+}
+
+.catalog-pagination__item {
+  width: 42px;
+  height: 42px;
+  border-radius: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--White, #fff);
+  color: var(--Main-color, #593dff);
+  text-decoration: none;
+  border: 1px solid rgba(var(--Content-color-rgb), 0.06);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: rgba(var(--Main-color-rgb), 0.65);
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(var(--Main-color-rgb), 0.35);
+    outline-offset: 3px;
+  }
+
+  &.is-active {
+    background: var(--Main-color, #593dff);
+    color: var(--White, #fff);
+    border-color: transparent;
+  }
+}
+
+.catalog-pagination__item--control {
+  height: 43px;
+}
+
+.catalog-pagination__control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.catalog-pagination__bar {
+  width: 3px;
+  height: 14px;
+  border-radius: 3px;
+  background: currentColor;
+  flex: 0 0 auto;
+}
+
+.catalog-pagination__icon {
+  display: block;
+  width: 7px;
+  height: 12px;
+}
+
+.catalog-pagination__text {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 36px;
+  letter-spacing: 0.01em;
+}
+
+/* ==========================
+   Конец секции плиток каталога
+   ========================== */
+
+

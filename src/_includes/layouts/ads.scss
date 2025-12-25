@@ -21,5 +21,9 @@
     h1 {
       color: #fff;
     }
+    @media (max-width: 480px) {
+     background-image: url("/assets/images/ads/ads-mobile.png");
+     background-size: cover;
+    }
   }
 }

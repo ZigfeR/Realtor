@@ -13,12 +13,15 @@
 @use "../../_includes/layouts/_header/header";
 @use "../../_includes/layouts/_footer/footer";
 @use "../../_includes/layouts/Home/first-screen";
+@use "../../_includes/components/catalog-toolbar/catalog-toolbar";
 @use "../../_includes/components/form/search-form";
 @use "../../_includes/layouts/Home/key-features";
 @use "../../_includes/components/key-features-blocks/key-features-block";
 @use "../../_includes/layouts/top-cards/top-cards";
 @use "../../_includes/components/tabs/tabs";
 @use "../../_includes/components/cards/property-card/property-card";
+@use "../../_includes/layouts/catalog-grid";
+@use "../../_includes/layouts/catalog-stats";
 @use "../../_includes/layouts/ads";
 @use "../../_includes/layouts/reviews";
 @use "../../_includes/components/cards/review-cards/review-cards";

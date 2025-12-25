@@ -67,6 +67,19 @@
       }
     }
   }
+
+  &--catalog {
+    .container-first-screen {
+      background-image: url(../images/catalog/main-image.png);
+      background-position: right top;
+      justify-content: center;
+      gap: 56px;
+    }
+
+    .first-screen-header {
+      max-width: 720px;
+    }
+  }
 }
 /* ==========================
    Конец первого экрана
