@@ -158,6 +158,33 @@
     a {
       display: none;
     }
+
+    .top-cards-top-container {
+      width: 100%;
+      
+      // Скрываем кнопки табов на мобайле (показываем только dropdown)
+      .btn-tabs {
+        display: none;
+      }
+
+      // Показываем dropdown
+      .custom-dropdown {
+        display: block;
+      }
+    }
+  }
+
+  // На планшете и десктопе скрываем dropdown
+  @media (min-width: 481px) {
+    .top-cards-top-container {
+      .custom-dropdown {
+        display: none !important;
+      }
+
+      .btn-tabs {
+        display: flex !important;
+      }
+    }
   }
 }
 

@@ -101,3 +101,96 @@
     }
   }
 }
+
+/* ==========================
+   Слайдер блога (планшет/мобайл)
+   ========================== */
+
+@media (max-width: 1024px) {
+  .container-blog-cards {
+    overflow: hidden;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .blog-body {
+    .slider-wrapper {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding-bottom: 50px; // место для точек
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.3s ease;
+      cursor: grab;
+      padding: 15px var(--padding-horiz-tablet) 35px var(--padding-horiz-tablet);
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+
+    .slider-slide {
+      flex-shrink: 0;
+
+      .blog-card {
+        box-shadow: 0 10px 40px 0 rgba(var(--Main-color-rgb), 0.15);
+      }
+    }
+
+    .slider-dots {
+      @include flex-container(flex, row, nowrap, center, center, 8px);
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      padding: 10px 0;
+    }
+
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(var(--Main-color-rgb), 0.25);
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(var(--Main-color-rgb), 0.5);
+      }
+
+      &.active {
+        background: var(--Main-color, #593dff);
+        width: 24px;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-body {
+    .slider-track {
+      padding: 12px var(--padding-horiz-mobile) 35px var(--padding-horiz-mobile);
+      gap: 10px;
+    }
+
+    .slider-dots {
+      gap: 6px;
+    }
+
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+
+      &.active {
+        width: 20px;
+      }
+    }
+  }
+}
