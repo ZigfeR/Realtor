@@ -1,0 +1,29 @@
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
+@use "sass:map";
+
+
+.first-screen--add-item {
+    .bg-realtor {
+        background-size: unset;
+    }
+
+    .container-first-screen {
+        flex-direction: row;
+        align-items: flex-end;
+        height: unset;
+        .first-screen-header {
+            max-width: unset;
+        }
+        .first-screen-image.added-item{
+            min-width: 400px;
+            @media (min-width: 481px) and (max-width: 1024px) {
+                min-width: 250px;
+              }
+            
+              @media (max-width: 480px) {
+                min-width: 190px;
+              }
+        }
+    }
+}

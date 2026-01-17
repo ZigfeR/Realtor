@@ -1,0 +1,112 @@
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
+
+// =============================================================================
+// CHECKBOX LIST — Компонент списка чекбоксов
+// =============================================================================
+
+.checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  // Лейбл группы
+  &__label {
+    color: var(--Main-color, #593dff);
+    margin: 0;
+    opacity: 0.6;
+
+    @include responsive-typography(vars.$h6, vars.$h5-tablet, vars.$h6-mobile);
+  }
+
+  &__required {
+    color: var(--Attracting-attention-color, #e722aa);
+    margin-left: 4px;
+  }
+
+  // Контейнер элементов
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  // Модификатор колонок
+  &--cols-2 &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 25px;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Элемент (чекбокс)
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  // Скрытый input
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  // Квадратик чекбокса
+  &__box {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    border-radius: 5px;
+    background: rgba(var(--Main-color-rgb), 0.15);
+    position: relative;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 2px;
+
+    // Галочка
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 6px;
+      border-left: 2px solid var(--White, #fff);
+      border-bottom: 2px solid var(--White, #fff);
+      transform: translate(-50%, -60%) rotate(-45deg);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+  }
+
+  // Focus state
+  &__input:focus-visible + &__box {
+    box-shadow: 0 0 0 3px rgba(var(--Main-color-rgb), 0.25);
+  }
+
+  // Checked state
+  &__input:checked + &__box {
+    background: var(--Main-color, #593dff);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  // Текст
+  &__text {
+    color: var(--Content-color, #14142d);
+    line-height: 1.8;
+
+    @include responsive-typography(vars.$h5, vars.$h5-tablet, vars.$h5-mobile);
+  }
+}
+

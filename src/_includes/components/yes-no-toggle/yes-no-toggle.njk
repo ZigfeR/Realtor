@@ -1,0 +1,70 @@
+{# 
+  Компонент переключателя Yes/No
+  
+  Параметры:
+  - id: string - уникальный идентификатор
+  - name: string - имя для формы
+  - label: string - текст лейбла
+  - required: boolean - обязательное поле
+  - selected: string - выбранное значение ("yes" или "no")
+  - yesText: string - текст для Yes (по умолчанию "Yes")
+  - noText: string - текст для No (по умолчанию "No")
+  - showArea: boolean - показывать поле ввода площади при выборе Yes
+  - areaValue: string - значение поля площади
+  - areaLabel: string - лейбл для поля площади
+#}
+<div class="yes-no-toggle" data-yes-no-toggle>
+  {% if label %}
+    <p class="yes-no-toggle__label">
+      {{ label }}
+      {% if required %}<span class="yes-no-toggle__required">*</span>{% endif %}
+    </p>
+  {% endif %}
+  
+  <div class="yes-no-toggle__wrapper">
+    <div class="yes-no-toggle__options" role="radiogroup" aria-label="{{ label }}">
+      {# Yes option #}
+      <label class="yes-no-toggle__option{% if selected == 'yes' %} yes-no-toggle__option--active{% endif %}">
+        <input 
+          type="radio" 
+          class="yes-no-toggle__input" 
+          name="{{ name }}" 
+          value="yes"
+          {% if selected == 'yes' %}checked{% endif %}
+        >
+        <span class="yes-no-toggle__box" aria-hidden="true"></span>
+        <span class="yes-no-toggle__text">{{ yesText | default('Yes') }}</span>
+      </label>
+
+      {# No option #}
+      <label class="yes-no-toggle__option{% if selected == 'no' %} yes-no-toggle__option--active{% endif %}">
+        <input 
+          type="radio" 
+          class="yes-no-toggle__input" 
+          name="{{ name }}" 
+          value="no"
+          {% if selected == 'no' %}checked{% endif %}
+        >
+        <span class="yes-no-toggle__box" aria-hidden="true"></span>
+        <span class="yes-no-toggle__text">{{ noText | default('No') }}</span>
+      </label>
+    </div>
+
+    {# Поле ввода площади (опционально) #}
+    {% if showArea %}
+      <div class="yes-no-toggle__area{% if selected != 'yes' %} yes-no-toggle__area--hidden{% endif %}" data-area-field>
+        <span class="yes-no-toggle__area-label">{{ areaLabel | default('Area, m²:') }}</span>
+        <input 
+          type="text" 
+          class="yes-no-toggle__area-input" 
+          name="{{ name }}_area" 
+          value="{{ areaValue | default('') }}"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          aria-label="{{ areaLabel | default('Area, m²') }}"
+        >
+      </div>
+    {% endif %}
+  </div>
+</div>
+

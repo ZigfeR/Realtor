@@ -1,0 +1,116 @@
+{# 
+  Location Information — секция с информацией о местоположении
+  Использует универсальный компонент form-section
+#}
+
+{% set sectionConfig = {
+  id: "location-info",
+  class: "location-info",
+  titleHighlight: "Location",
+  titleText: "Information",
+  titleRequired: true,
+  rows: [
+    {
+      class: "form-section__row--top",
+      items: [
+        {
+          type: "select",
+          colspan: 1,
+          id: "location-region",
+          label: "Region",
+          required: true,
+          defaultValue: "Ivano-Frankivsk",
+          options: [
+            { value: "ivano-frankivsk", text: "Ivano-Frankivsk" },
+            { value: "lviv", text: "Lviv" },
+            { value: "kyiv", text: "Kyiv" }
+          ]
+        },
+        {
+          type: "select",
+          colspan: 1,
+          id: "location-city",
+          label: "City",
+          required: true,
+          defaultValue: "Ivano-Frankivsk",
+          options: [
+            { value: "ivano-frankivsk", text: "Ivano-Frankivsk" },
+            { value: "kolomyia", text: "Kolomyia" },
+            { value: "nadvirna", text: "Nadvirna" }
+          ]
+        },
+        {
+          type: "select",
+          colspan: 1,
+          id: "location-area",
+          label: "Area of the City",
+          required: true,
+          defaultValue: "Center dist.",
+          options: [
+            { value: "center", text: "Center dist." },
+            { value: "north", text: "North" },
+            { value: "south", text: "South" }
+          ]
+        },
+        {
+          type: "select",
+          colspan: 1,
+          id: "location-residential-complex",
+          label: "Residential Complex",
+          required: false,
+          defaultValue: "Parkova Alleya",
+          options: [
+            { value: "parkova-alleya", text: "Parkova Alleya" },
+            { value: "river-park", text: "River Park" },
+            { value: "green-hills", text: "Green Hills" }
+          ]
+        }
+      ]
+    },
+    {
+      class: "form-section__row--bottom",
+      items: [
+        {
+          type: "input",
+          colspan: 2,
+          id: "street",
+          name: "street",
+          label: "Street",
+          required: true,
+          placeholder: "Select",
+          inputType: "text",
+          checkbox: {
+            name: "hide_address",
+            value: "1",
+            text: "Do not display the exact address on the website"
+          }
+        },
+        {
+          type: "input",
+          colspan: 1,
+          id: "street-number",
+          name: "street_number",
+          label: "Street Number",
+          required: true,
+          placeholder: "Select",
+          inputType: "text",
+          inputMode: "numeric"
+        },
+        {
+          type: "input",
+          colspan: 1,
+          id: "apartment-number",
+          name: "apartment_number",
+          label: "Apartment Number",
+          required: false,
+          placeholder: "",
+          inputType: "text",
+          inputMode: "numeric",
+          inputClass: "form-section__input--compact"
+        }
+      ]
+    }
+  ]
+} %}
+
+{% include "components/form-section/form-section.njk" %}

@@ -37,3 +37,9 @@
 @use "../../_includes/components/contacts/contacts-popup/contacts-popup";
 @use "../../_includes/layouts/_header/menu/menu";
 @use "../../_includes/layouts/Home/questions";
+@use "../../_includes/layouts/add-item/first-screen" as addItemFirst;
+@use "../../_includes/components/form-section/form-section";
+@use "../../_includes/components/custom-select/custom-select";
+@use "../../_includes/components/number-selector/number-selector";
+@use "../../_includes/components/yes-no-toggle/yes-no-toggle";
+@use "../../_includes/components/checkbox-list/checkbox-list";

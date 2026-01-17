@@ -1,0 +1,12 @@
+{% extends "layouts/_base.njk" %}
+{% set title = "Добавить объект" %}
+{% set activePage = "/add-item" %}
+
+{% block content %}
+  {% include "layouts/add-item/first-screen.njk" %}
+  {% include "layouts/add-item/general-information.njk" %}
+  {% include "layouts/add-item/location-information.njk" %}
+  {% include "layouts/add-item/basic-parameters.njk" %}
+
+{% endblock %}
+

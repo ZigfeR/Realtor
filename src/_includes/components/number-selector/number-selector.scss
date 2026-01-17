@@ -1,0 +1,81 @@
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
+
+// =============================================================================
+// NUMBER SELECTOR — Компонент выбора чисел (1, 2, 3, 4, 5+)
+// =============================================================================
+
+.number-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  // Лейбл
+  &__label {
+    color: var(--Main-color, #593dff);
+    margin: 0;
+    opacity: 0.6;
+
+    @include responsive-typography(vars.$h6, vars.$h5-tablet, vars.$h6-mobile);
+  }
+
+  &__required {
+    color: var(--Attracting-attention-color, #e722aa);
+    margin-left: 4px;
+  }
+
+  // Контейнер опций
+  &__options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    @media (max-width: 600px) {
+      gap: 12px;
+    }
+  }
+
+  // Кнопка-опция
+  &__option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 42px;
+    padding: 3px 14px;
+    border: none;
+    border-radius: 35px;
+    background: transparent;
+    color: var(--Content-color, #14142d);
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    @include responsive-typography(vars.$h5, vars.$h5-tablet, vars.$h5-mobile);
+
+    &:hover {
+      background: rgba(var(--Main-color-rgb), 0.1);
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(var(--Main-color-rgb), 0.25);
+    }
+
+    // Активное состояние
+    &--active {
+      background: var(--Main-color, #593dff);
+      color: var(--White, #fff);
+      font-weight: 700;
+
+      @include responsive-typography(vars.$h3, vars.$h3-tablet, vars.$h3-mobile);
+
+      &:hover {
+        background: var(--Main-color, #593dff);
+      }
+    }
+  }
+}
+
