@@ -23,15 +23,14 @@
         </div>
 
         <div class="menu-header-right">
-
           <div class="menu-lang-switcher">
             <div class="lang-current">
               <span>EN</span>
               {% include "components/icon/small-arrow-svg.njk" %}
             </div>
             <div class="lang-dropdown">
-              <div class="lang-option active">EN</div>
               <div class="lang-option">UK</div>
+              <div class="lang-option active">EN</div>
               <div class="lang-option">DE</div>
             </div>
           </div>
@@ -57,7 +56,9 @@
           <button class="menu-accordion-toggle" type="button" aria-expanded="true" aria-controls="menu-panel-main">
             <span>Main</span>
           </button>
+          <span class="menu-title-text">Main</span>
         </h2>
+        <div class="menu-active-indicator"></div>
         <div class="menu-accordion-panel" id="menu-panel-main">
           <ul class="menu-list menu-nav-list">
           <li><a href="#home" class="menu-nav-item active">Home</a></li>
@@ -76,6 +77,7 @@
           <button class="menu-accordion-toggle" type="button" aria-expanded="false" aria-controls="menu-panel-real-estate">
             <span>Real Estate</span>
           </button>
+          <span class="menu-title-text">Real Estate</span>
         </h2>
         <div class="menu-accordion-panel" id="menu-panel-real-estate">
           <ul class="menu-list">
@@ -89,12 +91,32 @@
         </div>
       </div>
 
+      <!-- About Us Section (Desktop column 3) -->
+      <div class="menu-section menu-about">
+        <h2 class="menu-section-title">
+          <button class="menu-accordion-toggle" type="button" aria-expanded="false" aria-controls="menu-panel-about">
+            <span>About Us</span>
+          </button>
+          <span class="menu-title-text">About Us</span>
+        </h2>
+        <div class="menu-accordion-panel" id="menu-panel-about">
+          <ul class="menu-list">
+          <li><a href="#reviews" class="menu-nav-item">Reviews</a></li>
+          <li><a href="#partners" class="menu-nav-item">Partners</a></li>
+          <li><a href="#our-customers" class="menu-nav-item">Our Customers</a></li>
+          <li><a href="#our-realtors" class="menu-nav-item">Our Realtors</a></li>
+          <li><a href="#vacancies-jobs" class="menu-nav-item">Vacancies Jobs</a></li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Our Services Section -->
       <div class="menu-section menu-services">
         <h2 class="menu-section-title">
           <button class="menu-accordion-toggle" type="button" aria-expanded="false" aria-controls="menu-panel-services">
             <span>Our Services</span>
           </button>
+          <span class="menu-title-text">Our Services</span>
         </h2>
         <div class="menu-accordion-panel" id="menu-panel-services">
           <ul class="menu-list">
@@ -113,8 +135,9 @@
       <div class="menu-section menu-information">
         <h2 class="menu-section-title">
           <button class="menu-accordion-toggle" type="button" aria-expanded="false" aria-controls="menu-panel-information">
-            <span>Information</span>
+            <span>Inforamation</span>
           </button>
+          <span class="menu-title-text">Inforamation</span>
         </h2>
         <div class="menu-accordion-panel" id="menu-panel-information">
           <ul class="menu-list">
@@ -122,26 +145,6 @@
           <li><a href="#weather" class="menu-nav-item">Weather</a></li>
           <li><a href="#faq" class="menu-nav-item">FAQ</a></li>
           <li><a href="#help" class="menu-nav-item">Help</a></li>
-          <li><a href="#land-info" class="menu-nav-item">Land</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- About Us Section -->
-      <div class="menu-section menu-about">
-        <h2 class="menu-section-title">
-          <button class="menu-accordion-toggle" type="button" aria-expanded="false" aria-controls="menu-panel-about">
-            <span>About Us</span>
-          </button>
-        </h2>
-        <div class="menu-accordion-panel" id="menu-panel-about">
-          <ul class="menu-list">
-          <li><a href="#reviews" class="menu-nav-item">Reviews</a></li>
-          <li><a href="#partners" class="menu-nav-item">Partners</a></li>
-          <li><a href="#our-customers" class="menu-nav-item">Our Customers</a></li>
-          <li><a href="#our-realtors" class="menu-nav-item">Our Realtors</a></li>
-          <li><a href="#vacancies-jobs" class="menu-nav-item">Vacancies Jobs</a></li>
-          <li><a href="#faq-about" class="menu-nav-item">FAQ</a></li>
           </ul>
         </div>
       </div>
@@ -165,29 +168,37 @@
           </div>
           <a href="#read-more" class="best-offer-cta">Read More</a>
         </div>
-         <!-- Social Media Section -->
+      </div>
+
+      <!-- Social Media Section -->
       <div class="menu-section menu-socials">
         <div class="social-links">
-          <a href="#" class="social-link">
-            {% include "components/icon/facebook-svg.njk" %}
-          </a>
-          <a href="#" class="social-link">
-            {% include "components/icon/instagram-svg.njk" %}
-          </a>
-          <a href="#" class="social-link">
-            {% include "components/icon/twitter-svg.njk" %}
-          </a>
-          <a href="#" class="social-link">
+          <a href="#" class="social-link" aria-label="YouTube">
             {% include "components/icon/youtube-svg.njk" %}
           </a>
-          <a href="#" class="social-link">
+          <a href="#" class="social-link" aria-label="Facebook">
+            {% include "components/icon/facebook-svg.njk" %}
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            {% include "components/icon/instagram-svg.njk" %}
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            {% include "components/icon/twitter-svg.njk" %}
+          </a>
+          <a href="#" class="social-link" aria-label="TikTok">
             {% include "components/icon/tiktok-svg.njk" %}
           </a>
         </div>
       </div>
-      </div>
+    </div>
 
-     
+    <!-- Contact CTA Button (Mobile only) -->
+    <div class="menu-contact-cta">
+      <a href="tel:+380" class="contact-cta-btn" aria-label="Call us">
+        <div class="contact-cta-inner">
+          {% include "components/icon/phone-svg.njk" %}
+        </div>
+      </a>
     </div>
   </div>
 </div>
