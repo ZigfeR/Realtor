@@ -193,10 +193,12 @@
 
     @media (min-width: 481px) and (max-width: 1024px) {
       padding: 18px 15px 24px 20px;
+      background: var(--White, #fff);
     }
 
     @media (max-width: 480px) {
       padding: 3px 15px 20px 15px;
+      background: var(--White, #fff);
     }
 
     .property-card__description {

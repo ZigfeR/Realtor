@@ -119,5 +119,122 @@
 }
 
 /* ==========================
+   Слайдер карточек (планшет/мобайл)
+   ========================== */
+
+@media (max-width: 1024px) {
+  .top-section {
+    .top-cards-container__bottom {
+      overflow: hidden;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    // Слайдер для Top Selling с фоном
+    .top-selling__bottom .slider-wrapper {
+      padding-top: 25px;
+      padding-bottom: 80px;
+    }
+
+    // Слайдер для Top Rentals без фона
+    .top-rentals__bottom .slider-wrapper {
+      padding-top: 0;
+      padding-bottom: 60px;
+    }
+
+    .slider-wrapper {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: var(--gap, 20px);
+      transition: transform 0.3s ease;
+      cursor: grab;
+      padding: 0 var(--padding-horiz-tablet);
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+
+    .slider-slide {
+      flex-shrink: 0;
+
+      .property-card {
+        box-shadow: 0 10px 40px 0 rgba(var(--Main-color-rgb), 0.15);
+      }
+    }
+
+    .slider-dots {
+      @include flex-container(flex, row, nowrap, center, center, 8px);
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      padding: 10px 0;
+    }
+
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(var(--Main-color-rgb), 0.25);
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(var(--Main-color-rgb), 0.5);
+      }
+
+      &.active {
+        background: var(--Main-color, #593dff);
+        width: 24px;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .top-section {
+    // Слайдер для Top Selling с фоном
+    .top-selling__bottom .slider-wrapper {
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
+
+    // Слайдер для Top Rentals без фона
+    .top-rentals__bottom .slider-wrapper {
+      padding-top: 0;
+      padding-bottom: 50px;
+    }
+
+    .slider-track {
+      padding: 0 var(--padding-horiz-mobile);
+      gap: 12px;
+    }
+
+    .slider-dots {
+      gap: 6px;
+      bottom: 15px;
+    }
+
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+
+      &.active {
+        width: 20px;
+      }
+    }
+  }
+}
+
+/* ==========================
    Конец секции ТОП
    ========================== */
