@@ -1,0 +1,233 @@
+{# 
+  Basic Parameters Section
+  Секция базовых параметров объекта недвижимости
+  
+  Использует универсальный компонент form-section
+#}
+
+{% set sectionConfig = {
+  id: "basic-params",
+  titleHighlight: "Basic",
+  titleText: "Parameters",
+  titleRequired: true,
+  rows: [
+    {
+      items: [
+        {
+          type: "select",
+          colspan: 1,
+          id: "real-estate-type",
+          label: "Real Estate Type",
+          required: true,
+          defaultValue: "Flats",
+          options: [
+            { value: "flats", text: "Flats" },
+            { value: "houses", text: "Houses" },
+            { value: "apartments", text: "Apartments" },
+            { value: "commercial", text: "Commercial" },
+            { value: "land", text: "Land" },
+            { value: "garage", text: "Garage" }
+          ]
+        },
+        {
+          type: "select",
+          colspan: 1,
+          selectId: "floor",
+          label: "Floor",
+          required: true,
+          defaultValue: "2",
+          options: [
+            { value: "1", text: "1" },
+            { value: "2", text: "2" },
+            { value: "3", text: "3" },
+            { value: "4", text: "4" },
+            { value: "5", text: "5" },
+            { value: "6", text: "6" },
+            { value: "7", text: "7" },
+            { value: "8", text: "8" },
+            { value: "9", text: "9" },
+            { value: "10", text: "10" }
+          ]
+        },
+        {
+          type: "select",
+          colspan: 1,
+          selectId: "floors-number",
+          label: "Number of Floors",
+          required: true,
+          defaultValue: "9",
+          options: [
+            { value: "1", text: "1" },
+            { value: "2", text: "2" },
+            { value: "3", text: "3" },
+            { value: "5", text: "5" },
+            { value: "9", text: "9" },
+            { value: "12", text: "12" },
+            { value: "16", text: "16" },
+            { value: "20", text: "20" },
+            { value: "25", text: "25" }
+          ]
+        },
+        {
+          type: "yes-no",
+          colspan: 1,
+          id: "living-room",
+          label: "Living Room",
+          required: false,
+          selected: "yes",
+          showArea: true,
+          areaValue: "300",
+          areaLabel: "Area"
+        }
+      ]
+    },
+    {
+      items: [
+        {
+          type: "yes-no",
+          colspan: 1,
+          id: "kitchen",
+          label: "Kitchen",
+          required: false,
+          selected: "yes",
+          showArea: true,
+          areaValue: "50",
+          areaLabel: "Area"
+        },
+        {
+          type: "number-selector",
+          colspan: 1,
+          id: "bathroom",
+          label: "Bathroom",
+          required: false,
+          options: ["1", "2", "3", "4", "5+"],
+          selected: "1"
+        },
+        {
+          type: "number-selector",
+          colspan: 1,
+          id: "balcony",
+          label: "Balcony",
+          required: false,
+          options: ["1", "2", "3", "4", "5+"],
+          selected: "1"
+        },
+        {
+          type: "select",
+          colspan: 1,
+          selectId: "heating",
+          label: "Heating",
+          required: true,
+          defaultValue: "Individual",
+          options: [
+            { value: "individual", text: "Individual" },
+            { value: "central", text: "Central" },
+            { value: "autonomous", text: "Autonomous" },
+            { value: "gas", text: "Gas" },
+            { value: "electric", text: "Electric" }
+          ]
+        }
+      ]
+    },
+    {
+      items: [
+        {
+          type: "checkbox-list",
+          colspan: 1,
+          id: "view-from-window",
+          label: "View from Window",
+          required: false,
+          items: [
+            { value: "courtyard", text: "Courtyard", checked: true },
+            { value: "street", text: "Street", checked: false },
+            { value: "mountains", text: "Mountains", checked: false },
+            { value: "park", text: "Park", checked: false }
+          ]
+        },
+        {
+          type: "select",
+          colspan: 1,
+          selectId: "wall-type",
+          label: "Wall Type",
+          required: false,
+          defaultValue: "Brick",
+          options: [
+            { value: "brick", text: "Brick" },
+            { value: "panel", text: "Panel" },
+            { value: "monolith", text: "Monolith" },
+            { value: "foam-block", text: "Foam Block" },
+            { value: "wood", text: "Wood" }
+          ]
+        },
+        {
+          type: "input",
+          colspan: 1,
+          name: "ceiling-height",
+          label: "Ceiling Height",
+          placeholder: "",
+          required: false,
+          value: "2.65",
+          suffix: "m"
+        },
+        {
+          type: "input",
+          colspan: 1,
+          name: "total-area",
+          label: "Total Area",
+          placeholder: "",
+          required: true,
+          value: "300",
+          suffix: "m²"
+        }
+      ]
+    },
+    {
+      items: [
+        {
+          type: "input",
+          colspan: 1,
+          name: "living-area",
+          label: "Living Area",
+          placeholder: "",
+          required: false,
+          value: "200",
+          suffix: "m²"
+        },
+        {
+          type: "select",
+          colspan: 1,
+          selectId: "construction-year",
+          label: "Construction Year",
+          required: false,
+          defaultValue: "2016",
+          options: [
+            { value: "2024", text: "2024" },
+            { value: "2023", text: "2023" },
+            { value: "2022", text: "2022" },
+            { value: "2020", text: "2020" },
+            { value: "2018", text: "2018" },
+            { value: "2016", text: "2016" },
+            { value: "2010", text: "2010" },
+            { value: "2000", text: "2000" },
+            { value: "1990", text: "1990" }
+          ]
+        },
+        {
+          type: "yes-no",
+          colspan: 1,
+          id: "parking",
+          label: "Parking",
+          required: false,
+          selected: "no"
+        },
+        {
+          type: "custom",
+          colspan: 1,
+          content: ""
+        }
+      ]
+    }
+  ]
+} %}
+
+{% include "components/form-section/form-section.njk" %}

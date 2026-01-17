@@ -1,0 +1,391 @@
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
+
+// =============================================================================
+// FORM SECTION — Универсальный компонент секции формы
+// Сетка 4 колонки, элементы могут занимать 1-4 колонки (--col-1, --col-2, --col-3, --col-4)
+// =============================================================================
+
+.form-section {
+  position: relative;
+
+  // Контейнер
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: var(--padding-horiz);
+  }
+
+  // Заголовок секции
+  &__title {
+    font-size: clamp(28px, 3vw, 36px);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--Content-color, #14142d);
+    margin: 0;
+
+    @include responsive-typography(vars.$h3, vars.$h3-tablet, vars.$h3-mobile);
+
+    span {
+      color: var(--Main-color, #593dff);
+    }
+  }
+
+  // Обязательное поле (звёздочка)
+  &__required {
+    color: var(--Attracting-attention-color, #e722aa);
+    margin-left: 4px;
+  }
+
+  // Карточка (тело секции)
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 22px 30px;
+    border-radius: var(--border-radius, 35px);
+    background: var(--White, #fff);
+    box-shadow:
+      -25px 20px 88px rgba(var(--Main-color-rgb), 0.25),
+      0 20px 45px rgba(var(--Content-color-rgb), 0.08);
+
+    @media (max-width: 1024px) {
+      border-radius: var(--border-radius-tablet, 15px);
+      padding: 20px;
+      gap: 22px;
+    }
+
+    @media (max-width: 600px) {
+      padding: 20px 20px 24px 15px;
+      gap: 18px;
+    }
+  }
+
+  // Ряд в сетке
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    align-items: flex-start;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+
+  // Элемент (ячейка) сетки
+  &__item {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    position: relative;
+    min-width: 0;
+
+    @media (max-width: 1024px) {
+      padding-left: 20px;
+    }
+
+    @media (max-width: 600px) {
+      padding-left: 0;
+      gap: 8px;
+      border-bottom: 1px solid rgba(var(--Main-color-rgb), 0.15);
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    // Модификаторы ширины (colspan)
+    &--col-1 {
+      grid-column: span 1;
+
+      @media (max-width: 1024px) {
+        grid-column: span 1;
+      }
+
+      @media (max-width: 600px) {
+        grid-column: span 1;
+      }
+    }
+
+    &--col-2 {
+      grid-column: span 2;
+
+      @media (max-width: 1024px) {
+        grid-column: span 2;
+      }
+
+      @media (max-width: 600px) {
+        grid-column: span 1;
+      }
+    }
+
+    &--col-3 {
+      grid-column: span 3;
+
+      @media (max-width: 1024px) {
+        grid-column: span 2;
+      }
+
+      @media (max-width: 600px) {
+        grid-column: span 1;
+      }
+    }
+
+    &--col-4 {
+      grid-column: span 4;
+
+      @media (max-width: 1024px) {
+        grid-column: span 2;
+      }
+
+      @media (max-width: 600px) {
+        grid-column: span 1;
+      }
+    }
+
+    // Разделитель между элементами (вертикальная полоска)
+    // Требования:
+    // - отступ 30px между контентом и линией (за счёт padding-right)
+    // - высота линии 70px
+    // - линия центрируется по вертикали относительно элемента
+    &--has-divider {
+      padding-right: 30px;
+    }
+
+    &--has-divider::after {
+      position: absolute;
+      content: "";
+      width: 3px;
+      height: 70px;
+      border-radius: 2px;
+      background: var(--Main-color, #593dff);
+      opacity: 0.2;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+  }
+
+  // Лейбл поля
+  &__label {
+    align-self: stretch;
+    color: var(--Main-color, #593dff);
+    margin: 0;
+    opacity: 0.6;
+
+    @include responsive-typography(vars.$h6, vars.$h5-tablet, vars.$h6-mobile);
+  }
+
+  // Input
+  &__input {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 15px;
+    border-radius: 35px;
+    border: none;
+    outline: none;
+    background: rgba(var(--Main-color-rgb), 0.2);
+    color: rgba(var(--Content-color-rgb), 0.65);
+
+    @include responsive-typography(vars.$h4, vars.$h4-tablet, vars.$h4-mobile);
+
+    &:focus-visible {
+      box-shadow: 0 0 0 3px rgba(var(--Main-color-rgb), 0.25);
+    }
+
+    &--compact {
+      width: 96px;
+
+      @media (max-width: 600px) {
+        width: 100%;
+      }
+    }
+  }
+
+  // Textarea
+  &__textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background: rgba(var(--Main-color-rgb), 0.2);
+    color: rgba(var(--Content-color-rgb), 0.65);
+    resize: vertical;
+
+    @include responsive-typography(vars.$h4, vars.$h4-tablet, vars.$h4-mobile);
+
+    &:focus-visible {
+      box-shadow: 0 0 0 3px rgba(var(--Main-color-rgb), 0.25);
+    }
+  }
+
+  // Checkbox
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    user-select: none;
+    cursor: pointer;
+
+    @media (max-width: 600px) {
+      margin-top: 10px;
+    }
+  }
+
+  &__checkbox-input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  &__checkbox-box {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    border-radius: 5px;
+    background: rgba(var(--Main-color-rgb), 0.15);
+    position: relative;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+
+    // Галочка
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 6px;
+      border-left: 2px solid var(--Main-color, #593dff);
+      border-bottom: 2px solid var(--Main-color, #593dff);
+      transform: translate(-50%, -60%) rotate(-45deg);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+  }
+
+  &__checkbox-input:focus-visible + &__checkbox-box {
+    box-shadow: 0 0 0 3px rgba(var(--Main-color-rgb), 0.25);
+  }
+
+  &__checkbox-input:checked + &__checkbox-box {
+    background: rgba(var(--Main-color-rgb), 0.25);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &__checkbox-text {
+    color: var(--Content-color, #14142d);
+    margin: 0;
+
+    @include responsive-typography(vars.$h4, vars.$h4-tablet, vars.$h4-mobile);
+    font-weight: 600;
+  }
+
+  // =============================================================================
+  // INLINE CHECKBOXES — Горизонтальные чекбоксы в строку
+  // =============================================================================
+  &__inline-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+  }
+
+  &__inline-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__inline-checkbox-input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  &__inline-checkbox-box {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    border-radius: 5px;
+    background: rgba(var(--Main-color-rgb), 0.15);
+    position: relative;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 5px;
+      border-left: 2px solid var(--Main-color, #593dff);
+      border-bottom: 2px solid var(--Main-color, #593dff);
+      transform: translate(-50%, -60%) rotate(-45deg);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+  }
+
+  &__inline-checkbox-input:focus-visible + &__inline-checkbox-box {
+    box-shadow: 0 0 0 3px rgba(var(--Main-color-rgb), 0.25);
+  }
+
+  &__inline-checkbox-input:checked + &__inline-checkbox-box {
+    background: rgba(var(--Main-color-rgb), 0.25);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &__inline-checkbox-text {
+    color: var(--Content-color, #14142d);
+    font-weight: 500;
+
+    @include responsive-typography(vars.$h5, vars.$h5-tablet, vars.$h5-mobile);
+  }
+
+  // =============================================================================
+  // INPUT WITH SUFFIX — Input с суффиксом (м², m и т.д.)
+  // =============================================================================
+  &__input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__input-suffix {
+    color: rgba(var(--Content-color-rgb), 0.65);
+    white-space: nowrap;
+
+    @include responsive-typography(vars.$h4, vars.$h4-tablet, vars.$h4-mobile);
+  }
+}
+

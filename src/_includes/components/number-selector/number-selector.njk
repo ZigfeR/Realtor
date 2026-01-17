@@ -1,0 +1,41 @@
+{# 
+  Компонент выбора чисел (1, 2, 3, 4, 5+)
+  
+  Параметры:
+  - id: string - уникальный идентификатор
+  - name: string - имя для формы
+  - label: string - текст лейбла
+  - required: boolean - обязательное поле
+  - options: array - массив чисел ["1", "2", "3", "4", "5+"]
+  - selected: string|array - выбранное значение(я)
+  - multiple: boolean - мультивыбор
+#}
+<div class="number-selector" data-number-selector>
+  {% if label %}
+    <p class="number-selector__label">
+      {{ label }}
+      {% if required %}<span class="number-selector__required">*</span>{% endif %}
+    </p>
+  {% endif %}
+  
+  <div class="number-selector__options" role="group" aria-label="{{ label }}">
+    {% for option in options %}
+      {% set isSelected = (selected == option) or (selected is iterable and option in selected) %}
+      <button
+        type="button"
+        class="number-selector__option{% if isSelected %} number-selector__option--active{% endif %}"
+        data-value="{{ option }}"
+        aria-pressed="{{ 'true' if isSelected else 'false' }}"
+      >
+        {{ option }}
+      </button>
+      <input 
+        type="hidden" 
+        name="{{ name }}[]" 
+        value="{{ option }}"
+        {% if not isSelected %}disabled{% endif %}
+      >
+    {% endfor %}
+  </div>
+</div>
+

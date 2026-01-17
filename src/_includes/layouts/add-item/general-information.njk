@@ -1,0 +1,79 @@
+{# 
+  General Information — секция с общей информацией об объекте
+  Использует универсальный компонент form-section
+#}
+
+{% set sectionConfig = {
+  id: "general-info",
+  class: "general-info",
+  titleHighlight: "General",
+  titleText: "Information",
+  titleRequired: true,
+  rows: [
+    {
+      items: [
+        {
+          type: "select",
+          colspan: 1,
+          id: "real-estate-type",
+          label: "Real Estate Type",
+          required: true,
+          defaultValue: "Flats",
+          options: [
+            { value: "flats", text: "Flats" },
+            { value: "houses", text: "Houses" },
+            { value: "apartments", text: "Apartments" },
+            { value: "commercial", text: "Commercial" },
+            { value: "land", text: "Land" },
+            { value: "garage", text: "Garage" }
+          ]
+        },
+        {
+          type: "select",
+          colspan: 1,
+          id: "deal-type",
+          label: "Deal Type",
+          required: true,
+          defaultValue: "For Sale",
+          options: [
+            { value: "for-sale", text: "For Sale" },
+            { value: "for-rent", text: "For Rent" },
+            { value: "daily-rent", text: "Daily Rent" },
+            { value: "exchange", text: "Exchange" }
+          ]
+        },
+        {
+          type: "select",
+          colspan: 1,
+          id: "status",
+          label: "Status",
+          required: true,
+          defaultValue: "new building",
+          options: [
+            { value: "new-building", text: "new building" },
+            { value: "secondary", text: "secondary" },
+            { value: "under-construction", text: "under construction" },
+            { value: "ready-to-move", text: "ready to move" }
+          ]
+        },
+        {
+          type: "select",
+          colspan: 1,
+          id: "state",
+          label: "State",
+          required: true,
+          defaultValue: "with repair",
+          options: [
+            { value: "with-repair", text: "with repair" },
+            { value: "without-repair", text: "without repair" },
+            { value: "euro-repair", text: "euro repair" },
+            { value: "designer-repair", text: "designer repair" },
+            { value: "cosmetic-repair", text: "cosmetic repair" }
+          ]
+        }
+      ]
+    }
+  ]
+} %}
+
+{% include "components/form-section/form-section.njk" %}

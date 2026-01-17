@@ -1,0 +1,36 @@
+{# 
+  Компонент списка чекбоксов
+  
+  Параметры:
+  - id: string - уникальный идентификатор
+  - name: string - имя для формы
+  - label: string - текст лейбла группы
+  - required: boolean - обязательное поле
+  - items: array - массив чекбоксов [{ value, text, checked }]
+  - columns: number - количество колонок (по умолчанию 1)
+#}
+<div class="checkbox-list{% if columns %} checkbox-list--cols-{{ columns }}{% endif %}" data-checkbox-list>
+  {% if label %}
+    <p class="checkbox-list__label">
+      {{ label }}
+      {% if required %}<span class="checkbox-list__required">*</span>{% endif %}
+    </p>
+  {% endif %}
+  
+  <div class="checkbox-list__items" role="group" aria-label="{{ label }}">
+    {% for item in items %}
+      <label class="checkbox-list__item{% if item.checked %} checkbox-list__item--checked{% endif %}">
+        <input 
+          type="checkbox" 
+          class="checkbox-list__input" 
+          name="{{ name }}[]" 
+          value="{{ item.value }}"
+          {% if item.checked %}checked{% endif %}
+        >
+        <span class="checkbox-list__box" aria-hidden="true"></span>
+        <span class="checkbox-list__text">{{ item.text }}</span>
+      </label>
+    {% endfor %}
+  </div>
+</div>
+

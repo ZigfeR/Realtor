@@ -1,0 +1,51 @@
+{# 
+  Универсальный кастомный select
+  Использование:
+  {% include "components/custom-select/custom-select.njk" with {
+    selectId: "unique-id",
+    label: "Label Text",
+    required: true,
+    defaultValue: "Select",
+    options: [
+      { value: "val1", text: "Option 1" },
+      { value: "val2", text: "Option 2" }
+    ]
+  } %}
+#}
+{# 
+  Параметры:
+  - variant: "pill" (опционально) — включает заливку/паддинги как в полях Pixso
+#}
+<div
+  class="custom-select{% if variant %} custom-select--{{ variant }}{% endif %}"
+  data-select-id="{{ selectId }}"
+>
+  <p class="custom-select__label">
+    {{ label }}{% if required %} <span class="custom-select__required">*</span>{% endif %}
+  </p>
+  <button
+    class="custom-select__trigger"
+    id="{{ selectId }}-btn"
+    type="button"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-labelledby="{{ selectId }}-btn"
+  >
+    <span class="custom-select__value">{{ defaultValue | default("Select") }}</span>
+    {% include "components/icon/small-arrow-svg.njk" %}
+  </button>
+  <ul class="custom-select__dropdown" role="listbox" aria-labelledby="{{ selectId }}-btn">
+    <li class="custom-select__current" role="presentation">{{ defaultValue | default("Select") }}</li>
+    <div class="custom-select__options">
+      {% for option in options %}
+        <li
+          class="custom-select__option"
+          role="option"
+          data-value="{{ option.value }}"
+          tabindex="0"
+        >{{ option.text }}</li>
+      {% endfor %}
+    </div>
+  </ul>
+</div>
+

@@ -1,0 +1,209 @@
+{# 
+  Универсальный компонент секции формы с 4-колоночной сеткой
+  
+  Использование:
+  {% set sectionConfig = {
+    id: "unique-section-id",
+    class: "",
+    titleHighlight: "General",
+    titleText: "Information",
+    titleRequired: true,
+    rows: [
+      {
+        items: [
+          {
+            type: "select",
+            colspan: 1,
+            id: "field-id",
+            label: "Field Label",
+            required: true,
+            defaultValue: "Default",
+            options: [{ value: "val", text: "Text" }]
+          },
+          {
+            type: "input",
+            colspan: 2,
+            id: "input-id",
+            label: "Input Label",
+            required: true,
+            placeholder: "Enter...",
+            inputType: "text",
+            inputMode: "text",
+            checkbox: { name: "hide", text: "Hide address" }
+          }
+        ]
+      }
+    ]
+  } %}
+  {% include "components/form-section/form-section.njk" %}
+#}
+
+<section 
+  class="form-section{% if sectionConfig.class %} {{ sectionConfig.class }}{% endif %}" 
+  aria-labelledby="{{ sectionConfig.id }}-title"
+>
+  <div class="container form-section__container">
+    {# Заголовок секции #}
+    <p id="{{ sectionConfig.id }}-title" class="form-section__title">
+      {% if sectionConfig.titleHighlight %}
+        <span>{{ sectionConfig.titleHighlight }}</span>
+      {% endif %}
+      {{ sectionConfig.titleText }}
+      {% if sectionConfig.titleRequired %}
+        <span class="form-section__required">*</span>
+      {% endif %}
+    </p>
+
+    {# Тело секции — карточка с рядами #}
+    <div class="form-section__card" role="group" aria-label="{{ sectionConfig.titleHighlight }} {{ sectionConfig.titleText }}">
+      {% for row in sectionConfig.rows %}
+        <div class="form-section__row{% if row.class %} {{ row.class }}{% endif %}">
+          {% for item in row.items %}
+            <div class="form-section__item form-section__item--col-{{ item.colspan | default(1) }}{% if item.class %} {{ item.class }}{% endif %}{% if not loop.last %} form-section__item--has-divider{% endif %}">
+              
+              {# Тип: select (custom-select) #}
+              {% if item.type == "select" %}
+                {% set selectId = item.id %}
+                {% set label = item.label %}
+                {% set required = item.required %}
+                {% set defaultValue = item.defaultValue %}
+                {% set options = item.options %}
+                {% set variant = item.variant %}
+                {% include "components/custom-select/custom-select.njk" %}
+
+              {# Тип: input #}
+              {% elif item.type == "input" %}
+                <p class="form-section__label">
+                  {{ item.label }}
+                  {% if item.required %}<span class="form-section__required">*</span>{% endif %}
+                </p>
+                {% if item.suffix %}
+                  <div class="form-section__input-wrapper">
+                    <input
+                      class="form-section__input{% if item.inputClass %} {{ item.inputClass }}{% endif %}"
+                      type="{{ item.inputType | default('text') }}"
+                      {% if item.inputMode %}inputmode="{{ item.inputMode }}"{% endif %}
+                      name="{{ item.name | default(item.id) }}"
+                      id="{{ item.id }}"
+                      placeholder="{{ item.placeholder | default('') }}"
+                      {% if item.value %}value="{{ item.value }}"{% endif %}
+                      aria-label="{{ item.label }}"
+                      {% if item.required %}required{% endif %}
+                    >
+                    <span class="form-section__input-suffix">{{ item.suffix }}</span>
+                  </div>
+                {% else %}
+                  <input
+                    class="form-section__input{% if item.inputClass %} {{ item.inputClass }}{% endif %}"
+                    type="{{ item.inputType | default('text') }}"
+                    {% if item.inputMode %}inputmode="{{ item.inputMode }}"{% endif %}
+                    name="{{ item.name | default(item.id) }}"
+                    id="{{ item.id }}"
+                    placeholder="{{ item.placeholder | default('') }}"
+                    {% if item.value %}value="{{ item.value }}"{% endif %}
+                    aria-label="{{ item.label }}"
+                    {% if item.required %}required{% endif %}
+                  >
+                {% endif %}
+                {# Опциональный checkbox под input #}
+                {% if item.checkbox %}
+                  <label class="form-section__checkbox">
+                    <input 
+                      class="form-section__checkbox-input" 
+                      type="checkbox" 
+                      name="{{ item.checkbox.name }}" 
+                      value="{{ item.checkbox.value | default('1') }}"
+                    >
+                    <span class="form-section__checkbox-box" aria-hidden="true"></span>
+                    <span class="form-section__checkbox-text">{{ item.checkbox.text }}</span>
+                  </label>
+                {% endif %}
+
+              {# Тип: textarea #}
+              {% elif item.type == "textarea" %}
+                <p class="form-section__label">
+                  {{ item.label }}
+                  {% if item.required %}<span class="form-section__required">*</span>{% endif %}
+                </p>
+                <textarea
+                  class="form-section__textarea{% if item.textareaClass %} {{ item.textareaClass }}{% endif %}"
+                  name="{{ item.name | default(item.id) }}"
+                  id="{{ item.id }}"
+                  placeholder="{{ item.placeholder | default('') }}"
+                  aria-label="{{ item.label }}"
+                  {% if item.rows %}rows="{{ item.rows }}"{% endif %}
+                  {% if item.required %}required{% endif %}
+                ></textarea>
+
+              {# Тип: number-selector (выбор чисел 1,2,3,4,5+) #}
+              {% elif item.type == "number-selector" %}
+                {% set id = item.id %}
+                {% set name = item.name | default(item.id) %}
+                {% set label = item.label %}
+                {% set required = item.required %}
+                {% set options = item.options | default(["1", "2", "3", "4", "5+"]) %}
+                {% set selected = item.selected %}
+                {% set multiple = item.multiple %}
+                {% include "components/number-selector/number-selector.njk" %}
+
+              {# Тип: yes-no (переключатель Yes/No) #}
+              {% elif item.type == "yes-no" %}
+                {% set id = item.id %}
+                {% set name = item.name | default(item.id) %}
+                {% set label = item.label %}
+                {% set required = item.required %}
+                {% set selected = item.selected %}
+                {% set yesText = item.yesText %}
+                {% set noText = item.noText %}
+                {% set showArea = item.showArea %}
+                {% set areaValue = item.areaValue %}
+                {% set areaLabel = item.areaLabel %}
+                {% include "components/yes-no-toggle/yes-no-toggle.njk" %}
+
+              {# Тип: checkbox-list (список чекбоксов) #}
+              {% elif item.type == "checkbox-list" %}
+                {% set id = item.id %}
+                {% set name = item.name | default(item.id) %}
+                {% set label = item.label %}
+                {% set required = item.required %}
+                {% set items = item.items %}
+                {% set columns = item.columns %}
+                {% include "components/checkbox-list/checkbox-list.njk" %}
+
+              {# Тип: inline-checkboxes (горизонтальные чекбоксы) #}
+              {% elif item.type == "inline-checkboxes" %}
+                <div class="form-section__inline-checkboxes">
+                  {% for cb in item.items %}
+                    <label class="form-section__inline-checkbox">
+                      <input 
+                        type="checkbox" 
+                        class="form-section__inline-checkbox-input" 
+                        name="{{ item.name | default(item.id) }}[]" 
+                        value="{{ cb.value }}"
+                        {% if cb.checked %}checked{% endif %}
+                      >
+                      <span class="form-section__inline-checkbox-box" aria-hidden="true"></span>
+                      <span class="form-section__inline-checkbox-text">{{ cb.text }}</span>
+                    </label>
+                  {% endfor %}
+                </div>
+
+              {# Тип: custom (пользовательский контент через caller/slot) #}
+              {% elif item.type == "custom" %}
+                {% if item.label %}
+                  <p class="form-section__label">
+                    {{ item.label }}
+                    {% if item.required %}<span class="form-section__required">*</span>{% endif %}
+                  </p>
+                {% endif %}
+                {{ item.content | safe }}
+              {% endif %}
+
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+

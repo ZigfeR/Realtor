@@ -1,0 +1,156 @@
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
+
+// =============================================================================
+// YES/NO TOGGLE — Компонент переключателя Yes/No
+// =============================================================================
+
+.yes-no-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  // Лейбл
+  &__label {
+    color: var(--Main-color, #593dff);
+    margin: 0;
+    opacity: 0.6;
+
+    @include responsive-typography(vars.$h6, vars.$h5-tablet, vars.$h6-mobile);
+  }
+
+  &__required {
+    color: var(--Attracting-attention-color, #e722aa);
+    margin-left: 4px;
+  }
+
+  // Обёртка для опций и поля площади
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  // Контейнер опций
+  &__options {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+
+  // Опция (Yes/No)
+  &__option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  // Скрытый radio
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  // Квадратик (checkbox-style box)
+  &__box {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    border-radius: 5px;
+    background: rgba(var(--Main-color-rgb), 0.15);
+    position: relative;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+
+    // Галочка
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 6px;
+      border-left: 2px solid var(--White, #fff);
+      border-bottom: 2px solid var(--White, #fff);
+      transform: translate(-50%, -60%) rotate(-45deg);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+  }
+
+  // Focus state
+  &__input:focus-visible + &__box {
+    box-shadow: 0 0 0 3px rgba(var(--Main-color-rgb), 0.25);
+  }
+
+  // Активное состояние
+  &__option--active &__box,
+  &__input:checked + &__box {
+    background: var(--Main-color, #593dff);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  // Текст опции
+  &__text {
+    color: var(--Content-color, #14142d);
+    opacity: 0.65;
+    transition: opacity 0.2s ease;
+
+    @include responsive-typography(vars.$h4, vars.$h4-tablet, vars.$h4-mobile);
+  }
+
+  &__option--active &__text,
+  &__input:checked ~ &__text {
+    opacity: 1;
+    font-weight: 700;
+  }
+
+  // Поле площади
+  &__area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__area-label {
+    color: var(--Content-color, #14142d);
+    opacity: 0.65;
+
+    @include responsive-typography(vars.$h4, vars.$h4-tablet, vars.$h4-mobile);
+  }
+
+  &__area-input {
+    width: 96px;
+    height: 46px;
+    padding: 7px 15px;
+    border: none;
+    border-radius: 35px;
+    background: rgba(var(--Main-color-rgb), 0.2);
+    color: var(--Content-color, #14142d);
+    text-align: left;
+    outline: none;
+
+    @include responsive-typography(vars.$h3, vars.$h3-tablet, vars.$h3-mobile);
+    font-weight: 700;
+
+    &:focus-visible {
+      box-shadow: 0 0 0 3px rgba(var(--Main-color-rgb), 0.25);
+    }
+
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+  }
+}
+

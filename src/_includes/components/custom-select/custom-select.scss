@@ -1,0 +1,165 @@
+@use "../../../assets/scss/variables" as vars;
+@use "../../../assets/scss/mixins" as *;
+
+/* ==========================
+   Универсальный кастомный select
+   ========================== */
+.custom-select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &__label {
+    align-self: stretch;
+    color: var(--Main-color, #593dff);
+    margin: 0;
+    opacity: 0.6;
+
+    @include responsive-typography(vars.$h6, vars.$h5-tablet, vars.$h6-mobile);
+  }
+
+  &__required {
+    color: var(--Attracting-attention-color, #e722aa);
+  }
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    z-index: 1;
+
+    @include responsive-typography(vars.$h4, vars.$h4-tablet, vars.$h4-mobile);
+    font-weight: 700;
+    color: var(--Content-color, #14142d);
+    transition: color 0.3s ease;
+
+    &[aria-expanded="true"] {
+      opacity: 0;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: var(--Main-color, #593dff);
+
+      .small-arrow-svg path {
+        fill: var(--Main-color, #593dff);
+      }
+    }
+
+    .small-arrow-svg {
+      width: 11px;
+      height: 6px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+
+      path {
+        fill: var(--Content-color, #14142d);
+        transition: fill 0.3s ease;
+      }
+    }
+  }
+
+  &__value {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    gap: 25px;
+    margin: 0;
+    padding: 0 20px 20px 20px;
+    list-style: none;
+    border-radius: var(--border-radius, 35px);
+    background: rgba(var(--White-rgb), 0.85);
+    box-shadow: 0 18px 19.4px 0 rgba(89, 61, 255, 0.25);
+    backdrop-filter: blur(19.4px);
+
+    @include responsive-typography(vars.$h5, vars.$h4-tablet, vars.$h4-mobile);
+
+    &.open {
+      display: flex;
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        gap: 15px;
+      }
+    }
+  }
+
+  &__current {
+    color: var(--Content-color, #14142d);
+    padding: 5px 10px 2px 10px;
+    cursor: default;
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__option {
+    cursor: pointer;
+    padding: 8px 10px 2px 10px;
+    width: 100%;
+    color: rgba(var(--Content-color-rgb), 0.65);
+    border-radius: 15px;
+    transition:
+      color 0.2s ease,
+      background 0.2s ease;
+
+    &:hover,
+    &:focus-visible,
+    &.selected {
+      color: var(--Main-color, #593dff);
+      background: rgba(89, 61, 255, 0.15);
+      outline: none;
+    }
+  }
+
+  /* ==========================
+     Вариант "pill" (как поле ввода)
+     ========================== */
+  &--pill {
+    .custom-select__trigger {
+      width: 100%;
+      padding: 0 15px;
+      min-height: 46px;
+      border-radius: 35px;
+      background: rgba(var(--Main-color-rgb), 0.2);
+      color: rgba(var(--Content-color-rgb), 0.45);
+      justify-content: space-between;
+
+      @include responsive-typography(vars.$h4, vars.$h4-tablet, vars.$h4-mobile);
+
+      &:hover,
+      &:focus-visible {
+        background: rgba(var(--Main-color-rgb), 0.26);
+      }
+    }
+
+    .custom-select__value {
+      font-weight: 600;
+      color: rgba(var(--Content-color-rgb), 0.45);
+    }
+  }
+}
+/* ==========================
+   Конец кастомного select
+   ========================== */
